@@ -348,12 +348,12 @@ export function Blog({ posts, initialCategory, author }) {
                         />
                         <div class="">
                           <p class="text-xl mb-4 text-center  bg-gradient-to-r from-pink-200 via-red-300 to-pink-400 bg-clip-text text-transparent text-4xl font-bold">
-                            {author[0].name}
+                            {author[0]?.name}
                           </p>
 
                           <BlockContent
                             className="text-gray-100"
-                            blocks={author[0].bio}
+                            blocks={author[0]?.bio}
                           />
                           <p class="mt-2 mb-4 text-gray-100 p-  flex-row">
                             Моята мисия е най-вече да се забавлявам и споделям

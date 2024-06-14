@@ -100,7 +100,7 @@ export const getServerSideProps = async (context) => {
     // Sort by readingTime in ascending order
     totalPosts.sort((a, b) => a.readingTime + b.readingTime);
   }
-  console.log(totalPosts);
+  console.log(author);
 
   return {
     props: {
