@@ -244,7 +244,7 @@ export function Blog({ posts, initialCategory, author }) {
                   <GiSupersonicArrow className="mr-2 text-red-200" /> Най-четени
                 </h2>
                 <ul className="text-gray-400">
-                  {posts.map((c, index) => (
+                  {posts?.map((c, index) => (
                     <li key={index} className="mb-2">
                       <a
                         href={`/post/${c.slug.current}`}
@@ -326,7 +326,7 @@ export function Blog({ posts, initialCategory, author }) {
                         Най-четени
                       </h2>
                       <ul className="text-gray-400">
-                        {posts.map((c, index) => (
+                        {posts?.map((c, index) => (
                           <li key={index} className="mb-2">
                             <a
                               href={`/post/${c.slug.current}`}
@@ -405,7 +405,7 @@ export function Blog({ posts, initialCategory, author }) {
           </div> */}
 
           <div className="grid grid-cols-1 mb-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-4">
-            {posts.map((c, index) => (
+            {posts?.map((c, index) => (
               <a
                 key={c.slug}
                 className="relative group"
