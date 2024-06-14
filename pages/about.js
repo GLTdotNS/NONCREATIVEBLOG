@@ -7,7 +7,7 @@ import trick from "../styles/trick.jpg";
 const AboutMePage = () => {
   return (
     <div className="  mx-auto bg ">
-      <div className=" container p-24 bg-gray-700 backdrop-blur-lg h-full bg-opacity-50 mx-auto">
+      <div className=" container p-2 bg-gray-700 backdrop-blur-lg h-full bg-opacity-50 mx-auto">
         <div className="text-left text-lg">
           <header class=" border-b border-gray-200 py-4 ">
             <div class="container mx-auto px-4">
@@ -21,7 +21,7 @@ const AboutMePage = () => {
             <img
               src={trick.src}
               alt="Image 1"
-              class="mx-auto w-full h-[500px] mb-4 md:ml-0 md:mr-auto"
+              class="mx-auto w- h-[500px] mb-4 md:ml-0 md:mr-auto"
             />
             <div>
               <p class="mb-4">
@@ -79,7 +79,7 @@ const AboutMePage = () => {
             </article>
           </section>
 
-          <footer class="container rounded-t-lg mx-auto w-1/2 px-4 py-8 bg-gray-600 text-white">
+          <footer class="container rounded-t-lg mx-auto w-full lg:w-1/2 px-4 py-8 bg-gray-600 text-white">
             <p class="text-xl mb-4">
               💼 Ако търсите информативно и атрактивно съдържание , сте на
               правилното място.
@@ -91,7 +91,7 @@ const AboutMePage = () => {
             </p>
           </footer>
 
-          <div className="bg-yellow-200 mb-8 w-1/2 m-auto  flex justify-center text-gray-700 py-2 px-6 rounded-b-lg hover:bg-yellow-600 transition duration-200 flex items-center">
+          <div className="bg-yellow-200 mb-8 w-1/2 m-auto  w-full lg:w-1/2  flex justify-center text-gray-700 py-2 px-6 rounded-b-lg hover:bg-yellow-600 transition duration-200 flex items-center">
             <Link
               className=" py-2 px-6 rounded-lg transition duration-200 flex items-center ml-4"
               href="/contact"

@@ -46,23 +46,25 @@ const Navbar = () => {
           pathname == "/" && !scrolled
             ? "bg-zinc-900"
             : "bg-gray-900/70 backdrop-blur-md backdrop-opacity-100 "
-        } fixed left-1/2 transform  -translate-x-1/2 ${
-          isMenuOpen ? "top-0" : "top-4 "
-        }} transition duration-500 flex items-center justify-center w-full lg:w-5/6  z-50 ${
+        } fixed left-1/2 transform transition duration-500  -translate-x-1/2 ${
+          isMenuOpen || scrolled ? "top-0" : "top-4 "
+        }}  flex items-center justify-center w-full lg:w-5/6  z-50 ${
           scrolled && (pathname == "/" || pathname == "/")
-            ? "border-[1px] border-yellow-200 transition-color"
+            ? " transition-color"
             : ""
-        } p-4 px-4 mb-24  w-1/2 m-auto z-50  rounded-full`}
+        } p-2 px-2 mb-24  w-1/2 m-auto z-50  ${
+          !scrolled ? "rounded-full " : "rounded-md"
+        }`}
       >
         <div className="w-full   flex h-12 ">
           <a href={"/"}>
             {" "}
-            <div className="top-6 absolute   mr-32">
+            <div className="top-4 absolute  left-4">
               <Image
                 alt="Georgi Tonkov  "
-                className="h-auto w-full block lg:hidden"
-                height={50}
-                width={200}
+                className="h-[30px] w-[180px] block lg:hidden"
+                height={60}
+                width={100}
                 src={logo}
               />
             </div>
@@ -161,7 +163,7 @@ const Navbar = () => {
                   (pathname === "/" || pathname === "/profile") && !scrolled
                     ? "text-white"
                     : "text-pink-300"
-                }  rounded-full absolute top-6 right-[10px] w-20`}
+                }  rounded-full absolute top-4 right-[10px] w-20`}
               >
                 <div className="ml-1 uppercase text-xl  flex items-center">
                   <span className="rubik-moonrocks-regular">Меню</span>
@@ -193,7 +195,7 @@ const Navbar = () => {
                 {" "}
                 <a href={"/"}>
                   {" "}
-                  <div className="h-[20px] w-[140px] absolute ml-2 top-4  left-0">
+                  <div className="h-[20px] w-[140px] absolute ml-2 top-0  left-0">
                     <Image src={logo} className="w-full h-full" />
                   </div>
                 </a>

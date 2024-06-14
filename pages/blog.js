@@ -78,7 +78,7 @@ export function Blog({ posts, initialCategory, author }) {
               className="h-full sm:h-[300px] lg:h-[500px]  w-full object-coverv "
             />
           </div>
-          <div className="absolute inset-0 mt-12 h-full bg-gray-900 opacity-50"></div>
+          <div className="absolute inset-0  h-full bg-gray-900 opacity-50"></div>
           <div className="container mx-auto text-gray-100 flex flex-col md:flex-[row] justify-between items-center relative z-10">
             <div className="text-center mb-8 md:mb-0">
               <h1 className="text-2xl p-4 lg:text-5xl font-bold w-full   bg-gradient-to-r from-pink-200 via-red-300 to-pink-400 bg-clip-text text-transparent ">
@@ -113,7 +113,7 @@ export function Blog({ posts, initialCategory, author }) {
       </div>
 
       {/* Sub-navigation menu */}
-      <nav className="sticky top-[80px] mt-12     w-full lg:w-3/4 mx-auto bg-[#010129] p-4 z-10 flex justify-center mb-4 border-b-2 rounded-b-full  border-gray-700">
+      <nav className="sticky top-[60px] lg:w-3/4 mx-auto bg-[#010129] p-2 z-10 flex justify-center mb-4 border-b-2 rounded-b-lg  border-gray-700">
         <ul className="flex h-8 flex-wrap justify-center space--4">
           <li className="relative group focus:outline-none hidden lg:block ">
             <Link
