@@ -212,37 +212,26 @@ export function Blog({ posts, initialCategory, author }) {
                 </h2>
                 <ul className="text-gray-200 text-lg">
                   <li className="mb-2">
-                    <a
-                      onClick={() => handleCategoryChange("Sex&Tips")}
-                      href="#"
-                      className=" hover:underline flex items-center"
-                    >
+                    <a href="#" className=" hover:underline flex items-center">
                       <MdTipsAndUpdates className="mr-2 text-yellow-300" />
                       Готварски рецепти
                     </a>
                   </li>
                   <li className="mb-2">
-                    <a
-                      onClick={() => handleCategoryChange("Top 10")}
-                      href="#"
-                      className="hover:underline flex items-center"
-                    >
+                    <a href="#" className="hover:underline flex items-center">
                       <FaStar className="mr-2 text-yellow-400" /> Любими книги и
                       филми
                     </a>
                   </li>
                   <li className="mb-2">
-                    <a
-                      onClick={() => handleCategoryChange("Daniels stories")}
-                      className="hover:underline flex items-center cursor-pointer"
-                    >
+                    <a className="hover:underline flex items-center cursor-pointer">
                       <FaHotjar className="mr-2" /> Лични истории
                     </a>
                   </li>
 
                   <li className="mb-2 mt-12 bg-gray-600 rounded-md w-64 p-1">
                     <a
-                      href="/blog"
+                      href="/"
                       className="hover:underline font-bold   flex items-center"
                     >
                       <FcClearFilters className="mr-2" /> Изчисти филтрите
@@ -294,7 +283,6 @@ export function Blog({ posts, initialCategory, author }) {
                       <ul className="text-gray-200 text-lg">
                         <li className="mb-2 ">
                           <a
-                            onClick={() => handleCategoryChange("Sex&Tips")}
                             href="#"
                             className=" hover:underline flex items-center"
                           >
@@ -304,7 +292,6 @@ export function Blog({ posts, initialCategory, author }) {
                         </li>
                         <li className="mb-2">
                           <a
-                            onClick={() => handleCategoryChange("Top 10")}
                             href="#"
                             className="hover:underline flex items-center"
                           >
@@ -313,27 +300,19 @@ export function Blog({ posts, initialCategory, author }) {
                           </a>
                         </li>
                         <li className="mb-2">
-                          <a
-                            onClick={() =>
-                              handleCategoryChange("Georgis stories")
-                            }
-                            className="hover:underline flex items-center cursor-pointer"
-                          >
+                          <a className="hover:underline flex items-center cursor-pointer">
                             <FaHotjar className="mr-2 text-red-400" /> Лични
                             истории
                           </a>
                         </li>
                         <li className="  ">
-                          <Link
-                            href={"/onlyfans-models"}
-                            class=" flex items-center   text-[#00AFF0]   hover:underline rounded-lg   hover:text-pink-300 transition-colors duration-300"
-                          >
+                          <Link class=" flex items-center   text-[#00AFF0]   hover:underline rounded-lg   hover:text-pink-300 transition-colors duration-300">
                             Скандинавска митология
                           </Link>
                         </li>
                         <li className="mb-2 mt-12  rounded-md bg-gray-400  text-center">
                           <a
-                            href="/blog"
+                            href="/"
                             className="hover:underline font-bold flex items-center justify-center"
                           >
                             <FcClearFilters className="mr-2" /> Изчисти филтрите
