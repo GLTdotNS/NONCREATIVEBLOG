@@ -92,7 +92,7 @@ const Cats = ({ post, posts }) => {
                     d="m1 9 4-4-4-4"
                   />
                 </svg>
-                <a href="/blog" class="ms-1 text-sm font-medium text-gray-700 ">
+                <a href="/" class="ms-1 text-sm font-medium text-gray-700 ">
                   Blog
                 </a>
               </div>
@@ -125,7 +125,7 @@ const Cats = ({ post, posts }) => {
         {/* Author Info */}
         <h1 className="text-2xl font-bold text-center py-4">{post.title}</h1>
         <a
-          href="/blog"
+          href="/"
           className="flex items-center bg-pink-100 text-gray-700 p-2 border-2 border-pink-400 rounded-full w-[100px] "
         >
           <IoMdArrowRoundBack className="mr-4 " size={20} />
