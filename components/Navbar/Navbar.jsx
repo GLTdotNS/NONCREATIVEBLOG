@@ -49,7 +49,7 @@ const Navbar = () => {
         } fixed left-1/2 transform  -translate-x-1/2 ${
           isMenuOpen ? "top-0" : "top-4 "
         }} transition duration-500 flex items-center justify-center w-full lg:w-5/6  z-50 ${
-          scrolled && (pathname == "/" || pathname == "/blog")
+          scrolled && (pathname == "/" || pathname == "/")
             ? "border-[1px] border-yellow-200 transition-color"
             : ""
         } p-4 px-4 mb-24  w-1/2 m-auto z-50  rounded-full`}
@@ -62,7 +62,7 @@ const Navbar = () => {
                 alt="Georgi Tonkov  "
                 className="h-auto w-full block lg:hidden"
                 height={50}
-                width={300}
+                width={200}
                 src={logo}
               />
             </div>
@@ -193,8 +193,8 @@ const Navbar = () => {
                 {" "}
                 <a href={"/"}>
                   {" "}
-                  <div className="h-[50px] absolute ml-4 top-4 left-0">
-                    <Image src={logo} height={200} width={200} />
+                  <div className="h-[20px] w-[140px] absolute ml-2 top-4  left-0">
+                    <Image src={logo} className="w-full h-full" />
                   </div>
                 </a>
                 <button
@@ -203,7 +203,7 @@ const Navbar = () => {
                 >
                   <div className=" uppercase font-bold rounded-full absolute top-2 right-0  ">
                     <div className="ml-1 flex items-center">
-                      <span className="t p-2 rubik-moonrocks-regular ">
+                      <span className="text-sm p-2 rubik-moonrocks-regular ">
                         Затвори{" "}
                       </span>
                     </div>

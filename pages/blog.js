@@ -68,14 +68,14 @@ export function Blog({ posts, initialCategory, author }) {
 
         <link rel="canonical" href="https://www.redheadporn.net" />
       </Head>
-      <div className="h-20"></div>
+      <div className="h-40"></div>
       <div className="relative   lg:h-[500px] sm:h-[300px]">
         <header className="relative flex flex-col justify-center items-center h-full">
           <div className="absolute inset-0 ">
             <Image
               src={cover}
               alt="Header Background"
-              className="h-full sm:h-[300px] lg:h-[500px]  w-full object-coverv mt-12"
+              className="h-full sm:h-[300px] lg:h-[500px]  w-full object-coverv "
             />
           </div>
           <div className="absolute inset-0 mt-12 h-full bg-gray-900 opacity-50"></div>
@@ -224,7 +224,10 @@ export function Blog({ posts, initialCategory, author }) {
                     </a>
                   </li>
                   <li className="mb-2">
-                    <a className="hover:underline flex items-center cursor-pointer">
+                    <a
+                      href="/"
+                      className="hover:underline flex items-center cursor-pointer"
+                    >
                       <FaHotjar className="mr-2" /> Лични истории
                     </a>
                   </li>
@@ -256,8 +259,6 @@ export function Blog({ posts, initialCategory, author }) {
                   ))}
                 </ul>
               </div>
-
-              <div id="_2525467" className="_18aafb2"></div>
             </div>
           </div>
 
@@ -300,13 +301,19 @@ export function Blog({ posts, initialCategory, author }) {
                           </a>
                         </li>
                         <li className="mb-2">
-                          <a className="hover:underline flex items-center cursor-pointer">
+                          <a
+                            href="/"
+                            className="hover:underline flex items-center cursor-pointer"
+                          >
                             <FaHotjar className="mr-2 text-red-400" /> Лични
                             истории
                           </a>
                         </li>
                         <li className="  ">
-                          <Link class=" flex items-center   text-[#00AFF0]   hover:underline rounded-lg   hover:text-pink-300 transition-colors duration-300">
+                          <Link
+                            href={"/"}
+                            class=" flex items-center   text-[#00AFF0]   hover:underline rounded-lg   hover:text-pink-300 transition-colors duration-300"
+                          >
                             Скандинавска митология
                           </Link>
                         </li>
