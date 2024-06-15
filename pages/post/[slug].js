@@ -25,36 +25,13 @@ const Cats = ({ post, posts }) => {
   const router = useRouter();
   return (
     <div>
-      <Head>
-        <title>{post.title}</title>
-        <meta name="description" content={post.description} />
-        <meta
-          name="keywords"
-          content="sex tips, sex, redhead girl blog, OnlyFans reviews, personal sex stories"
-        />
-        <meta name="robots" content="index, follow" />
-
-        <meta property="og:title" content={post.ttitle} />
-        <meta property="og:description" content={post.description} />
-
-        <meta
-          property="og:url"
-          content={`https://www.redheadporn.net/blog${post.slug.current}`}
-        />
-        <meta property="og:type" content="article" />
-
-        <link
-          rel="canonical"
-          href={`https://www.redheadporn.net/blog${post.slug.current}`}
-        />
-      </Head>
       <div
         key={post._id}
-        className="max-w-4xl mx-auto text-gray-100 p-8 overflow-hidden"
+        className="max-w-6xl  bg-yellow-100 bg-opacity-10 border-l-[1px] border-r-[1px] border-gray-700 mt-20 shadow-2xl mx-auto text-gray-100 p-8 overflow-hidden"
       >
         {" "}
         <nav
-          class="flex px-5 py-3 mt-24 text-gray-700  text-lg rounded-lg bg-pink-100 sticky top-50  "
+          class="flex px-5 py-3 mt-24 text-gray-700  text-lg rounded-lg bg-yellow-100   "
           aria-label="Breadcrumb"
         >
           <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -72,7 +49,7 @@ const Cats = ({ post, posts }) => {
                 >
                   <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
                 </svg>
-                Home
+                Начало
               </a>
             </li>
             <li>
@@ -92,9 +69,9 @@ const Cats = ({ post, posts }) => {
                     d="m1 9 4-4-4-4"
                   />
                 </svg>
-                <a href="/" class="ms-1 text-sm font-medium text-gray-700 ">
-                  Blog
-                </a>
+                <span class="ms-1 text-sm font-medium text-gray-700 ">
+                  Статия
+                </span>
               </div>
             </li>
             <li aria-current="page">
@@ -126,12 +103,12 @@ const Cats = ({ post, posts }) => {
         <h1 className="text-2xl font-bold text-center py-4">{post.title}</h1>
         <a
           href="/"
-          className="flex items-center bg-pink-100 text-gray-700 p-2 border-2 border-pink-400 rounded-full w-[100px] "
+          className="flex items-center bg-orange-100 text-gray-700 p-1 border-2 border-yellow-400 rounded-full w-[100px] "
         >
           <IoMdArrowRoundBack className="mr-4 " size={20} />
-          Back
+          Назад
         </a>
-        <div className=" items-center justify-center mb-4 border-b p-2 md:p-4 mt-12 ">
+        <div className=" items-center justify-center mb-4 border-b p-2 px-8 md:p-4 mt-12 ">
           <p className="mb-4">Published by</p>
 
           <div className="flex items-center">
@@ -155,7 +132,10 @@ const Cats = ({ post, posts }) => {
             </div>
           </div>
         </div>
-        <img className="mt-4 w-full" src={post.mainImage.asset.url} />
+        <img
+          className="mt-4 h-[300px] w-full object-cover "
+          src={post.mainImage.asset.url}
+        />
         <BlockContent
           serializers={serializers}
           blocks={post.body}
@@ -180,7 +160,7 @@ const Cats = ({ post, posts }) => {
             <div className="flex justify-center">
               <FacebookShareButton
                 className="flex ml-2 items-center py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600"
-                url={`https://redheadporn.net/post/${post.slug.current}`}
+                url={`https://georgitonkov.com/post/${post.slug.current}`}
                 quote={`${post.title}`}
                 hashtag={post.rowTitle}
               >
@@ -189,7 +169,7 @@ const Cats = ({ post, posts }) => {
 
               <TwitterShareButton
                 className="flex ml-2 items-center py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600"
-                url={`https://redheadporn.net/post/${post.slug.current}`}
+                url={`https://georgitonkov.com/post/${post.slug.current}`}
               >
                 <TwitterIcon size={50} color="blue" />
               </TwitterShareButton>
@@ -198,7 +178,7 @@ const Cats = ({ post, posts }) => {
                 onShareWindowClose={() => window.close()}
                 className="flex ml-2 items-center py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600"
                 appId="585823522989597"
-                url={`https://redheadporn.net/post/${post.slug.current}`}
+                url={`https://georgitonkov.com/post/${post.slug.current}`}
               >
                 <ViberIcon size={50} />
               </ViberShareButton>

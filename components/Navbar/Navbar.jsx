@@ -43,23 +43,23 @@ const Navbar = () => {
     <>
       <nav
         className={`${
-          pathname == "/" && !scrolled
-            ? "bg-zinc-900"
-            : "bg-gray-900/70 backdrop-blur-md backdrop-opacity-100 "
-        } fixed left-1/2 transform transition duration-500  -translate-x-1/2 ${
-          isMenuOpen || scrolled ? "top-0" : "top-4 "
+          !scrolled
+            ? "bg-transparent border-b-[1px] border-gray-700 rounded-sm"
+            : "bg-gray-900/70 backdrop-blur-md backdrop-opacity-100 border-[1px] border-yellow-400"
+        } fixed left-1/2 transform p-2 lg:p-8 transition duration-500 h-12 -translate-x-1/2 ${
+          isMenuOpen ? "top-0" : "top-4 "
         }}  flex items-center justify-center w-full lg:w-5/6  z-50 ${
           scrolled && (pathname == "/" || pathname == "/")
             ? " transition-color"
             : ""
         } p-2 px-2 mb-24  w-1/2 m-auto z-50  ${
-          !scrolled ? "rounded-full " : "rounded-md"
+          scrolled ? "rounded-full " : "rounded-md"
         }`}
       >
         <div className="w-full   flex h-12 ">
           <a href={"/"}>
             {" "}
-            <div className="top-4 absolute  left-4">
+            <div className="top-2 absolute  left-4">
               <Image
                 alt="Georgi Tonkov  "
                 className="h-[30px] w-[180px] block lg:hidden"
@@ -94,7 +94,7 @@ const Navbar = () => {
             >
               <div className="flex items-center">
                 <FaRegFaceSmileBeam className="mr-2" />
-                <span>За мен</span>
+                <span>Тонков</span>
               </div>
             </Link>
 
@@ -108,7 +108,7 @@ const Navbar = () => {
             >
               <div className="flex items-center">
                 <FaMessage className="mr-2" />
-                <span>Пиши ми</span>
+                <span>Контакти</span>
               </div>
             </Link>
             <div class="group relative">
@@ -162,8 +162,8 @@ const Navbar = () => {
                 className={`"border-gray-300  mr-2  ${
                   (pathname === "/" || pathname === "/profile") && !scrolled
                     ? "text-white"
-                    : "text-pink-300"
-                }  rounded-full absolute top-4 right-[10px] w-20`}
+                    : "text-orange-300"
+                }  rounded-full absolute top-2 right-[10px] w-20`}
               >
                 <div className="ml-1 uppercase text-xl  flex items-center">
                   <span className="rubik-moonrocks-regular">Меню</span>
@@ -172,14 +172,14 @@ const Navbar = () => {
             </button>
           </div>
 
-          <div className="hidden lg:flex   text-2xl mr-24">
+          <div className="hidden lg:flex   mr-24">
             <a href="/soon">
               <button
                 className={`${
-                  scrolled ? " bg-[#FFDD00] text-gray-900" : " text-gray-100"
-                } font-bold hover:text-gray-300 ${
+                  scrolled ? " bg-[#FFDD00] text-gray-900" : " text-gray-700"
+                } font-bold hover:bg-yellow-200 ${
                   scrolled ? 500 : 400
-                } transition text-gray-100 border-2 border-[#FFDD00] p-2 rounded-full text-lg font-bold slide-in-from-top  flex items-center`}
+                } transition mt-1 border-2 border-[#FFDD00] bg-yellow-300 p-2 rounded-full text-sm font-bold slide-in-from-top  flex items-center`}
               >
                 <SiBuymeacoffee className="mr-2" />
                 Buy me a coffe

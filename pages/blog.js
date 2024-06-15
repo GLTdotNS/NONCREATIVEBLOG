@@ -68,63 +68,41 @@ export function Blog({ posts, initialCategory, author }) {
 
         <link rel="canonical" href="https://www.redheadporn.net" />
       </Head>
-      <div className="h-40"></div>
-      <div className="relative   lg:h-[500px] sm:h-[300px]">
+      <div className="h-20"></div>
+      <div className="relative w-full  lg:h-[500px] sm:h-[300px]">
         <header className="relative flex flex-col justify-center items-center h-full">
           <div className="absolute inset-0 ">
             <Image
               src={cover}
               alt="Header Background"
-              className="h-full sm:h-[300px] lg:h-[500px]  w-full object-coverv "
+              className="h-full w-full sm:h-[300px] lg:h-[500px] rounded-lg  w-full "
             />
           </div>
           <div className="absolute inset-0  h-full bg-gray-900 opacity-50"></div>
-          <div className="container mx-auto text-gray-100 flex flex-col md:flex-[row] justify-between items-center relative z-10">
+          <div className=" text-gray-100 flex flex-col md:flex-[row] justify-between items-center relative z-10">
             <div className="text-center mb-8 md:mb-0">
               <h1 className="text-2xl p-4 lg:text-5xl font-bold w-full   bg-gradient-to-r from-pink-200 via-red-300 to-pink-400 bg-clip-text text-transparent ">
                 Добре дошли в блога на Тонков
               </h1>
-              <p className="text-lg md:text-xl">
-                За тези които обичат да... обичат да четат
-              </p>
+              <p className="text-lg md:text-xl">Един некреативен блог </p>
             </div>
-            {/* <div className="flex justify-center">
-              <div className="w-full md:w-1/2 flex flex-col items-center relative">
-                <div className="w-full p-2 bg-[#CEE3F8] w-[400px] flex items-center justify-center rounded-lg shadow-xl">
-                  <div className="text-white text-center">
-                    <h1 className="text-2xl font-bold text-[#FF4300]">
-                      Place for your Ads
-                    </h1>
-                    <p className="mt-2 text-lg">
-                      <a
-                        href="/joinus"
-                        className="px-2 py-1 bg-pink-100 text-gray-700 text-center border-2 border-orange-300 flex items-center rounded-full"
-                      >
-                        <FcAbout className="mr-4 text-[#FF5700]" size={27} />
-                        Become a partner
-                      </a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div> */}
           </div>
         </header>
       </div>
 
       {/* Sub-navigation menu */}
-      <nav className="sticky top-[60px] lg:w-3/4 mx-auto bg-[#010129] p-2 z-10 flex justify-center mb-4 border-b-2 rounded-b-lg  border-gray-700">
-        <ul className="flex h-8 flex-wrap justify-center space--4">
+      <nav className="sticky top-[60px] lg:top-[80px] text-gray-700  mx-auto mb-12 z-10 flex justify-center mb-4   border-gray-700">
+        <ul className="flex  w-11/12 lg:w-5/6  flex-wrap justify-center space-x-4 px-2 p-2 bg-gray-700 backdrop-blur-xl bg-opacity-30 rounded-b-full ">
           <li className="relative group focus:outline-none hidden lg:block ">
             <Link
               href={"/"}
-              class=" flex items-center p-2  text-[#00AFF0] text-sm font-bold rounded-lg   hover:text-pink-300 transition-colors duration-300"
+              class=" flex items-center p-1  border-[1px] bg-yellow-100 border-gray-400 rounded-md  text-gray-700 text-sm font-bold rounded-lg   transition-colors duration-300"
             >
               Лични истории
             </Link>
           </li>
-          <li className="relative text-gray-100 group">
-            <button className="button-with-icon flex items-center p-2 font-bold text-sm text-gray-200 hover:text-pink-300 transition-colors duration-300">
+          <li className="relative group">
+            <button className="button-with-icon border-[1px] bg-yellow-100 border-gray-400 rounded-md  flex items-center p-1 font-bold text-sm  text-gray-700 hover:text-gray-600 transition-colors duration-300">
               <FaSortAmountDownAlt />
               <span className="ml-2">Сортирай</span>
             </button>
@@ -160,8 +138,11 @@ export function Blog({ posts, initialCategory, author }) {
             </ul>
           </li>
 
-          <li onClick={handleMenuToggle} className="relative group">
-            <button class="text-gray-200 p-2 flex items-center font-bold text-sm  focus:outline-none lg:hidden  ">
+          <li
+            onClick={handleMenuToggle}
+            className="relative group text-gray-700"
+          >
+            <button class="text-gray-700 border-[1px] bg-yellow-100 border-gray-400 rounded-md flex items-center font-bold text-sm p-1 focus:outline-none lg:hidden  ">
               <GiSettingsKnobs size={20} className="mr-2" />
               Категории и повече
             </button>
@@ -169,7 +150,7 @@ export function Blog({ posts, initialCategory, author }) {
         </ul>
       </nav>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4 ">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-12 border-t-[1px] border-gray-700 ">
         {/* Left side column */}
         <div>
           <div className="hidden lg:block border-r-[1px] border-gray-700">
@@ -386,7 +367,7 @@ export function Blog({ posts, initialCategory, author }) {
         </div>
         {/* Right side column */}
         <div className="lg:col-span-2 p-4">
-          <h1 className="p-2 w-full mb-8  bg-gradient-to-r from-pink-200 via-red-300 to-pink-400    rounded-md text-center font-bold text-xl text-gray-900 bg-pink-300">
+          <h1 className="p-2 w-full mb-8  bg-gradient-to-r from-yellow-100 via-red-200 to-orange-400 backdrop-blur-4xl bg-opacity-0    rounded-md text-center font-bold text-xl text-gray-900 ">
             {category}
           </h1>
           {/* <div class="w-full mb-4 flex justify-center items-center">
@@ -418,7 +399,7 @@ export function Blog({ posts, initialCategory, author }) {
                 className="relative group"
                 href={`/post/${c.slug.current}`}
               >
-                <div className="post-card overflow-hidden rounded-lg h-full shadow-md bg-[#2c3e50] text-gray-300">
+                <div className="post-card overflow-hidden rounded-lg h-full shadow-md bg-gray-700 text-gray-300">
                   <div className="w-full h-[300px] rounded-t-lg overflow-hidden">
                     <img
                       className="object-cover w-full h-full"
@@ -428,7 +409,7 @@ export function Blog({ posts, initialCategory, author }) {
                   </div>
 
                   <div className="post-details p-4">
-                    <h2 className="post-title text-md font-bold text-pink-400 mb-2">
+                    <h2 className="post-title text-md font-bold text-gray-100 mb-2">
                       {c.title.length > 50
                         ? c.title.slice(0, 40) + "..."
                         : c.title}
@@ -442,7 +423,7 @@ export function Blog({ posts, initialCategory, author }) {
                           {c.readingTime} за четене
                         </span>
                       </div>
-                      <span className="read-more bg-pink-500 text-white px-2  rounded-full hover:bg-pink-600 transition-colors duration-300">
+                      <span className="read-more bg-yellow-300 text-gray-700  px-4 p-1 rounded-full transition-colors duration-300">
                         Прочети
                       </span>
                     </div>

@@ -6,8 +6,8 @@ import { FcReddit } from "react-icons/fc";
 import rta from "../../styles/rta.gif";
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-gray-400 py-8 ">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between items-center">
+    <footer className="bg-gray-400 bg-opacity-10 w-full mt-24 p-4 rounded-lg shadow-xl lg:w-5/6 mx-auto text-gray-400 py-8 ">
+      <div className="w-5/6 mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between items-center">
         {/* Left side: Motivational quote */}
         <div className="w-full sm:w-auto mb-8 sm:mb-0 sm:mr-auto text-center sm:text-left">
           <p className="text-lg font-semibold">
