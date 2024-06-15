@@ -11,7 +11,7 @@ import { client } from "../library/sanityClient";
 
 export const getServerSideProps = async (context) => {
   const { query } = context;
-  const category = query.category || "Georgis stories";
+  const category = query.category || null;
   const sortBy = query.sortBy || "latest";
   let handleCategoryChange;
   if (category) {
@@ -100,7 +100,6 @@ export const getServerSideProps = async (context) => {
     // Sort by readingTime in ascending order
     totalPosts.sort((a, b) => a.readingTime + b.readingTime);
   }
-  console.log(author);
 
   return {
     props: {

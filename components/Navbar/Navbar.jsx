@@ -5,7 +5,6 @@ import { FaHome, FaLink } from "react-icons/fa"; // Import icons
 import { FaLinkedin } from "react-icons/fa";
 import { IoLogoGithub } from "react-icons/io";
 import { SiBuymeacoffee } from "react-icons/si";
-import { CiMenuKebab } from "react-icons/ci";
 import { FaWindowClose } from "react-icons/fa";
 import { CgMenuGridO } from "react-icons/cg";
 
@@ -45,8 +44,8 @@ const Navbar = () => {
       <nav
         className={`${
           !scrolled || isMenuOpen
-            ? "bg-transparent border-b-[1px] border-gray-700 rounded-sm top-0 p-6"
-            : "bg-gray-900/70 backdrop-blur-md backdrop-opacity-100 border-[1px] border-yellow-400 top-4"
+            ? "bg-transparent border-b-[1px] border-gray-700 rounded-sm top-0 p-6 "
+            : "bg-gray-900/70 backdrop-blur-md backdrop-opacity-100 border-[1px] border-yellow-400 top-4 "
         } fixed top-0 left-1/2 transform lg:p-8 transition duration-500 h-12 -translate-x-1/2 ${
           !isMenuOpen ? "top-0" : "0"
         }}  flex items-center justify-center w-full lg:w-5/6  z-50 ${
@@ -55,19 +54,15 @@ const Navbar = () => {
             : ""
         }  mb-24  w-1/2 m-auto   ${scrolled ? "rounded-full " : "rounded-md"}`}
       >
+        {" "}
         <div className="w-full   flex h-12 ">
           <a href={"/"}>
             {" "}
-            <div className="top-2 absolute w-[180px]  left-4">
-              <Image
-                alt="Georgi Tonkov  "
-                className="h-[30px] w-full block lg:hidden"
-                height={670}
-                width={100}
-                src={logo}
-              />
+            <div className=" absolute top-3 lg:hidden   left-2">
+              <Image src={logo} className="w-2/3 h-auto" />
             </div>
           </a>
+
           <div className="hidden lg:flex    flex-grow items-center justify-start ">
             <a
               href="/"
@@ -162,10 +157,10 @@ const Navbar = () => {
                   (pathname === "/" || pathname === "/profile") && !scrolled
                     ? "text-white"
                     : "text-orange-300"
-                }  rounded-full absolute top-2 right-[0px] `}
+                }  rounded-full absolute top-3 right-[10px] `}
               >
                 <div className="ml-1 uppercase   flex items-center">
-                  <CgMenuGridO size={30} />
+                  <CgMenuGridO size={23} />
                 </div>
               </div>
             </button>
@@ -186,10 +181,9 @@ const Navbar = () => {
             </a>
           </div>
         </div>
-
         {isMenuOpen && (
           <div className=" modal ">
-            <div className=" slide-in-from-left   z-10 lg:hidden fixed shadow-4xl top-[30px] left-[14px] w-5/6 rounded-lg bg-gradient-to-b from-gray-900 via-gray-950 via-gray-950 to-orange-300 flex flex-col items-start justify-start ">
+            <div className=" slide-in-from-left   z-10 lg:hidden fixed shadow-4xl top-[40px] left-[14px] h-5/6 w-5/6 rounded-lg bg-gradient-to-b from-gray-900 via-gray-950 via-gray-950 to-orange-300 flex flex-col items-start justify-start ">
               <div className="bg-gradient-to-r rounded-lg flex items-center p-4 justify-center  from-gray-700 via-gray-800 via-gray-900 to-gray-900 border-b-2 border-gray-700  w-full  ">
                 {" "}
                 <a href={"/"}>
