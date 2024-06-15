@@ -72,7 +72,7 @@ export const getServerSideProps = async (context) => {
     }`
     )
     .catch(() => []);
-  let [totalPosts, categories, author] = await Promise.all([
+  let [totalPosts, categories, authorExport] = await Promise.all([
     totalPostsPromise,
     categoriesPromise,
     authorPromise,
@@ -93,14 +93,15 @@ export const getServerSideProps = async (context) => {
     totalPosts.sort(
       (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
     );
-  } else if (sortBy === "readingTime") {
-    // Sort by readingTime in ascending order
+  }
+  if (sortBy === "readingTime") {
     totalPosts.sort((a, b) => a.readingTime - b.readingTime);
-  } else if (sortBy === "longest") {
-    // Sort by readingTime in ascending order
+  }
+  if (sortBy === "longest") {
     totalPosts.sort((a, b) => a.readingTime + b.readingTime);
   }
 
+  const author = authorExport[0];
   return {
     props: {
       posts: totalPosts,
