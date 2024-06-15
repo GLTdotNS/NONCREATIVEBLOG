@@ -27,7 +27,7 @@ const Cats = ({ post, posts }) => {
     <div>
       <div
         key={post._id}
-        className="max-w-6xl  bg-yellow-100 bg-opacity-10 border-l-[1px] border-r-[1px] border-gray-700 mt-20 shadow-2xl mx-auto text-gray-100 p-8 overflow-hidden"
+        className="max-w-6xl  mt-12 shadow-2xl mx-auto text-gray-100 p-8 overflow-hidden"
       >
         {" "}
         <nav
@@ -108,10 +108,10 @@ const Cats = ({ post, posts }) => {
           <IoMdArrowRoundBack className="mr-4 " size={20} />
           Назад
         </a>
-        <div className=" items-center justify-center mb-4 border-b p-2 px-8 md:p-4 mt-12 ">
+        <div className=" items-center justify-center mb-4   border-b-[1px] border-gray-700 p-2 px-8 md:p-4 mt-12 ">
           <p className="mb-4">Published by</p>
 
-          <div className="flex items-center">
+          <div className="flex items-center ">
             <img
               src={post.authorImage.asset.url}
               alt="Author Avatar"
@@ -132,16 +132,19 @@ const Cats = ({ post, posts }) => {
             </div>
           </div>
         </div>
-        <img
-          className="mt-4 h-[300px] w-full object-cover "
-          src={post.mainImage.asset.url}
-        />
-        <BlockContent
-          serializers={serializers}
-          blocks={post.body}
-          projectId="gay8otka"
-          dataset="production"
-        />
+        <div className=" p-2">
+          {" "}
+          <img
+            className="mt-4 h-[300px] w-full object-cover "
+            src={post.mainImage.asset.url}
+          />
+          <BlockContent
+            serializers={serializers}
+            blocks={post.body}
+            projectId="gay8otka"
+            dataset="production"
+          />
+        </div>
       </div>
 
       <button

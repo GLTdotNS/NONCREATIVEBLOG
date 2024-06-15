@@ -6,8 +6,8 @@ import biker from "../styles/bikerchetojojo.jpg";
 import trick from "../styles/trick.jpg";
 const AboutMePage = () => {
   return (
-    <div className="  mx-auto bg mt-12">
-      <div className=" container p-12 bg-gray-700 backdrop-blur-lg h-full bg-opacity-50 mx-auto">
+    <div className="container mt-12  mx-auto shadow-2xl">
+      <div className=" p-12  h-full bg-opacity-50 mx-auto">
         <div className="text-left text-lg">
           <header class=" border-b border-gray-200 py-4 ">
             <div class="container mx-auto px-4">
