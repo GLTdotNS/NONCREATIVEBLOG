@@ -177,31 +177,33 @@ export function Blog({ posts, initialCategory, author }) {
             <div className="hidden lg:block border-r-[1px] border-gray-700">
               <div className="p-4 ">
                 <div class="w-full  bg-gray-700 backdrop-blur-xl bg-opacity-30 p-2 shadow-lg rounded-lg overflow-hidden  mb-2">
-                  <div class=" text-center sm:text-left text-gray-100">
-                    <Image src={gif} className="w-full h-full" />
+                  <div class="max-w-full   shadow-lg rounded-lg overflow-hidden p-2 ">
+                    <div class=" text-left sm:text-left text-gray-100">
+                      <Image src={gif} className="w-full h-full" />
 
-                    <div class="">
-                      <p class="text-xl text-center p-4 leading-tight text-gray-100 bg-gradient-to-r from-pink-200 via-red-300 to-pink-400 bg-clip-text text-transparent text-4xl font-bold">
-                        {author[0]?.name}
-                      </p>
+                      <div class="">
+                        <p class="text-xl mb-4 text-center  bg-gradient-to-r from-pink-200 via-red-300 to-pink-400 bg-clip-text text-transparent text-4xl font-bold">
+                          {author[0]?.name}
+                        </p>
 
-                      <BlockContent
-                        className="text-gray-100"
-                        blocks={author[0]?.bio}
-                      />
-                      <p class="mt-2 mb-8 text-gray-100">
-                        Моята мисия е най-вече да се забавлявам и споделям свои
-                        лични истории, както и съвети в области, в които имам
-                        компетентност (или пък не). Имам разнообразни интереси и
-                        познания в различни сфери, най-вече изявани в сферата на
-                        добрата стара кухня.
-                      </p>
-                      <a
-                        href="/about"
-                        className="rounded-full px-2 flex items-center justify-center  border-2 border-yellow-400  text-gray-300 w-5/6 m-auto mb-4"
-                      >
-                        Научи повече за мен
-                      </a>
+                        <BlockContent
+                          className="text-gray-100"
+                          blocks={author[0]?.bio}
+                        />
+                        <p class="mt-2 mb-4 text-gray-100 p-  flex-row">
+                          Моята мисия е най-вече да се забавлявам и споделям
+                          свои лични истории, както и съвети в области, в които
+                          имам компетентност (или пък не). Имам разнообразни
+                          интереси и познания в различни сфери, най-вече изявани
+                          в сферата на добрата стара кухня.
+                        </p>
+                        <a
+                          href="/about"
+                          className="rounded-full p-1 mb-2 flex items-center justify-center  border-2 border-yellow-300 font-bold  text-gray-300 w-full"
+                        >
+                          Виж повече за мен
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>

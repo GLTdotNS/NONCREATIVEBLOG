@@ -202,5 +202,5 @@ body {
   z-index: -1;
 }
 .custom-inset-shadow {
-  box-shadow: inset 0px -10px 15px -5px rgba(0, 0, 0, 1);
+  box-shadow: inset 0px -10px 15px -1px rgb(1, 15, 91);
 }
