@@ -5,12 +5,13 @@ import { FaHome, FaLink } from "react-icons/fa"; // Import icons
 import { FaLinkedin } from "react-icons/fa";
 import { IoLogoGithub } from "react-icons/io";
 import { SiBuymeacoffee } from "react-icons/si";
+import { CiMenuKebab } from "react-icons/ci";
+import { FaWindowClose } from "react-icons/fa";
+import { CgMenuGridO } from "react-icons/cg";
 
 import { FaRegFaceSmileBeam } from "react-icons/fa6";
 import { FaMessage } from "react-icons/fa6";
 import { CiCircleMore } from "react-icons/ci";
-import { FaPatreon } from "react-icons/fa";
-import { BiSolidVideos } from "react-icons/bi";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -161,10 +162,10 @@ const Navbar = () => {
                   (pathname === "/" || pathname === "/profile") && !scrolled
                     ? "text-white"
                     : "text-orange-300"
-                }  rounded-full absolute top-2 right-[10px] w-20`}
+                }  rounded-full absolute top-2 right-[0px] `}
               >
-                <div className="ml-1 uppercase text-xl  flex items-center">
-                  <span className="rubik-moonrocks-regular">Меню</span>
+                <div className="ml-1 uppercase   flex items-center">
+                  <CgMenuGridO size={30} />
                 </div>
               </div>
             </button>
@@ -188,12 +189,12 @@ const Navbar = () => {
 
         {isMenuOpen && (
           <div className=" modal ">
-            <div className=" slide-in-from-left   z-10 lg:hidden fixed shadow-4xl top-[40px] left-[14px] w-5/6 rounded-lg bg-gradient-to-b from-gray-900 via-gray-950 via-gray-950 to-orange-300 flex flex-col items-start justify-start ">
-              <div className="bg-gradient-to-r rounded-lg p-8 from-gray-700 via-gray-800 via-gray-900 to-gray-900 border-b-2 border-gray-700  w-full  ">
+            <div className=" slide-in-from-left   z-10 lg:hidden fixed shadow-4xl top-[30px] left-[14px] w-5/6 rounded-lg bg-gradient-to-b from-gray-900 via-gray-950 via-gray-950 to-orange-300 flex flex-col items-start justify-start ">
+              <div className="bg-gradient-to-r rounded-lg flex items-center p-4 justify-center  from-gray-700 via-gray-800 via-gray-900 to-gray-900 border-b-2 border-gray-700  w-full  ">
                 {" "}
                 <a href={"/"}>
                   {" "}
-                  <div className="h-[30px] w-[150px] absolute ml-2 top-6  left-0">
+                  <div className=" w-10/12 mx-auto ml-2  top-6  left-0">
                     <Image src={logo} className="w-full h-full" />
                   </div>
                 </a>
@@ -201,11 +202,9 @@ const Navbar = () => {
                   className="bg-slate-100  focus:outline-none"
                   onClick={toggleMenu}
                 >
-                  <div className=" uppercase  text-white font-bold rounded-full absolute top-4 right-4  ">
+                  <div className=" uppercase  text-white font-bold rounded-full absolute top-[-15px] right-0  ">
                     <div className="ml-1 flex items-center">
-                      <span className="text-lg p-2 rubik-moonrocks-regular ">
-                        Затвори{" "}
-                      </span>
+                      <FaWindowClose size={20} />
                     </div>
                   </div>
                 </button>{" "}
@@ -284,19 +283,19 @@ const Navbar = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex justify-center mt-24 bottom-[20px] w-full">
+              <div className="flex justify-center  bottom-[20px] w-full">
                 <Link href={"/soon"}>
                   <button
                     className={` font-bold hover:text-gray-100 bg-yellow-300 text-gray-700 mx-4 mt-4 border-2 border-orange-200
                     
-                     transition  rounded-full text-lg font-bold p-2 flex items-center`}
+                     transition  rounded-full text-lg font-bold px-4 flex items-center`}
                   >
                     <SiBuymeacoffee className="mr-2 text-orange-500" />
                     Buy me a coffe
                   </button>
                 </Link>
               </div>
-              <div className="flex justify-center p-4 mt-24 bottom-[20px] w-5/6 mx-auto">
+              <div className="flex justify-center p-4 mt-8 bottom-[20px] w-5/6 mx-auto">
                 <div className="w-full  bg-gradient-to-b from-white to-orange-200 p-4 rounded-lg shadow-lg">
                   <p className="text-center text-gray-800 text-lg font-bold mb-2">
                     Рекламирай тук

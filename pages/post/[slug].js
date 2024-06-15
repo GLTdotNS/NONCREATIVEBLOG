@@ -27,18 +27,18 @@ const Cats = ({ post, posts }) => {
     <div>
       <div
         key={post._id}
-        className="max-w-6xl  mt-12 shadow-2xl mx-auto text-gray-100 p-8 overflow-hidden"
+        className="max-w-4xl  mt-12 shadow-2xl mx-auto text-gray-100 p-2 overflow-hidden"
       >
         {" "}
         <nav
-          class="flex px-5 py-3 mt-24 text-gray-700  text-lg rounded-lg bg-yellow-100   "
+          class="flex px-5 py-3 mt-8 text-gray-700 w-10/11 lg:w-5/6 mx-auto text-xs rounded-lg bg-yellow-100   "
           aria-label="Breadcrumb"
         >
           <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
             <li class="inline-flex items-center">
               <a
                 href="/"
-                class="inline-flex items-center text-sm font-medium text-gray-700 "
+                class="inline-flex items-center text-xs font-medium text-gray-700 "
               >
                 <svg
                   class="w-3 h-3 me-2.5"
@@ -92,7 +92,7 @@ const Cats = ({ post, posts }) => {
                   />
                 </svg>
                 <span class="ms-1 text-sm font-medium text-pink-700 md:ms-2 ">
-                  {post.title}
+                  {post.title.slice(0, 13)}...
                 </span>
               </div>
             </li>
@@ -100,10 +100,10 @@ const Cats = ({ post, posts }) => {
         </nav>
         {/* Blog Title */}
         {/* Author Info */}
-        <h1 className="text-2xl font-bold text-center py-4">{post.title}</h1>
+        <h1 className="text-xl font-bold text-center py-4">{post.title}</h1>
         <a
           href="/"
-          className="flex items-center bg-orange-100 text-gray-700 p-1 border-2 border-yellow-400 rounded-full w-[100px] "
+          className="flex items-center text-gray-100 px-2 border-[1px]  border-gray-700 rounded-full w-[100px] "
         >
           <IoMdArrowRoundBack className="mr-4 " size={20} />
           Назад

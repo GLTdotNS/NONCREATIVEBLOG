@@ -7,7 +7,7 @@ import trick from "../styles/trick.jpg";
 const AboutMePage = () => {
   return (
     <div className="container mt-12  mx-auto shadow-2xl">
-      <div className=" p-12  h-full bg-opacity-50 mx-auto">
+      <div className="  h-full bg-opacity-50 mx-auto">
         <div className="text-left text-lg">
           <header class=" border-b border-gray-200 py-4 ">
             <div class="container mx-auto px-4">
@@ -21,7 +21,7 @@ const AboutMePage = () => {
             <img
               src={trick.src}
               alt="Image 1"
-              class="mx-auto w- h-[500px] mb-4 md:ml-0 md:mr-auto"
+              class="mx-auto w- h-[300px] mb-4 md:ml-0 md:mr-auto"
             />
             <div>
               <p class="mb-4">

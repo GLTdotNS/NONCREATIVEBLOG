@@ -91,7 +91,7 @@ export function Blog({ posts, initialCategory, author }) {
       </div>
 
       {/* Sub-navigation menu */}
-      <nav className="sticky top-[60px] lg:top-[80px] text-gray-700  mx-auto mb-12 z-10 flex justify-center mb-4   border-gray-700">
+      <nav className="sticky  top-[60px] lg:top-[80px] text-gray-700  mx-auto mb-12 z-10 flex justify-center mb-4   border-gray-700">
         <ul className="flex  w-11/12 lg:w-5/6  flex-wrap justify-center space-x-4 px-2 p-2 bg-gray-700 backdrop-blur-xl bg-opacity-30 rounded-b-full ">
           <li className="relative group focus:outline-none hidden lg:block ">
             <Link
