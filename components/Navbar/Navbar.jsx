@@ -43,18 +43,16 @@ const Navbar = () => {
     <>
       <nav
         className={`${
-          !scrolled
-            ? "bg-transparent border-b-[1px] border-gray-700 rounded-sm"
-            : "bg-gray-900/70 backdrop-blur-md backdrop-opacity-100 border-[1px] border-yellow-400"
-        } fixed top-4 left-1/2 transform p-2 lg:p-8 transition duration-500 h-12 -translate-x-1/2 ${
-          !isMenuOpen ? "top-0" : ""
+          !scrolled || isMenuOpen
+            ? "bg-transparent border-b-[1px] border-gray-700 rounded-sm top-0 p-6"
+            : "bg-gray-900/70 backdrop-blur-md backdrop-opacity-100 border-[1px] border-yellow-400 top-4"
+        } fixed top-0 left-1/2 transform lg:p-8 transition duration-500 h-12 -translate-x-1/2 ${
+          !isMenuOpen ? "top-0" : "0"
         }}  flex items-center justify-center w-full lg:w-5/6  z-50 ${
           scrolled && (pathname == "/" || pathname == "/")
             ? " transition-color"
             : ""
-        } p-2 px-2 mb-24  w-1/2 m-auto z-50  ${
-          scrolled ? "rounded-full " : "rounded-md"
-        }`}
+        }  mb-24  w-1/2 m-auto   ${scrolled ? "rounded-full " : "rounded-md"}`}
       >
         <div className="w-full   flex h-12 ">
           <a href={"/"}>
@@ -190,8 +188,8 @@ const Navbar = () => {
 
         {isMenuOpen && (
           <div className=" modal ">
-            <div className=" slide-in-from-left   z-10 lg:hidden fixed  top-[0] left-0 w-5/6 h-[100vh] bg-gradient-to-b from-gray-900 via-gray-950 via-gray-950 to-orange-300 flex flex-col items-start justify-start ">
-              <div className="bg-gradient-to-r p-8 from-gray-700 via-gray-800 via-gray-900 to-gray-900 border-b-2 border-gray-700  w-full  ">
+            <div className=" slide-in-from-left   z-10 lg:hidden fixed shadow-4xl top-[40px] left-[14px] w-5/6 rounded-lg bg-gradient-to-b from-gray-900 via-gray-950 via-gray-950 to-orange-300 flex flex-col items-start justify-start ">
+              <div className="bg-gradient-to-r rounded-lg p-8 from-gray-700 via-gray-800 via-gray-900 to-gray-900 border-b-2 border-gray-700  w-full  ">
                 {" "}
                 <a href={"/"}>
                   {" "}
