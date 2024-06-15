@@ -177,7 +177,7 @@ export function Blog({ posts, initialCategory, author }) {
             <div className="hidden lg:block border-r-[1px] border-gray-700">
               <div className="p-4 ">
                 <div class="w-full  bg-gray-700 backdrop-blur-xl bg-opacity-30 p-2 shadow-lg rounded-lg overflow-hidden  mb-2">
-                  <div class="max-w-full   shadow-lg rounded-lg overflow-hidden p-2 ">
+                  {/* <div class="max-w-full   shadow-lg rounded-lg overflow-hidden p-2 ">
                     <div class=" text-left sm:text-left text-gray-100">
                       <Image src={gif} className="w-full h-full" />
 
@@ -205,7 +205,7 @@ export function Blog({ posts, initialCategory, author }) {
                         </a>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="mb-8 p-4 bg-gray-700 backdrop-blur-lg bg-opacity-40 w-full rounded-lg">
                   <h2 className="text-xl text-gray-100 font-bold mb-4 flex items-center">
