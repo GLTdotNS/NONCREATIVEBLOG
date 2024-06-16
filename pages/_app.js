@@ -6,6 +6,7 @@ import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 import Loading from "../components/Loading/Loading";
 import Head from "next/head";
+import CookieBanner from "../components/Cookies/cookies";
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
 
@@ -46,6 +47,7 @@ function MyApp({ Component, pageProps }) {
       ) : (
         <Layout>
           <Component {...pageProps} />
+          <CookieBanner />
         </Layout>
       )}
     </>

@@ -84,7 +84,7 @@ const Navbar = () => {
             </Link>
 
             <Link
-              href={"/contact"}
+              href={"/contact/email"}
               className={` font-bold text-md hover-1 mx-4 hover-1`}
             >
               <div className="flex items-center">
@@ -169,7 +169,7 @@ const Navbar = () => {
         </div>
         {isMenuOpen && (
           <div className=" modal ">
-            <div className=" slide-in-from-left   z-10 lg:hidden fixed shadow-4xl top-[40px] left-[14px] h-5/6 w-5/6 rounded-lg bg-gradient-to-b from-gray-900 via-gray-950 via-gray-950 to-orange-300 flex flex-col items-start justify-start ">
+            <div className=" slide-in-from-left    z-10 lg:hidden fixed shadow-4xl top-[40px] left-[14px] h-5/6 w-5/6 rounded-lg bg-gradient-to-b from-gray-900 via-gray-950 via-gray-950 to-orange-300 flex flex-col items-start justify-start ">
               <div className="bg-gradient-to-r rounded-lg flex items-center p-4 justify-center  from-gray-700 via-gray-800 via-gray-900 to-gray-900 border-b-2 border-gray-700  w-full  ">
                 {" "}
                 <a href={"/"}>
@@ -211,7 +211,7 @@ const Navbar = () => {
                 </Link>
 
                 <a
-                  href="/contact"
+                  href="/contact/email"
                   className={`text-gray-100 block font-bold text-2xl mt-2 hover-1`}
                   role="menuitem"
                 >
@@ -268,10 +268,10 @@ const Navbar = () => {
                   <button
                     className={` font-bold border-2 border-[#FFDD00] bg-yellow-300 text-gray-700 mx-4 mt-4
                     
-                     transition  rounded-full text-lg font-bold px-4 flex items-center`}
+                     transition  rounded-full text-lg font-bold p-2 px-4 flex items-center`}
                   >
-                    <SiBuymeacoffee className="mr-2 text-orange-500" />
-                    Buy me a coffe
+                    <SiBuymeacoffee className="mr-2" />
+                    Buy me a coffee
                   </button>
                 </Link>
               </div>

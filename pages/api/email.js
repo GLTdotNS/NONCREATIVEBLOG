@@ -1,48 +1,33 @@
-import nodemailer from "nodemailer";
+export default async function (req, res) {
+  let nodemailer = require("nodemailer");
+  const transporter = nodemailer.createTransport({
+    port: 465,
+    host: "smtp.gmail.com",
+    auth: {
+      user: "georgitonkow@gmail.com",
+      pass: process.env.NEXT_PUBLIC_GMAIL.replace(/\\n/g, "\n"),
+    },
+    secure: true,
+  });
+  const mailData = {
+    from: "georgitonkow@gmail.com",
+    to: "noncreativeblog@gmail.com",
+    subject: `Message From ${req.body.name}`,
+    text:
+      req.body.message +
+      " | Sent from: " +
+      req.body.email +
+      " Company: " +
+      req.body.company,
+    html: `<div>${req.body.message}</div><p>Sent from:
+    ${req.body.email}</p>`,
+  };
 
-const { NEXT_PUBLIC_GMAIL, NEXT_PUBLIC_GMAIL_PASSWORD } = process.env;
-
-if (!NEXT_PUBLIC_GMAIL || !NEXT_PUBLIC_GMAIL_PASSWORD) {
-  throw new Error(
-    "Environment variables NEXT_PUBLIC_GMAIL or NEXT_PUBLIC_GMAIL_PASSWORD are not defined"
-  );
-}
-
-const transporter = nodemailer.createTransport({
-  port: 465,
-  host: "smtp.gmail.com",
-  auth: {
-    user: NEXT_PUBLIC_GMAIL,
-    pass: NEXT_PUBLIC_GMAIL_PASSWORD.replace(/\\n/g, "\n"),
-  },
-  secure: true, // Use SSL
-});
-
-export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    res.setHeader("Allow", ["POST"]);
-    return res.status(405).json({ error: `Method ${req.method} not allowed` });
-  }
-
-  const { name, email, message } = req.body;
-
-  if (!name || !email || !message) {
-    return res
-      .status(400)
-      .json({ error: "Name, email, and message are required" });
-  }
-
-  try {
-    await transporter.sendMail({
-      from: NEXT_PUBLIC_GMAIL,
-      to: "noncreativeblog@gmail.com",
-      subject: "From contact form Strive",
-      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+  await new Promise((resolve, reject) => {
+    transporter.sendMail(mailData, function (err, info) {
+      if (err) console.log(err);
+      else console.log(info);
+      res.status(200).json({ data: res.status });
     });
-
-    res.status(200).json({ success: true, message: "Email sent successfully" });
-  } catch (error) {
-    console.error("Error sending email:", error);
-    res.status(500).json({ error: "Internal server error" });
-  }
+  });
 }

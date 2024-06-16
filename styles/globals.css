@@ -20,34 +20,42 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
 }
+/* HTML: <div class="loader"></div> */
 .loader {
   width: 50px;
   aspect-ratio: 1;
-  color: #dc1818;
-  background: radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%)
-      top left,
-    radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
-    linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
-    linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
-  background-size: 50% 50%;
-  background-repeat: no-repeat;
-  position: relative;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, #000 98%, #0000) 55% 20%/8px 8px
+      no-repeat,
+    #ffcc00;
+  box-shadow: 2px -6px 12px 0px inset rgba(0, 0, 0, 0.7);
+  animation: l4 0.5s infinite steps(5) alternate;
 }
-.loader:after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: inherit;
-  opacity: 0.4;
-  animation: l3 1s infinite;
-}
-@keyframes l3 {
-  to {
-    transform: scale(1.8);
-    opacity: 0;
+@keyframes l4 {
+  0% {
+    clip-path: polygon(
+      50% 50%,
+      100% 0,
+      100% 0,
+      0 0,
+      0 100%,
+      100% 100%,
+      100% 100%
+    );
+  }
+  100% {
+    clip-path: polygon(
+      50% 50%,
+      100% 65%,
+      100% 0,
+      0 0,
+      0 100%,
+      100% 100%,
+      100% 35%
+    );
   }
 }
-.modal {
+dal {
   position: fixed;
   top: 0;
   left: 0;
@@ -73,6 +81,17 @@ body {
 @keyframes slideInFromTop {
   0% {
     transform: translateY(-30%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.slide-in-from-bot {
+  animation: slideInFromTop 0.9s;
+}
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(30%);
   }
   100% {
     transform: translateY(0);
