@@ -138,7 +138,7 @@ export function Blog({ posts, initialCategory, author }) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-12 border-t-[1px] border-gray-100 ">
           {/* Left side column */}
           <div>
-            <div className="hidden lg:block border-r-[1px] border-gray-700">
+            <div className="hidden lg:block border-r-[1px] border-gray-400">
               <div className="p-4 ">
                 <div class="w-full  bg-gray-100 backdrop-blur-xl bg-opacity-30 p-2 shadow-lg rounded-lg overflow-hidden  mb-2">
                   <div class="max-w-full   shadow-lg rounded-lg overflow-hidden p-2 ">
@@ -146,7 +146,7 @@ export function Blog({ posts, initialCategory, author }) {
                       <Image src={gif} className="w-full h-full" />
 
                       <div class="">
-                        <p class="text-xl mb-4 text-center  bg-gradient-to-r from-pink-200 via-red-300 to-pink-400 bg-clip-text text-transparent text-4xl font-bold">
+                        <p class="text-xl mb-4 text-center  bg-gradient-to-r from-yellow-200 via-orange-600 to-pink-700 bg-clip-text text-transparent text-4xl font-bold">
                           {author?.name}
                         </p>
 
@@ -163,7 +163,7 @@ export function Blog({ posts, initialCategory, author }) {
                         </p>
                         <a
                           href="/about"
-                          className="rounded-full p-1 mb-2 flex items-center justify-center  border-2 border-yellow-300 font-bold  text-gray-300 w-full"
+                          className="rounded-full p-1 mb-2 flex items-center justify-center  border-2 bg-yellow-300 font-bold  text-gray-700 w-full"
                         >
                           Виж повече за мен
                         </a>
@@ -405,158 +405,26 @@ export function Blog({ posts, initialCategory, author }) {
                   {" "}
                   <a
                     key={c.slug}
-                    className="relative group"
+                    className="relative group "
                     href={`/post/${c.slug.current}`}
                   >
-                    <div className="relative h-[300px] w-full mx-auto bg-white shadow-md overflow-hidden rounded-lg">
+                    <div className="relative h-[300px] w-full mx-auto  shadow-md overflow-hidden rounded-lg ">
                       <img
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-cover transition-transform transform hover:scale-110"
                         src={c.mainImage.asset.url}
                         alt={c.title}
                       />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-                        <div className="text-white font-semibold text-lg">
-                          {c.title}
-                        </div>
-                        <button className="mt-2 absolute right-4 bottom-4 text-yellow-300 hover:scale-75 translate-x-6 skew-y-2 md:transform-none text-center px-4 py-2 rounded-lg flex items-center">
-                          Read More
-                          <FaArrowRight className="h-12 w-12 ml-2" />
+                      <div className=" absolute top-0 left-0 text-gray-700 font-semibold rounded-br-full text-lg bg-gray-400 backdrop-blur-sm bg-opacity-50 p-4">
+                        {c.title}
+                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t  from-gray-700  to-transparent p-4">
+                        <button className="mt-2 absolute right-8 bottom-4 text-yellow-300 bg-gray-700 backdrop-blur-sm bg-opacity-30 hover:scale-75 translate-x-6 skew-y-2 transition-transform transform hover:scale-125 md:transform-none text-center px-4 py-2 rounded-lg flex items-center">
+                          Прочети
+                          <FaArrowRight className="h-6 w-6 ml-2" />
                         </button>
                       </div>
                     </div>
                   </a>{" "}
-                  <a
-                    key={c.slug}
-                    className="relative group"
-                    href={`/post/${c.slug.current}`}
-                  >
-                    <div className="relative w-full mx-auto bg-white shadow-md overflow-hidden rounded-lg">
-                      <img
-                        className="h-64 w-full object-cover"
-                        src={c.mainImage.asset.url}
-                        alt={c.title}
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-                        <div className="text-white font-semibold text-lg">
-                          {c.title}
-                        </div>
-                        <button className="mt-2 absolute right-4 bottom-4 text-yellow-300 hover:scale-75 translate-x-6 skew-y-2 md:transform-none text-center px-4 py-2 rounded-lg flex items-center">
-                          Read More
-                          <FaArrowRight className="h-12 w-12 ml-2" />
-                        </button>
-                      </div>
-                    </div>
-                  </a>{" "}
-                  <a
-                    key={c.slug}
-                    className="relative group"
-                    href={`/post/${c.slug.current}`}
-                  >
-                    <div className="relative w-full mx-auto bg-white shadow-md overflow-hidden rounded-lg">
-                      <img
-                        className="h-64 w-full object-cover"
-                        src={c.mainImage.asset.url}
-                        alt={c.title}
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-                        <div className="text-white font-semibold text-lg">
-                          {c.title}
-                        </div>
-                        <button className="mt-2 absolute right-4 bottom-4 text-yellow-300 hover:scale-75 translate-x-6 skew-y-2 md:transform-none text-center px-4 py-2 rounded-lg flex items-center">
-                          Read More
-                          <FaArrowRight className="h-12 w-12 ml-2" />
-                        </button>
-                      </div>
-                    </div>
-                  </a>{" "}
-                  <a
-                    key={c.slug}
-                    className="relative group"
-                    href={`/post/${c.slug.current}`}
-                  >
-                    <div className="relative w-full mx-auto bg-white shadow-md overflow-hidden rounded-lg">
-                      <img
-                        className="h-64 w-full object-cover"
-                        src={c.mainImage.asset.url}
-                        alt={c.title}
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-                        <div className="text-white font-semibold text-lg">
-                          {c.title}
-                        </div>
-                        <button className="mt-2 absolute right-4 bottom-4 text-yellow-300 hover:scale-75 translate-x-6 skew-y-2 md:transform-none text-center px-4 py-2 rounded-lg flex items-center">
-                          Read More
-                          <FaArrowRight className="h-12 w-12 ml-2" />
-                        </button>
-                      </div>
-                    </div>
-                  </a>{" "}
-                  <a
-                    key={c.slug}
-                    className="relative group"
-                    href={`/post/${c.slug.current}`}
-                  >
-                    <div className="relative w-full mx-auto bg-white shadow-md overflow-hidden rounded-lg">
-                      <img
-                        className="h-64 w-full object-cover"
-                        src={c.mainImage.asset.url}
-                        alt={c.title}
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-                        <div className="text-white font-semibold text-lg">
-                          {c.title}
-                        </div>
-                        <button className="mt-2 absolute right-4 bottom-4 text-yellow-300 hover:scale-75 translate-x-6 skew-y-2 md:transform-none text-center px-4 py-2 rounded-lg flex items-center">
-                          Read More
-                          <FaArrowRight className="h-12 w-12 ml-2" />
-                        </button>
-                      </div>
-                    </div>
-                  </a>{" "}
-                  <a
-                    key={c.slug}
-                    className="relative group"
-                    href={`/post/${c.slug.current}`}
-                  >
-                    <div className="relative w-full mx-auto bg-white shadow-md overflow-hidden rounded-lg">
-                      <img
-                        className="h-64 w-full object-cover"
-                        src={c.mainImage.asset.url}
-                        alt={c.title}
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-                        <div className="text-white font-semibold text-lg">
-                          {c.title}
-                        </div>
-                        <button className="mt-2 absolute right-4 bottom-4 text-yellow-300 hover:scale-75 translate-x-6 skew-y-2 md:transform-none text-center px-4 py-2 rounded-lg flex items-center">
-                          Read More
-                          <FaArrowRight className="h-12 w-12 ml-2" />
-                        </button>
-                      </div>
-                    </div>
-                  </a>{" "}
-                  <a
-                    key={c.slug}
-                    className="relative group"
-                    href={`/post/${c.slug.current}`}
-                  >
-                    <div className="relative w-full mx-auto bg-white shadow-md overflow-hidden rounded-lg">
-                      <img
-                        className="h-64 w-full object-cover"
-                        src={c.mainImage.asset.url}
-                        alt={c.title}
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-                        <div className="text-white font-semibold text-lg">
-                          {c.title}
-                        </div>
-                        <button className="mt-2 absolute right-4 bottom-4 text-yellow-300 hover:scale-75 translate-x-6 skew-y-2 md:transform-none text-center px-4 py-2 rounded-lg flex items-center">
-                          Read More
-                          <FaArrowRight className="h-12 w-12 ml-2" />
-                        </button>
-                      </div>
-                    </div>
-                  </a>
                 </>
               ))}
             </div>

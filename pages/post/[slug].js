@@ -9,7 +9,7 @@ import { FacebookIcon, TwitterIcon, ViberIcon } from "react-share";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useRouter } from "next/router";
 import { SiBuymeacoffee } from "react-icons/si";
-
+import moment from "moment/moment";
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -24,6 +24,22 @@ const Cats = ({ post, posts }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
+  moment.locale("custom-locale", {
+    months: [
+      "Януари",
+      "Февруари",
+      "Март",
+      "Април",
+      "Май",
+      "Юни",
+      "Юли",
+      "Август",
+      "Септември",
+      "Октомври",
+      "Ноември",
+      "Декември",
+    ],
+  });
   const router = useRouter();
   return (
     <div>
@@ -112,7 +128,7 @@ const Cats = ({ post, posts }) => {
             Назад
           </a>
           <div className=" items-center justify-center mb-4   border-b-[1px] border-gray-300 p-2 px-8 md:p-4 mt-12 ">
-            <p className="mb-4">Published by</p>
+            <p className="mb-4">Публикувана от</p>
 
             <div className="flex items-center ">
               <img
@@ -129,7 +145,9 @@ const Cats = ({ post, posts }) => {
                     <FaRegCalendarCheck size={20} />
                   </span>
                   <span className="text-sm md:text-base text-gray-600 ">
-                    {/* {moment(post.publishedAt).format("MMMM Do YYYY, h:mm:ss a")} */}
+                    {moment(post.publishedAt)
+                      .locale("fr")
+                      .format("MMMM Do YYYY, HH:mm ")}
                   </span>
                 </div>
               </div>
@@ -151,7 +169,7 @@ const Cats = ({ post, posts }) => {
         </div>
         <div class="container mx-auto max-w-4xl border-t-2 border-gray-300 py-8">
           <p class="text-gray-600 mb-4 md:mb-0 text-left">
-            Благодаря за четенето! Надява се тази статия да ви е била полезна и
+            Благодаря за четенето! Надявам се тази статия да ви е била полезна и
             интересна. Вашата подкрепа ми помага да продължа да предоставям
             полезна информация и съвети за всички, които я търсят. Благодаря ви
             подкрепата!
@@ -172,7 +190,7 @@ const Cats = ({ post, posts }) => {
 
       <button
         onClick={openModal}
-        className="flex fixed  bottom-1/2 left-[-40px] h-24 rotate-90   mx-auto items-center justify-center  px-4 sm:px-6  text-base sm:text-sm  transition duration-300"
+        className="flex fixed  bottom-0 left-0 bg-zinc-300 w-full h-8 mx-auto items-center justify-center  px-4 sm:px-6  text-base sm:text-sm  transition duration-300"
       >
         <FaShare className="mr-1" />
         Сподели
@@ -181,7 +199,7 @@ const Cats = ({ post, posts }) => {
         <div className=" fixed inset-0 bg-black bg-opacity-50  z-50 flex justify-center items-center">
           <div className="bg-white animate-slide-in  absolute bottom-0 z-100 p-6 rounded-t-xl w-[300px]  ">
             <h2 className="text-lg text-center font-semibold mb-4">
-              Share with your friends
+              Сподели с приятели{" "}
             </h2>
             <div className="flex justify-center">
               <FacebookShareButton
@@ -213,7 +231,7 @@ const Cats = ({ post, posts }) => {
               onClick={closeModal}
               className="mt-8 text-lg bg-slate-200  border p-2 rounded-full justify-center w-full text-center text-gray-500 hover:text-gray-700 focus:outline-none"
             >
-              Close window
+              Затвори
             </button>
           </div>
         </div>

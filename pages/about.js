@@ -1,4 +1,12 @@
-import { FaBlogger, FaCode, FaEnvelope, FaUser } from "react-icons/fa";
+import {
+  FaBlogger,
+  FaCode,
+  FaEnvelope,
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+  FaFacebook,
+} from "react-icons/fa";
 import { RiBook2Line, RiTeamLine } from "react-icons/ri";
 import Link from "next/link";
 import jojo from "../styles/jojo.png";
@@ -31,16 +39,16 @@ const AboutMePage = () => {
         <div className="  h-full bg-opacity-50 mx-auto">
           <div className="text-left text-lg">
             <header class=" border-b border-gray-200 py-4 text-center ">
-              <div class="container mx-auto w-1/2 px-2 bg-zinc-300 rounded-md">
-                <h1 class="text-3xl font-bold text-gray-700 mt-24 p-2">
+              <div class=" mx-auto w-full lg:w-1/2 px-2 bg-zinc-300 rounded-md">
+                <h1 class="text-2xl font-bold text-gray-700 mt-24 p-2">
                   Георги Тонков
                 </h1>
                 <p class="text-gray-600 p-2"> 👩‍🍳 Готвачин и JS Ninja 🥷 💻</p>
               </div>
             </header>
-            <article class="w-full p-8 bg-zinc-300 rounded-lg lg:rounded-full proxima">
+            <article className="w-full p-12 bg-zinc-300 rounded-lg lg:rounded-full proxima">
               <div>
-                <p class="mb-4">
+                <p className="mb-4">
                   Аз съм блогър, който споделя идеи за съхранение на продукти,
                   рецепти, интересни места, както и споделям своите лични
                   интереси и истории. Имам страст към средиземноморската кухня,
@@ -51,6 +59,32 @@ const AboutMePage = () => {
                   байкче 😜😎. Обичам да чета философия, както и да гледам
                   ужаси.
                 </p>
+                <div>
+                  <div className="flex items-center justify-center">
+                    {" "}
+                    <a
+                      href="https://facebook.com/georgitonkoff"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaFacebook className="inline-block mr-4 text-4xl text-[#4267B2]" />
+                    </a>
+                    <a
+                      href="https://instagram.com/georgitonkoff"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaInstagram className="inline-block mr-4 text-4xl text-[#ee2a7b]" />
+                    </a>
+                    <a
+                      href="https://linkedin.com/in/georgi-tonkov"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaLinkedin className="inline-block mr-4 text-4xl text-[#0a66c2]" />
+                    </a>
+                  </div>
+                </div>
               </div>
             </article>
 
@@ -94,15 +128,16 @@ const AboutMePage = () => {
                   <h2 class="text-xl font-bold mb-4">Колоезденето</h2>
 
                   <p class="mb-4">
-                    Не знам дали аз карам колелото или то мене 🙄, но когато
-                    скачам между корените на дърветата в планината, чувството е
-                    просто невероятно! Екстремното колоездене е част от моят
-                    живот , особено през уикендите. Дори и по време на работната
-                    седмица не се отказвам от адреналинови изживявания -
-                    камионите и кучетата ме карат да бъда постоянно нащрек 😇 🤗
-                    🤭. Само истински софийски байкър би ме разбрал 🫡🫡🫡. Сега
-                    понеже съм столичанин в повече, ама в друга европейска
-                    столица, та не ми се налага да бягам поне от кучета ❤️.
+                    Не знам дали аз карам колелото или то мен 🙄, но скачайки из
+                    между корените на дърветата в планината, се чувствам просто
+                    невероятно, свободно - особено прелитайки ! Екстремното
+                    колоездене е част от моят живот , особено през уикендите. Но
+                    и по време на работната седмица не се отказвам от
+                    адреналиновите изживявания в градска среда - камионите и
+                    кучетата ме карат да бъда постоянно нащрек 😇 🤗 🤭. Само
+                    един истински софийски байкър би ме разбрал 🫡🫡🫡. Сега понеже
+                    съм столичанин в повече, ама в друга европейска столица, та
+                    не ми се налага да бягам поне от кучета ❤️.
                   </p>
                 </div>
                 <Image
@@ -146,11 +181,19 @@ const AboutMePage = () => {
                 <FaBlogger className="text-gray-600 text-4xl mr-4" />
                 <h2 className="text-lg font-bold text-gray-600">Blogger</h2>
               </div>
-              <p className="text-gray-700">
+              <p className="text-gray-700 mt-8">
                 Винаги се радвам да обсъждам актуални теми, да споделям лични
                 наблюдения и да предоставям полезни съвети въз основа на моите
                 интереси и експертиза.
               </p>
+              <a
+                className="bg-yellow-300 rounded-full  py-2 px-6  mt-4  text-center text-lg text-gray-700 transition duration-200 flex items-center justify-center"
+                href="https://buymeacoffee.com/tonkoff"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <SiBuymeacoffee className="mr-2" /> Buy me a coffee
+              </a>
             </div>
             <div className="p-6 bg-pink-100 rounded-lg">
               <div className="flex items-center mb-4">
@@ -160,21 +203,18 @@ const AboutMePage = () => {
               <p className="text-gray-700">
                 Отдаден и страстен front-end разработчик, който се стреми да
                 създава иновативни уеб приложения. Аз съм самоук програмист с
-                опит с Javascript (включително NextJS и React) и Python. Имам
-                познания и по компютътни мрежи, както и работа с Linux.
+                опит с Javascript (включително NextJS и React) и Python.
               </p>
+              <a
+                className="bg-yellow-300 rounded-full  py-2 px-6  mt-2 p-2 text-center text-lg text-gray-700 transition duration-200 flex items-center justify-center"
+                href="https://github.com/GLTdotNS"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub className="inline-block mr-4 text-xl" />
+                GitHub
+              </a>
             </div>
-          </div>
-          <div className="mt-8 text-center">
-            <p className="text-lg text-gray-700">Можете да ме подкрепите тук</p>
-          </div>
-          <div className="flex justify-center space-x-4 ">
-            <Link
-              className="bg-yellow-300 rounded-full  py-2 px-6  mt-2  text-center text-lg text-gray-700 transition duration-200 flex items-center"
-              href="https://buymeacoffee.com/tonkoff"
-            >
-              <SiBuymeacoffee className="mr-2" /> Buy me a coffee
-            </Link>
           </div>
         </div>
       </div>

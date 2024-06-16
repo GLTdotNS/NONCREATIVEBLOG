@@ -18,16 +18,21 @@ const Footer = () => {
 
         {/* Center: Links */}
         <nav className="w-full sm:w-auto mb-8 sm:mb-0 flex justify-center sm:justify-start">
-          <a href="#" className="text-gray-700 px-4 py-2">
+          <a href="/cookies&privacy" className="text-gray-700 px-4 py-2">
             Cookies & Privacy
           </a>
         </nav>
 
         {/* Right side: Subscribe button */}
         <div className="w-full sm:w-auto text-center sm:text-right">
-          <button className="bg-yellow-300 text-gray-700 font-semibold py-2 px-6 rounded-full shadow-lg">
+          <a
+            href="https://buymeacoffee.com/tonkoff"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-yellow-300 mt-4 text-gray-700 font-semibold py-2 px-6 rounded-full shadow-lg"
+          >
             Subscribe
-          </button>
+          </a>
         </div>
       </div>
     </footer>
