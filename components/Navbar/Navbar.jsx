@@ -44,7 +44,7 @@ const Navbar = () => {
       <nav
         className={`${
           !scrolled || isMenuOpen
-            ? "bg-transparent border-b-[1px] border-gray-700 rounded-sm top-0 p-6 "
+            ? "bg-black border-b-[1px] border-gray-700 rounded-sm top-0 p-6 "
             : "bg-gray-900/70 backdrop-blur-md backdrop-opacity-100 border-[1px] border-yellow-400 top-4 "
         } fixed top-0 left-1/2 transform lg:p-8 transition duration-500 h-12 -translate-x-1/2 ${
           !isMenuOpen ? "top-0" : "0"

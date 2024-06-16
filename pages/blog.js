@@ -69,50 +69,12 @@ export function Blog({ posts, initialCategory, author }) {
   }
   return (
     <div className="   mx-auto ">
-      <Head>
-        <meta
-          name="description"
-          content={
-            "For those who loves redhead girls. Explore a world of insights and inspiration with our engaging blog. Discover expert  sex tips, thought-provoking discussions, and captivating hot stories on Redheadporn.net. Join us on a journey of discovery to redheaded girls and their beauty!"
-          }
+      <div class="relative w-full absolute top-0 mx-auto mt-4 lg:mt-16">
+        <img
+          src={cover.src}
+          alt="Cover Photo"
+          class="w-full lg:w-10/12 h-auto  lg:h-[380px]  mx-auto   object-cover rounded-lg"
         />
-        <meta
-          name="keywords"
-          content="sex tips, sex, redhead girl blog, OnlyFans reviews, personal sex stories"
-        />
-        <meta name="robots" content="index, follow" />
-
-        <meta property="og:title" content="Sex tips" />
-        <meta
-          property="og:description"
-          content="For those who loves redhead girls. Explore a world of insights and inspiration with our engaging blog. Discover expert  sex tips, thought-provoking discussions, and captivating hot stories on Redheadporn.net. Join us on a journey of discovery to redheaded girls and their beauty!"
-        />
-
-        <meta property="og:url" content="https://www.redheadporn.net" />
-        <meta property="og:type" content="article" />
-
-        <link rel="canonical" href="https://www.redheadporn.net" />
-      </Head>
-      <div className="h-10 lg:h-0 sm:h-10"></div>
-      <div className="relative w-full  lg:h-[500px] sm:h-[300px]">
-        <header className="relative flex flex-col justify-center items-center h-full custom-inset-shadow">
-          <div className="absolute inset-0">
-            <Image
-              src={cover}
-              alt="Header Background"
-              className="h-full lg:w-10/12 mx-auto sm:h-[400px] lg:h-[500px] rounded-lg"
-            />
-          </div>
-          <div className="absolute inset-0 h-full bg-gray-900 opacity-50"></div>
-          <div className="text-gray-100 flex flex-col md:flex-row justify-between items-center relative z-10">
-            <div className="text-center mb-8 md:mb-0">
-              <h1 className="text-2xl p-4 lg:text-5xl font-bold w-full bg-gradient-to-r from-pink-200 via-red-300 to-pink-400 bg-clip-text text-transparent">
-                Добре дошли в блога на Тонков
-              </h1>
-              <p className="text-lg md:text-xl">Един некреативен блог</p>
-            </div>
-          </div>
-        </header>
       </div>
       <div className="container mx-auto">
         {" "}

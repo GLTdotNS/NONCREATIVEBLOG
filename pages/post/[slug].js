@@ -27,123 +27,125 @@ const Cats = ({ post, posts }) => {
     <div>
       <div
         key={post._id}
-        className="max-w-4xl  mt-12 shadow-2xl mx-auto text-gray-100 p-2 overflow-hidden"
+        className="w-full   lg:w-10/12  mt-12 shadow-lg mx-auto text-gray-100 p-2 overflow-hidden"
       >
-        {" "}
-        <nav
-          class="flex px-5 py-3 mt-8 text-gray-700 w-10/11 lg:w-5/6 mx-auto text-xs rounded-lg bg-yellow-100   "
-          aria-label="Breadcrumb"
-        >
-          <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
-            <li class="inline-flex items-center">
-              <a
-                href="/"
-                class="inline-flex items-center text-xs font-medium text-gray-700 "
-              >
-                <svg
-                  class="w-3 h-3 me-2.5"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+        <div className="max-w-4xl mx-auto">
+          {" "}
+          <nav
+            class="flex px-5 py-3 mt-8 text-gray-700 w-10/11 lg:w-5/6 mx-auto text-xs rounded-lg bg-yellow-100   "
+            aria-label="Breadcrumb"
+          >
+            <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+              <li class="inline-flex items-center">
+                <a
+                  href="/"
+                  class="inline-flex items-center text-xs font-medium text-gray-700 "
                 >
-                  <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
-                </svg>
-                Начало
-              </a>
-            </li>
-            <li>
-              <div class="flex items-center">
-                <svg
-                  class="rtl:rotate-180 block w-3 h-3 mx-1 text-gray-400 "
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 6 10"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="m1 9 4-4-4-4"
-                  />
-                </svg>
-                <span class="ms-1 text-sm font-medium text-gray-700 ">
-                  Статия
-                </span>
-              </div>
-            </li>
-            <li aria-current="page">
-              <div class="flex items-center">
-                <svg
-                  class="rtl:rotate-180  w-3 h-3 mx-1 text-gray-400"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 6 10"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="m1 9 4-4-4-4"
-                  />
-                </svg>
-                <span class="ms-1 text-sm font-medium text-pink-700 md:ms-2 ">
-                  {post.title.slice(0, 13)}...
-                </span>
-              </div>
-            </li>
-          </ol>
-        </nav>
-        {/* Blog Title */}
-        {/* Author Info */}
-        <h1 className="text-xl font-bold text-center py-4">{post.title}</h1>
-        <a
-          href="/"
-          className="flex items-center text-gray-700 px-2 border-[1px]  border-gray-700 rounded-full w-[100px] "
-        >
-          <IoMdArrowRoundBack className="mr-4 " size={20} />
-          Назад
-        </a>
-        <div className=" items-center justify-center mb-4   border-b-[1px] border-gray-700 p-2 px-8 md:p-4 mt-12 ">
-          <p className="mb-4">Published by</p>
+                  <svg
+                    class="w-3 h-3 me-2.5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
+                  </svg>
+                  Начало
+                </a>
+              </li>
+              <li>
+                <div class="flex items-center">
+                  <svg
+                    class="rtl:rotate-180 block w-3 h-3 mx-1 text-gray-400 "
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 6 10"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 9 4-4-4-4"
+                    />
+                  </svg>
+                  <span class="ms-1 text-sm font-medium text-gray-700 ">
+                    Статия
+                  </span>
+                </div>
+              </li>
+              <li aria-current="page">
+                <div class="flex items-center">
+                  <svg
+                    class="rtl:rotate-180  w-3 h-3 mx-1 text-gray-400"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 6 10"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 9 4-4-4-4"
+                    />
+                  </svg>
+                  <span class="ms-1 text-sm font-medium text-pink-700 md:ms-2 ">
+                    {post.title.slice(0, 13)}...
+                  </span>
+                </div>
+              </li>
+            </ol>
+          </nav>
+          {/* Blog Title */}
+          {/* Author Info */}
+          <h1 className="text-xl font-bold text-center py-4">{post.title}</h1>
+          <a
+            href="/"
+            className="flex items-center text-gray-700 px-2 border-[1px]  border-gray-700 rounded-full w-[100px] "
+          >
+            <IoMdArrowRoundBack className="mr-4 " size={20} />
+            Назад
+          </a>
+          <div className=" items-center justify-center mb-4   border-b-[1px] border-gray-700 p-2 px-8 md:p-4 mt-12 ">
+            <p className="mb-4">Published by</p>
 
-          <div className="flex items-center ">
-            <img
-              src={post.authorImage.asset.url}
-              alt="Author Avatar"
-              className="w-12 h-12 md:w-16 md:h-16 rounded-full mr-3 md:mr-4"
-            />
-            <div>
-              <p className="font-semibold text-base md:text-lg">
-                {post.authorName}
-              </p>
-              <div className="flex items-center">
-                <span className="text-sm md:text-base text-gray-600 mr-2">
-                  <FaRegCalendarCheck size={20} />
-                </span>
-                <span className="text-sm md:text-base text-gray-600 ">
-                  {/* {moment(post.publishedAt).format("MMMM Do YYYY, h:mm:ss a")} */}
-                </span>
+            <div className="flex items-center ">
+              <img
+                src={post.authorImage.asset.url}
+                alt="Author Avatar"
+                className="w-12 h-12 md:w-16 md:h-16 rounded-full mr-3 md:mr-4"
+              />
+              <div>
+                <p className="font-semibold text-base md:text-lg">
+                  {post.authorName}
+                </p>
+                <div className="flex items-center">
+                  <span className="text-sm md:text-base text-gray-600 mr-2">
+                    <FaRegCalendarCheck size={20} />
+                  </span>
+                  <span className="text-sm md:text-base text-gray-600 ">
+                    {/* {moment(post.publishedAt).format("MMMM Do YYYY, h:mm:ss a")} */}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className=" p-2 text-gray-700">
-          {" "}
-          <img
-            className="mt-4 h-[300px] w-full object-cover "
-            src={post.mainImage.asset.url}
-          />
-          <BlockContent
-            serializers={serializers}
-            blocks={post.body}
-            projectId="gay8otka"
-            dataset="production"
-          />
+          <div className=" p-4  text-gray-700">
+            {" "}
+            <img
+              className="mt-4 h-[300px] w-full object-cover "
+              src={post.mainImage.asset.url}
+            />
+            <BlockContent
+              serializers={serializers}
+              blocks={post.body}
+              projectId="gay8otka"
+              dataset="production"
+            />
+          </div>
         </div>
       </div>
 
