@@ -7,6 +7,8 @@ import { IoLogoGithub } from "react-icons/io";
 import { SiBuymeacoffee } from "react-icons/si";
 import { FaWindowClose } from "react-icons/fa";
 import { CgMenuGridO } from "react-icons/cg";
+import { GiNinjaHead } from "react-icons/gi";
+import { CgMoreVertical } from "react-icons/cg";
 
 import { FaRegFaceSmileBeam } from "react-icons/fa6";
 import { FaMessage } from "react-icons/fa6";
@@ -58,13 +60,13 @@ const Navbar = () => {
         <div className="w-full   flex h-12 ">
           <a href={"/"}>
             {" "}
-            <div className=" absolute top-3 lg:hidden   left-2">
+            <div className=" absolute top-1 lg:hidden   left-2">
               <Image src={logo} className="w-2/3 h-auto" />
             </div>
           </a>
 
-          <div className="hidden lg:flex    flex-grow items-center justify-start ">
-            <a href="/" className={` font-bold text-lg hover-1 mx-4 hover-1`}>
+          <div className="hidden lg:flex   uppercase flex-grow items-center justify-start ">
+            <a href="/" className={` font-bold text-md hover-1 mx-4 hover-1`}>
               <div className="flex items-center">
                 <FaHome className="mr-2" />
                 <span>Начало </span>
@@ -73,17 +75,17 @@ const Navbar = () => {
 
             <Link
               href={"/about"}
-              className={` font-bold text-lg hover-1 mx-4 hover-1`}
+              className={` font-bold text-md hover-1 mx-4 hover-1`}
             >
               <div className="flex items-center">
-                <FaRegFaceSmileBeam className="mr-2" />
-                <span>Тонков</span>
+                <GiNinjaHead className="mr-2" />
+                <span>Tonkoff G.</span>
               </div>
             </Link>
 
             <Link
               href={"/contact"}
-              className={` font-bold text-lg hover-1 mx-4 hover-1`}
+              className={` font-bold text-md hover-1 mx-4 hover-1`}
             >
               <div className="flex items-center">
                 <FaMessage className="mr-2" />
@@ -92,11 +94,12 @@ const Navbar = () => {
             </Link>
             <div class="group relative">
               <button
-                className={` font-bold text-lg mx-4 hover-1 inline-flex  mx-4 hover-1`}
+                className={` font-bold text-md mx-4 hover-1 inline-flex flex items-center uppercase  mx-4 hover-1`}
               >
-                Повече <RiArrowDropDownLine size={25} />
+                <CgMoreVertical className="m" />
+                Повече
               </button>
-              <div className="origin-top-right fade-in absolute left-0 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block">
+              <div className="origin-top-right text-gray-700 fade-in absolute left-0 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block">
                 <div className="py-1" role="menu">
                   <a
                     href="https://www.strivenex.com"
@@ -149,7 +152,7 @@ const Navbar = () => {
             </button>
           </div>
 
-          <div className="hidden lg:flex   mr-24">
+          <div className="hidden lg:flex   mr-12">
             <a href="/soon">
               <button
                 className={`${
@@ -159,7 +162,7 @@ const Navbar = () => {
                 } transition mt-1 border-2 border-[#FFDD00] bg-yellow-300 p-2 rounded-full text-sm font-bold slide-in-from-top  flex items-center`}
               >
                 <SiBuymeacoffee className="mr-2" />
-                Buy me a coffe
+                Buy me a coffee
               </button>
             </a>
           </div>
@@ -202,8 +205,8 @@ const Navbar = () => {
                   className={`block text-gray-100  font-bold text-2xl mt-2 hover-1`}
                 >
                   <div className="flex items-center">
-                    <FaRegFaceSmileBeam className="mr-2" />
-                    <span>Тонков</span>
+                    <GiNinjaHead className="mr-2" />
+                    <span>Tonkoff G.</span>
                   </div>
                 </Link>
 
@@ -221,10 +224,10 @@ const Navbar = () => {
                   <button
                     className={`text-gray-100  font-bold text-2xl mt-2 hover-1 flex items-center`}
                   >
-                    <CiCircleMore size={20} className="mr-2" />
-                    Виж още
+                    <CgMoreVertical size={20} className="mr-2" />
+                    Повече
                   </button>
-                  <div className="origin-top-right fade-in absolute left-0 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block">
+                  <div className="origin-top-right fade-in absolute left-0 text-gray-700 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block">
                     <div className="py-1" role="menu">
                       <a
                         href="https://www.strivenex.com"
@@ -263,7 +266,7 @@ const Navbar = () => {
               <div className="flex justify-center  bottom-[20px] w-full">
                 <Link href={"/soon"}>
                   <button
-                    className={` font-bold hover:text-gray-100 bg-yellow-300 text-gray-700 mx-4 mt-4 border-2 border-orange-200
+                    className={` font-bold border-2 border-[#FFDD00] bg-yellow-300 text-gray-700 mx-4 mt-4
                     
                      transition  rounded-full text-lg font-bold px-4 flex items-center`}
                   >

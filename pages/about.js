@@ -4,59 +4,94 @@ import Link from "next/link";
 import jojo from "../styles/jojo.png";
 import biker from "../styles/bikerchetojojo.jpg";
 import trick from "../styles/trick.jpg";
+import Image from "next/image";
 import cover from "../styles/cover.png";
 const AboutMePage = () => {
   return (
     <>
       {" "}
       <div class="relative w-full lg:w-10/12 mx-auto mt-4">
-        <img
-          src={cover.src}
+        <Image
+          src={cover}
           alt="Cover Photo"
           class="w-full  object-cover rounded-lg"
         />
 
         <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
-          <img
-            src={jojo.src}
+          <Image
+            src={jojo}
             alt="Profile Photo"
-            class="w-24 h-24 lg:h-48 lg:w-48 object-cover rounded-full border-4 border-white bg-white shadow-lg"
+            class="w-24 h-24 lg:h-48 lg:w-48 object-contain rounded-full border-4 border-slate-100  shadow-lg"
           />
         </div>
       </div>
-      <div className="  max-w-7xl  mx-auto ">
+      <div className="  max-w-6xl  mx-auto ">
         <div className="  h-full bg-opacity-50 mx-auto">
           <div className="text-left text-lg">
-            <header class=" border-b border-gray-200 py-4 ">
+            <header class=" border-b border-gray-200 py-4 text-center">
               <div class="container mx-auto px-4">
-                <h1 class="text-3xl font-bold text-gray-100 mt-24">
+                <h1 class="text-3xl font-bold text-gray-700 mt-24">
                   Георги Тонков
                 </h1>
-                <p class="text-gray-400">Програмист и готвач</p>
+                <p class="text-gray-600"> 👩‍🍳 Готвачин и JS Ninja 🥷 💻</p>
               </div>
             </header>
-            <article class="w-full p-2">
+            <article class="w-full p-8 bg-zinc-300 rounded-lg lg:rounded-full">
               <div>
                 <p class="mb-4">
                   Аз съм блогър, който споделя идеи за съхранение на продукти,
-                  рецепти, рецензии на заведения, както и споделям своите лични
-                  интереси и истории. През деня съм <b>професионален готвач</b>{" "}
-                  със страст към средиземноморската кухня 🍝🌿. Когато не съм в
-                  кухнята, ще ме откриете да програмирам и да изследвам части от
-                  скандинавската митология.
+                  рецепти, интересни места, както и споделям своите лични
+                  интереси и истории. Имам страст към средиземноморската кухня и
+                  скандинавската митология. 🍝🌿. Когато не готвя, а това е
+                  доста често 🤭, ще ме откриете да програмирам и да изследвам
+                  части от скандинавската митология, да пиша статии или да
+                  превземам туристически пътеки с моето байкче 😜😎.
                 </p>
               </div>
             </article>
-            <section class=" mx-auto px-4 py-8 flex flex-wrap items-center justify-between text-gray-100">
-              <article class="w-full md:w-1/2 p-2">
-                <img
-                  src={jojo.src}
+            <section class=" mx-auto rounded-lg px-4 py-8 flex flex-wrap items-center justify-between text-gray-700 bg-zinc-300 mt-8 mb-8">
+              <article class="w-full md:w-1/2 mt-8 md:mt-0 ">
+                <div>
+                  <h2 class="text-xl font-bold mb-4">
+                    Пристрастен към ученето (Just f*ckin Nerd)
+                  </h2>
+                  <p class="mb-4">
+                    Това го разбрах на 26 годишна възраст 😬😬😬. <br />
+                    Не мога, а и не искам да спра да уча нови неща. Както и като
+                    блогър, програмист и готвач съм ангажиран непрекъснато с
+                    това да се усъвършенствам и развивам. Следя последните
+                    технологии, както и последните тенденции в кулинарния свят.
+                  </p>
+
+                  <div class="relative">
+                    <blockquote class="border-l-4 text-center border-gray-300 italic text-lg text-gray-700 bg-gray-100 p-4 my-4">
+                      I'm addicted to coding, can’t get enough of this drug
+                      <br />
+                      Every bug I debug, it gives me a buzz
+                    </blockquote>
+                    <div class="absolute top-6 left-6 transform -translate-x-2/3 -translate-y-1/2 text-3xl text-gray-400">
+                      {"{"}
+                    </div>
+                    <div class="absolute bottom-6 right-6 transform translate-x-2/3 translate-y-1/2 text-4xl text-gray-400">
+                      {"}"}
+                    </div>
+                  </div>
+                </div>
+                <Image
+                  src={jojo}
                   alt="Image 1"
-                  class="mx-auto  mb-4 md:ml-0 md:mr-auto"
+                  class="mx-auto object-cover  rounded-3xl   mb-4 md:ml-0 md:mr-auto"
+                />
+              </article>
+              <article class="w-full md:w-1/2 p-4 ">
+                <Image
+                  src={biker}
+                  alt="Image 2"
+                  class="mx-auto object-contain rounded-lg  w-full  mb-4 md:ml-0 md:mr-auto"
                 />
                 <div>
                   <h2 class="text-xl font-bold mb-4">
-                    👩‍🍳 Професионален готвач и програмист 💻
+                    👩‍🍳 Готвачин и JS Ninja 🥷 💻
                   </h2>
                   <p class="mb-4">
                     Аз съм блогър, който споделя идеи за съхранение на продукти,
@@ -68,31 +103,6 @@ const AboutMePage = () => {
                     скандинавската митология.
                   </p>
                 </div>
-              </article>
-
-              <article class="w-full md:w-1/2 mt-8 md:mt-0 ">
-                <div>
-                  <h2 class="text-xl font-bold mb-4">
-                    Пристрастен към ученето
-                  </h2>
-                  <p class="mb-4">
-                    🚀 Като блогър, програмист и готвач съм ангажиран
-                    непрекъснато с това да се усъвършенствам и развивам. Следя
-                    последните технологии, както и последните тенденции в
-                    кулинарния свят.
-                  </p>
-                  <p>
-                    📈 Чрез участие в събития свързани с програмирането, както и
-                    кулинарни такива, общуване с колеги ентусиасти и изследване
-                    на нови гледни точки, гарантирам, че моето съдържание остава
-                    актуално и ценно.
-                  </p>
-                </div>
-                <img
-                  src={biker.src}
-                  alt="Image 2"
-                  class="mx-auto mt-4 md:ml-auto md:mr-0 w-full "
-                />
               </article>
             </section>
 
@@ -144,7 +154,7 @@ const AboutMePage = () => {
             </div>
           </div>
           <div className="mt-8 text-center">
-            <p className="text-lg text-gray-100">
+            <p className="text-lg text-gray-700">
               Интересувате се от уебсайт или помощ в дигиталното пространство ?
               Не се колебайте да се свържете с мен!
             </p>
