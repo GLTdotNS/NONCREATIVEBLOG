@@ -3,7 +3,8 @@ import { RiBook2Line, RiTeamLine } from "react-icons/ri";
 import Link from "next/link";
 import jojo from "../styles/jojo.png";
 import biker from "../styles/bikerchetojojo.jpg";
-import trick from "../styles/trick.jpg";
+import trick from "../styles/ne.gif";
+
 import Image from "next/image";
 import cover from "../styles/cover.png";
 const AboutMePage = () => {
@@ -28,29 +29,37 @@ const AboutMePage = () => {
       <div className="  max-w-6xl  mx-auto ">
         <div className="  h-full bg-opacity-50 mx-auto">
           <div className="text-left text-lg">
-            <header class=" border-b border-gray-200 py-4 text-center">
-              <div class="container mx-auto px-4">
-                <h1 class="text-3xl font-bold text-gray-700 mt-24">
+            <header class=" border-b border-gray-200 py-4 text-center ">
+              <div class="container mx-auto w-1/2 px-2 bg-zinc-300 rounded-full">
+                <h1 class="text-3xl font-bold text-gray-700 mt-24 p-2">
                   Георги Тонков
                 </h1>
-                <p class="text-gray-600"> 👩‍🍳 Готвачин и JS Ninja 🥷 💻</p>
+                <p class="text-gray-600 p-2"> 👩‍🍳 Готвачин и JS Ninja 🥷 💻</p>
               </div>
             </header>
-            <article class="w-full p-8 bg-zinc-300 rounded-lg lg:rounded-full">
+            <article class="w-full p-8 bg-zinc-300 rounded-lg lg:rounded-3xl">
               <div>
                 <p class="mb-4">
                   Аз съм блогър, който споделя идеи за съхранение на продукти,
                   рецепти, интересни места, както и споделям своите лични
-                  интереси и истории. Имам страст към средиземноморската кухня и
-                  скандинавската митология. 🍝🌿. Когато не готвя, а това е
-                  доста често 🤭, ще ме откриете да програмирам и да изследвам
-                  части от скандинавската митология, да пиша статии или да
-                  превземам туристически пътеки с моето байкче 😜😎.
+                  интереси и истории. Имам страст към средиземноморската кухня,
+                  скандинавската митология, програмиране и планинско колоездене.
+                  Когато не готвя, а това е доста често 🤭, ще ме откриете да
+                  програмирам и да изследвам части от скандинавската митология,
+                  да пиша статии или да превземам туристически пътеки с моето
+                  байкче 😜😎. Обичам да чета философия, както и да гледам
+                  ужаси.
                 </p>
               </div>
             </article>
-            <section class=" mx-auto rounded-lg px-4 py-8 flex flex-wrap items-center justify-between text-gray-700 bg-zinc-300 mt-8 mb-8">
-              <article class="w-full md:w-1/2 mt-8 md:mt-0 ">
+
+            <section class=" mx-auto rounded-lg px-4 py-8 flex flex-wrap items-center justify-center text-gray-700 bg-zinc-300 mt-8 mb-8">
+              <article class="w-full md:w-1/2 p-2 ">
+                <Image
+                  src={jojo}
+                  alt="Image 1"
+                  class="mx-auto object-cover w-full lg:w-5/6 rounded-3xl   mb-4 md:ml-0 md:mr-auto"
+                />
                 <div>
                   <h2 class="text-xl font-bold mb-4">
                     Пристрастен към ученето (Just f*ckin Nerd)
@@ -69,41 +78,44 @@ const AboutMePage = () => {
                       <br />
                       Every bug I debug, it gives me a buzz
                     </blockquote>
-                    <div class="absolute top-6 left-6 transform -translate-x-2/3 -translate-y-1/2 text-3xl text-gray-400">
+                    <div class="absolute top-6 left-4 transform -translate-x-2/3 -translate-y-1/2 text-3xl text-gray-400">
                       {"{"}
                     </div>
-                    <div class="absolute bottom-6 right-6 transform translate-x-2/3 translate-y-1/2 text-4xl text-gray-400">
+                    <div class="absolute bottom-8 right-6 transform translate-x-2/3 translate-y-1/2 text-4xl text-gray-400">
                       {"}"}
                     </div>
                   </div>
                 </div>
-                <Image
-                  src={jojo}
-                  alt="Image 1"
-                  class="mx-auto object-cover  rounded-3xl   mb-4 md:ml-0 md:mr-auto"
-                />
               </article>
-              <article class="w-full md:w-1/2 p-4 ">
+
+              <article class="w-full md:w-1/2 mt-8 md:mt-0 ">
+                <div>
+                  <h2 class="text-xl font-bold mb-4">Колоезденето</h2>
+
+                  <p class="mb-4">
+                    Не знам дали аз карам колелото или то мене 🙄, но когато
+                    скачам между корените на дърветата в планината, чувството е
+                    просто невероятно! Екстремното колоездене е част от моят
+                    живот , особено през уикендите. Дори и по време на работната
+                    седмица не се отказвам от адреналинови изживявания -
+                    камионите и кучетата ме карат да бъда постоянно нащрек 😇 🤗
+                    🤭. Само истински софийски байкър би ме разбрал 🫡🫡🫡. Сега
+                    понеже съм столичанин в повече, ама в друга европейска
+                    столица, та не ми се налага да бягам поне от кучета ❤️.
+                  </p>
+                </div>
                 <Image
                   src={biker}
                   alt="Image 2"
-                  class="mx-auto object-contain rounded-lg  w-full  mb-4 md:ml-0 md:mr-auto"
+                  class=" object-cover w-full lg:w-10/12  h-[500px]  w-full rounded-md  md:ml-0 "
                 />
-                <div>
-                  <h2 class="text-xl font-bold mb-4">
-                    👩‍🍳 Готвачин и JS Ninja 🥷 💻
-                  </h2>
-                  <p class="mb-4">
-                    Аз съм блогър, който споделя идеи за съхранение на продукти,
-                    рецепти, рецензии на заведения, както и споделям своите
-                    лични интереси и истории. През деня съм{" "}
-                    <b>професионален готвач</b> със страст към
-                    средиземноморската кухня 🍝🌿. Когато не съм в кухнята, ще
-                    ме откриете да програмирам и да изследвам части от
-                    скандинавската митология.
-                  </p>
-                </div>
               </article>
+              <div className="w-full ">
+                <p className="text-center mt-12 font-bold">
+                  Първият ми опит не бе толкова успешен, но продължавам напред.
+                </p>
+                <Image src={trick} alt="Image 1" class="  w-1/2 mx-auto  " />
+              </div>
             </section>
 
             <footer class="container rounded-t-lg mx-auto w-full lg:w-1/2 px-4 py-8 bg-gray-600 text-white">
