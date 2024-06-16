@@ -103,7 +103,7 @@ const Cats = ({ post, posts }) => {
         <h1 className="text-xl font-bold text-center py-4">{post.title}</h1>
         <a
           href="/"
-          className="flex items-center text-gray-100 px-2 border-[1px]  border-gray-700 rounded-full w-[100px] "
+          className="flex items-center text-gray-700 px-2 border-[1px]  border-gray-700 rounded-full w-[100px] "
         >
           <IoMdArrowRoundBack className="mr-4 " size={20} />
           Назад
@@ -132,7 +132,7 @@ const Cats = ({ post, posts }) => {
             </div>
           </div>
         </div>
-        <div className=" p-2">
+        <div className=" p-2 text-gray-700">
           {" "}
           <img
             className="mt-4 h-[300px] w-full object-cover "

@@ -50,8 +50,8 @@ const Navbar = () => {
           !isMenuOpen ? "top-0" : "0"
         }}  flex items-center justify-center w-full lg:w-5/6  z-50 ${
           scrolled && (pathname == "/" || pathname == "/")
-            ? " transition-color"
-            : ""
+            ? " transition-color text-gray-100"
+            : "text-white"
         }  mb-24  w-1/2 m-auto   ${scrolled ? "rounded-full " : "rounded-md"}`}
       >
         {" "}
@@ -64,14 +64,7 @@ const Navbar = () => {
           </a>
 
           <div className="hidden lg:flex    flex-grow items-center justify-start ">
-            <a
-              href="/"
-              className={`${
-                (pathname === "/" || pathname === "/profile") && !scrolled
-                  ? "text-white"
-                  : "text-pink-200"
-              } font-bold text-lg hover-1 mx-4 hover-1`}
-            >
+            <a href="/" className={` font-bold text-lg hover-1 mx-4 hover-1`}>
               <div className="flex items-center">
                 <FaHome className="mr-2" />
                 <span>Начало </span>
@@ -80,11 +73,7 @@ const Navbar = () => {
 
             <Link
               href={"/about"}
-              className={`${
-                (pathname === "/" || pathname === "/profile") && !scrolled
-                  ? "text-white"
-                  : "text-pink-200"
-              } font-bold text-lg hover-1 mx-4 hover-1`}
+              className={` font-bold text-lg hover-1 mx-4 hover-1`}
             >
               <div className="flex items-center">
                 <FaRegFaceSmileBeam className="mr-2" />
@@ -94,11 +83,7 @@ const Navbar = () => {
 
             <Link
               href={"/contact"}
-              className={`${
-                (pathname === "/" || pathname === "/profile") && !scrolled
-                  ? "text-white"
-                  : "text-pink-200"
-              } font-bold text-lg hover-1 mx-4 hover-1`}
+              className={` font-bold text-lg hover-1 mx-4 hover-1`}
             >
               <div className="flex items-center">
                 <FaMessage className="mr-2" />
@@ -107,9 +92,7 @@ const Navbar = () => {
             </Link>
             <div class="group relative">
               <button
-                className={`${
-                  pathname === "/" && !scrolled ? "text-white" : "text-pink-200"
-                } font-bold text-lg mx-4 hover-1 inline-flex  text-gray-800 mx-4 hover-1`}
+                className={` font-bold text-lg mx-4 hover-1 inline-flex  mx-4 hover-1`}
               >
                 Повече <RiArrowDropDownLine size={25} />
               </button>
@@ -155,7 +138,7 @@ const Navbar = () => {
               <div
                 className={`"border-gray-300  mr-2  ${
                   (pathname === "/" || pathname === "/profile") && !scrolled
-                    ? "text-white"
+                    ? "text-gray-700"
                     : "text-orange-300"
                 }  rounded-full absolute top-3 right-[10px] `}
               >

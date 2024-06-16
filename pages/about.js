@@ -4,9 +4,25 @@ import Link from "next/link";
 import jojo from "../styles/jojo.png";
 import biker from "../styles/bikerchetojojo.jpg";
 import trick from "../styles/trick.jpg";
+import cover from "../styles/cover.png";
 const AboutMePage = () => {
   return (
-    <div className="container mt-12  mx-auto shadow-2xl">
+    <div className="container mt-24 max-w-7xl  mx-auto shadow-md">
+      <div class="relative w-full max-w-6xl mx-auto mt-4">
+        <img
+          src={cover.src}
+          alt="Cover Photo"
+          class="w-full  object-cover rounded-lg"
+        />
+
+        <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
+          <img
+            src={jojo.src}
+            alt="Profile Photo"
+            class="w-40 h-40 object-cover rounded-full border-4 border-white bg-white shadow-lg"
+          />
+        </div>
+      </div>
       <div className="  h-full bg-opacity-50 mx-auto">
         <div className="text-left text-lg">
           <header class=" border-b border-gray-200 py-4 ">
@@ -18,11 +34,6 @@ const AboutMePage = () => {
             </div>
           </header>
           <article class="w-full p-2">
-            <img
-              src={trick.src}
-              alt="Image 1"
-              class="mx-auto w- h-[300px] mb-4 md:ml-0 md:mr-auto"
-            />
             <div>
               <p class="mb-4">
                 Аз съм блогър, който споделя идеи за съхранение на продукти,
@@ -34,7 +45,7 @@ const AboutMePage = () => {
               </p>
             </div>
           </article>
-          <section class="container mx-auto px-4 py-8 flex flex-wrap items-center justify-between text-gray-100">
+          <section class=" mx-auto px-4 py-8 flex flex-wrap items-center justify-between text-gray-100">
             <article class="w-full md:w-1/2 p-2">
               <img
                 src={jojo.src}

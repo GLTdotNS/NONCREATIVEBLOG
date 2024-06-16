@@ -17,7 +17,7 @@ export const serializers = {
         <div className={modalOpen ? "" : ""}>
           <figure>
             <img
-              className="relative"
+              className="relative w-full lg:w-1/2 mx-auto object-cover"
               style={{ cursor: "pointer" }}
               src={`https://cdn.sanity.io/images/y8gn2piz/production/${props.node.asset?._ref
                 .replace("image-", "")

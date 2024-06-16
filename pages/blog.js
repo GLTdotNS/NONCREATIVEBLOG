@@ -14,6 +14,8 @@ import { GiKnifeFork } from "react-icons/gi";
 import { MdOutlineFavorite } from "react-icons/md";
 import gif from "../styles/36ae.gif";
 import { CgCloseR } from "react-icons/cg";
+import { FaArrowRight } from "react-icons/fa";
+
 import {
   MdOutlineSentimentDissatisfied,
   MdOutlineSentimentVerySatisfied,
@@ -171,14 +173,14 @@ export function Blog({ posts, initialCategory, author }) {
             </li>
           </ul>
         </nav>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-12 border-t-[1px] border-gray-700 ">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-12 border-t-[1px] border-gray-100 ">
           {/* Left side column */}
           <div>
             <div className="hidden lg:block border-r-[1px] border-gray-700">
               <div className="p-4 ">
-                <div class="w-full  bg-gray-700 backdrop-blur-xl bg-opacity-30 p-2 shadow-lg rounded-lg overflow-hidden  mb-2">
+                <div class="w-full  bg-gray-100 backdrop-blur-xl bg-opacity-30 p-2 shadow-lg rounded-lg overflow-hidden  mb-2">
                   <div class="max-w-full   shadow-lg rounded-lg overflow-hidden p-2 ">
-                    <div class=" text-left sm:text-left text-gray-100">
+                    <div class=" text-left sm:text-left text-gray-700">
                       <Image src={gif} className="w-full h-full" />
 
                       <div class="">
@@ -190,7 +192,7 @@ export function Blog({ posts, initialCategory, author }) {
                           className="text-gray-100"
                           blocks={author?.bio}
                         />
-                        <p class="mt-2 mb-4 text-gray-100 p-  flex-row">
+                        <p class="mt-2 mb-4 text-gray-700  flex-row">
                           Моята мисия е най-вече да се забавлявам и споделям
                           свои лични истории, както и съвети в области, в които
                           имам компетентност (или пък не). Имам разнообразни
@@ -207,17 +209,17 @@ export function Blog({ posts, initialCategory, author }) {
                     </div>
                   </div>
                 </div>
-                <div className="mb-8 p-4 bg-gray-700 backdrop-blur-lg bg-opacity-40 w-full rounded-lg">
-                  <h2 className="text-xl text-gray-100 font-bold mb-4 flex items-center">
+                <div className="mb-8 p-4 bg-gray-100 backdrop-blur-lg bg-opacity-40 w-full rounded-lg">
+                  <h2 className="text-xl text-gray-700 font-bold mb-4 flex items-center">
                     <FaRegFolderOpen className="mr-2" /> Категории
                   </h2>
-                  <ul className="text-gray-200 text-lg">
+                  <ul className="text-gray-700 text-lg">
                     <li
                       className="mb-2"
                       onClick={() => handleCategoryChange("cooking")}
                     >
                       <span className=" hover:underline flex items-center">
-                        <GiKnifeFork className="mr-2 text-slate-300" />
+                        <GiKnifeFork className="mr-2 text-slate-700" />
                         Готварски рецепти
                       </span>
                     </li>
@@ -251,7 +253,7 @@ export function Blog({ posts, initialCategory, author }) {
                         Митология
                       </Link>
                     </li>
-                    <li className="mb-2 mt-12 bg-gray-600 rounded-md w-64 p-1">
+                    <li className="mb-2 mt-12 bg-yellow-300 rounded-md w-64 p-1">
                       <a
                         href="/"
                         className="hover:underline font-bold   flex items-center"
@@ -261,12 +263,12 @@ export function Blog({ posts, initialCategory, author }) {
                     </li>
                   </ul>
                 </div>
-                <div className="mb-8 p-4  bg-gray-700 backdrop-blur-xl bg-opacity-30 w-full rounded-lg">
-                  <h2 className="text-xl text-gray-100 font-bold mb-4 flex items-center">
-                    <GiSupersonicArrow className="mr-2 text-red-200" />{" "}
+                <div className="mb-8 p-4  bg-gray-100 backdrop-blur-xl bg-opacity-30 w-full rounded-lg">
+                  <h2 className="text-xl text-gray-700 font-bold mb-4 flex items-center">
+                    <GiSupersonicArrow className="mr-2 text-red-400" />{" "}
                     Най-четени
                   </h2>
-                  <ul className="text-gray-400">
+                  <ul className="text-gray-700">
                     {posts?.map((c, index) => (
                       <li key={index} className="mb-2">
                         <a
@@ -435,44 +437,165 @@ export function Blog({ posts, initialCategory, author }) {
             </div>
           </div> */}
 
-            <div className="grid grid-cols-1 mb-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+            <div className=" gap-4 grid grid-cols-1 flex items-center ">
               {posts?.map((c, index) => (
-                <a
-                  key={c.slug}
-                  className="relative group"
-                  href={`/post/${c.slug.current}`}
-                >
-                  <div className="post-card overflow-hidden rounded-lg h-full shadow-md bg-gray-700 backdrop-blur-xl bg-opacity-30 text-gray-300">
-                    <div className="w-full h-[300px] rounded-t-lg overflow-hidden">
+                <>
+                  {" "}
+                  <a
+                    key={c.slug}
+                    className="relative group"
+                    href={`/post/${c.slug.current}`}
+                  >
+                    <div className="relative h-[300px] w-full mx-auto bg-white shadow-md overflow-hidden rounded-lg">
                       <img
-                        className="object-cover w-full h-full"
+                        className="h-full w-full object-cover"
                         src={c.mainImage.asset.url}
                         alt={c.title}
                       />
-                    </div>
-
-                    <div className="post-details p-4">
-                      <h2 className="post-title text-md font-bold text-gray-100 mb-2">
-                        {c.title.length > 50
-                          ? c.title.slice(0, 40) + "..."
-                          : c.title}
-                      </h2>
-                      <p className="post-description text-gray-200  text-sm mb-4">
-                        {c.description.slice(0, 200)}...
-                      </p>
-                      <div className="flex items-center justify-between mt-4 ">
-                        <div className="flex items-center">
-                          <span className="post-duration border-pink-100 text-gray-100 px-2 py-2 text-sm mr-2 underline">
-                            {c.readingTime} за четене
-                          </span>
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                        <div className="text-white font-semibold text-lg">
+                          {c.title}
                         </div>
-                        <span className="read-more bg-yellow-300 text-gray-700  px-4 p-1 rounded-full transition-colors duration-300">
-                          Прочети
-                        </span>
+                        <button className="mt-2 absolute right-4 bottom-4 text-yellow-300 hover:scale-75 translate-x-6 skew-y-2 md:transform-none text-center px-4 py-2 rounded-lg flex items-center">
+                          Read More
+                          <FaArrowRight className="h-12 w-12 ml-2" />
+                        </button>
                       </div>
                     </div>
-                  </div>
-                </a>
+                  </a>{" "}
+                  <a
+                    key={c.slug}
+                    className="relative group"
+                    href={`/post/${c.slug.current}`}
+                  >
+                    <div className="relative w-full mx-auto bg-white shadow-md overflow-hidden rounded-lg">
+                      <img
+                        className="h-64 w-full object-cover"
+                        src={c.mainImage.asset.url}
+                        alt={c.title}
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                        <div className="text-white font-semibold text-lg">
+                          {c.title}
+                        </div>
+                        <button className="mt-2 absolute right-4 bottom-4 text-yellow-300 hover:scale-75 translate-x-6 skew-y-2 md:transform-none text-center px-4 py-2 rounded-lg flex items-center">
+                          Read More
+                          <FaArrowRight className="h-12 w-12 ml-2" />
+                        </button>
+                      </div>
+                    </div>
+                  </a>{" "}
+                  <a
+                    key={c.slug}
+                    className="relative group"
+                    href={`/post/${c.slug.current}`}
+                  >
+                    <div className="relative w-full mx-auto bg-white shadow-md overflow-hidden rounded-lg">
+                      <img
+                        className="h-64 w-full object-cover"
+                        src={c.mainImage.asset.url}
+                        alt={c.title}
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                        <div className="text-white font-semibold text-lg">
+                          {c.title}
+                        </div>
+                        <button className="mt-2 absolute right-4 bottom-4 text-yellow-300 hover:scale-75 translate-x-6 skew-y-2 md:transform-none text-center px-4 py-2 rounded-lg flex items-center">
+                          Read More
+                          <FaArrowRight className="h-12 w-12 ml-2" />
+                        </button>
+                      </div>
+                    </div>
+                  </a>{" "}
+                  <a
+                    key={c.slug}
+                    className="relative group"
+                    href={`/post/${c.slug.current}`}
+                  >
+                    <div className="relative w-full mx-auto bg-white shadow-md overflow-hidden rounded-lg">
+                      <img
+                        className="h-64 w-full object-cover"
+                        src={c.mainImage.asset.url}
+                        alt={c.title}
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                        <div className="text-white font-semibold text-lg">
+                          {c.title}
+                        </div>
+                        <button className="mt-2 absolute right-4 bottom-4 text-yellow-300 hover:scale-75 translate-x-6 skew-y-2 md:transform-none text-center px-4 py-2 rounded-lg flex items-center">
+                          Read More
+                          <FaArrowRight className="h-12 w-12 ml-2" />
+                        </button>
+                      </div>
+                    </div>
+                  </a>{" "}
+                  <a
+                    key={c.slug}
+                    className="relative group"
+                    href={`/post/${c.slug.current}`}
+                  >
+                    <div className="relative w-full mx-auto bg-white shadow-md overflow-hidden rounded-lg">
+                      <img
+                        className="h-64 w-full object-cover"
+                        src={c.mainImage.asset.url}
+                        alt={c.title}
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                        <div className="text-white font-semibold text-lg">
+                          {c.title}
+                        </div>
+                        <button className="mt-2 absolute right-4 bottom-4 text-yellow-300 hover:scale-75 translate-x-6 skew-y-2 md:transform-none text-center px-4 py-2 rounded-lg flex items-center">
+                          Read More
+                          <FaArrowRight className="h-12 w-12 ml-2" />
+                        </button>
+                      </div>
+                    </div>
+                  </a>{" "}
+                  <a
+                    key={c.slug}
+                    className="relative group"
+                    href={`/post/${c.slug.current}`}
+                  >
+                    <div className="relative w-full mx-auto bg-white shadow-md overflow-hidden rounded-lg">
+                      <img
+                        className="h-64 w-full object-cover"
+                        src={c.mainImage.asset.url}
+                        alt={c.title}
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                        <div className="text-white font-semibold text-lg">
+                          {c.title}
+                        </div>
+                        <button className="mt-2 absolute right-4 bottom-4 text-yellow-300 hover:scale-75 translate-x-6 skew-y-2 md:transform-none text-center px-4 py-2 rounded-lg flex items-center">
+                          Read More
+                          <FaArrowRight className="h-12 w-12 ml-2" />
+                        </button>
+                      </div>
+                    </div>
+                  </a>{" "}
+                  <a
+                    key={c.slug}
+                    className="relative group"
+                    href={`/post/${c.slug.current}`}
+                  >
+                    <div className="relative w-full mx-auto bg-white shadow-md overflow-hidden rounded-lg">
+                      <img
+                        className="h-64 w-full object-cover"
+                        src={c.mainImage.asset.url}
+                        alt={c.title}
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                        <div className="text-white font-semibold text-lg">
+                          {c.title}
+                        </div>
+                        <button className="mt-2 absolute right-4 bottom-4 text-yellow-300 hover:scale-75 translate-x-6 skew-y-2 md:transform-none text-center px-4 py-2 rounded-lg flex items-center">
+                          Read More
+                          <FaArrowRight className="h-12 w-12 ml-2" />
+                        </button>
+                      </div>
+                    </div>
+                  </a>
+                </>
               ))}
             </div>
             <div> </div>
