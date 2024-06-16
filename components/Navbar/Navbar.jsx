@@ -153,7 +153,7 @@ const Navbar = () => {
           </div>
 
           <div className="hidden lg:flex   mr-12">
-            <a href="/soon">
+            <a href="https://buymeacoffee.com/tonkoff">
               <button
                 className={`${
                   scrolled ? " bg-[#FFDD00] text-gray-900" : " text-gray-700"
@@ -264,7 +264,7 @@ const Navbar = () => {
                 </div>
               </div>
               <div className="flex justify-center  bottom-[20px] w-full">
-                <Link href={"/soon"}>
+                <Link href={"https://buymeacoffee.com/tonkoff"}>
                   <button
                     className={` font-bold border-2 border-[#FFDD00] bg-yellow-300 text-gray-700 mx-4 mt-4
                     

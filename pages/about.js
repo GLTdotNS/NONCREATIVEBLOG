@@ -4,6 +4,7 @@ import Link from "next/link";
 import jojo from "../styles/jojo.png";
 import biker from "../styles/bikerchetojojo.jpg";
 import trick from "../styles/ne.gif";
+import { SiBuymeacoffee } from "react-icons/si";
 
 import Image from "next/image";
 import cover from "../styles/cover.png";
@@ -11,7 +12,7 @@ const AboutMePage = () => {
   return (
     <>
       {" "}
-      <div class="relative w-full lg:w-10/12 mx-auto mt-4">
+      <div class="relative w-full lg:w-10/12 mx-auto mt-4 ">
         <Image
           src={cover}
           alt="Cover Photo"
@@ -30,14 +31,14 @@ const AboutMePage = () => {
         <div className="  h-full bg-opacity-50 mx-auto">
           <div className="text-left text-lg">
             <header class=" border-b border-gray-200 py-4 text-center ">
-              <div class="container mx-auto w-1/2 px-2 bg-zinc-300 rounded-full">
+              <div class="container mx-auto w-1/2 px-2 bg-zinc-300 rounded-md">
                 <h1 class="text-3xl font-bold text-gray-700 mt-24 p-2">
                   Георги Тонков
                 </h1>
                 <p class="text-gray-600 p-2"> 👩‍🍳 Готвачин и JS Ninja 🥷 💻</p>
               </div>
             </header>
-            <article class="w-full p-8 bg-zinc-300 rounded-lg lg:rounded-3xl">
+            <article class="w-full p-8 bg-zinc-300 rounded-lg lg:rounded-full proxima">
               <div>
                 <p class="mb-4">
                   Аз съм блогър, който споделя идеи за съхранение на продукти,
@@ -142,41 +143,37 @@ const AboutMePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-3/4 m-auto">
             <div className="p-6 bg-pink-100 rounded-lg">
               <div className="flex items-center mb-4">
-                <FaBlogger className="text-pink-600 text-4xl mr-4" />
-                <h2 className="text-lg font-bold text-pink-600">Blogger</h2>
+                <FaBlogger className="text-gray-600 text-4xl mr-4" />
+                <h2 className="text-lg font-bold text-gray-600">Blogger</h2>
               </div>
               <p className="text-gray-700">
-                Като блогър обичам да споделям своите мисли, преживявания и
-                експертиза по различни теми. Следвайте ме за задълбочени статии
-                и увлекателно съдържание.
+                Винаги се радвам да обсъждам актуални теми, да споделям лични
+                наблюдения и да предоставям полезни съвети въз основа на моите
+                интереси и експертиза.
               </p>
             </div>
             <div className="p-6 bg-pink-100 rounded-lg">
               <div className="flex items-center mb-4">
-                <FaCode className="text-pink-600 text-4xl mr-4" />
-                <h2 className="text-lg font-bold text-pink-600">
-                  Web Developer
-                </h2>
+                <FaCode className="text-gray-600 text-4xl mr-4" />
+                <h2 className="text-lg font-bold text-gray-600">Web Dev</h2>
               </div>
               <p className="text-gray-700">
-                С умение за програмиране и дизайн, аз съм специализиран в
-                разработването на отзивчиви и удобни за потребителя уебсайтове.
-                Нека превърнем вашите идеи в реалност!
+                Отдаден и страстен front-end разработчик, който се стреми да
+                създава иновативни уеб приложения. Аз съм самоук програмист с
+                опит с Javascript (включително NextJS и React) и Python. Имам
+                познания и по компютътни мрежи, както и работа с Linux.
               </p>
             </div>
           </div>
           <div className="mt-8 text-center">
-            <p className="text-lg text-gray-700">
-              Интересувате се от уебсайт или помощ в дигиталното пространство ?
-              Не се колебайте да се свържете с мен!
-            </p>
+            <p className="text-lg text-gray-700">Можете да ме подкрепите тук</p>
           </div>
           <div className="flex justify-center space-x-4 ">
             <Link
-              className="bg-yellow-300 rounded-full  py-2 px-6  mt-12 w-64 text-center text-lg text-gray-700 transition duration-200 flex items-center"
-              href="/booking"
+              className="bg-yellow-300 rounded-full  py-2 px-6  mt-2  text-center text-lg text-gray-700 transition duration-200 flex items-center"
+              href="https://buymeacoffee.com/tonkoff"
             >
-              <RiBook2Line className="mr-2" /> Поръчай демо
+              <SiBuymeacoffee className="mr-2" /> Buy me a coffee
             </Link>
           </div>
         </div>

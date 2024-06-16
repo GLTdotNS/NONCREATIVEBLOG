@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -10,6 +12,14 @@
   font-style: normal;
 }
 
+.proxima {
+  font-family: "Fjalla One", sans-serif;
+  font-weight: 400;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
 .loader {
   width: 50px;
   aspect-ratio: 1;

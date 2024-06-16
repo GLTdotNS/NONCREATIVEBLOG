@@ -8,6 +8,8 @@ import { FaHeart, FaShare } from "react-icons/fa";
 import { FacebookIcon, TwitterIcon, ViberIcon } from "react-share";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useRouter } from "next/router";
+import { SiBuymeacoffee } from "react-icons/si";
+
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -27,7 +29,7 @@ const Cats = ({ post, posts }) => {
     <div>
       <div
         key={post._id}
-        className="w-full   lg:w-10/12  mt-12 shadow-lg mx-auto text-gray-100 p-2 overflow-hidden"
+        className="w-full   lg:w-10/12  mt-12 shadow-lg mx-auto text-gray-700 p-2 overflow-hidden"
       >
         <div className="max-w-4xl mx-auto">
           {" "}
@@ -92,7 +94,7 @@ const Cats = ({ post, posts }) => {
                       d="m1 9 4-4-4-4"
                     />
                   </svg>
-                  <span class="ms-1 text-sm font-medium text-pink-700 md:ms-2 ">
+                  <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 ">
                     {post.title.slice(0, 13)}...
                   </span>
                 </div>
@@ -109,7 +111,7 @@ const Cats = ({ post, posts }) => {
             <IoMdArrowRoundBack className="mr-4 " size={20} />
             Назад
           </a>
-          <div className=" items-center justify-center mb-4   border-b-[1px] border-gray-700 p-2 px-8 md:p-4 mt-12 ">
+          <div className=" items-center justify-center mb-4   border-b-[1px] border-gray-300 p-2 px-8 md:p-4 mt-12 ">
             <p className="mb-4">Published by</p>
 
             <div className="flex items-center ">
@@ -147,14 +149,33 @@ const Cats = ({ post, posts }) => {
             />
           </div>
         </div>
+        <div class="container mx-auto max-w-4xl border-t-2 border-gray-300 py-8">
+          <p class="text-gray-600 mb-4 md:mb-0 text-left">
+            Благодаря за четенето! Надява се тази статия да ви е била полезна и
+            интересна. Вашата подкрепа ми помага да продължа да предоставям
+            полезна информация и съвети за всички, които я търсят. Благодаря ви
+            подкрепата!
+          </p>
+          <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center mt-4">
+            <div class="flex space-x-4">
+              <button class="bg-yellow-300  text-gray-800 px-4 py-2 rounded-full flex items-center">
+                <SiBuymeacoffee />
+                Buy me a coffee
+              </button>
+              <button class="bg-green-500 hover:bg-green-600 text-white px-4  rounded-full">
+                Свържи се с мен
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <button
         onClick={openModal}
-        className="flex fixed bottom-0 left-0 right-0 w-64 bg-pink-100 mx-auto items-center justify-center  px-4 sm:px-6 rounded-t-full text-base sm:text-lg hover:bg-slate-100 transition duration-300"
+        className="flex fixed  bottom-1/2 left-[-40px] h-24 rotate-90   mx-auto items-center justify-center  px-4 sm:px-6  text-base sm:text-sm  transition duration-300"
       >
         <FaShare className="mr-1" />
-        SHARE
+        Сподели
       </button>
       {isOpen && (
         <div className=" fixed inset-0 bg-black bg-opacity-50  z-50 flex justify-center items-center">
