@@ -18,6 +18,8 @@ import {
 import Head from "next/head";
 const Cats = ({ post, posts }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [category, setCategory] = useState(post.categories);
+
   const openModal = () => {
     setIsOpen(true);
   };
@@ -40,6 +42,28 @@ const Cats = ({ post, posts }) => {
       "Декември",
     ],
   });
+
+  switch (category[0]) {
+    case "Georgis stories":
+      setCategory("Лични истории");
+
+      break;
+    case "bullshits":
+      setCategory("Разни теми");
+
+      break;
+    case "books&movies":
+      setCategory("Книжки и филми");
+      break;
+    case "cooking":
+      setCategory("Готварски рецепти");
+      break;
+    case null:
+      setCategory("Всички постове");
+      break;
+    default:
+      break;
+  }
   const router = useRouter();
   return (
     <div>
@@ -89,7 +113,7 @@ const Cats = ({ post, posts }) => {
                     />
                   </svg>
                   <span class="ms-1 text-sm font-medium text-gray-700 ">
-                    Статия
+                    {category}
                   </span>
                 </div>
               </li>
@@ -119,7 +143,7 @@ const Cats = ({ post, posts }) => {
           </nav>
           {/* Blog Title */}
           {/* Author Info */}
-          <h1 className="text-xl font-bold text-center py-4">{post.title}</h1>
+          <h1 className="text-xl font-bold text-center py-4 ">{post.title}</h1>
           <a
             href="/"
             className="flex items-center text-gray-700 px-2 border-[1px]  border-gray-700 rounded-full w-[100px] "
@@ -127,7 +151,7 @@ const Cats = ({ post, posts }) => {
             <IoMdArrowRoundBack className="mr-4 " size={20} />
             Назад
           </a>
-          <div className=" items-center justify-center mb-4   border-b-[1px] border-gray-300 p-2 px-8 md:p-4 mt-12 ">
+          <div className=" items-center justify-center mb-4 relative   border-b-[1px] border-gray-300 p-2 px-8 md:p-4 mt-12 ">
             <p className="mb-4">Публикувана от</p>
 
             <div className="flex items-center ">
@@ -152,6 +176,13 @@ const Cats = ({ post, posts }) => {
                 </div>
               </div>
             </div>
+            <button
+              onClick={openModal}
+              className="flex  w-full h-8 mx-auto items-center justify-end  px-4 sm:px-6  text-base sm:text-sm  transition duration-300"
+            >
+              <FaShare className="mr-1" />
+              Сподели
+            </button>
           </div>
           <div className=" p-4  text-gray-700">
             {" "}
@@ -193,16 +224,9 @@ const Cats = ({ post, posts }) => {
         </div>
       </div>
 
-      <button
-        onClick={openModal}
-        className="flex fixed  bottom-0 left-0 bg-zinc-300 w-full h-8 mx-auto items-center justify-center  px-4 sm:px-6  text-base sm:text-sm  transition duration-300"
-      >
-        <FaShare className="mr-1" />
-        Сподели
-      </button>
       {isOpen && (
-        <div className=" fixed inset-0 bg-black bg-opacity-50  z-50 flex justify-center items-center">
-          <div className="bg-white animate-slide-in  absolute bottom-0 z-100 p-6 rounded-t-xl w-[300px]  ">
+        <div className=" fixed inset-0 bg-black bg-opacity-10  z-50 flex justify-center items-center ">
+          <div className="bg-white slide-in-from-bot  absolute bottom-0 z-100 p-6 rounded-t-xl  ">
             <h2 className="text-lg text-center font-semibold mb-4">
               Сподели с приятели{" "}
             </h2>
@@ -257,6 +281,8 @@ author,
     },
   
   },
+      "categories":postCategory[]->title,
+
   "authorName": author->name,
   slug,
   mainImage{
@@ -276,7 +302,7 @@ author,
     publishedAt,
     slug,
     "name": author->name,
-    "categories": categories[]->title,
+    "categories": postCategory[]->title,
     "authorImage": author->image,
 
     mainImage{
@@ -303,10 +329,12 @@ export async function getStaticProps(context) {
     publishedAt,
     slug,
     description,
+        "categories": categories[]->title,
+
     author,
     "name": author->name,
         "authorImage": author->image,
-    "categories": categories[]->title,
+    "categories": postCategory[]->title,
 
 
     mainImage{
@@ -318,7 +346,6 @@ export async function getStaticProps(context) {
 }
   }`;
   const posts = await sanityClient.fetch(postsQuery);
-
   return {
     props: {
       post,
