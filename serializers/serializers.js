@@ -66,9 +66,9 @@ export const serializers = {
     },
 
     block: (props) => {
-      const { style = "normal" } = props.node;
+      const style = props.node.style;
 
-      if (/^h\d/.test(style)) {
+      if (/^h\d/.test(style == "normal")) {
         const level = style.replace(/[^\d]/g, "");
         return React.createElement(
           style,
@@ -76,7 +76,9 @@ export const serializers = {
           props.children
         );
       }
-
+      if (style === "h4") {
+        return <p className="bg-red-400">{props.children}</p>;
+      }
       if (style === "blockquote") {
         return <blockquote> {props.children}</blockquote>;
       }
@@ -86,7 +88,7 @@ export const serializers = {
   },
   list: (props) =>
     props.type === "bullet" ? (
-      <ul className="list-disc p-4 ml-4 mt-4 mb-4 ">{props.children}</ul>
+      <ul className="list-disc p-2 ml-2 mt-2 mb-2 ">{props.children}</ul>
     ) : (
       <ol>{props.children}</ol>
     ),
