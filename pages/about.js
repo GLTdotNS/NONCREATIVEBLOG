@@ -166,17 +166,17 @@ const AboutMePage = () => {
               </p>
             </footer>
 
-            <div className="bg-yellow-200 mb-8 w-1/2 m-auto  w-full lg:w-1/2  flex justify-center text-gray-700 py-2 px-6 rounded-b-lg hover:bg-yellow-600 transition duration-200 flex items-center">
+            <div className="bg-yellow-200 mb-8 w-1/2 m-auto  w-full lg:w-1/2  flex justify-center text-gray-700 py-2 px-6 rounded-b-lg hover:bg-yellow-400 transition duration-200 flex items-center">
               <Link
                 className=" py-2 px-6 rounded-lg transition duration-200 flex items-center ml-4"
-                href="/contact"
+                href="/contact/email"
               >
                 <FaEnvelope className="mr-2" /> Пиши ми
               </Link>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-3/4 m-auto">
-            <div className="p-6 bg-pink-100 rounded-lg">
+            <div className="p-6 bg-zinc-100 rounded-lg">
               <div className="flex items-center mb-4">
                 <FaBlogger className="text-gray-600 text-4xl mr-4" />
                 <h2 className="text-lg font-bold text-gray-600">Blogger</h2>
@@ -195,7 +195,7 @@ const AboutMePage = () => {
                 <SiBuymeacoffee className="mr-2" /> Buy me a coffee
               </a>
             </div>
-            <div className="p-6 bg-pink-100 rounded-lg">
+            <div className="p-6 bg-zinc-100 rounded-lg">
               <div className="flex items-center mb-4">
                 <FaCode className="text-gray-600 text-4xl mr-4" />
                 <h2 className="text-lg font-bold text-gray-600">Web Dev</h2>

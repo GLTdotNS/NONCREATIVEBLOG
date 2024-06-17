@@ -15,20 +15,20 @@ export const getServerSideProps = async (context) => {
   const sortBy = query.sortBy || "latest";
   let handleCategoryChange;
   if (category) {
-    handleCategoryChange = `&&  "${category}" in  postCategory[]->title`;
+    handleCategoryChange = `&& "${category}" in postCategory[]->title`;
   }
   const postQuery = `*[_type == "post" ${
     handleCategoryChange ? handleCategoryChange : ""
   } ]
-   {
+  {
     description,
     slug,
     title,
     duration,
     postCategory,
     body,
-     "name": author->name,
-        "authorImage": author->image,
+    "name": author->name,
+    "authorImage": author->image,
     publishedAt,
     model,
     mainImage {
@@ -72,6 +72,7 @@ export const getServerSideProps = async (context) => {
     }`
     )
     .catch(() => []);
+
   let [totalPosts, categories, authorExport] = await Promise.all([
     totalPostsPromise,
     categoriesPromise,
@@ -93,12 +94,10 @@ export const getServerSideProps = async (context) => {
     totalPosts.sort(
       (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
     );
-  }
-  if (sortBy === "readingTime") {
+  } else if (sortBy === "readingTime") {
     totalPosts.sort((a, b) => a.readingTime - b.readingTime);
-  }
-  if (sortBy === "longest") {
-    totalPosts.sort((a, b) => a.readingTime + b.readingTime);
+  } else if (sortBy === "longest") {
+    totalPosts.sort((a, b) => b.readingTime - a.readingTime);
   }
 
   const author = authorExport[0];

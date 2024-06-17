@@ -197,9 +197,7 @@ body {
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
 }
-.bg {
-  background-image: url("./bg.png");
-}
+
 .gradient-border::before {
   top: 0;
   left: 0;

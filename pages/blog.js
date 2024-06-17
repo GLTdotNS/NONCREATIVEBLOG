@@ -62,7 +62,7 @@ export function Blog({ posts, initialCategory, author }) {
       setCategory("Готварски рецепти");
       break;
     case null:
-      setCategory("Последно добавени");
+      setCategory("Всички постове");
       break;
     default:
       break;
@@ -417,14 +417,18 @@ export function Blog({ posts, initialCategory, author }) {
                         height={1000}
                         loading="lazy"
                       />
-                      <div className=" absolute top-0 left-0 text-slate-900 font-semibold rounded-br-full text-lg bg-gray-100  bg-opacity-50 p-4">
+                      <div className=" absolute top-0 left-0 text-slate-900 font-semibold rounded-br-full text-lg bg-gray-100  bg-opacity-100 p-4">
                         {c.title}
                       </div>
+
                       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t  from-gray-700  to-transparent p-4">
                         <button className="mt-2 absolute right-8 bottom-4 text-yellow-300 bg-gray-700 backdrop-blur-sm bg-opacity-30  translate-x-4  transition-transform transform hover:scale-100 md:transform-none text-center px-4 py-2 rounded-lg flex items-center">
                           Прочети
                           <FaArrowRight className="h-6 w-6 ml-2" />
                         </button>
+                      </div>
+                      <div className="absolute bottom-0 left-0 bg-gradient-to-t  bg-gray-700  text-white  px-2 proxima">
+                        {c.readingTime} минути за четене
                       </div>
                     </div>
                   </a>{" "}

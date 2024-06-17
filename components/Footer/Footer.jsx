@@ -1,9 +1,5 @@
 import React from "react";
-import { FiFacebook, FiTwitter, FiInstagram } from "react-icons/fi"; // Importing icons from react-icons library
-import Image from "next/image";
-import { FcReddit } from "react-icons/fc";
 
-import rta from "../../styles/rta.gif";
 const Footer = () => {
   return (
     <footer className="bg-zinc-400 bg-opacity-10 w-full mt-24 p-4 rounded-lg shadow-xl lg:w-5/6 mx-auto text-gray-700 py-8 ">

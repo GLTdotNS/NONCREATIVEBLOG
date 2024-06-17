@@ -13,26 +13,55 @@ export const serializers = {
 
     image: (props) => {
       const [modalOpen, setModalOpen] = useState(false);
-      return (
-        <div className={modalOpen ? "" : ""}>
-          <figure>
-            <img
-              className="relative w-full lg:w-1/2 mx-auto object-cover"
-              style={{ cursor: "pointer" }}
-              src={`https://cdn.sanity.io/images/y8gn2piz/production/${props.node.asset?._ref
-                .replace("image-", "")
-                .replace("-jpg", "")}.jpg`}
-            />
 
+      // Extract the image asset reference and derive the image URL
+      const assetRef = props.node.asset?._ref;
+      const baseUrl = "https://cdn.sanity.io/images/y8gn2piz/production/";
+      const imageId = assetRef
+        ? assetRef.replace("image-", "").replace(/-\w+$/, "")
+        : "";
+      const extension = assetRef ? assetRef.split("-").pop() : "jpg";
+      const imageUrl = `${baseUrl}${imageId}.${extension}`;
+      return (
+        <>
+          <figure onClick={() => setModalOpen(true)}>
+            <img
+              className="relative w-full lg:w-2/3 mx-auto object-cover"
+              style={{ cursor: "pointer" }}
+              src={imageUrl}
+              alt={props.node.alt || "Image"}
+            />
             {props.node.caption && !modalOpen ? (
-              <figcaption className="p-2 bg-orange-100 ">
+              <figcaption className="p-2 bg-orange-100">
                 {props.node.caption}
               </figcaption>
-            ) : (
-              ""
-            )}
+            ) : null}
           </figure>
-        </div>
+
+          {modalOpen && (
+            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50">
+              <div className="relative">
+                <button
+                  className="absolute top-0 right-0 m-4 text-black bg-gray-700 bg-opacity-50 p-2  text-3xl"
+                  onClick={() => setModalOpen(false)}
+                >
+                  &times;
+                </button>
+                <img
+                  className="max-w-full max-h-full"
+                  src={imageUrl}
+                  alt={props.node.alt || "Image"}
+                />
+              </div>
+              <button
+                onClick={() => setModalOpen(false)}
+                className="fixed top-4 left-4 text-white"
+              >
+                Затвори
+              </button>
+            </div>
+          )}
+        </>
       );
     },
 
