@@ -80,7 +80,7 @@ export function Blog({ posts, initialCategory, author }) {
         {" "}
         {/* Sub-navigation menu */}
         <nav className="sticky  top-[60px] lg:top-[80px] text-gray-700  mx-auto mb-12 z-10 flex justify-center mb-4   border-gray-700">
-          <ul className="flex  w-11/12 lg:w-5/6  flex-wrap justify-center space-x-4 px-2 p-2 bg-gray-700 backdrop-blur-xl bg-opacity-30 rounded-b-full ">
+          <ul className="flex  w-11/12 lg:w-5/6  flex-wrap justify-center space-x-4 px-2 p-2 bg-gray-700  bg-opacity-60 rounded-b-full ">
             <li className="relative group">
               <button className="button-with-icon border-[1px] bg-yellow-100 border-gray-400 rounded-md  flex items-center p-1 font-bold text-sm  text-gray-700 hover:text-gray-600 transition-colors duration-300">
                 <FaSortAmountDownAlt />
@@ -374,7 +374,7 @@ export function Blog({ posts, initialCategory, author }) {
           </div>
           {/* Right side column */}
           <div className="lg:col-span-2 p-4">
-            <h1 className="p-2 w-full mb-8  bg-gradient-to-r from-yellow-100 via-yellow-100 to-orange-200 backdrop-blur-4xl bg-opacity-0    rounded-md text-center font-bold text-xl text-gray-900 ">
+            <h1 className="p-2 w-full mb-8  bg-gradient-to-r from-yellow-100 via-yellow-100 to-orange-200     rounded-md text-center font-bold text-xl text-gray-900 ">
               {category}
             </h1>
             {/* <div class="w-full mb-4 flex justify-center items-center">
@@ -409,16 +409,19 @@ export function Blog({ posts, initialCategory, author }) {
                     href={`/post/${c.slug.current}`}
                   >
                     <div className="relative h-[300px] w-full mx-auto  shadow-md overflow-hidden rounded-lg ">
-                      <img
+                      <Image
                         className="h-full w-full object-cover transition-transform transform hover:scale-110"
                         src={c.mainImage.asset.url}
                         alt={c.title}
+                        width={1000}
+                        height={1000}
+                        loading="lazy"
                       />
-                      <div className=" absolute top-0 left-0 text-gray-700 font-semibold rounded-br-full text-lg bg-gray-400 backdrop-blur-sm bg-opacity-50 p-4">
+                      <div className=" absolute top-0 left-0 text-slate-900 font-semibold rounded-br-full text-lg bg-gray-100  bg-opacity-50 p-4">
                         {c.title}
                       </div>
                       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t  from-gray-700  to-transparent p-4">
-                        <button className="mt-2 absolute right-8 bottom-4 text-yellow-300 bg-gray-700 backdrop-blur-sm bg-opacity-30 hover:scale-75 translate-x-6 skew-y-2 transition-transform transform hover:scale-125 md:transform-none text-center px-4 py-2 rounded-lg flex items-center">
+                        <button className="mt-2 absolute right-8 bottom-4 text-yellow-300 bg-gray-700 backdrop-blur-sm bg-opacity-30  translate-x-4  transition-transform transform hover:scale-100 md:transform-none text-center px-4 py-2 rounded-lg flex items-center">
                           Прочети
                           <FaArrowRight className="h-6 w-6 ml-2" />
                         </button>

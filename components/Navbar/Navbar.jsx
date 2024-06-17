@@ -169,7 +169,7 @@ const Navbar = () => {
         </div>
         {isMenuOpen && (
           <div className=" modal ">
-            <div className=" slide-in-from-left    z-10 lg:hidden fixed shadow-4xl top-[40px] left-[14px] h-5/6 w-5/6 rounded-lg bg-gradient-to-b from-gray-900 via-gray-950 via-gray-950 to-orange-300 flex flex-col items-start justify-start ">
+            <div className=" slide-in-from-left   z-10 lg:hidden fixed shadow-4xl top-[40px] left-[14px]  w-5/6 rounded-lg bg-gradient-to-b from-gray-900 via-gray-950 via-gray-950 to-orange-300 flex flex-col items-start justify-start ">
               <div className="bg-gradient-to-r rounded-lg flex items-center p-4 justify-center  from-gray-700 via-gray-800 via-gray-900 to-gray-900 border-b-2 border-gray-700  w-full  ">
                 {" "}
                 <a href={"/"}>
