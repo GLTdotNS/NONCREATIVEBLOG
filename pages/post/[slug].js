@@ -4,16 +4,27 @@ import BlockContent from "@sanity/block-content-to-react";
 import Link from "next/link";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { serializers } from "../../serializers/serializers";
-import { FaHeart, FaShare } from "react-icons/fa";
-import { FacebookIcon, TwitterIcon, ViberIcon } from "react-share";
+import { FaHeart, FaShareAlt } from "react-icons/fa";
+import {
+  FacebookIcon,
+  TwitterIcon,
+  ViberIcon,
+  RedditIcon,
+  TelegramIcon,
+  LinkedinIcon,
+} from "react-share";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useRouter } from "next/router";
 import { SiBuymeacoffee } from "react-icons/si";
 import moment from "moment/moment";
+
 import {
   FacebookShareButton,
   TwitterShareButton,
   ViberShareButton,
+  RedditShareButton,
+  TelegramShareButton,
+  LinkedinShareButton,
 } from "react-share";
 import Head from "next/head";
 const Cats = ({ post, posts }) => {
@@ -141,16 +152,80 @@ const Cats = ({ post, posts }) => {
               </li>
             </ol>
           </nav>
-          {/* Blog Title */}
-          {/* Author Info */}
           <h1 className="text-xl font-bold text-center py-4 ">{post.title}</h1>
-          <a
-            href="/"
-            className="flex items-center text-gray-700 px-2 border-[1px]  border-gray-700 rounded-full w-[100px] "
-          >
-            <IoMdArrowRoundBack className="mr-4 " size={20} />
-            Назад
-          </a>
+          <div className="flex items-center justify-between">
+            {" "}
+            <a
+              href="/"
+              className="flex items-center text-gray-700 px-2 border-gray-700 rounded-full w-[100px] "
+            >
+              <IoMdArrowRoundBack className="mr-4 " size={20} />
+              Назад
+            </a>
+            <div className="relative group ">
+              <button className="button-with-icon rounded-md font-bold text-sm flex items-center text-gray-700 hover:text-gray-600 transition-colors duration-300">
+                <FaShareAlt /> <span className="ml-2">Сподели</span>
+              </button>
+
+              <ul className=" absolute right-0  z-50 cursor-pointer rounded-lg bg-gray-200 shadow-2xl hidden group-hover:block">
+                <div className="    z-100 p-6 rounded-t-xl  ">
+                  <h2 className="text-lg text-center font-semibold mb-4">
+                    Сподели с приятели{" "}
+                  </h2>
+                  <div className="grid grid-cols-3  w-64 gap-4">
+                    <FacebookShareButton
+                      url={`https://georgitonkov.com/post/${post.slug.current}`}
+                      quote={`${post.title}`}
+                      hashtag={post.rowTitle}
+                    >
+                      <FacebookIcon size={50} color="blue" />
+                    </FacebookShareButton>
+
+                    <li>
+                      <LinkedinShareButton
+                        onShareWindowClose={() => window.close()}
+                        url={`https://georgitonkov.com/post/${post.slug.current}`}
+                      >
+                        <LinkedinIcon size={50} />
+                      </LinkedinShareButton>
+                    </li>
+                    <li>
+                      <RedditShareButton
+                        url={`https://georgitonkov.com/post/${post.slug.current}`}
+                        quote={`${post.title}`}
+                      >
+                        <RedditIcon size={50} />
+                      </RedditShareButton>
+                    </li>
+                    <li>
+                      <TwitterShareButton
+                        url={`https://georgitonkov.com/post/${post.slug.current}`}
+                      >
+                        <TwitterIcon size={50} color="blue" />
+                      </TwitterShareButton>
+                    </li>
+                    <li>
+                      <TelegramShareButton
+                        onShareWindowClose={() => window.close()}
+                        url={`https://georgitonkov.com/post/${post.slug.current}`}
+                      >
+                        <TelegramIcon size={50} />
+                      </TelegramShareButton>
+                    </li>
+                    <li>
+                      <ViberShareButton
+                        onShareWindowClose={() => window.close()}
+                        appId="585823522989597"
+                        url={`https://georgitonkov.com/post/${post.slug.current}`}
+                      >
+                        <ViberIcon size={50} />
+                      </ViberShareButton>
+                    </li>
+                  </div>
+                </div>
+              </ul>
+            </div>
+          </div>
           <div className=" items-center justify-center mb-4 relative   border-b-[1px] border-gray-300 p-2 px-8 md:p-4 mt-12 ">
             <p className="mb-4">Публикувана от</p>
 
@@ -176,13 +251,6 @@ const Cats = ({ post, posts }) => {
                 </div>
               </div>
             </div>
-            <button
-              onClick={openModal}
-              className="flex  w-full h-8 mx-auto items-center justify-end  px-4 sm:px-6  text-base sm:text-sm  transition duration-300"
-            >
-              <FaShare className="mr-1" />
-              Сподели
-            </button>
           </div>
           <div className=" p-4  text-gray-700">
             {" "}
@@ -223,48 +291,6 @@ const Cats = ({ post, posts }) => {
           </div>
         </div>
       </div>
-
-      {isOpen && (
-        <div className=" fixed inset-0 bg-black bg-opacity-10  z-50 flex justify-center items-center ">
-          <div className="bg-white slide-in-from-bot  absolute bottom-0 z-100 p-6 rounded-t-xl  ">
-            <h2 className="text-lg text-center font-semibold mb-4">
-              Сподели с приятели{" "}
-            </h2>
-            <div className="flex justify-center">
-              <FacebookShareButton
-                className="flex ml-2 items-center py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600"
-                url={`https://georgitonkov.com/post/${post.slug.current}`}
-                quote={`${post.title}`}
-                hashtag={post.rowTitle}
-              >
-                <FacebookIcon size={50} color="blue" />
-              </FacebookShareButton>
-
-              <TwitterShareButton
-                className="flex ml-2 items-center py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600"
-                url={`https://georgitonkov.com/post/${post.slug.current}`}
-              >
-                <TwitterIcon size={50} color="blue" />
-              </TwitterShareButton>
-
-              <ViberShareButton
-                onShareWindowClose={() => window.close()}
-                className="flex ml-2 items-center py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600"
-                appId="585823522989597"
-                url={`https://georgitonkov.com/post/${post.slug.current}`}
-              >
-                <ViberIcon size={50} />
-              </ViberShareButton>
-            </div>
-            <button
-              onClick={closeModal}
-              className="mt-8 text-lg bg-slate-200  border p-2 rounded-full justify-center w-full text-center text-gray-500 hover:text-gray-700 focus:outline-none"
-            >
-              Затвори
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
