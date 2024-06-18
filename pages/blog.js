@@ -87,8 +87,8 @@ export function Blog({ posts, initialCategory, author }) {
                 <span className="ml-2">Сортирай</span>
               </button>
 
-              <ul className="absolute left-[-35px] w-64 z-50 cursor-pointer rounded-lg bg-pink-50 shadow-2xl   hidden group-hover:block">
-                <li className="border-b-2 border-red-200 p-2 ">
+              <ul className="absolute left-[-35px] w-64 z-50 cursor-pointer rounded-lg bg-gray-200 shadow-2xl   hidden group-hover:block">
+                <li className="border-b-2 border-gray-100 ">
                   <a
                     onClick={() => handleSortChange("latest")}
                     className={`block flex items-center px-4 py-2 text-md text-gray-700 `}
@@ -97,10 +97,10 @@ export function Blog({ posts, initialCategory, author }) {
                     Последно добавени
                   </a>
                 </li>
-                <li className=" p-2 ">
+                <li>
                   <a
                     onClick={() => handleSortChange("readingTime")}
-                    className={`block flex items-center px-4 py-2 text-md  text-gray-700 }`}
+                    className={`block flex items-center px-4 border-b-2 border-gray-100 py-2 text-md  text-gray-700 }`}
                   >
                     <MdOutlineSentimentDissatisfied
                       size={20}
@@ -109,7 +109,7 @@ export function Blog({ posts, initialCategory, author }) {
                     Най-кратки
                   </a>
                 </li>
-                <li className=" p-2 ">
+                <li>
                   <a
                     onClick={() => handleSortChange("longest")}
                     className={`block flex items-center px-4 py-2 text-md  text-gray-700 }`}
@@ -235,9 +235,9 @@ export function Blog({ posts, initialCategory, author }) {
                       <li key={index} className="mb-2">
                         <a
                           href={`/post/${c.slug.current}`}
-                          className=" hover:underline flex items-center"
+                          className=" hover:underline text-blue-600 flex items-center"
                         >
-                          {c.title}
+                          <FaLink className="mr-2" /> {c.title}
                         </a>
                       </li>
                     ))}

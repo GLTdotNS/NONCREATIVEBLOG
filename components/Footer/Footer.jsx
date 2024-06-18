@@ -15,7 +15,7 @@ const Footer = () => {
         {/* Center: Links */}
         <nav className="w-full sm:w-auto mb-8 sm:mb-0 flex justify-center sm:justify-start">
           <a href="/cookies&privacy" className="text-gray-700 px-4 py-2">
-            Cookies & Privacy
+            Курабийки & Поверителност
           </a>
         </nav>
 
@@ -27,7 +27,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="bg-yellow-300 mt-4 text-gray-700 font-semibold py-2 px-6 rounded-full shadow-lg"
           >
-            Subscribe
+            Абонирай се
           </a>
         </div>
       </div>

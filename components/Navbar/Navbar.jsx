@@ -12,12 +12,11 @@ import { CgMoreVertical } from "react-icons/cg";
 
 import { FaRegFaceSmileBeam } from "react-icons/fa6";
 import { FaMessage } from "react-icons/fa6";
-import { CiCircleMore } from "react-icons/ci";
 
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../../styles/logo.png";
-
+import blog from "../../styles/blog.png";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -136,22 +135,6 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="block lg:hidden ">
-            <button className=" focus:outline-none" onClick={toggleMenu}>
-              <div
-                className={`"border-gray-300  mr-2  ${
-                  (pathname === "/" || pathname === "/profile") && !scrolled
-                    ? "text-gray-700"
-                    : "text-orange-300"
-                }  rounded-full absolute top-3 right-[10px] `}
-              >
-                <div className="ml-1 uppercase   flex items-center">
-                  <CgMenuGridO size={23} />
-                </div>
-              </div>
-            </button>
-          </div>
-
           <div className="hidden lg:flex   mr-12">
             <a href="https://buymeacoffee.com/tonkoff">
               <button
@@ -167,15 +150,27 @@ const Navbar = () => {
             </a>
           </div>
         </div>
+        <div className="block lg:hidden ">
+          <button className=" focus:outline-none" onClick={toggleMenu}>
+            <div
+              className={`"border-gray-300  mr-2 text-orange-300   p-1
+                absolute top-1 right-[0px] `}
+            >
+              <div className="ml-1 uppercase   flex items-center">
+                <CgMenuGridO size={30} />
+              </div>
+            </div>
+          </button>
+        </div>
         {isMenuOpen && (
           <div className=" modal ">
-            <div className=" slide-in-from-left   z-10 lg:hidden fixed shadow-4xl top-[40px] left-[14px]  w-5/6 rounded-lg bg-gradient-to-b from-gray-900 via-gray-950 via-gray-950 to-orange-300 flex flex-col items-start justify-start ">
+            <div className=" slide-in-from-left    z-10 lg:hidden fixed shadow-4xl top-[40px] left-[14px]  w-2/3 rounded-lg bg-gradient-to-b from-gray-900 via-gray-950 via-gray-950 to-orange-300 flex flex-col items-start justify-start ">
               <div className="bg-gradient-to-r rounded-lg flex items-center p-4 justify-center  from-gray-700 via-gray-800 via-gray-900 to-gray-900 border-b-2 border-gray-700  w-full  ">
                 {" "}
                 <a href={"/"}>
                   {" "}
                   <div className=" w-10/12 mx-auto ml-2  top-6  left-0">
-                    <Image src={logo} className="w-full h-full" />
+                    <Image src={blog} className="w-full h-full" />
                   </div>
                 </a>
                 <button
@@ -184,15 +179,15 @@ const Navbar = () => {
                 >
                   <div className=" uppercase  text-white font-bold rounded-full absolute top-[-15px] right-0  ">
                     <div className="ml-1 flex items-center">
-                      <FaWindowClose size={20} />
+                      <FaWindowClose size={30} />
                     </div>
                   </div>
                 </button>{" "}
               </div>
-              <div className=" items-center justify-center mt-4 p-4">
+              <div className="rubik-dirt-regular  items-center justify-center mt-4 p-4">
                 <a
                   href="/"
-                  className={`text-gray-100 block font-bold text-2xl mt-2 hover-1`}
+                  className={`text-gray-100 block  text-2xl mt-2 hover-1`}
                 >
                   <div className="flex items-center">
                     <FaHome className="mr-2" />
@@ -202,17 +197,17 @@ const Navbar = () => {
 
                 <Link
                   href={"/about"}
-                  className={`block text-gray-100  font-bold text-2xl mt-2 hover-1`}
+                  className={`block text-gray-100   text-2xl mt-2 hover-1`}
                 >
                   <div className="flex items-center">
                     <GiNinjaHead className="mr-2" />
-                    <span>Tonkoff G.</span>
+                    <span>За мен</span>
                   </div>
                 </Link>
 
                 <a
                   href="/contact/email"
-                  className={`text-gray-100 block font-bold text-2xl mt-2 hover-1`}
+                  className={`text-gray-100 block  text-2xl mt-2 hover-1`}
                   role="menuitem"
                 >
                   <div className="flex items-center">
@@ -222,7 +217,7 @@ const Navbar = () => {
                 </a>
                 <div class="group relative">
                   <button
-                    className={`text-gray-100  font-bold text-2xl mt-2 hover-1 flex items-center`}
+                    className={`text-gray-100   text-2xl mt-2 hover-1 flex items-center`}
                   >
                     <CgMoreVertical size={20} className="mr-2" />
                     Повече

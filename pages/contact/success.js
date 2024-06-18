@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import img from "../../styles/4N8.gif";
 import Image from "next/image";
+import { SiBuymeacoffee } from "react-icons/si";
 const Confetti = dynamic(() => import("react-confetti"), { ssr: false });
 
 const SuccessPage = () => {
@@ -46,7 +47,7 @@ const SuccessPage = () => {
   }, []); // Empty dependency array ensures this effect runs only once on mount
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-center">
+    <div className="flex flex-col items-center justify-center min-h-screen text-center shadow-lg w-full lg:w-10/12 mx-auto">
       <div className="h-64 ">
         <Image src={img} className="w-full h-full" />
       </div>
@@ -73,17 +74,9 @@ const SuccessPage = () => {
           href="https://www.buymeacoffee.com/yourusername"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-yellow-300 text-gray-700 px-6 py-2 rounded-lg hover:bg-blue-600 transition"
+          className="inline-block bg-yellow-300 text-gray-700 flex items-center px-6 py-2 rounded-lg transition"
         >
-          Buy Me a Coffee
-        </a>
-        <a
-          href="https://www.paypal.com/yourpaypal"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition"
-        >
-          PayPal
+          <SiBuymeacoffee className="mr-2" /> Buy me a coffee
         </a>
       </div>
       <a href="/" className="mt-4 px-2 bg-yellow-100 p-2 rounded-full">
