@@ -17,6 +17,7 @@ const CommentForm = ({ id }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    alert();
     try {
       await fetch("/api/comments", {
         method: "POST",
@@ -87,7 +88,6 @@ const CommentForm = ({ id }) => {
         <p>Моля изчкайте, коментарът се изпраща</p>
       ) : (
         <button
-          disabled={formData}
           type="submit"
           class="w-full bg-yellow-300 cursor-pointer text-gray-700 font-bold py-2 rounded-lg hover:bg-yellow-200 transition duration-300"
         >

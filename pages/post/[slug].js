@@ -243,9 +243,7 @@ const Cats = ({ post, posts }) => {
                     <FaRegCalendarCheck size={20} />
                   </span>
                   <span className="text-sm md:text-base text-gray-600 ">
-                    {moment(post._createdAt)
-                      .locale("fr")
-                      .format("MMMM Do YYYY, HH:mm ")}
+                    {moment(post.publishedAt).format("MMMM Do YYYY,  ")}
                   </span>
                 </div>
               </div>
