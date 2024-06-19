@@ -1,6 +1,9 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
-
+import React, { useContext } from "react";
+import MyContext from "../../Context/context";
 const CommentForm = ({ id }) => {
+  const { isOpenSection, setSisOpenSection } = useContext(MyContext);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -8,6 +11,7 @@ const CommentForm = ({ id }) => {
     id: "",
   });
   const [loading, setLoading] = useState();
+  const [sent, setSent] = useState();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,7 +21,6 @@ const CommentForm = ({ id }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    alert();
     try {
       await fetch("/api/comments", {
         method: "POST",
@@ -31,6 +34,7 @@ const CommentForm = ({ id }) => {
           comment: "",
           id: "",
         });
+        setSisOpenSection(false);
       });
     } catch (err) {}
   };

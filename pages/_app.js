@@ -7,6 +7,7 @@ import NProgress from "nprogress";
 import Loading from "../components/Loading/Loading";
 import Head from "next/head";
 import CookieBanner from "../components/Cookies/cookies";
+import MyContext, { MyContextProvider } from "../Context/context";
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
 
@@ -45,10 +46,13 @@ function MyApp({ Component, pageProps }) {
       {loading ? (
         <Loading />
       ) : (
-        <Layout>
-          <Component {...pageProps} />
-          <CookieBanner />
-        </Layout>
+        <MyContextProvider>
+          {" "}
+          <Layout>
+            <Component {...pageProps} />
+            <CookieBanner />
+          </Layout>
+        </MyContextProvider>
       )}
     </>
   );

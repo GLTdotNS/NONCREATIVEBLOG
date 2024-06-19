@@ -17,7 +17,8 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { useRouter } from "next/router";
 import { SiBuymeacoffee } from "react-icons/si";
 import moment from "moment/moment";
-
+import { useContext } from "react";
+import MyContext from "../../Context/context";
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -29,6 +30,8 @@ import {
 import Head from "next/head";
 import CommentForm from "../../components/Comment/Form";
 const Cats = ({ post, posts }) => {
+  const { isOpenSection, setSisOpenSection } = useContext(MyContext);
+
   const [isOpen, setIsOpen] = useState(false);
   const [category, setCategory] = useState(post.categories);
 
@@ -324,9 +327,9 @@ const Cats = ({ post, posts }) => {
               )}
             </div>
             <div className="flex justify-center mt-4">
-              {!isOpen ? (
+              {!isOpenSection ? (
                 <button
-                  onClick={openModal}
+                  onClick={() => setSisOpenSection(true)}
                   className="flex items-center text-gray-600 hover:text-gray-900"
                 >
                   <FaComment className="mr-1" /> Напиши коментар
@@ -338,13 +341,13 @@ const Cats = ({ post, posts }) => {
           </div>
         </div>
       </div>
-      {isOpen && (
+      {isOpenSection && (
         <div className="flex-row relative bgwhite  slide-in--bot ">
           {" "}
           <div className="slide-in-from-bot fixed bottom-0 bg-opacity-70 border-t-2 w-full bg-gray-400 p-4">
             {" "}
             <button
-              onClick={closeModal}
+              onClick={() => setSisOpenSection(false)}
               className="flex items-center  left-0   text-gray-900 font-bold w-full text-center hover:text-gray-900 p-2  "
             >
               Затвори
