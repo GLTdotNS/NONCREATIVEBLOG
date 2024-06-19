@@ -4,7 +4,7 @@ import BlockContent from "@sanity/block-content-to-react";
 import Link from "next/link";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { serializers } from "../../serializers/serializers";
-import { FaHeart, FaShareAlt } from "react-icons/fa";
+import { FaHeart, FaShareAlt, FaComment } from "react-icons/fa";
 import {
   FacebookIcon,
   TwitterIcon,
@@ -27,6 +27,7 @@ import {
   LinkedinShareButton,
 } from "react-share";
 import Head from "next/head";
+import CommentForm from "../../components/Comment/Form";
 const Cats = ({ post, posts }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [category, setCategory] = useState(post.categories);
@@ -57,7 +58,6 @@ const Cats = ({ post, posts }) => {
   switch (category[0]) {
     case "Georgis stories":
       setCategory("Лични истории");
-
       break;
     case "bullshits":
       setCategory("Разни теми");
@@ -174,7 +174,7 @@ const Cats = ({ post, posts }) => {
                   </h2>
                   <div className="grid grid-cols-3  w-64 gap-4">
                     <FacebookShareButton
-                      url={`https://georgitonkov.com/post/${post.slug.current}`}
+                      url={`https://noncreativeblog.net/post/${post.slug.current}`}
                       quote={`${post.title}`}
                       hashtag={post.rowTitle}
                     >
@@ -184,14 +184,14 @@ const Cats = ({ post, posts }) => {
                     <li>
                       <LinkedinShareButton
                         onShareWindowClose={() => window.close()}
-                        url={`https://georgitonkov.com/post/${post.slug.current}`}
+                        url={`https://noncreativeblog.net/post/${post.slug.current}`}
                       >
                         <LinkedinIcon size={50} />
                       </LinkedinShareButton>
                     </li>
                     <li>
                       <RedditShareButton
-                        url={`https://georgitonkov.com/post/${post.slug.current}`}
+                        url={`https://noncreativeblog.net/post/${post.slug.current}`}
                         quote={`${post.title}`}
                       >
                         <RedditIcon size={50} />
@@ -199,7 +199,7 @@ const Cats = ({ post, posts }) => {
                     </li>
                     <li>
                       <TwitterShareButton
-                        url={`https://georgitonkov.com/post/${post.slug.current}`}
+                        url={`https://noncreativeblog.com/post/${post.slug.current}`}
                       >
                         <TwitterIcon size={50} color="blue" />
                       </TwitterShareButton>
@@ -207,7 +207,7 @@ const Cats = ({ post, posts }) => {
                     <li>
                       <TelegramShareButton
                         onShareWindowClose={() => window.close()}
-                        url={`https://georgitonkov.com/post/${post.slug.current}`}
+                        url={`https://noncreativeblog.net/post/${post.slug.current}`}
                       >
                         <TelegramIcon size={50} />
                       </TelegramShareButton>
@@ -215,8 +215,7 @@ const Cats = ({ post, posts }) => {
                     <li>
                       <ViberShareButton
                         onShareWindowClose={() => window.close()}
-                        appId="585823522989597"
-                        url={`https://georgitonkov.com/post/${post.slug.current}`}
+                        url={`https://noncreativeblog.net/post/${post.slug.current}`}
                       >
                         <ViberIcon size={50} />
                       </ViberShareButton>
@@ -244,7 +243,7 @@ const Cats = ({ post, posts }) => {
                     <FaRegCalendarCheck size={20} />
                   </span>
                   <span className="text-sm md:text-base text-gray-600 ">
-                    {moment(post.publishedAt)
+                    {moment(post._createdAt)
                       .locale("fr")
                       .format("MMMM Do YYYY, HH:mm ")}
                   </span>
@@ -289,8 +288,73 @@ const Cats = ({ post, posts }) => {
               Свържи се с мен
             </a>
           </div>
+          <div className="w-full max-w-lg mt-12 mx-auto">
+            {" "}
+            {/* Centering with mx-auto */}
+            <h3 className="text-xl font-semibold mb-4 text-gray-700">
+              Коментари
+            </h3>
+            <div className="space-y-4">
+              {" "}
+              {/* Removed unnecessary mt */}
+              {post.comments.length > 0 ? (
+                post.comments.map((comment, index) => (
+                  <div
+                    key={index}
+                    className="bg-white p-4 rounded-lg shadow-sm border border-gray-300"
+                  >
+                    <div className="flex items-center mb-2 border-b-2 border-gray-100 p-2">
+                      {" "}
+                      {/* Flex layout for name and email */}
+                      <div className="h-8 w-8 flex items-center justify-center bg-gray-200 text-gray-700 font-semibold rounded-full text-lg mr-3">
+                        {comment.name.charAt(0).toUpperCase()}{" "}
+                        {/* Displaying first letter of name */}
+                      </div>
+                      <div className="">
+                        <span className="text-gray-900 font-semibold ">
+                          {comment.name}
+                        </span>
+                      </div>
+                    </div>
+                    <p className="text-gray-700">{comment.comment}</p>
+                  </div>
+                ))
+              ) : (
+                <div className="text-center text-gray-700">
+                  Все още няма коментари по темата
+                </div>
+              )}
+            </div>
+            <div className="flex justify-center mt-4">
+              {!isOpen ? (
+                <button
+                  onClick={openModal}
+                  className="flex items-center text-gray-600 hover:text-gray-900"
+                >
+                  <FaComment className="mr-1" /> Напиши коментар
+                </button>
+              ) : (
+                ""
+              )}
+            </div>
+          </div>
         </div>
       </div>
+      {isOpen && (
+        <div className="flex-row relative bgwhite  slide-in--bot ">
+          {" "}
+          <div className="slide-in-from-bot fixed bottom-0 bg-opacity-70 border-t-2 w-full bg-gray-400 p-4">
+            {" "}
+            <button
+              onClick={closeModal}
+              className="flex items-center  left-0   text-gray-900 font-bold w-full text-center hover:text-gray-900 p-2  "
+            >
+              Затвори
+            </button>{" "}
+            <CommentForm id={post._id} />
+          </div>
+        </div>
+      )}{" "}
     </div>
   );
 };
@@ -308,7 +372,15 @@ author,
   
   },
       "categories":postCategory[]->title,
+'comments': *[_type == "comment" && post._ref == ^._id && approved == true] | order(_createdAt desc){
+        _id, 
+        name, 
+        email, 
+        comment, 
+        _createdAt,
+                approved
 
+    },
   "authorName": author->name,
   slug,
   mainImage{
@@ -330,7 +402,15 @@ author,
     "name": author->name,
     "categories": postCategory[]->title,
     "authorImage": author->image,
-
+  'comments': *[_type == "comment" && post._ref == ^._id] && approved == nullse | order(_createdAt desc){
+        _id, 
+        name, 
+        email, 
+        comment, 
+        _createdAt,
+        approved
+    },
+  
     mainImage{
       asset->{
       _id,
@@ -367,6 +447,12 @@ export async function getStaticProps(context) {
       asset->{
       _id,
       url
+    },'comments': *[_type == "comment" && post._ref == ^._id && approved == true] | order(_createdAt desc){
+        _id, 
+        name, 
+        email, 
+        comment, 
+        _createdAt
     },
   
 }
