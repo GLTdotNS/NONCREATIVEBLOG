@@ -4,4 +4,4 @@ Allow: /*
 
 Disallow: /api/*
 
-Sitemap: https://www.redheadporn.net/sitemap.xml
+Sitemap: https://www.noncreativeblog.net/sitemap.xml

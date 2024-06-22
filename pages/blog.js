@@ -102,7 +102,6 @@ export function Blog({ posts, initialCategory, author }) {
         <meta property="og:locale" content="bg_BG" />
 
         <link rel="canonical" href="https://noncreativeblog.net/" />
-        <meta name="robots" content="index, follow" />
 
         <link rel="icon" href="/favicon.ico" />
       </Head>{" "}
