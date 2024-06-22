@@ -1,7 +1,7 @@
 import { client } from "../../library/sanityClient";
 
 export default async function createComment(req, res) {
-  const { id, name, email, comment } = JSON.parse(req.body);
+  const { id, name, email, comment, action } = JSON.parse(req.body);
 
   try {
     await client.create({
@@ -11,6 +11,7 @@ export default async function createComment(req, res) {
         _ref: id,
       },
       name,
+      action,
       email,
       comment,
     });

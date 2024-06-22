@@ -4,7 +4,14 @@ import BlockContent from "@sanity/block-content-to-react";
 import Link from "next/link";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { serializers } from "../../serializers/serializers";
-import { FaHeart, FaShareAlt, FaComment } from "react-icons/fa";
+import Image from "next/image";
+import {
+  FaHeart,
+  FaShareAlt,
+  FaComment,
+  FaThumbsUp,
+  FaThumbsDown,
+} from "react-icons/fa";
 import {
   FacebookIcon,
   TwitterIcon,
@@ -29,18 +36,67 @@ import {
 } from "react-share";
 import Head from "next/head";
 import CommentForm from "../../components/Comment/Form";
+import { comment } from "postcss";
 const Cats = ({ post, posts }) => {
   const { isOpenSection, setSisOpenSection } = useContext(MyContext);
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [comments, setComments] = useState(post.comments);
   const [category, setCategory] = useState(post.categories);
+  const [isVote, setVote] = useState();
 
-  const openModal = () => {
-    setIsOpen(true);
+  useEffect(() => {
+    setVote(localStorage.getItem("isVote"));
+  }, []);
+
+  const handleUpvote = async (commentId) => {
+    try {
+      const response = await fetch("/api/upvote", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: commentId, action: "upvote" }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to upvote comment");
+      }
+      const { comments } = await response.json();
+
+      setComments(comments);
+      localStorage.setItem("isVote", true);
+      setVote(true);
+    } catch (error) {
+      console.error("Error upvoting comment:", error);
+    }
   };
-  const closeModal = () => {
-    setIsOpen(false);
+
+  const handleDownvote = async (commentId) => {
+    try {
+      const response = await fetch("/api/upvote", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: commentId, action: "downvote" }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to upvote comment");
+      }
+
+      const { comments } = await response.json();
+      localStorage.setItem("isVote", false);
+      setVote(false);
+      setComments(comments);
+
+      // Update local storage if needed
+      // localStorage.setItem(`commentVotes_${comment.id}`, JSON.stringify({ upvotes: comment.upvotes, downvotes: comment.downvotes }));
+    } catch (error) {
+      console.error("Error upvoting comment:", error);
+    }
   };
+
   moment.locale("custom-locale", {
     months: [
       "Януари",
@@ -254,9 +310,14 @@ const Cats = ({ post, posts }) => {
           </div>
           <div className=" p-4  text-gray-700">
             {" "}
-            <img
+            <Image
               className="mt-4 h-[300px] w-full object-cover "
               src={post.mainImage.asset.url}
+              alt={post.title}
+              width={500}
+              height={500}
+              priority={true}
+              quality={75}
             />
             <BlockContent
               serializers={serializers}
@@ -289,55 +350,65 @@ const Cats = ({ post, posts }) => {
               Свържи се с мен
             </a>
           </div>
-          <div className="w-full max-w-lg mt-12 mx-auto">
-            {" "}
-            {/* Centering with mx-auto */}
+          <div className="w-full max-w-lg mt-12 mx-auto ">
             <h3 className="text-xl font-semibold mb-4 text-gray-700">
-              Коментари
+              Коментари {/* Comments */}
             </h3>
-            <div className="space-y-4">
-              {" "}
-              {/* Removed unnecessary mt */}
-              {post.comments.length > 0 ? (
-                post.comments.map((comment, index) => (
+            <div className="space-y-4 relative">
+              {comments?.length > 0 ? (
+                comments.map((comment) => (
                   <div
-                    key={index}
-                    className="bg-white p-4 rounded-lg shadow-sm border border-gray-300"
+                    key={comment.id}
+                    className="bg-white p-4 rounded-lg shadow-sm border border-gray-300 relative"
                   >
                     <div className="flex items-center mb-2 border-b-2 border-gray-100 p-2">
-                      {" "}
-                      {/* Flex layout for name and email */}
                       <div className="h-8 w-8 flex items-center justify-center bg-gray-200 text-gray-700 font-semibold rounded-full text-lg mr-3">
-                        {comment.name.charAt(0).toUpperCase()}{" "}
-                        {/* Displaying first letter of name */}
+                        {comment.name.charAt(0)}
                       </div>
-                      <div className="">
-                        <span className="text-gray-900 font-semibold ">
+
+                      <div className="flex">
+                        <span className="text-gray-900 font-semibold mr-2">
                           {comment.name}
+                        </span>
+                        |{" "}
+                        <span className="ml-2">
+                          {moment(comment._createdAt).fromNow()}
                         </span>
                       </div>
                     </div>
                     <p className="text-gray-700">{comment.comment}</p>
+                    {/* <div className="flex mt-4">
+                      Rating {Number(comment.upvotes)}
+                      {!isVote ? (
+                        <button
+                          onClick={() => handleUpvote(comment._id)}
+                          className="flex items-center text-gray-600 hover:text-gray-900 mr-2"
+                        >
+                          <FaThumbsUp className="mr-1" />
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => handleDownvote(comment._id)}
+                          className="flex items-center text-gray-600 hover:text-gray-900"
+                        >
+                          <FaThumbsDown className="mr-1" />{" "}
+                        </button>
+                      )}
+                    </div> */}
                   </div>
                 ))
               ) : (
                 <div className="text-center text-gray-700">
-                  Все още няма коментари по темата
+                  Все още няма коментари по темата {/* No comments yet */}
                 </div>
               )}
             </div>
-            <div className="flex justify-center mt-4">
-              {!isOpenSection ? (
-                <button
-                  onClick={() => setSisOpenSection(true)}
-                  className="flex items-center text-gray-600 hover:text-gray-900"
-                >
-                  <FaComment className="mr-1" /> Напиши коментар
-                </button>
-              ) : (
-                ""
-              )}
-            </div>
+            <span
+              onClick={() => setSisOpenSection(true)}
+              className="text-center w-full  flex items-center justify-center mt-12 cursor-pointer"
+            >
+              <FaComment className="mr-2" /> Напиши коментар
+            </span>
           </div>
         </div>
       </div>
@@ -379,6 +450,8 @@ author,
         email, 
         comment, 
         _createdAt,
+        downvotes,
+        upvotes,
                 approved
 
     },
@@ -408,6 +481,8 @@ author,
         name, 
         email, 
         comment, 
+        upvotes,
+        downvotes,
         _createdAt,
         approved
     },
@@ -453,8 +528,10 @@ export async function getStaticProps(context) {
         name, 
         email, 
         comment, 
-        _createdAt
-    },
+        _createdAt,
+        upvotes,
+        downvotes,
+     },
   
 }
   }`;
@@ -464,7 +541,6 @@ export async function getStaticProps(context) {
       post,
       posts,
     },
-    revalidate: 10,
   };
 }
 

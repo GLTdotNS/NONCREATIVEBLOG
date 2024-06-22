@@ -70,10 +70,12 @@ export function Blog({ posts, initialCategory, author }) {
   return (
     <div className="   mx-auto ">
       <div class="relative w-full absolute top-0 mx-auto mt-4 lg:mt-16">
-        <img
-          src={cover.src}
+        <Image
+          src={cover}
           alt="Cover Photo"
           class="w-full lg:w-10/12 h-auto  lg:h-[380px]  mx-auto   object-cover rounded-lg"
+          quality={75}
+          priority={true}
         />
       </div>
       <div className="container mx-auto">
@@ -413,9 +415,10 @@ export function Blog({ posts, initialCategory, author }) {
                         className="h-full w-full object-cover transition-transform transform hover:scale-110"
                         src={c.mainImage.asset.url}
                         alt={c.title}
-                        width={1000}
-                        height={1000}
-                        loading="lazy"
+                        width={500}
+                        height={500}
+                        priority={true}
+                        quality={75}
                       />
                       <div className=" absolute top-0 left-0 text-slate-900 font-semibold rounded-br-full text-lg bg-gray-100  bg-opacity-100 p-4">
                         {c.title}
