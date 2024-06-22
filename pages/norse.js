@@ -466,17 +466,17 @@ export const getServerSideProps = async (context) => {
   const sortBy = query.sortBy || "latest";
   let handleCategoryChange;
   if (category) {
-    handleCategoryChange = `&& "${category}" in categories[0]->title`;
+    handleCategoryChange = `&& "${category}" in categories[]->title`;
   }
   const postQuery = `*[_type == "post" ${
-    handleCategoryChange ? handleCategoryChange : "TheGods"
+    handleCategoryChange ? handleCategoryChange : ""
   } ]
   {
     description,
     slug,
     title,
     duration,
-    categories,    
+    "category": categories[0]->title,
     body,
     "name": author->name,
     "authorImage": author->image,
@@ -550,7 +550,7 @@ export const getServerSideProps = async (context) => {
   } else if (sortBy === "longest") {
     totalPosts.sort((a, b) => b.readingTime - a.readingTime);
   }
-
+  console.log(category);
   const author = authorExport[2];
   return {
     props: {
