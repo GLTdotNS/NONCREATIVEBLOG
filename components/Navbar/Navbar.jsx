@@ -60,7 +60,7 @@ const Navbar = () => {
           <a href={"/"}>
             {" "}
             <div className=" absolute top-1 lg:hidden   left-2">
-              <Image src={logo} className="w-2/3 h-auto" />
+              <Image src={logo} alt="Georgi Tonkov" className="w-2/3 h-auto" />
             </div>
           </a>
 
@@ -136,22 +136,27 @@ const Navbar = () => {
           </div>
 
           <div className="hidden lg:flex   mr-12">
-            <a href="https://buymeacoffee.com/tonkoff">
-              <button
-                className={`${
-                  scrolled ? " bg-[#FFDD00] text-gray-900" : " text-gray-700"
-                } font-bold hover:bg-yellow-200 ${
-                  scrolled ? 500 : 400
-                } transition mt-1 border-2 border-[#FFDD00] bg-yellow-300 p-2 rounded-full text-sm font-bold slide-in-from-top  flex items-center`}
-              >
-                <SiBuymeacoffee className="mr-2" />
-                Buy me a coffee
-              </button>
+            <a
+              href="https://buymeacoffee.com/tonkoff"
+              className={`${
+                scrolled ? " bg-[#FFDD00] text-gray-900" : " text-gray-700"
+              } font-bold hover:bg-yellow-200 ${
+                scrolled ? 500 : 400
+              } transition mt-1 border-2 border-[#FFDD00] bg-yellow-300 p-2 rounded-full text-sm font-bold slide-in-from-top  flex items-center`}
+            >
+              <SiBuymeacoffee className="mr-2" />
+              Buy me a coffee
             </a>
           </div>
         </div>
         <div className="block lg:hidden ">
-          <button className=" focus:outline-none" onClick={toggleMenu}>
+          <button
+            title="menu"
+            id="menu"
+            name="Menu"
+            aria-label="Menu"
+            onClick={toggleMenu}
+          >
             <div
               className={`"border-gray-300  mr-2 text-orange-300   p-1
                 absolute top-1 right-[0px] `}
@@ -170,7 +175,11 @@ const Navbar = () => {
                 <a href={"/"}>
                   {" "}
                   <div className=" w-10/12 mx-auto ml-2  top-6  left-0">
-                    <Image src={blog} className="w-full h-full" />
+                    <Image
+                      src={blog}
+                      alt="Georgi Tonkov"
+                      className="w-full h-full"
+                    />
                   </div>
                 </a>
                 <button
