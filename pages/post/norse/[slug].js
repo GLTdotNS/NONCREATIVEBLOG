@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { client as sanityClient, urlForImg } from "../../library/sanityClient";
+import {
+  client as sanityClient,
+  urlForImg,
+} from "../../../library/mythologyClient";
 import BlockContent from "@sanity/block-content-to-react";
 import Link from "next/link";
 import { FaRegCalendarCheck } from "react-icons/fa";
-import { serializers } from "../../serializers/serializers";
+import { serializers } from "../../../serializers/serializers";
 import Image from "next/image";
 import {
   FaHeart,
@@ -25,7 +28,7 @@ import { useRouter } from "next/router";
 import { SiBuymeacoffee } from "react-icons/si";
 import moment from "moment/moment";
 import { useContext } from "react";
-import MyContext from "../../Context/context";
+import MyContext from "../../../Context/context";
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -35,67 +38,13 @@ import {
   LinkedinShareButton,
 } from "react-share";
 import Head from "next/head";
-import CommentForm from "../../components/Comment/Form";
+import CommentForm from "../../../components/Comment/Form";
 import { comment } from "postcss";
 const Cats = ({ post, posts }) => {
   const { isOpenSection, setSisOpenSection } = useContext(MyContext);
 
   const [comments, setComments] = useState(post.comments);
   const [category, setCategory] = useState(post.categories);
-  const [isVote, setVote] = useState();
-
-  useEffect(() => {
-    setVote(localStorage.getItem("isVote"));
-  }, []);
-
-  const handleUpvote = async (commentId) => {
-    try {
-      const response = await fetch("/api/upvote", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ id: commentId, action: "upvote" }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to upvote comment");
-      }
-      const { comments } = await response.json();
-
-      setComments(comments);
-      localStorage.setItem("isVote", true);
-      setVote(true);
-    } catch (error) {
-      console.error("Error upvoting comment:", error);
-    }
-  };
-
-  const handleDownvote = async (commentId) => {
-    try {
-      const response = await fetch("/api/upvote", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ id: commentId, action: "downvote" }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to upvote comment");
-      }
-
-      const { comments } = await response.json();
-      localStorage.setItem("isVote", false);
-      setVote(false);
-      setComments(comments);
-
-      // Update local storage if needed
-      // localStorage.setItem(`commentVotes_${comment.id}`, JSON.stringify({ upvotes: comment.upvotes, downvotes: comment.downvotes }));
-    } catch (error) {
-      console.error("Error upvoting comment:", error);
-    }
-  };
 
   moment.locale("custom-locale", {
     months: [
@@ -114,27 +63,6 @@ const Cats = ({ post, posts }) => {
     ],
   });
 
-  switch (category[0]) {
-    case "Georgis stories":
-      setCategory("Лични истории");
-      break;
-    case "bullshits":
-      setCategory("Разни теми");
-
-      break;
-    case "books&movies":
-      setCategory("Книжки и филми");
-      break;
-    case "cooking":
-      setCategory("Готварски рецепти");
-      break;
-    case null:
-      setCategory("Всички постове");
-      break;
-    default:
-      break;
-  }
-  const router = useRouter();
   return (
     <div>
       <div
@@ -150,7 +78,7 @@ const Cats = ({ post, posts }) => {
             <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
               <li class="inline-flex items-center">
                 <a
-                  href="/"
+                  href="/norse"
                   class="inline-flex items-center text-xs font-medium text-gray-700 "
                 >
                   <svg
@@ -183,7 +111,7 @@ const Cats = ({ post, posts }) => {
                     />
                   </svg>
                   <span class="ms-1 text-sm font-medium text-gray-700 ">
-                    {category}
+                    {post.categories}
                   </span>
                 </div>
               </li>
@@ -215,7 +143,7 @@ const Cats = ({ post, posts }) => {
           <div className="flex items-center justify-between">
             {" "}
             <a
-              href="/"
+              href="/norse"
               className="flex items-center text-gray-700 px-2 border-gray-700 rounded-full w-[100px] "
             >
               <IoMdArrowRoundBack className="mr-4 " size={20} />
@@ -288,10 +216,12 @@ const Cats = ({ post, posts }) => {
             <p className="mb-4">Публикувана от</p>
 
             <div className="flex items-center ">
-              <img
+              <Image
                 src={post.authorImage.asset.url}
                 alt="Author Avatar"
-                className="w-12 h-12 md:w-16 md:h-16 rounded-full mr-3 md:mr-4"
+                width={500}
+                height={500}
+                className="w-12 h-12 md:w-16 md:h-16  rounded-full mr-3 md:mr-4"
               />
               <div>
                 <p className="font-semibold text-base md:text-lg">
@@ -311,7 +241,7 @@ const Cats = ({ post, posts }) => {
           <div className=" p-4  text-gray-700">
             {" "}
             <Image
-              className="mt-4 h-[300px] w-full object-cover "
+              className="mt-4 h-[300px] w-full object-cover items-center "
               src={post.mainImage.asset.url}
               alt={post.title}
               width={500}
@@ -322,7 +252,7 @@ const Cats = ({ post, posts }) => {
             <BlockContent
               serializers={serializers}
               blocks={post.body}
-              projectId="gay8otka"
+              projectId="6kqgsbl2"
               dataset="production"
             />
           </div>
@@ -443,7 +373,7 @@ author,
     },
   
   },
-      "categories":postCategory[]->title,
+  "categories": categories[]->title,
 'comments': *[_type == "comment" && post._ref == ^._id && approved == true] | order(_createdAt desc){
         _id, 
         name, 
@@ -536,6 +466,7 @@ export async function getStaticProps(context) {
 }
   }`;
   const posts = await sanityClient.fetch(postsQuery);
+  console.log(post);
   return {
     props: {
       post,

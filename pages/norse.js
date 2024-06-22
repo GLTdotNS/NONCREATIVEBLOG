@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { FaLink, FaRegFolderOpen, FaStar, FaReddit } from "react-icons/fa";
-import cover from "../styles/cover.png";
+import cover from "../styles/viking.png";
 import { FaSortAmountDownAlt } from "react-icons/fa";
 import { FaHotjar } from "react-icons/fa";
 import { GiSupersonicArrow } from "react-icons/gi";
@@ -36,7 +36,7 @@ export function Blog({ posts, initialCategory, author }) {
   const handleCategoryChange = (newCategory) => {
     setCategory(newCategory);
     router.push({
-      pathname: "/", // Assuming the pathname is '/posts'
+      pathname: router.pathname,
       query: { ...router.query, category: newCategory }, // Add the new category to the query
     });
   };
@@ -71,11 +71,11 @@ export function Blog({ posts, initialCategory, author }) {
     <>
       {" "}
       <div className="   mx-auto ">
-        <div class="relative w-full absolute top-0 mx-auto mt-4 lg:mt-16">
+        <div class="relative w-full absolute top-0 mx-auto mt-4 lg:mt-16 ">
           <Image
             src={cover}
             alt="noncreativeblog"
-            class="w-full lg:w-10/12 h-auto  lg:h-[380px]  mx-auto   object-cover rounded-lg"
+            class="w-full lg:w-10/12 h-auto  lg:h-[380px]  mx-auto   object-cover rounded-b-lg "
             quality={75}
             priority={true}
           />
@@ -159,7 +159,7 @@ export function Blog({ posts, initialCategory, author }) {
                           </p>
 
                           <BlockContent
-                            className="text-gray-100"
+                            className="text-gray-700"
                             blocks={author?.bio}
                           />
                           <p class="mt-2 mb-4 text-gray-700  flex-row">
@@ -186,7 +186,7 @@ export function Blog({ posts, initialCategory, author }) {
                     <ul className="text-gray-700 text-lg">
                       <li
                         className="mb-2"
-                        onClick={() => handleCategoryChange("cooking")}
+                        onClick={() => handleCategoryChange("TheGods")}
                       >
                         <span className=" hover:underline flex items-center">
                           <GiKnifeFork className="mr-2 text-slate-700" />
@@ -225,7 +225,7 @@ export function Blog({ posts, initialCategory, author }) {
                       </li>
                       <li className="mb-2 mt-12 bg-yellow-300 rounded-md w-64 p-1">
                         <a
-                          href="/"
+                          href="/norse"
                           className="hover:underline font-bold   flex items-center"
                         >
                           <FcClearFilters className="mr-2" /> Изчисти филтрите
@@ -310,7 +310,7 @@ export function Blog({ posts, initialCategory, author }) {
                             </li>
                             <li className="  ">
                               <a
-                                href={"/norse"}
+                                href={"/"}
                                 class=" flex items-center     hover:underline rounded-lg   hover:text-pink-300 transition-colors duration-300"
                               >
                                 <GiVikingLonghouse className="mr-2 text-blue-600" />
@@ -319,7 +319,7 @@ export function Blog({ posts, initialCategory, author }) {
                             </li>
                             <li className="mb-2 mt-12  rounded-md bg-gray-400  text-center">
                               <a
-                                href="/"
+                                href="/norse"
                                 className="hover:underline font-bold flex items-center justify-center"
                               >
                                 <FcClearFilters className="mr-2" /> Изчисти
@@ -337,7 +337,7 @@ export function Blog({ posts, initialCategory, author }) {
                             {posts?.map((c, index) => (
                               <li key={index} className="mb-2">
                                 <a
-                                  href={`/post/asd/${c.slug.current}`}
+                                  href={`/post/${c.slug.current}`}
                                   className=" hover:underline text-blue-400 flex items-center"
                                 >
                                   <FaLink className="mr-2 text-sm" />{" "}
@@ -393,26 +393,26 @@ export function Blog({ posts, initialCategory, author }) {
                 {category}
               </h1>
               {/* <div class="w-full mb-4 flex justify-center items-center">
-            <div>
-              <h2 class="text-lg text-gray-100 font-semibold mb-2 text-center">
-                Search
-              </h2>
-              <div class="relative w-[350px] text-center">
-                <input
-                  value=""
-                  type="text"
-                  placeholder="Search..."
-                  class="w-full p-2 pr-10 border border-gray-300 bg-gray-100 rounded-md"
-                />
-                <button
-                  type="button"
-                  class="absolute inset-y-0 right-0 px-3 py-2 bg-pink-500 text-white rounded-md"
-                >
-                  Search
-                </button>
-              </div>
-            </div>
-          </div> */}
+                <div>
+                  <h2 class="text-lg text-gray-100 font-semibold mb-2 text-center">
+                    Search
+                  </h2>
+                  <div class="relative w-[350px] text-center">
+                    <input
+                      value=""
+                      type="text"
+                      placeholder="Search..."
+                      class="w-full p-2 pr-10 border border-gray-300 bg-gray-100 rounded-md"
+                    />
+                    <button
+                      type="button"
+                      class="absolute inset-y-0 right-0 px-3 py-2 bg-pink-500 text-white rounded-md"
+                    >
+                      Search
+                    </button>
+                  </div>
+                </div>
+              </div> */}
 
               <div className=" gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  flex items-center ">
                 {posts?.map((c, index) => (
@@ -421,7 +421,7 @@ export function Blog({ posts, initialCategory, author }) {
                     <a
                       key={c.slug}
                       className="relative group "
-                      href={`/post/tonkoff/${c.slug.current}`}
+                      href={`/post/norse/${c.slug.current}`}
                     >
                       <div className="relative h-[400px] w-full mx-auto  shadow-md overflow-hidden rounded-t-lg ">
                         <Image
@@ -459,5 +459,107 @@ export function Blog({ posts, initialCategory, author }) {
     </>
   );
 }
+import { client } from "../library/mythologyClient";
+export const getServerSideProps = async (context) => {
+  const { query } = context;
+  const category = query.category || null;
+  const sortBy = query.sortBy || "latest";
+  let handleCategoryChange;
+  if (category) {
+    handleCategoryChange = `&& "${category}" in categories[0]->title`;
+  }
+  const postQuery = `*[_type == "post" ${
+    handleCategoryChange ? handleCategoryChange : "TheGods"
+  } ]
+  {
+    description,
+    slug,
+    title,
+    duration,
+    categories,    
+    body,
+    "name": author->name,
+    "authorImage": author->image,
+    publishedAt,
+    model,
+    mainImage {
+      asset->{
+        _id,
+        url
+      }
+    }
+  }`;
+
+  const totalPostsPromise = client.fetch(postQuery).catch(() => []);
+  const categoriesPromise = client
+    .fetch(
+      `*[_type == "post-category"]{
+      title,
+      slug,
+      description,
+      _id,
+      image{
+        asset->{
+          _id,
+          url
+        }
+      }
+    }`
+    )
+    .catch(() => []);
+
+  const authorPromise = client
+    .fetch(
+      `*[_type == "author"]{
+      name,
+      slug,
+      bio,
+      image{
+        asset->{
+          _id,
+          url
+        }
+      }
+    }`
+    )
+    .catch(() => []);
+
+  let [totalPosts, categories, authorExport] = await Promise.all([
+    totalPostsPromise,
+    categoriesPromise,
+    authorPromise,
+  ]);
+
+  // Calculate reading time for each post
+  totalPosts.forEach((post) => {
+    // Assuming average reading speed of 200 words per minute
+    const wordsPerMinute = 200;
+    const words = post.description.split(/\s+/).length;
+    const readingTime = Math.ceil(words / wordsPerMinute);
+    post.readingTime = readingTime;
+  });
+
+  // Sort the posts based on the selected sorting option
+  if (sortBy === "latest") {
+    // Sort by publishedAt in descending order
+    totalPosts.sort(
+      (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
+    );
+  } else if (sortBy === "readingTime") {
+    totalPosts.sort((a, b) => a.readingTime - b.readingTime);
+  } else if (sortBy === "longest") {
+    totalPosts.sort((a, b) => b.readingTime - a.readingTime);
+  }
+  console.log(category);
+  const author = authorExport[2];
+  return {
+    props: {
+      posts: totalPosts,
+      initialCategory: category,
+      categories,
+      author,
+    },
+  };
+};
 
 export default Blog;
