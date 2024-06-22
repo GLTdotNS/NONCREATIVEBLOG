@@ -8,7 +8,6 @@ import Loading from "../components/Loading/Loading";
 import Head from "next/head";
 import CookieBanner from "../components/Cookies/cookies";
 import MyContext, { MyContextProvider } from "../Context/context";
-import Head from "next/head";
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
 
