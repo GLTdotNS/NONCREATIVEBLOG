@@ -550,7 +550,7 @@ export const getServerSideProps = async (context) => {
   } else if (sortBy === "longest") {
     totalPosts.sort((a, b) => b.readingTime - a.readingTime);
   }
-  console.log(category);
+
   const author = authorExport[2];
   return {
     props: {

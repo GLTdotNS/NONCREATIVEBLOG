@@ -5,12 +5,6 @@ import Image from "next/image";
 import { useState } from "react";
 export const serializers = {
   types: {
-    youtube: ({ node }) => {
-      const { url } = node;
-      const id = getYouTubeId(url);
-      return <YouTube videoId={id} />;
-    },
-
     image: (props) => {
       const [modalOpen, setModalOpen] = useState(false);
 
