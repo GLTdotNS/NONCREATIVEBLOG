@@ -8,6 +8,7 @@ import Loading from "../components/Loading/Loading";
 import Head from "next/head";
 import CookieBanner from "../components/Cookies/cookies";
 import MyContext, { MyContextProvider } from "../Context/context";
+import { Analytics } from "@vercel/analytics/react";
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
 
@@ -43,6 +44,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <Analytics />
       <Head>
         <title>
           Блог на Георги Тонков - Скандинавска кухня, лични истории и забавления

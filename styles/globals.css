@@ -3,37 +3,79 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+.marquee {
+  overflow: hidden; /* Скриване на съдържанието извън контейнера */
+  white-space: nowrap; /* Показване на текста в един ред */
+  box-sizing: border-box; /* Включване на padding и border в ширината на контейнера */
+}
+.marquee:hover a {
+  animation-play-state: paused; /* Спиране на анимацията при задържане на мишката */
+}
+.marquee a {
+  display: inline-block;
+  padding-left: 0%; /* Начално разстояние отляво */
+  animation: marquee 20s linear infinite; /* Анимация */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%); /* Започва от дясно */
+  }
+  100% {
+    transform: translateX(-100%); /* Преминава вляво */
+  }
+}
 
 .proxima {
   font-family: "Fjalla One", sans-serif;
   font-weight: 400;
 }
 
+/* HTML: <div class="loader"></div> */
 .loader {
   width: 50px;
   aspect-ratio: 1;
-  color: #dc1818;
-  background: radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%)
-      top left,
-    radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
-    linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
-    linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
-  background-size: 50% 50%;
+  display: grid;
+  border-radius: 50%;
+  background: linear-gradient(
+        0deg,
+        rgb(0 0 0/50%) 30%,
+        #0000 0 70%,
+        rgb(0 0 0/100%) 0
+      )
+      50%/8% 100%,
+    linear-gradient(90deg, rgb(0 0 0/25%) 30%, #0000 0 70%, rgb(0 0 0/75%) 0)
+      50%/100% 8%;
   background-repeat: no-repeat;
-  position: relative;
+  animation: l23 1s infinite steps(12);
 }
-.loader:after {
+.loader::before,
+.loader::after {
   content: "";
-  position: absolute;
-  inset: 0;
+  grid-area: 1/1;
+  border-radius: 50%;
   background: inherit;
-  opacity: 0.4;
-  animation: l3 1s infinite;
+  opacity: 0.915;
+  transform: rotate(30deg);
 }
-@keyframes l3 {
-  to {
-    transform: scale(1.8);
-    opacity: 0;
+.loader::after {
+  opacity: 0.83;
+  transform: rotate(60deg);
+}
+@keyframes l23 {
+  100% {
+    transform: rotate(1turn);
   }
 }
 .modal {

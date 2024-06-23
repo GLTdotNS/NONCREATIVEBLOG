@@ -37,6 +37,7 @@ import {
 import Head from "next/head";
 import CommentForm from "../../../components/Comment/Form";
 import { comment } from "postcss";
+import RelatedPostsCarousel from "../../../components/Related/Related";
 const Cats = ({ post, posts }) => {
   const { isOpenSection, setSisOpenSection } = useContext(MyContext);
 
@@ -310,15 +311,6 @@ const Cats = ({ post, posts }) => {
           </div>
           <div className=" p-4  text-gray-700">
             {" "}
-            <Image
-              className="mt-4 h-[300px] w-full object-cover "
-              src={post.mainImage.asset.url}
-              alt={post.title}
-              width={500}
-              height={500}
-              priority={true}
-              quality={75}
-            />
             <BlockContent
               serializers={serializers}
               blocks={post.body}
@@ -411,15 +403,16 @@ const Cats = ({ post, posts }) => {
             </span>
           </div>
         </div>
+        <RelatedPostsCarousel posts={post.related} />
       </div>
       {isOpenSection && (
         <div className="flex-row relative bgwhite  slide-in--bot ">
           {" "}
-          <div className="slide-in-from-bot fixed bottom-0 bg-opacity-70 border-t-2 w-full bg-gray-400 p-4">
+          <div className="slide-in-from-bot fixed bottom-0 bg-[#e7e6e3] bg-opacity-95 shadow-2xl border-t-2 w-full bg-gray-400 p-4">
             {" "}
             <button
               onClick={() => setSisOpenSection(false)}
-              className="flex items-center  left-0   text-gray-900 font-bold w-full text-center hover:text-gray-900 p-2  "
+              className="flex items-center justify-center  left-0 w-full mx-auto   text-gray-900 font-bold w-full text-center hover:text-gray-900 p-2  "
             >
               Затвори
             </button>{" "}
@@ -434,6 +427,16 @@ const Cats = ({ post, posts }) => {
 const query = `*[_type == "post" && slug.current == $slug][0]{
   title,
 body,
+  "related": *[_type == "post" && count(postCategory[@._ref in ^.^.postCategory[]._ref]) > 0] | order(publishedAt desc, _createdAt desc) [0..5] {
+     title,
+     slug,
+    mainImage{
+      asset->{
+      _id,
+      url
+    }
+    }
+   },
 author,
     _id,
     "authorImage":   author->image{
@@ -512,7 +515,10 @@ export async function getStaticProps(context) {
     slug,
     description,
         "categories": categories[]->title,
-
+  "related": *[_type == "post" && count(postCategory[@._ref in ^.^.postCategory[]._ref]) > 0] | order(publishedAt desc, _createdAt desc) [0..5] {
+     title,
+     slug
+   },
     author,
     "name": author->name,
         "authorImage": author->image,
@@ -536,6 +542,7 @@ export async function getStaticProps(context) {
 }
   }`;
   const posts = await sanityClient.fetch(postsQuery);
+
   return {
     props: {
       post,
