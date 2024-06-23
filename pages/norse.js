@@ -15,7 +15,7 @@ import { MdOutlineFavorite } from "react-icons/md";
 import gif from "../styles/36ae.gif";
 import { CgCloseR } from "react-icons/cg";
 import { FaArrowRight } from "react-icons/fa";
-
+import { SiBuymeacoffee } from "react-icons/si";
 import {
   MdOutlineSentimentDissatisfied,
   MdOutlineSentimentVerySatisfied,
@@ -25,7 +25,7 @@ import BlockContent from "@sanity/block-content-to-react";
 import design from "../styles/cover.png";
 import { GiSettingsKnobs } from "react-icons/gi";
 
-export function Blog({ posts, initialCategory, author }) {
+export function Blog({ posts, initialCategory, author, categories }) {
   const router = useRouter();
   const [category, setCategory] = useState(initialCategory);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -47,19 +47,19 @@ export function Blog({ posts, initialCategory, author }) {
     });
   };
   switch (category) {
-    case "Georgis stories":
-      setCategory("Лични истории");
+    case "Aesir":
+      setCategory("Ауси");
 
       break;
-    case "bullshits":
-      setCategory("Разни теми");
+    case "Vani":
+      setCategory("Вани");
 
       break;
-    case "books&movies":
-      setCategory("Книжки и филми");
+    case "Giants":
+      setCategory("Гиганти");
       break;
-    case "cooking":
-      setCategory("Готварски рецепти");
+    case "Cosmology":
+      setCategory("Космология");
       break;
     case null:
       setCategory("Всички постове");
@@ -141,44 +141,9 @@ export function Blog({ posts, initialCategory, author }) {
           </nav>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-12 border-t-[1px] border-gray-100 ">
             {/* Left side column */}
-            <div>
-              <div className="hidden lg:block border-r-[1px] border-gray-400">
-                <div className="p-4 ">
-                  <div class="w-full  bg-gray-100 backdrop-blur-xl bg-opacity-30 p-2 shadow-lg rounded-lg overflow-hidden  mb-2">
-                    <div class="max-w-full   shadow-lg rounded-lg overflow-hidden p-2 ">
-                      <div class=" text-left sm:text-left text-gray-700">
-                        <Image
-                          src={gif}
-                          alt="noncreativeblog"
-                          className="w-full h-full"
-                        />
-
-                        <div class="">
-                          <p class="text-xl mb-4 text-center  bg-gradient-to-r from-yellow-200 via-orange-600 to-pink-700 bg-clip-text text-transparent text-4xl font-bold">
-                            {author?.name}
-                          </p>
-
-                          <BlockContent
-                            className="text-gray-700"
-                            blocks={author?.bio}
-                          />
-                          <p class="mt-2 mb-4 text-gray-700  flex-row">
-                            Моята мисия е най-вече да се забавлявам и споделям
-                            свои лични истории, както и съвети в области, в
-                            които имам компетентност (или пък не). Имам
-                            разнообразни интереси и познания в различни сфери,
-                            най-вече изявани в сферата на добрата стара кухня.
-                          </p>
-                          <a
-                            href="/about"
-                            className="rounded-full p-1 mb-2 flex items-center justify-center  border-2 bg-yellow-300 font-bold  text-gray-700 w-full"
-                          >
-                            Виж повече за мен
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+            <div className="flex">
+              <div className="hidden lg:block border-r-[1px] border-gray-400 sticky top-40 h-screen overflow-auto">
+                <div className="p-4">
                   <div className="mb-8 p-4 bg-gray-100 backdrop-blur-lg bg-opacity-40 w-full rounded-lg">
                     <h2 className="text-xl text-gray-700 font-bold mb-4 flex items-center">
                       <FaRegFolderOpen className="mr-2" /> Категории
@@ -186,54 +151,81 @@ export function Blog({ posts, initialCategory, author }) {
                     <ul className="text-gray-700 text-lg">
                       <li
                         className="mb-2"
-                        onClick={() => handleCategoryChange("TheGods")}
-                      >
-                        <span className=" hover:underline flex items-center">
-                          <GiKnifeFork className="mr-2 text-slate-700" />
-                          Готварски рецепти
-                        </span>
-                      </li>
-                      <li
-                        className="mb-2"
-                        onClick={() => handleCategoryChange("books&movies")}
+                        onClick={() => handleCategoryChange("Aesir")}
                       >
                         <span className="hover:underline flex items-center">
-                          <MdOutlineFavorite className="mr-2 text-red-700" />{" "}
-                          Книжки и филми
+                          <Image
+                            className="h-8 w-8 mr-2 rounded-full"
+                            width={100}
+                            height={100}
+                            src={
+                              categories.filter((x) => x.title == "Aesir")[0]
+                                .image.asset.url
+                            }
+                          />{" "}
+                          Ауси
                         </span>
                       </li>
                       <li
                         className="mb-2"
-                        onClick={() => handleCategoryChange("Georgis stories")}
+                        onClick={() => handleCategoryChange("Vani")}
                       >
-                        <span
-                          href="/"
-                          className="hover:underline flex items-center cursor-pointer"
-                        >
-                          <FaHotjar className="mr-2 text-yellow-400" /> Лични
-                          истории
+                        <span className="hover:underline flex items-center">
+                          <Image
+                            className="h-8 w-8 mr-2 rounded-full"
+                            width={100}
+                            height={100}
+                            src={
+                              categories.filter((x) => x.title == "Vani")[0]
+                                .image.asset.url
+                            }
+                          />{" "}
+                          Вани
                         </span>
                       </li>
-                      <li className="  ">
-                        <Link
-                          href={"/norse"}
-                          class=" flex items-center     hover:underline rounded-lg   hover:text-pink-300 transition-colors duration-300"
-                        >
-                          <GiVikingLonghouse className="mr-2 text-blue-600" />
-                          Митология
-                        </Link>
+                      <li
+                        className="mb-2"
+                        onClick={() => handleCategoryChange("Giants")}
+                      >
+                        <span className="hover:underline flex items-center">
+                          <Image
+                            className="h-8 w-8 mr-2 rounded-full"
+                            width={100}
+                            height={100}
+                            src={
+                              categories.filter((x) => x.title == "Giants")[0]
+                                .image.asset.url
+                            }
+                          />{" "}
+                          Гиганти
+                        </span>
+                      </li>
+                      <li onClick={() => handleCategoryChange("Cosmology")}>
+                        <span className="hover:underline flex items-center">
+                          <Image
+                            className="h-8 w-8 mr-2 rounded-full"
+                            width={100}
+                            height={100}
+                            src={
+                              categories.filter(
+                                (x) => x.title == "Cosmology"
+                              )[0].image.asset.url
+                            }
+                          />{" "}
+                          Космология
+                        </span>
                       </li>
                       <li className="mb-2 mt-12 bg-yellow-300 rounded-md w-64 p-1">
                         <a
                           href="/norse"
-                          className="hover:underline font-bold   flex items-center"
+                          className="hover:underline font-bold flex items-center"
                         >
                           <FcClearFilters className="mr-2" /> Изчисти филтрите
                         </a>
                       </li>
                     </ul>
                   </div>
-                  <div className="mb-8 p-4  bg-gray-100 backdrop-blur-xl bg-opacity-30 w-full rounded-lg">
+                  <div className="mb-8 p-4 bg-gray-100 backdrop-blur-xl bg-opacity-30 w-full rounded-lg">
                     <h2 className="text-xl text-gray-700 font-bold mb-4 flex items-center">
                       <GiSupersonicArrow className="mr-2 text-red-400" />{" "}
                       Най-четени
@@ -243,7 +235,7 @@ export function Blog({ posts, initialCategory, author }) {
                         <li key={index} className="mb-2">
                           <a
                             href={`/post/${c.slug.current}`}
-                            className=" text-gray-700 flex items-center"
+                            className="text-gray-700 flex items-center"
                           >
                             <FaLink className="mr-2" /> {c.title}
                           </a>
@@ -251,15 +243,42 @@ export function Blog({ posts, initialCategory, author }) {
                       ))}
                     </ul>
                   </div>
+                  <div className="w-full bg-gray-100 backdrop-blur-xl bg-opacity-30 p-2 shadow-lg rounded-lg overflow-hidden mb-2">
+                    <div className="max-w-full shadow-lg rounded-lg overflow-hidden p-2">
+                      <div className="text-left sm:text-left text-gray-700">
+                        <Image
+                          src={gif}
+                          alt="noncreativeblog"
+                          className="w-full h-full"
+                        />
+                        <div>
+                          <p className="text-xl mb-4 text-center bg-gradient-to-r from-yellow-200 via-orange-600 to-pink-700 bg-clip-text text-transparent text-4xl font-bold">
+                            {author?.name}
+                          </p>
+                          <BlockContent
+                            className="text-gray-700"
+                            blocks={author?.bio}
+                          />
+
+                          <a
+                            href="/about"
+                            className="rounded-full p-1 mb-2 flex items-center justify-center border-2 bg-yellow-300 font-bold text-gray-700 w-full"
+                          >
+                            Виж повече за мен
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {menuOpen && (
-                <div className="lg:hidden fixed w-10/12 left-0 flex items-center justify-center slide-in-from-left  overflow-x-scroll top-0 z-50 bg-gray-800 backdrop-blur-xl bg-opacity-70 ">
-                  <div className=" relative ">
+                <div className="lg:hidden fixed w-10/12 left-0 flex items-center justify-center slide-in-from-left overflow-x-scroll top-0 z-50 bg-gray-800 backdrop-blur-xl bg-opacity-70">
+                  <div className="relative">
                     <button
                       onClick={handleMenuToggle}
-                      class="text-gray-200 font-bold  flex items-center justify-between   w-full p-1 right-0 top-2 mt-2 absolute z-50  focus:outline-none lg:hidden slide-in-from-top "
+                      className="text-gray-200 font-bold flex items-center justify-between w-full p-1 right-0 top-2 mt-2 absolute z-50 focus:outline-none lg:hidden slide-in-from-top"
                     >
                       Категории
                       <CgCloseR size={30} className="mr-2" />
@@ -267,60 +286,91 @@ export function Blog({ posts, initialCategory, author }) {
                     <div
                       className={`${
                         menuOpen
-                          ? " transition h-[100vh] "
+                          ? "transition h-[100vh]"
                           : "hidden h-0 duration"
-                      } `}
+                      }`}
                     >
-                      <div className="p-2  border-gray-700">
-                        <div className="mb-4 p-4 bg-gray-700 bg-opacity-70 mt-24    w-full rounded-lg">
-                          <ul className="text-gray-100 text-lg">
+                      <div className="p-2 border-gray-700">
+                        <div className="mb-8 p-4 mt-24 w-full rounded-lg  bg-gray-700 bg-opacity-50 text-gray-100">
+                          <h2 className="text-xl font-bold mb-4 flex items-center">
+                            <FaRegFolderOpen className="mr-2" /> Категории
+                          </h2>
+                          <ul className=" text-lg">
                             <li
                               className="mb-2"
-                              onClick={() => handleCategoryChange("cooking")}
-                            >
-                              <span className=" hover:underline flex items-center">
-                                <GiKnifeFork className="mr-2 text-slate-300" />
-                                Готварски рецепти
-                              </span>
-                            </li>
-                            <li
-                              className="mb-2"
-                              onClick={() =>
-                                handleCategoryChange("books&movies")
-                              }
+                              onClick={() => handleCategoryChange("Aesir")}
                             >
                               <span className="hover:underline flex items-center">
-                                <MdOutlineFavorite className="mr-2 text-red-700" />{" "}
-                                Книжки и филми
+                                <Image
+                                  className="h-8 w-8 mr-2 rounded-full"
+                                  width={100}
+                                  height={100}
+                                  src={
+                                    categories.filter(
+                                      (x) => x.title == "Aesir"
+                                    )[0].image.asset.url
+                                  }
+                                />{" "}
+                                Ауси
                               </span>
                             </li>
                             <li
                               className="mb-2"
-                              onClick={() =>
-                                handleCategoryChange("Georgis stories")
-                              }
+                              onClick={() => handleCategoryChange("Vani")}
                             >
-                              <a
-                                href="/"
-                                className="hover:underline flex items-center cursor-pointer"
-                              >
-                                <FaHotjar className="mr-2 text-yellow-400" />{" "}
-                                Лични истории
-                              </a>
+                              <span className="hover:underline flex items-center">
+                                <Image
+                                  className="h-8 w-8 mr-2 rounded-full"
+                                  width={100}
+                                  height={100}
+                                  src={
+                                    categories.filter(
+                                      (x) => x.title == "Vani"
+                                    )[0].image.asset.url
+                                  }
+                                />{" "}
+                                Вани
+                              </span>
                             </li>
-                            <li className="  ">
-                              <a
-                                href={"/"}
-                                class=" flex items-center     hover:underline rounded-lg   hover:text-pink-300 transition-colors duration-300"
-                              >
-                                <GiVikingLonghouse className="mr-2 text-blue-600" />
-                                Митология
-                              </a>
+                            <li
+                              className="mb-2"
+                              onClick={() => handleCategoryChange("Giants")}
+                            >
+                              <span className="hover:underline flex items-center">
+                                <Image
+                                  className="h-8 w-8 mr-2 rounded-full"
+                                  width={100}
+                                  height={100}
+                                  src={
+                                    categories.filter(
+                                      (x) => x.title == "Giants"
+                                    )[0].image.asset.url
+                                  }
+                                />{" "}
+                                Гиганти
+                              </span>
                             </li>
-                            <li className="mb-2 mt-12  rounded-md bg-gray-400  text-center">
+                            <li
+                              onClick={() => handleCategoryChange("Cosmology")}
+                            >
+                              <span className="hover:underline flex items-center">
+                                <Image
+                                  className="h-8 w-8 mr-2 rounded-full"
+                                  width={100}
+                                  height={100}
+                                  src={
+                                    categories.filter(
+                                      (x) => x.title == "Cosmology"
+                                    )[0].image.asset.url
+                                  }
+                                />{" "}
+                                Космология
+                              </span>
+                            </li>
+                            <li className="mb-2 mt-12 bg-yellow-300 text-gray-700 rounded-md w-64 p-1">
                               <a
                                 href="/norse"
-                                className="hover:underline font-bold flex items-center justify-center"
+                                className="hover:underline font-bold flex items-center"
                               >
                                 <FcClearFilters className="mr-2" /> Изчисти
                                 филтрите
@@ -328,7 +378,7 @@ export function Blog({ posts, initialCategory, author }) {
                             </li>
                           </ul>
                         </div>
-                        <div className="mb-4 p-4 bg-gray-700 bg-opacity-50    w-full rounded-lg">
+                        <div className="mb-4 p-4 bg-gray-700 bg-opacity-50 w-full rounded-lg">
                           <h2 className="text-xl text-gray-100 font-bold mb-4 flex items-center">
                             <GiSupersonicArrow className="mr-2 text-red-200" />{" "}
                             Най-четени
@@ -338,7 +388,7 @@ export function Blog({ posts, initialCategory, author }) {
                               <li key={index} className="mb-2">
                                 <a
                                   href={`/post/${c.slug.current}`}
-                                  className=" hover:underline text-blue-400 flex items-center"
+                                  className="hover:underline text-blue-400 flex items-center"
                                 >
                                   <FaLink className="mr-2 text-sm" />{" "}
                                   {c.title.slice(0, 30)}...
@@ -347,34 +397,25 @@ export function Blog({ posts, initialCategory, author }) {
                             ))}
                           </ul>
                         </div>
-                        <div class="max-w-full  bg-gray-800 shadow-lg rounded-lg overflow-hidden p-2 ">
-                          <div class=" text-left sm:text-left text-gray-100">
+                        <div className="max-w-full bg-gray-800 shadow-lg rounded-lg overflow-hidden p-2">
+                          <div className="text-left sm:text-left text-gray-100">
                             <Image
                               src={gif}
                               alt="noncreativeblog"
                               className="w-full h-full"
                             />
-
-                            <div class="">
-                              <p class="text-xl mb-4 text-center  bg-gradient-to-r from-pink-200 via-red-300 to-pink-400 bg-clip-text text-transparent text-4xl font-bold">
+                            <div>
+                              <p className="text-xl mb-4 text-center bg-gradient-to-r from-pink-200 via-red-300 to-pink-400 bg-clip-text text-transparent text-4xl font-bold">
                                 {author?.name}
                               </p>
-
                               <BlockContent
                                 className="text-gray-100"
                                 blocks={author?.bio}
                               />
-                              <p class="mt-2 mb-4 text-gray-100 p-  flex-row">
-                                Моята мисия е най-вече да се забавлявам и
-                                споделям свои лични истории, както и съвети в
-                                области, в които имам компетентност (или пък
-                                не). Имам разнообразни интереси и познания в
-                                различни сфери, най-вече изявани в сферата на
-                                добрата стара кухня.
-                              </p>
+
                               <a
                                 href="/about"
-                                className="rounded-full p-1 mb-2 flex items-center justify-center  border-2 border-yellow-300 font-bold  text-gray-300 w-full"
+                                className="rounded-full mt-2 p-1 mb-2 flex items-center justify-center border-2 border-yellow-300 font-bold text-gray-300 w-full"
                               >
                                 Виж повече за мен
                               </a>
@@ -387,6 +428,7 @@ export function Blog({ posts, initialCategory, author }) {
                 </div>
               )}
             </div>
+
             {/* Right side column */}
             <div className="lg:col-span-2 p-4">
               <h1 className="p-2 w-full mb-8  bg-gradient-to-r from-yellow-100 via-yellow-100 to-orange-200     rounded-md text-center font-bold text-xl text-gray-900 ">
@@ -451,9 +493,32 @@ export function Blog({ posts, initialCategory, author }) {
                   </>
                 ))}
               </div>
-              <div> </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="container mx-auto w-full border-t-2 border-gray-300 py-8">
+        <p class="text-gray-600 mb-4 md:mb-0 text-left">
+          Благодаря за четенето! Надявам се тази статия да ви е била полезна и
+          интересна. Вашата подкрепа ми помага да продължа да предоставям
+          полезна информация и съвети за всички, които я търсят. Благодаря ви
+          подкрепата!
+        </p>
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-4">
+          <a
+            target="__blank"
+            href="https://www.buymeacoffee.com/tonkoff"
+            className="bg-yellow-300 text-gray-800 px-4 py-2 rounded-full flex items-center sm:mb-0 "
+          >
+            <SiBuymeacoffee className="mr-2" />
+            Buy me a coffee
+          </a>
+          <a
+            href="/contact/email"
+            className="bg-yellow-200 hover:bg-yellow-100 text-gray-700 bg-opacity-50 px-4 py-2 flex items-center rounded-full"
+          >
+            Свържи се с мен
+          </a>
         </div>
       </div>
     </>
@@ -493,7 +558,7 @@ export const getServerSideProps = async (context) => {
   const totalPostsPromise = client.fetch(postQuery).catch(() => []);
   const categoriesPromise = client
     .fetch(
-      `*[_type == "post-category"]{
+      `*[_type == "category"]{
       title,
       slug,
       description,
@@ -550,7 +615,6 @@ export const getServerSideProps = async (context) => {
   } else if (sortBy === "longest") {
     totalPosts.sort((a, b) => b.readingTime - a.readingTime);
   }
-  console.log(category);
   const author = authorExport[2];
   return {
     props: {

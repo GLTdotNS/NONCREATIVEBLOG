@@ -10,17 +10,19 @@ export const serializers = {
 
       // Extract the image asset reference and derive the image URL
       const assetRef = props.node.asset?._ref;
-      const baseUrl = "https://cdn.sanity.io/images/y8gn2piz/production/";
+      const baseUrl = `https://cdn.sanity.io/images/${
+        "6kqgsbl2" || "y8gn2piz"
+      }/production/`;
       const imageId = assetRef
         ? assetRef.replace("image-", "").replace(/-\w+$/, "")
         : "";
       const extension = assetRef ? assetRef.split("-").pop() : "jpg";
       const imageUrl = `${baseUrl}${imageId}.${extension}`;
       return (
-        <>
+        <div className="flex items-center justify-center">
           <figure onClick={() => setModalOpen(true)} className="cursor-pointer">
             <img
-              className="w-full lg:w-2/3 mx-auto object-cover"
+              className="max-w-full mx-auto"
               src={imageUrl}
               alt={props.node.alt || "Image"}
             />
@@ -49,7 +51,7 @@ export const serializers = {
               </div>
             </div>
           )}
-        </>
+        </div>
       );
     },
 
@@ -60,14 +62,14 @@ export const serializers = {
         const level = style.replace(/[^\d]/g, "");
         return React.createElement(
           style,
-          { className: `heading-${level}` },
+          { className: `heading-${level} ` },
           props.children
         );
       }
       if (style === "h4") {
         return <p className="font-bold text-2xl">{props.children}</p>;
       }
-      if (style === "blockquote") {
+      if (style === "blockquote ") {
         return <blockquote> {props.children}</blockquote>;
       }
 

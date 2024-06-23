@@ -239,16 +239,6 @@ const Cats = ({ post, posts }) => {
             </div>
           </div>
           <div className=" p-4  text-gray-700">
-            {" "}
-            <Image
-              className="mt-4 h-[300px] w-full object-cover items-center "
-              src={post.mainImage.asset.url}
-              alt={post.title}
-              width={500}
-              height={500}
-              priority={true}
-              quality={75}
-            />
             <BlockContent
               serializers={serializers}
               blocks={post.body}

@@ -144,41 +144,6 @@ export function Blog({ posts, initialCategory, author }) {
             <div>
               <div className="hidden lg:block border-r-[1px] border-gray-400">
                 <div className="p-4 ">
-                  <div class="w-full  bg-gray-100 backdrop-blur-xl bg-opacity-30 p-2 shadow-lg rounded-lg overflow-hidden  mb-2">
-                    <div class="max-w-full   shadow-lg rounded-lg overflow-hidden p-2 ">
-                      <div class=" text-left sm:text-left text-gray-700">
-                        <Image
-                          src={gif}
-                          alt="noncreativeblog"
-                          className="w-full h-full"
-                        />
-
-                        <div class="">
-                          <p class="text-xl mb-4 text-center  bg-gradient-to-r from-yellow-200 via-orange-600 to-pink-700 bg-clip-text text-transparent text-4xl font-bold">
-                            {author?.name}
-                          </p>
-
-                          <BlockContent
-                            className="text-gray-100"
-                            blocks={author?.bio}
-                          />
-                          <p class="mt-2 mb-4 text-gray-700  flex-row">
-                            Моята мисия е най-вече да се забавлявам и споделям
-                            свои лични истории, както и съвети в области, в
-                            които имам компетентност (или пък не). Имам
-                            разнообразни интереси и познания в различни сфери,
-                            най-вече изявани в сферата на добрата стара кухня.
-                          </p>
-                          <a
-                            href="/about"
-                            className="rounded-full p-1 mb-2 flex items-center justify-center  border-2 bg-yellow-300 font-bold  text-gray-700 w-full"
-                          >
-                            Виж повече за мен
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <div className="mb-8 p-4 bg-gray-100 backdrop-blur-lg bg-opacity-40 w-full rounded-lg">
                     <h2 className="text-xl text-gray-700 font-bold mb-4 flex items-center">
                       <FaRegFolderOpen className="mr-2" /> Категории
@@ -250,6 +215,35 @@ export function Blog({ posts, initialCategory, author }) {
                         </li>
                       ))}
                     </ul>
+                  </div>
+                </div>
+                <div class="w-full  bg-gray-100 backdrop-blur-xl bg-opacity-30 p-2 shadow-lg rounded-lg overflow-hidden  mb-2">
+                  <div class="max-w-full   shadow-lg rounded-lg overflow-hidden p-2 ">
+                    <div class=" text-left sm:text-left text-gray-700">
+                      <Image
+                        src={gif}
+                        alt="noncreativeblog"
+                        className="w-full h-full"
+                      />
+
+                      <div class="">
+                        <p class="text-xl mb-4 text-center  bg-gradient-to-r from-yellow-200 via-orange-600 to-pink-700 bg-clip-text text-transparent text-4xl font-bold">
+                          {author?.name}
+                        </p>
+
+                        <BlockContent
+                          className="text-gray-100"
+                          blocks={author?.bio}
+                        />
+
+                        <a
+                          href="/about"
+                          className="rounded-full p-1 mb-2 flex items-center justify-center  border-2 bg-yellow-300 font-bold  text-gray-700 w-full"
+                        >
+                          Виж повече за мен
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -364,14 +358,7 @@ export function Blog({ posts, initialCategory, author }) {
                                 className="text-gray-100"
                                 blocks={author?.bio}
                               />
-                              <p class="mt-2 mb-4 text-gray-100 p-  flex-row">
-                                Моята мисия е най-вече да се забавлявам и
-                                споделям свои лични истории, както и съвети в
-                                области, в които имам компетентност (или пък
-                                не). Имам разнообразни интереси и познания в
-                                различни сфери, най-вече изявани в сферата на
-                                добрата стара кухня.
-                              </p>
+
                               <a
                                 href="/about"
                                 className="rounded-full p-1 mb-2 flex items-center justify-center  border-2 border-yellow-300 font-bold  text-gray-300 w-full"

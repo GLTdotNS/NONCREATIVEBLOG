@@ -85,6 +85,7 @@ function MyApp({ Component, pageProps }) {
           {" "}
           <Layout>
             <Component {...pageProps} />
+
             <CookieBanner />
           </Layout>
         </MyContextProvider>
