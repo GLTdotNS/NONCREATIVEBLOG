@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import {
   client as sanityClient,
   urlForImg,
-} from "../../../library/mythologyClient";
+} from "../../library/mythologyClient";
 import BlockContent from "@sanity/block-content-to-react";
 import Link from "next/link";
 import { FaRegCalendarCheck } from "react-icons/fa";
-import { serializers } from "../../../serializers/serializers";
+import { serializers } from "../../serializers/serializers";
 import Image from "next/image";
 import {
   FaHeart,
@@ -28,7 +28,7 @@ import { useRouter } from "next/router";
 import { SiBuymeacoffee } from "react-icons/si";
 import moment from "moment/moment";
 import { useContext } from "react";
-import MyContext from "../../../Context/context";
+import MyContext from "../../Context/context";
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -38,7 +38,7 @@ import {
   LinkedinShareButton,
 } from "react-share";
 import Head from "next/head";
-import CommentForm from "../../../components/Comment/Form";
+import CommentForm from "../../components/Comment/Form";
 import { comment } from "postcss";
 const Cats = ({ post, posts }) => {
   const { isOpenSection, setSisOpenSection } = useContext(MyContext);

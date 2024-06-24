@@ -463,7 +463,7 @@ export function Blog({ posts, initialCategory, author, categories }) {
                     <a
                       key={c.slug}
                       className="relative group "
-                      href={`/post/norse/${c.slug.current}`}
+                      href={`/post/${c.slug.current}`}
                     >
                       <div className="relative h-[400px] w-full mx-auto  shadow-md overflow-hidden rounded-t-lg ">
                         <Image

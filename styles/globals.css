@@ -14,28 +14,6 @@
     scrollbar-width: none; /* Firefox */
   }
 }
-.marquee {
-  overflow: hidden; /* Скриване на съдържанието извън контейнера */
-  white-space: nowrap; /* Показване на текста в един ред */
-  box-sizing: border-box; /* Включване на padding и border в ширината на контейнера */
-}
-.marquee:hover a {
-  animation-play-state: paused; /* Спиране на анимацията при задържане на мишката */
-}
-.marquee a {
-  display: inline-block;
-  padding-left: 0%; /* Начално разстояние отляво */
-  animation: marquee 20s linear infinite; /* Анимация */
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(100%); /* Започва от дясно */
-  }
-  100% {
-    transform: translateX(-100%); /* Преминава вляво */
-  }
-}
 
 .proxima {
   font-family: "Fjalla One", sans-serif;
