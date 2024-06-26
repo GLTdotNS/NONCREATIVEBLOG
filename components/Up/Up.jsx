@@ -45,12 +45,6 @@ const PopupMessage = () => {
         >
           Разбирам
         </button>
-        <button
-          onClick={handleRedirect}
-          className="bg-white text-blue-500 mt-4 py-2 px-4 rounded hover:bg-gray-200"
-        >
-          Отидете на стария сайт
-        </button>
       </div>
     </div>
   );
