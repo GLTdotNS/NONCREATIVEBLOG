@@ -9,8 +9,11 @@ import Head from "next/head";
 import CookieBanner from "../components/Cookies/cookies";
 import MyContext, { MyContextProvider } from "../Context/context";
 import { Analytics } from "@vercel/analytics/react";
+import Up from "../components/Up/Up";
+import dynamic from "next/dynamic";
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
+  const CrispWithNoSSR = dynamic(() => import("../components/crisp"));
 
   useEffect(() => {
     NProgress.configure({ showSpinner: false });
@@ -86,6 +89,9 @@ function MyApp({ Component, pageProps }) {
         <MyContextProvider>
           {" "}
           <Layout>
+            <Up />
+            <CrispWithNoSSR />
+
             <Component {...pageProps} />
 
             <CookieBanner />
