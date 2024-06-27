@@ -101,25 +101,16 @@ const Navbar = () => {
               <div className="origin-top-right text-gray-700 fade-in absolute left-0 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block">
                 <div className="py-1" role="menu">
                   <a
-                    href="https://www.strivenex.com"
+                    href="https://voluspa.noncreativeblog.net"
                     className="block px-4 py-2 text-lg "
                     role="menuitem"
                   >
                     <div className="flex items-center">
                       <FaLink className="mr-2" />
-                      <span>StriveNex</span>
+                      <span>VÖLUSPIRA</span>
                     </div>
                   </a>
-                  <a
-                    href="https://github.com/GLTdotNS"
-                    className="block px-4 py-2 text-lg"
-                    role="menuitem"
-                  >
-                    <div className="flex items-center">
-                      <IoLogoGithub className="mr-2" />
-                      <span>GitHub</span>
-                    </div>
-                  </a>
+
                   <a
                     href="https://www.linkedin.com/in/georgi-tonkov/"
                     className="block px-4 py-2 text-lg"
@@ -234,34 +225,25 @@ const Navbar = () => {
                   <div className="origin-top-right fade-in absolute left-0 text-gray-700 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block">
                     <div className="py-1" role="menu">
                       <a
-                        href="https://www.strivenex.com"
-                        className="block px-4 py-2 text-lg"
+                        href="https://voluspa.noncreativeblog.net"
+                        className="block px-4 py-2 text-lg "
                         role="menuitem"
                       >
                         <div className="flex items-center">
                           <FaLink className="mr-2" />
-                          <span>StriveNex</span>
+                          <span>VÖLUSPIRA</span>
                         </div>
                       </a>
+
                       <a
                         href="https://www.linkedin.com/in/georgi-tonkov/"
-                        className="block px-4 py-2 text-md "
+                        className="block px-4 py-2 text-lg"
                         role="menuitem"
                       >
                         <div className="flex items-center">
                           <FaLinkedin className="mr-2" />
                           <span>LinkedIn</span>
                         </div>
-                      </a>
-                      <a
-                        href="https://github.com/GLTdotNS"
-                        className="block px-4 py-2 text-lg "
-                        role="menuitem"
-                      >
-                        <div className="flex items-center">
-                          <IoLogoGithub className="mr-2" />
-                          <span>GitHub</span>
-                        </div>{" "}
                       </a>
                     </div>
                   </div>

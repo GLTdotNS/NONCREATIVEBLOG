@@ -303,7 +303,7 @@ const Cats = ({ post, posts }) => {
                     <FaRegCalendarCheck size={20} />
                   </span>
                   <span className="text-sm md:text-base text-gray-600 ">
-                    {moment(post.publishedAt).format("MMMM Do YYYY,  ")}
+                    {moment(post.publishedAt).format("MMMM D, YYYY ")}
                   </span>
                 </div>
               </div>
@@ -427,6 +427,7 @@ const Cats = ({ post, posts }) => {
 const query = `*[_type == "post" && slug.current == $slug][0]{
   title,
 body,
+publishedAt,
   "related": *[_type == "post" && count(postCategory[@._ref in ^.^.postCategory[]._ref]) > 0] | order(publishedAt desc, _createdAt desc) [0..5] {
      title,
      slug,

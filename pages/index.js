@@ -13,13 +13,16 @@ export const getServerSideProps = async (context) => {
   const { query } = context;
   const category = query.category || null;
   const sortBy = query.sortBy || "latest";
-  let handleCategoryChange;
-  if (category) {
-    handleCategoryChange = `&& "${category}" in postCategory[]->title`;
-  }
-  const postQuery = `*[_type == "post" ${
-    handleCategoryChange ? handleCategoryChange : ""
-  } ]
+  const searchQuery = query.search || "";
+
+  let handleCategoryChange = category
+    ? `&& "${category}" in postCategory[]->title`
+    : "";
+  let handleSearchQuery = searchQuery
+    ? `&& (title match "${searchQuery}*" || description match "${searchQuery}*")`
+    : "";
+
+  const postQuery = `*[_type == "post" ${handleCategoryChange} ${handleSearchQuery} ]
   {
     description,
     slug,
@@ -81,7 +84,6 @@ export const getServerSideProps = async (context) => {
 
   // Calculate reading time for each post
   totalPosts.forEach((post) => {
-    // Assuming average reading speed of 200 words per minute
     const wordsPerMinute = 200;
     const words = post.description.split(/\s+/).length;
     const readingTime = Math.ceil(words / wordsPerMinute);
@@ -90,7 +92,6 @@ export const getServerSideProps = async (context) => {
 
   // Sort the posts based on the selected sorting option
   if (sortBy === "latest") {
-    // Sort by publishedAt in descending order
     totalPosts.sort(
       (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
     );

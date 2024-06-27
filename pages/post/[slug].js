@@ -232,7 +232,7 @@ const Cats = ({ post, posts }) => {
                     <FaRegCalendarCheck size={20} />
                   </span>
                   <span className="text-sm md:text-base text-gray-600 ">
-                    {moment(post.publishedAt).format("MMMM Do YYYY,  ")}
+                    {moment(post.publishedAt).format("MMMM D, YYYY ")}
                   </span>
                 </div>
               </div>
@@ -355,6 +355,7 @@ const query = `*[_type == "post" && slug.current == $slug][0]{
   title,
 body,
 author,
+publishedAt,
     _id,
     "authorImage":   author->image{
       asset->{

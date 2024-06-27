@@ -15,6 +15,7 @@ import { MdOutlineFavorite } from "react-icons/md";
 import gif from "../styles/36ae.gif";
 import { CgCloseR } from "react-icons/cg";
 import { FaArrowRight } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 
 import {
   MdOutlineSentimentDissatisfied,
@@ -40,6 +41,18 @@ export function Blog({ posts, initialCategory, author }) {
       query: { ...router.query, category: newCategory }, // Add the new category to the query
     });
   };
+  const [searchInput, setSearchInput] = useState("");
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    router.push({
+      pathname: "/",
+      query: {
+        search: searchInput,
+      },
+    });
+  };
+
   const handleSortChange = (sortBy) => {
     router.push({
       pathname: router.pathname,
@@ -143,14 +156,38 @@ export function Blog({ posts, initialCategory, author }) {
             {/* Left side column */}
             <div>
               <div className="hidden lg:block border-r-[1px] border-gray-400">
+                <div className="w-full mb-4 flex justify-center items-center">
+                  <div>
+                    <h2 className="text-lg text-gray-700 font-semibold mb-2 text-center">
+                      Който търси, намира.
+                    </h2>
+                    <div className="relative text-center w-full">
+                      <form onSubmit={handleSearch}>
+                        <input
+                          type="text"
+                          value={searchInput}
+                          onChange={(e) => setSearchInput(e.target.value)}
+                          placeholder="Потърси..."
+                          className="w-full p-3 w-[480px] h-18 rounded-full  bg-gray-100 focus:outline-none"
+                        />
+                        <button
+                          type="submit"
+                          className="absolute inset-y-0 right-0 px-3  w-24 bg-yellow-300 text-gray-700 rounded-r-full flex items-center justify-center"
+                        >
+                          <FaSearch />
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
                 <div className="p-4 ">
                   <div className="mb-8 p-4 bg-gray-100 backdrop-blur-lg bg-opacity-40 w-full rounded-lg">
                     <h2 className="text-xl text-gray-700 font-bold mb-4 flex items-center">
                       <FaRegFolderOpen className="mr-2" /> Категории
                     </h2>
-                    <ul className="text-gray-700 text-lg">
+                    <ul className="text-gray-700 text-lg cursor-pointer">
                       <li
-                        className="mb-2"
+                        className="mb-2 cursor-pointer"
                         onClick={() => handleCategoryChange("cooking")}
                       >
                         <span className=" hover:underline flex items-center">
@@ -265,8 +302,32 @@ export function Blog({ posts, initialCategory, author }) {
                           : "hidden h-0 duration"
                       } `}
                     >
+                      <div className="w-full mb-4 flex justify-center items-center mt-24">
+                        <div>
+                          <h2 className="text-lg text-gray-100 font-semibold mb-2 text-center">
+                            Който търси, намира.
+                          </h2>
+                          <div className="relative text-center w-full">
+                            <form onSubmit={handleSearch}>
+                              <input
+                                type="text"
+                                value={searchInput}
+                                onChange={(e) => setSearchInput(e.target.value)}
+                                placeholder="Потърси..."
+                                className="w-full p-3 w-full h-18 rounded-full  bg-gray-100 focus:outline-none"
+                              />
+                              <button
+                                type="submit"
+                                className="absolute inset-y-0 right-0 px-3  w-24 bg-yellow-300 text-gray-700 rounded-r-full flex items-center justify-center"
+                              >
+                                <FaSearch />
+                              </button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
                       <div className="p-2  border-gray-700">
-                        <div className="mb-4 p-4 bg-gray-700 bg-opacity-70 mt-24    w-full rounded-lg">
+                        <div className="mb-4 p-4 bg-gray-700 bg-opacity-70 mt-2   w-full rounded-lg cursor-pointer">
                           <ul className="text-gray-100 text-lg">
                             <li
                               className="mb-2"
@@ -331,7 +392,7 @@ export function Blog({ posts, initialCategory, author }) {
                             {posts?.map((c, index) => (
                               <li key={index} className="mb-2">
                                 <a
-                                  href={`/post/asd/${c.slug.current}`}
+                                  href={`/post/${c.slug.current}`}
                                   className=" hover:underline text-blue-400 flex items-center"
                                 >
                                   <FaLink className="mr-2 text-sm" />{" "}
@@ -361,7 +422,7 @@ export function Blog({ posts, initialCategory, author }) {
 
                               <a
                                 href="/about"
-                                className="rounded-full p-1 mb-2 flex items-center justify-center  border-2 border-yellow-300 font-bold  text-gray-300 w-full"
+                                className="rounded-full p-1 mb-20 flex items-center justify-center  border-2 border-yellow-300 font-bold  text-gray-300 w-full"
                               >
                                 Виж повече за мен
                               </a>
@@ -379,27 +440,6 @@ export function Blog({ posts, initialCategory, author }) {
               <h1 className="p-2 w-full mb-8  bg-gradient-to-r from-yellow-100 via-yellow-100 to-orange-200     rounded-md text-center font-bold text-xl text-gray-900 ">
                 {category}
               </h1>
-              {/* <div class="w-full mb-4 flex justify-center items-center">
-            <div>
-              <h2 class="text-lg text-gray-100 font-semibold mb-2 text-center">
-                Search
-              </h2>
-              <div class="relative w-[350px] text-center">
-                <input
-                  value=""
-                  type="text"
-                  placeholder="Search..."
-                  class="w-full p-2 pr-10 border border-gray-300 bg-gray-100 rounded-md"
-                />
-                <button
-                  type="button"
-                  class="absolute inset-y-0 right-0 px-3 py-2 bg-pink-500 text-white rounded-md"
-                >
-                  Search
-                </button>
-              </div>
-            </div>
-          </div> */}
 
               <div className=" gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  flex items-center ">
                 {posts?.map((c, index) => (

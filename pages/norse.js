@@ -3,15 +3,12 @@ import { useRouter } from "next/router";
 import { FaLink, FaRegFolderOpen, FaStar, FaReddit } from "react-icons/fa";
 import cover from "../styles/viking.png";
 import { FaSortAmountDownAlt } from "react-icons/fa";
-import { FaHotjar } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 import { GiSupersonicArrow } from "react-icons/gi";
 import { FcClearFilters } from "react-icons/fc";
 import Head from "next/head";
 import { CgLastpass } from "react-icons/cg";
-import Link from "next/link";
-import { GiVikingLonghouse } from "react-icons/gi";
-import { GiKnifeFork } from "react-icons/gi";
-import { MdOutlineFavorite } from "react-icons/md";
+
 import gif from "../styles/36ae.gif";
 import { CgCloseR } from "react-icons/cg";
 import { FaArrowRight } from "react-icons/fa";
@@ -29,7 +26,17 @@ export function Blog({ posts, initialCategory, author, categories }) {
   const router = useRouter();
   const [category, setCategory] = useState(initialCategory);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    router.push({
+      pathname: router.pathname,
+      query: {
+        search: searchInput,
+      },
+    });
+  };
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
@@ -143,6 +150,30 @@ export function Blog({ posts, initialCategory, author, categories }) {
             {/* Left side column */}
             <div className="flex">
               <div className="hidden lg:block border-r-[1px] border-gray-400 sticky top-40 h-screen overflow-auto">
+                <div className="w-full mb-4 flex justify-center items-center">
+                  <div>
+                    <h2 className="text-lg text-gray-700 font-semibold mb-2 text-center">
+                      Който търси, намира.
+                    </h2>
+                    <div className="relative text-center w-full">
+                      <form onSubmit={handleSearch}>
+                        <input
+                          type="text"
+                          value={searchInput}
+                          onChange={(e) => setSearchInput(e.target.value)}
+                          placeholder="Потърси..."
+                          className="w-full p-3 w-[480px] h-18 rounded-full  bg-gray-100 focus:outline-none"
+                        />
+                        <button
+                          type="submit"
+                          className="absolute inset-y-0 right-0 px-3  w-24 bg-yellow-300 text-gray-700 rounded-r-full flex items-center justify-center"
+                        >
+                          <FaSearch />
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
                 <div className="p-4">
                   <div className="mb-8 p-4 bg-gray-100 backdrop-blur-lg bg-opacity-40 w-full rounded-lg">
                     <h2 className="text-xl text-gray-700 font-bold mb-4 flex items-center">
@@ -283,6 +314,30 @@ export function Blog({ posts, initialCategory, author, categories }) {
                       Категории
                       <CgCloseR size={30} className="mr-2" />
                     </button>
+                    <div className="w-full mb-4 flex justify-center items-center  mt-24">
+                      <div>
+                        <h2 className="text-lg text-gray-100 font-semibold mb-2 text-center">
+                          Който търси, намира.
+                        </h2>
+                        <div className="relative text-center w-full">
+                          <form onSubmit={handleSearch}>
+                            <input
+                              type="text"
+                              value={searchInput}
+                              onChange={(e) => setSearchInput(e.target.value)}
+                              placeholder="Потърси..."
+                              className="w-full p-3 w-full  h-18 rounded-full  bg-gray-100 focus:outline-none"
+                            />
+                            <button
+                              type="submit"
+                              className="absolute inset-y-0 right-0 px-3  w-24 bg-yellow-300 text-gray-700 rounded-r-full flex items-center justify-center"
+                            >
+                              <FaSearch />
+                            </button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
                     <div
                       className={`${
                         menuOpen
@@ -291,7 +346,7 @@ export function Blog({ posts, initialCategory, author, categories }) {
                       }`}
                     >
                       <div className="p-2 border-gray-700">
-                        <div className="mb-8 p-4 mt-24 w-full rounded-lg  bg-gray-700 bg-opacity-50 text-gray-100">
+                        <div className="mb-8 p-4 mt-4 w-full rounded-lg  bg-gray-700 bg-opacity-50 text-gray-100">
                           <h2 className="text-xl font-bold mb-4 flex items-center">
                             <FaRegFolderOpen className="mr-2" /> Категории
                           </h2>
@@ -412,7 +467,6 @@ export function Blog({ posts, initialCategory, author, categories }) {
                                 className="text-gray-100"
                                 blocks={author?.bio}
                               />
-
                               <a
                                 href="/about"
                                 className="rounded-full mt-2 p-1 mb-2 flex items-center justify-center border-2 border-yellow-300 font-bold text-gray-300 w-full"
@@ -434,27 +488,6 @@ export function Blog({ posts, initialCategory, author, categories }) {
               <h1 className="p-2 w-full mb-8  bg-gradient-to-r from-yellow-100 via-yellow-100 to-orange-200     rounded-md text-center font-bold text-xl text-gray-900 ">
                 {category}
               </h1>
-              {/* <div class="w-full mb-4 flex justify-center items-center">
-                <div>
-                  <h2 class="text-lg text-gray-100 font-semibold mb-2 text-center">
-                    Search
-                  </h2>
-                  <div class="relative w-[350px] text-center">
-                    <input
-                      value=""
-                      type="text"
-                      placeholder="Search..."
-                      class="w-full p-2 pr-10 border border-gray-300 bg-gray-100 rounded-md"
-                    />
-                    <button
-                      type="button"
-                      class="absolute inset-y-0 right-0 px-3 py-2 bg-pink-500 text-white rounded-md"
-                    >
-                      Search
-                    </button>
-                  </div>
-                </div>
-              </div> */}
 
               <div className=" gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  flex items-center ">
                 {posts?.map((c, index) => (
@@ -497,30 +530,6 @@ export function Blog({ posts, initialCategory, author, categories }) {
           </div>
         </div>
       </div>
-      <div class="container mx-auto w-full border-t-2 border-gray-300 py-8">
-        <p class="text-gray-600 mb-4 md:mb-0 text-left">
-          Благодаря за четенето! Надявам се тази статия да ви е била полезна и
-          интересна. Вашата подкрепа ми помага да продължа да предоставям
-          полезна информация и съвети за всички, които я търсят. Благодаря ви
-          подкрепата!
-        </p>
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-4">
-          <a
-            target="__blank"
-            href="https://www.buymeacoffee.com/tonkoff"
-            className="bg-yellow-300 text-gray-800 px-4 py-2 rounded-full flex items-center sm:mb-0 "
-          >
-            <SiBuymeacoffee className="mr-2" />
-            Buy me a coffee
-          </a>
-          <a
-            href="/contact/email"
-            className="bg-yellow-200 hover:bg-yellow-100 text-gray-700 bg-opacity-50 px-4 py-2 flex items-center rounded-full"
-          >
-            Свържи се с мен
-          </a>
-        </div>
-      </div>
     </>
   );
 }
@@ -529,13 +538,16 @@ export const getServerSideProps = async (context) => {
   const { query } = context;
   const category = query.category || null;
   const sortBy = query.sortBy || "latest";
-  let handleCategoryChange;
-  if (category) {
-    handleCategoryChange = `&& "${category}" in categories[]->title`;
-  }
-  const postQuery = `*[_type == "post" ${
-    handleCategoryChange ? handleCategoryChange : ""
-  } ]
+  const searchQuery = query.search || "";
+
+  let handleCategoryChange = category
+    ? `&& "${category}" in postCategory[]->title`
+    : "";
+  let handleSearchQuery = searchQuery
+    ? `&& (title match "${searchQuery}*" || description match "${searchQuery}*")`
+    : "";
+  const postQuery = `*[_type == "post" ${handleCategoryChange} ${handleSearchQuery} ]
+
   {
     description,
     slug,
