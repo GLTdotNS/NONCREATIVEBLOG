@@ -149,7 +149,7 @@ export function Blog({ posts, initialCategory, author, categories }) {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-12 border-t-[1px] border-gray-100 ">
             {/* Left side column */}
             <div className="flex">
-              <div className="hidden lg:block border-r-[1px] border-gray-400 sticky top-40 h-screen overflow-auto">
+              <div className="hidden lg:block border-r-[1px] border-gray-400 sticky top-40 h-screen overflow-auto ">
                 <div className="w-full mb-4 flex justify-center items-center">
                   <div>
                     <h2 className="text-lg text-gray-700 font-semibold mb-2 text-center">
@@ -179,7 +179,7 @@ export function Blog({ posts, initialCategory, author, categories }) {
                     <h2 className="text-xl text-gray-700 font-bold mb-4 flex items-center">
                       <FaRegFolderOpen className="mr-2" /> Категории
                     </h2>
-                    <ul className="text-gray-700 text-lg">
+                    <ul className="text-gray-700 text-lg cursor-pointer">
                       <li
                         className="mb-2"
                         onClick={() => handleCategoryChange("Aesir")}
@@ -541,7 +541,7 @@ export const getServerSideProps = async (context) => {
   const searchQuery = query.search || "";
 
   let handleCategoryChange = category
-    ? `&& "${category}" in postCategory[]->title`
+    ? `&& "${category}" in categories[]->title`
     : "";
   let handleSearchQuery = searchQuery
     ? `&& (title match "${searchQuery}*" || description match "${searchQuery}*")`

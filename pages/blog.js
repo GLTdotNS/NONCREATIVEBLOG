@@ -219,7 +219,7 @@ export function Blog({ posts, initialCategory, author }) {
                       <li className="  ">
                         <Link
                           href={"/norse"}
-                          class=" flex items-center     hover:underline rounded-lg   hover:text-pink-300 transition-colors duration-300"
+                          class=" flex items-center     hover:underline rounded-lg    transition-colors duration-300"
                         >
                           <GiVikingLonghouse className="mr-2 text-blue-600" />
                           Митология

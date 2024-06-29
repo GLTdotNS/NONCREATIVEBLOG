@@ -9,13 +9,13 @@ import {
 } from "react-icons/fa";
 import { RiBook2Line, RiTeamLine } from "react-icons/ri";
 import Link from "next/link";
-import jojo from "../styles/jojo.png";
-import biker from "../styles/bikerchetojojo.jpg";
-import trick from "../styles/ne.gif";
+import jojo from "../../styles/jojo.png";
+import biker from "../../styles/bikerchetojojo.jpg";
+import trick from "../../styles/ne.gif";
 import { SiBuymeacoffee } from "react-icons/si";
 
 import Image from "next/image";
-import cover from "../styles/cover.png";
+import cover from "../../styles/cover.png";
 const AboutMePage = () => {
   return (
     <>
