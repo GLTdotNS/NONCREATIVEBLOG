@@ -48,8 +48,8 @@ export function Blog({
   const handleCategoryChange = (newCategory) => {
     setCategory(newCategory);
     router.push({
-      pathname: router.pathname,
-      query: { ...router.query, category: newCategory }, // Add the new category to the query
+      pathname: "/norse",
+      query: { category: newCategory },
     });
   };
   const handleSortChange = (sortBy) => {
@@ -146,7 +146,7 @@ export function Blog({
               >
                 <button class="text-gray-700 border-[1px] bg-yellow-100 border-gray-400 rounded-md flex items-center font-bold text-sm p-1 focus:outline-none lg:hidden  ">
                   <GiSettingsKnobs size={20} className="mr-2" />
-                  Категории
+                  Филтри
                 </button>
               </li>
             </ul>
@@ -194,7 +194,7 @@ export function Blog({
                       onClick={handleMenuToggle}
                       className="text-gray-200 font-bold flex items-center justify-between w-full p-1 right-0 top-2 mt-2 absolute z-50 focus:outline-none lg:hidden slide-in-from-top"
                     >
-                      Категории
+                      Филтри
                       <CgCloseR size={30} className="mr-2" />
                     </button>
                     <div className="w-full mb-4 flex justify-center items-center  mt-24">
@@ -308,7 +308,7 @@ export function Blog({
                             <li className="mb-2 mt-12 bg-yellow-300 text-gray-700 rounded-md w-64 p-1">
                               <a
                                 href="/norse"
-                                className="hover:underline font-bold flex items-center"
+                                className="hover:underline font-bold flex items-center justify-center"
                               >
                                 <FcClearFilters className="mr-2" /> Изчисти
                                 филтрите

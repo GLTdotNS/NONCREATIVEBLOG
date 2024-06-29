@@ -12,8 +12,8 @@ const Bar = ({ posts, categories, author, initialCategory }) => {
   const handleCategoryChange = (newCategory) => {
     setCategory(newCategory);
     router.push({
-      pathname: router.pathname,
-      query: { ...router.query, category: newCategory }, // Add the new category to the query
+      pathname: "/norse",
+      query: { category: newCategory }, // Add the new category to the query
     });
   };
 
@@ -82,7 +82,7 @@ const Bar = ({ posts, categories, author, initialCategory }) => {
           <li className="mb-2 mt-12 bg-yellow-300 rounded-md w-64 p-1">
             <a
               href="/norse"
-              className="hover:underline font-bold flex items-center"
+              className="hover:underline font-bold flex items-center justify-center"
             >
               <FcClearFilters className="mr-2" /> Изчисти филтрите
             </a>

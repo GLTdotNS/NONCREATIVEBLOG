@@ -228,7 +228,7 @@ export function Blog({ posts, initialCategory, author }) {
                       <li className="mb-2 mt-12 bg-yellow-300 rounded-md w-64 p-1">
                         <a
                           href="/"
-                          className="hover:underline font-bold   flex items-center"
+                          className="hover:underline font-bold   flex justify-center text-gray-700 items-center"
                         >
                           <FcClearFilters className="mr-2" /> Изчисти филтрите
                         </a>
@@ -372,10 +372,10 @@ export function Blog({ posts, initialCategory, author }) {
                                 Митология
                               </a>
                             </li>
-                            <li className="mb-2 mt-12  rounded-md bg-gray-400  text-center">
+                            <li className="mb-2 mt-12 bg-yellow-300 rounded-md w-64 p-1">
                               <a
                                 href="/"
-                                className="hover:underline font-bold flex items-center justify-center"
+                                className="hover:underline font-bold flex items-center text-gray-700 justify-center"
                               >
                                 <FcClearFilters className="mr-2" /> Изчисти
                                 филтрите
