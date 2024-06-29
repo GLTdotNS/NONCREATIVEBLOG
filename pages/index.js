@@ -1,9 +1,11 @@
 import React from "react";
 import Blog from "./blog";
-const Index = ({ posts, initialCategory, author }) => {
+import Pagination from "../components/Pagination/Pagination";
+const Index = ({ posts, initialCategory, author, currentPage, totalPages }) => {
   return (
     <div>
       <Blog posts={posts} initialCategory={initialCategory} author={author} />
+      <Pagination totalPages={totalPages} currentPage={currentPage} />
     </div>
   );
 };
@@ -14,6 +16,8 @@ export const getServerSideProps = async (context) => {
   const category = query.category || null;
   const sortBy = query.sortBy || "latest";
   const searchQuery = query.search || "";
+  const currentPage = parseInt(query.page, 10) || 1;
+  const postsPerPage = 10;
 
   let handleCategoryChange = category
     ? `&& "${category}" in postCategory[]->title`
@@ -22,8 +26,10 @@ export const getServerSideProps = async (context) => {
     ? `&& (title match "${searchQuery}*" || description match "${searchQuery}*")`
     : "";
 
-  const postQuery = `*[_type == "post" ${handleCategoryChange} ${handleSearchQuery} ]
-  {
+  const start = (currentPage - 1) * postsPerPage;
+  const end = start + postsPerPage;
+
+  const postQuery = `*[_type == "post" ${handleCategoryChange} ${handleSearchQuery}] | order(publishedAt desc) [${start}...${end}] {
     description,
     slug,
     title,
@@ -42,7 +48,11 @@ export const getServerSideProps = async (context) => {
     }
   }`;
 
+  const totalPostsQuery = `count(*[_type == "post" ${handleCategoryChange} ${handleSearchQuery}])`;
+
   const totalPostsPromise = client.fetch(postQuery).catch(() => []);
+  const totalPostsCountPromise = client.fetch(totalPostsQuery).catch(() => 0);
+
   const categoriesPromise = client
     .fetch(
       `*[_type == "post-category"]{
@@ -76,11 +86,13 @@ export const getServerSideProps = async (context) => {
     )
     .catch(() => []);
 
-  let [totalPosts, categories, authorExport] = await Promise.all([
-    totalPostsPromise,
-    categoriesPromise,
-    authorPromise,
-  ]);
+  let [totalPosts, totalPostsCount, categories, authorExport] =
+    await Promise.all([
+      totalPostsPromise,
+      totalPostsCountPromise,
+      categoriesPromise,
+      authorPromise,
+    ]);
 
   // Calculate reading time for each post
   totalPosts.forEach((post) => {
@@ -101,13 +113,17 @@ export const getServerSideProps = async (context) => {
     totalPosts.sort((a, b) => b.readingTime - a.readingTime);
   }
 
+  const totalPages = Math.ceil(totalPostsCount / postsPerPage);
   const author = authorExport[0];
+
   return {
     props: {
       posts: totalPosts,
       initialCategory: category,
       categories,
       author,
+      currentPage,
+      totalPages,
     },
   };
 };
