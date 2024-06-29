@@ -6,7 +6,7 @@ import { FaSortAmountDownAlt } from "react-icons/fa";
 import { FaHotjar } from "react-icons/fa";
 import { GiSupersonicArrow } from "react-icons/gi";
 import { FcClearFilters } from "react-icons/fc";
-import Head from "next/head";
+import { RxTimer } from "react-icons/rx";
 import { CgLastpass } from "react-icons/cg";
 import Link from "next/link";
 import { GiVikingLonghouse } from "react-icons/gi";
@@ -201,7 +201,7 @@ export function Blog({ posts, initialCategory, author }) {
                       >
                         <span className="hover:underline flex items-center">
                           <MdOutlineFavorite className="mr-2 text-red-700" />{" "}
-                          Книжки и филми
+                          Любимо
                         </span>
                       </li>
                       <li
@@ -212,8 +212,8 @@ export function Blog({ posts, initialCategory, author }) {
                           href="/"
                           className="hover:underline flex items-center cursor-pointer"
                         >
-                          <FaHotjar className="mr-2 text-yellow-400" /> Лични
-                          истории
+                          <RxTimer className="mr-2 text-yellow-700" />
+                          Хрониките на времето
                         </span>
                       </li>
                       <li className="  ">
@@ -346,7 +346,7 @@ export function Blog({ posts, initialCategory, author }) {
                             >
                               <span className="hover:underline flex items-center">
                                 <MdOutlineFavorite className="mr-2 text-red-700" />{" "}
-                                Книжки и филми
+                                Любимо
                               </span>
                             </li>
                             <li
@@ -355,13 +355,10 @@ export function Blog({ posts, initialCategory, author }) {
                                 handleCategoryChange("Georgis stories")
                               }
                             >
-                              <a
-                                href="/"
-                                className="hover:underline flex items-center cursor-pointer"
-                              >
-                                <FaHotjar className="mr-2 text-yellow-400" />{" "}
-                                Лични истории
-                              </a>
+                              <span className="hover:underline flex items-center cursor-pointer">
+                                <RxTimer className="mr-2 text-yellow-700" />
+                                Хрониките на времето
+                              </span>
                             </li>
                             <li className="  ">
                               <a
@@ -468,7 +465,7 @@ export function Blog({ posts, initialCategory, author }) {
                           </button>
                         </div>
                         <div className="absolute bottom-0 left-0 bg-gradient-to-t  bg-gray-700  text-white  px-2 proxima">
-                          {c.readingTime}min
+                          {c.readingTime} минути
                         </div>
                       </div>
                       <div className="  top-0 left-0 text-slate-900 font-semibold rounded-b-md text-lg bg-gray-100  bg-opacity-100 p-4">

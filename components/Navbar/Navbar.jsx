@@ -59,8 +59,12 @@ const Navbar = () => {
         <div className="w-full   flex h-12 ">
           <a href={"/"}>
             {" "}
-            <div className=" absolute top-1 lg:hidden   left-2">
-              <Image src={logo} alt="Georgi Tonkov" className="w-2/3 h-auto" />
+            <div className=" absolute top-1  lg:right-8">
+              <Image
+                src={blog}
+                alt="Georgi Tonkov"
+                className="w-2/3 lg:w-64 h-auto"
+              />
             </div>
           </a>
 
@@ -73,12 +77,12 @@ const Navbar = () => {
             </a>
 
             <Link
-              href={"/about"}
+              href={"/authors/georgi-tonkov"}
               className={` font-bold text-md hover-1 mx-4 hover-1`}
             >
               <div className="flex items-center">
                 <GiNinjaHead className="mr-2" />
-                <span>Tonkoff G.</span>
+                <span>За мен</span>
               </div>
             </Link>
 
@@ -126,7 +130,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="hidden lg:flex   mr-12">
+          {/* <div className="hidden lg:flex   mr-12">
             <a
               href="https://buymeacoffee.com/tonkoff"
               className={`${
@@ -138,7 +142,7 @@ const Navbar = () => {
               <SiBuymeacoffee className="mr-2" />
               Buy me a coffee
             </a>
-          </div>
+          </div> */}
         </div>
         <div className="block lg:hidden ">
           <button
@@ -196,7 +200,7 @@ const Navbar = () => {
                 </a>
 
                 <Link
-                  href={"/about"}
+                  href={"/authors/georgi-tonkov"}
                   className={`block text-gray-100   text-2xl mt-2 hover-1`}
                 >
                   <div className="flex items-center">
