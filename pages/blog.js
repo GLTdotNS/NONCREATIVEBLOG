@@ -89,8 +89,6 @@ export function Blog({ posts, initialCategory, author }) {
             src={cover}
             alt="noncreativeblog"
             class="w-full lg:w-10/12 h-auto  lg:h-[380px]  mx-auto   object-cover rounded-lg"
-            quality={75}
-            priority={true}
           />
         </div>
         <div className="container mx-auto">
