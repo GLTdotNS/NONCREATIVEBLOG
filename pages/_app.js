@@ -66,7 +66,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="language" content="BG" />
         <meta
           property="og:image"
-          content="https://noncreativeblog.net/images/cover.png"
+          content="https://noncreativeblog.net/cover.png"
         />{" "}
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
