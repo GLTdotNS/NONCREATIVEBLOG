@@ -10,9 +10,7 @@ export const serializers = {
 
       // Extract the image asset reference and derive the image URL
       const assetRef = props.node.asset?._ref;
-      const baseUrl = `https://cdn.sanity.io/images/${
-        "6kqgsbl2" || "y8gn2piz"
-      }/production/`;
+      const baseUrl = `https://cdn.sanity.io/images/${"y8gn2piz"}/production/`;
       const imageId = assetRef
         ? assetRef.replace("image-", "").replace(/-\w+$/, "")
         : "";
