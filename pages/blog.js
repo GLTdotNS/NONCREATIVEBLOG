@@ -85,11 +85,6 @@ export function Blog({ posts, initialCategory, author }) {
       {" "}
       <div className="   mx-auto ">
         <div class="relative w-full absolute top-0 mx-auto mt-4 lg:mt-16">
-          <img
-            src={cover}
-            alt="noncreativeblog"
-            class="w-full lg:w-10/12 h-auto  lg:h-[380px]  mx-auto  hidden object-cover rounded-lg"
-          />
           <Image
             src={cover}
             alt="noncreativeblog"
