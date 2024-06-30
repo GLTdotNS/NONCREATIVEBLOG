@@ -12,7 +12,7 @@ import Link from "next/link";
 import { GiVikingLonghouse } from "react-icons/gi";
 import { GiKnifeFork } from "react-icons/gi";
 import { MdOutlineFavorite } from "react-icons/md";
-import gif from "../styles/36ae.gif";
+import gif from "../styles/jojo.JPG";
 import { CgCloseR } from "react-icons/cg";
 import { FaArrowRight } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
@@ -85,6 +85,11 @@ export function Blog({ posts, initialCategory, author }) {
       {" "}
       <div className="   mx-auto ">
         <div class="relative w-full absolute top-0 mx-auto mt-4 lg:mt-16">
+          <img
+            src={cover}
+            alt="noncreativeblog"
+            class="w-full lg:w-10/12 h-auto  lg:h-[380px]  mx-auto  hidden object-cover rounded-lg"
+          />
           <Image
             src={cover}
             alt="noncreativeblog"

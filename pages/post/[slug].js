@@ -221,7 +221,7 @@ const Cats = ({ post, posts }) => {
                 alt="Author Avatar"
                 width={500}
                 height={500}
-                className="w-12 h-12 md:w-16 md:h-16  rounded-full mr-3 md:mr-4"
+                className="w-24 h-18  rounded-full mr-3 md:mr-4"
               />
               <div>
                 <p className="font-semibold text-base md:text-lg">

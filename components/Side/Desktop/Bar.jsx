@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FcClearFilters } from "react-icons/fc";
 import { FaLink, FaRegFolderOpen, FaStar, FaReddit } from "react-icons/fa";
 import { GiSupersonicArrow } from "react-icons/gi";
-import gif from "../../../styles/36ae.gif";
+import gif from "../../../styles/jojo.JPG";
 import BlockContent from "@sanity/block-content-to-react";
 import Image from "next/image";
 import { useRouter } from "next/router";

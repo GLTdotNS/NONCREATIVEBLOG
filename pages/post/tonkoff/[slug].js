@@ -289,10 +289,12 @@ const Cats = ({ post, posts }) => {
             <p className="mb-4">Публикувана от</p>
 
             <div className="flex items-center ">
-              <img
+              <Image
                 src={post.authorImage.asset.url}
-                alt="Author Avatar"
-                className="w-12 h-12 md:w-16 md:h-16 rounded-full mr-3 md:mr-4"
+                alt={post.authorName}
+                width={500}
+                height={500}
+                className="w-24 h-16 rounded-full mr-3 md:mr-4"
               />
               <div>
                 <p className="font-semibold text-base md:text-lg">

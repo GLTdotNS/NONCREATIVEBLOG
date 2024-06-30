@@ -9,7 +9,7 @@ import { FcClearFilters } from "react-icons/fc";
 import Head from "next/head";
 import { CgLastpass } from "react-icons/cg";
 
-import gif from "../styles/36ae.gif";
+import gif from "../styles/jojo.JPG";
 import { CgCloseR } from "react-icons/cg";
 import { FaArrowRight } from "react-icons/fa";
 import {
@@ -84,6 +84,11 @@ export function Blog({
       {" "}
       <div className="   mx-auto ">
         <div class="relative w-full absolute top-0 mx-auto mt-4 lg:mt-16 ">
+          <img
+            src={cover}
+            alt="noncreativeblog"
+            class="w-full lg:w-10/12 h-auto  lg:h-[380px]  mx-auto  hidden object-cover rounded-lg"
+          />
           <Image
             src={cover}
             alt="noncreativeblog"
