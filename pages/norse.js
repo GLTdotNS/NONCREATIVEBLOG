@@ -192,12 +192,12 @@ export function Blog({
                   <div className="relative">
                     <button
                       onClick={handleMenuToggle}
-                      className="text-gray-200 font-bold flex items-center justify-between w-full p-1 right-0 top-2 mt-2 absolute z-50 focus:outline-none lg:hidden slide-in-from-top"
+                      class="text-gray-200 font-bold  flex items-center justify-between   w-full p-1 right-0 top-24 mt-12 absolute z-50  focus:outline-none lg:hidden slide-in-from-top "
                     >
                       Филтри
                       <CgCloseR size={30} className="mr-2" />
                     </button>
-                    <div className="w-full mb-4 flex justify-center items-center  mt-24">
+                    <div className="w-full mb-4 flex justify-center items-center  mt-48">
                       <div>
                         <h2 className="text-lg text-gray-100 font-semibold mb-2 text-center">
                           Който търси, намира.
@@ -209,11 +209,11 @@ export function Blog({
                               value={searchInput}
                               onChange={(e) => setSearchInput(e.target.value)}
                               placeholder="Потърси..."
-                              className="w-full p-3 w-full  h-18 rounded-full  bg-gray-100 focus:outline-none"
+                              className="w-full p-2 w-full  h-8 rounded-full  bg-gray-100 focus:outline-none"
                             />
                             <button
                               type="submit"
-                              className="absolute inset-y-0 right-0 px-3  w-24 bg-yellow-300 text-gray-700 rounded-r-full flex items-center justify-center"
+                              className="absolute inset-y-0 right-0 px-3  w-12 bg-yellow-300 text-gray-700 rounded-r-full flex items-center justify-center"
                             >
                               <FaSearch />
                             </button>

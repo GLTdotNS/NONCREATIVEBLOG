@@ -145,7 +145,7 @@ export function Blog({ posts, initialCategory, author }) {
               >
                 <button class="text-gray-700 border-[1px] bg-yellow-100 border-gray-400 rounded-md flex items-center font-bold text-sm p-1 focus:outline-none lg:hidden  ">
                   <GiSettingsKnobs size={20} className="mr-2" />
-                  Категории
+                  Филтри
                 </button>
               </li>
             </ul>
@@ -288,9 +288,9 @@ export function Blog({ posts, initialCategory, author }) {
                   <div className=" relative ">
                     <button
                       onClick={handleMenuToggle}
-                      class="text-gray-200 font-bold  flex items-center justify-between   w-full p-1 right-0 top-2 mt-2 absolute z-50  focus:outline-none lg:hidden slide-in-from-top "
+                      class="text-gray-200 font-bold  flex items-center justify-between   w-full p-1 right-0 top-12 mt-2 absolute z-50  focus:outline-none lg:hidden slide-in-from-top "
                     >
-                      Категории
+                      Филтри
                       <CgCloseR size={30} className="mr-2" />
                     </button>
                     <div
@@ -312,11 +312,11 @@ export function Blog({ posts, initialCategory, author }) {
                                 value={searchInput}
                                 onChange={(e) => setSearchInput(e.target.value)}
                                 placeholder="Потърси..."
-                                className="w-full p-3 w-full h-18 rounded-full  bg-gray-100 focus:outline-none"
+                                className="w-full p-2 w-full h-8   rounded-full  bg-gray-100 focus:outline-none"
                               />
                               <button
                                 type="submit"
-                                className="absolute inset-y-0 right-0 px-3  w-24 bg-yellow-300 text-gray-700 rounded-r-full flex items-center justify-center"
+                                className="absolute inset-y-0 right-0 px-3  w-12 bg-yellow-300 text-gray-700 rounded-r-full flex items-center justify-center"
                               >
                                 <FaSearch />
                               </button>
@@ -361,7 +361,7 @@ export function Blog({ posts, initialCategory, author }) {
                             <li className="  ">
                               <a
                                 href={"/norse"}
-                                class=" flex items-center     hover:underline rounded-lg   hover:text-pink-300 transition-colors duration-300"
+                                class=" flex items-center     hover:underline rounded-lg    transition-colors duration-300"
                               >
                                 <GiVikingLonghouse className="mr-2 text-blue-600" />
                                 Митология
