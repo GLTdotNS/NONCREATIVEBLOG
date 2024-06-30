@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa";
 import { RiBook2Line, RiTeamLine } from "react-icons/ri";
 import Link from "next/link";
-import jojo from "../../styles/jojo.png";
+import jojo from "../../styles/jojo.JPG";
 import biker from "../../styles/bikerchetojojo.jpg";
 import trick from "../../styles/ne.gif";
 import { SiBuymeacoffee } from "react-icons/si";
@@ -154,21 +154,21 @@ const AboutMePage = () => {
               </div>
             </section>
 
-            <footer class="container rounded-t-lg mx-auto w-full lg:w-1/2 px-4 py-8 bg-gray-600 text-white">
+            <footer class="container rounded-t-lg  mx-auto w-11/12 lg:w-1/2 p-6 bg-gray-600 text-white">
               <p class="text-xl mb-4">
-                💼 Ако търсите информативно и атрактивно съдържание , сте на
+                💼 Ако търсите информативно и интересно съдържание , сте на
                 правилното място.
               </p>
 
               <p class="text-xl">
                 🎨 Свържете се с мен, за да си сътрудничим или за да споделите
-                мнението си или да пък да поговорим по различни теми.
+                мнението си, или да пък просто да поговорим.
               </p>
             </footer>
 
-            <div className="bg-yellow-200 mb-8 w-1/2 m-auto  w-full lg:w-1/2  flex justify-center text-gray-700 py-2 px-6 rounded-b-lg hover:bg-yellow-400 transition duration-200 flex items-center">
+            <div className=" container bg-yellow-200 mb-8 w-11/12 m-auto   lg:w-1/2  flex justify-center text-gray-700 p-2 rounded-b-lg transition duration-200 flex items-center">
               <Link
-                className=" py-2 px-6 rounded-lg transition duration-200 flex items-center ml-4"
+                className=" py-2 px-6 rounded-lg  transition duration-200 flex items-center ml-4"
                 href="/contact/email"
               >
                 <FaEnvelope className="mr-2" /> Пиши ми

@@ -457,12 +457,12 @@ export async function getStaticProps(context) {
 }
   }`;
   const posts = await sanityClient.fetch(postsQuery);
-  console.log(post);
   return {
     props: {
       post,
       posts,
     },
+    revalidate: 1,
   };
 }
 

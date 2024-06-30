@@ -549,6 +549,7 @@ export async function getStaticProps(context) {
       post,
       posts,
     },
+    revalidate: 10,
   };
 }
 

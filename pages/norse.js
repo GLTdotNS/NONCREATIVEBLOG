@@ -188,7 +188,7 @@ export function Blog({
               </div>
 
               {menuOpen && (
-                <div className="lg:hidden fixed w-10/12 left-0 flex items-center justify-center slide-in-from-left overflow-x-scroll top-0 z-50 bg-gray-800 backdrop-blur-xl bg-opacity-70">
+                <div className="lg:hidden fixed w-10/12 h-screen left-0 flex items-center justify-center slide-in-from-left overflow-scroll top-0 z-50 bg-gray-800 backdrop-blur-xl bg-opacity-70">
                   <div className="relative">
                     <button
                       onClick={handleMenuToggle}
@@ -335,7 +335,7 @@ export function Blog({
                             ))}
                           </ul>
                         </div>
-                        <div className="max-w-full bg-gray-800 shadow-lg rounded-lg overflow-hidden p-2">
+                        <div className="max-w-full bg-gray-800 shadow-lg rounded-lg  p-2">
                           <div className="text-left sm:text-left text-gray-100">
                             <Image
                               src={gif}
@@ -351,8 +351,8 @@ export function Blog({
                                 blocks={author?.bio}
                               />
                               <a
-                                href="/about"
-                                className="rounded-full mt-2 p-1 mb-2 flex items-center justify-center border-2 border-yellow-300 font-bold text-gray-300 w-full"
+                                href="/authors/georgi-tonkov"
+                                className="rounded-full p-1 mb-4 mt-4 bg-yellow-200 text-gray-700 flex items-center justify-center  border-2 border-yellow-300 font-bold  text-gray-300 w-full"
                               >
                                 Виж повече за мен
                               </a>
@@ -519,7 +519,7 @@ export const getServerSideProps = async (context) => {
     totalPosts.sort((a, b) => b.readingTime - a.readingTime);
   }
 
-  const author = authorExport[0];
+  const author = authorExport[2];
   const totalPages = Math.ceil(totalPostsCount / postsPerPage);
 
   return {

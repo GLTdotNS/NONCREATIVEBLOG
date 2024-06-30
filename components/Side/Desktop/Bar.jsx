@@ -117,7 +117,7 @@ const Bar = ({ posts, categories, author, initialCategory }) => {
               <BlockContent className="text-gray-700" blocks={author?.bio} />
 
               <a
-                href="/about"
+                href="/authors/georgi-tonkov"
                 className="rounded-full p-1 mb-2 flex items-center justify-center border-2 bg-yellow-300 font-bold text-gray-700 w-full"
               >
                 Виж повече за мен
