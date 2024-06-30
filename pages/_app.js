@@ -58,35 +58,22 @@ function MyApp({ Component, pageProps }) {
           name="title"
           content="NONCREATIVEBLOG/Блог на Георги Тонков - Скандинавска митология,модерна кухн лични истории и забавни неща."
         />
-
         <meta
           name="description"
           content="Разгледайте скандинавската митология и друга гледна точка.Запознайте се с модерната кухня и лесни рецепти за дома и офис. Лични истории и забавни мемета в блога на Георги Тонков."
         />
         <meta name="author" content="Georgi Tonkov" />
         <meta name="language" content="BG" />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://noncreativeblog.net/" />
-        <meta
-          property="og:title"
-          content="NONCREATIVEBLOG/Блог на Георги Тонков - Скандинавска митология, лични истории и забавления"
-        />
-        <meta
-          property="og:description"
-          content="Разгледайте скандинавската митология и друга гледна точка.Запознайте се с модерната кухня и лесни рецепти за дома и офис. Лични истории и забавни мемета в блога на Георги Тонков."
-        />
         <meta
           property="og:image"
           content="https://noncreativeblog.net/images/cover.png"
-        />
+        />{" "}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:url" content="https://noncreativeblog.net" />
         <meta property="og:type" content="website" />
-
         <meta property="og:locale" content="bg_BG" />
-
         <link rel="canonical" href="https://noncreativeblog.net/" />
-
         <link rel="icon" href="/favicon.ico" />
       </Head>{" "}
       {loading ? (
