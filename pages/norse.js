@@ -9,7 +9,7 @@ import { FcClearFilters } from "react-icons/fc";
 import Head from "next/head";
 import { CgLastpass } from "react-icons/cg";
 
-import gif from "../styles/jojo.JPG";
+import gif from "../styles/fehu.png";
 import { CgCloseR } from "react-icons/cg";
 import { FaArrowRight } from "react-icons/fa";
 import {
@@ -84,17 +84,10 @@ export function Blog({
       {" "}
       <div className="   mx-auto ">
         <div class="relative w-full absolute top-0 mx-auto mt-4 lg:mt-16 ">
-          <img
-            src={cover}
-            alt="noncreativeblog"
-            class="w-full lg:w-10/12 h-auto  lg:h-[380px]  mx-auto  hidden object-cover rounded-lg"
-          />
           <Image
             src={cover}
             alt="noncreativeblog"
-            class="w-full lg:w-10/12 h-auto  lg:h-[380px]  mx-auto   object-cover rounded-b-lg "
-            quality={75}
-            priority={true}
+            class="w-full lg:w-10/12 h-auto  lg:h-[380px]  mx-auto    object-cover rounded-b-lg "
           />
         </div>
         <div className="container mx-auto">
@@ -159,7 +152,7 @@ export function Blog({
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-12 border-t-[1px] border-gray-100 ">
             {/* Left side column */}
             <div className="flex">
-              <div className="hidden lg:block border-r-[1px] border-gray-400 sticky top-40 h-screen overflow-auto ">
+              <div className="hidden lg:block border-r-[1px] border-gray-400 sticky top-40  overflow- ">
                 <div className="w-full mb-4 flex justify-center items-center">
                   <div>
                     <h2 className="text-lg text-gray-700 font-semibold mb-2 text-center">
@@ -351,15 +344,31 @@ export function Blog({
                               <p className="text-xl mb-4 text-center bg-gradient-to-r from-pink-200 via-red-300 to-pink-400 bg-clip-text text-transparent text-4xl font-bold">
                                 {author?.name}
                               </p>
-                              <BlockContent
-                                className="text-gray-100"
-                                blocks={author?.bio}
-                              />
+                              <p>
+                                Протогерманската писменост е една от най-старите
+                                познати на човечеството, като първите сведения
+                                за нея датират от 160 години преди христа, но за
+                                първата руническа азбука се сочи Elder Futhark
+                                ,която е използвана между II и VII век.Тя е
+                                широко разпространена сред германските народи и
+                                най-вече в Скандинавия . За произхода и се
+                                говори , че Бог Один след като слязъл от дървото
+                                на живота Игдрасил получил руни , които му
+                                шепнели и надарили с мъдрост. Самата дума руна
+                                означава "шепот"/"мистериозен шепот"/. С
+                                навлизането на християнството в Европа руните са
+                                били изместени от латиницата , но руните са
+                                използвани и до днес - за декорация , за
+                                изготвянето на амулети , медальони и други
+                                украшения . Всяка една от руните има своето
+                                значение, както и всяка една от тях отговаря на
+                                звук или буква от латинската азбука.
+                              </p>
                               <a
-                                href="/authors/georgi-tonkov"
+                                href="/runes"
                                 className="rounded-full p-1 mb-4 mt-4 bg-yellow-200 text-gray-700 flex items-center justify-center  border-2 border-yellow-300 font-bold  text-gray-300 w-full"
                               >
-                                Виж повече за мен
+                                Виж повече
                               </a>
                             </div>
                           </div>

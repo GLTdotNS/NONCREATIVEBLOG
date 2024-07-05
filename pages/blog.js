@@ -214,15 +214,7 @@ export function Blog({ posts, initialCategory, author }) {
                           Хрониките на времето
                         </span>
                       </li>
-                      <li className="  ">
-                        <Link
-                          href={"/norse"}
-                          class=" flex items-center     hover:underline rounded-lg    transition-colors duration-300"
-                        >
-                          <GiVikingLonghouse className="mr-2 text-blue-600" />
-                          Митология
-                        </Link>
-                      </li>
+
                       <li className="mb-2 mt-12 bg-yellow-300 rounded-md w-64 p-1">
                         <a
                           href="/"

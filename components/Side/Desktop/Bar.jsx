@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FcClearFilters } from "react-icons/fc";
 import { FaLink, FaRegFolderOpen, FaStar, FaReddit } from "react-icons/fa";
 import { GiSupersonicArrow } from "react-icons/gi";
-import gif from "../../../styles/jojo.JPG";
+import gif from "../../../styles/fehu.png";
 import BlockContent from "@sanity/block-content-to-react";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -18,8 +18,8 @@ const Bar = ({ posts, categories, author, initialCategory }) => {
   };
 
   return (
-    <div className="p-4">
-      <div className="mb-8 p-4 bg-gray-100 backdrop-blur-lg bg-opacity-40 w-full rounded-lg">
+    <div className="p-4 h-screen">
+      <div className="mb-8 p-4  bg-gray-100 backdrop-blur-lg bg-opacity-40 w-full rounded-lg">
         <h2 className="text-xl text-gray-700 font-bold mb-4 flex items-center">
           <FaRegFolderOpen className="mr-2" /> Категории
         </h2>
@@ -112,15 +112,29 @@ const Bar = ({ posts, categories, author, initialCategory }) => {
             <Image src={gif} alt="noncreativeblog" className="w-full h-full" />
             <div>
               <p className="text-xl mb-4 text-center bg-gradient-to-r from-yellow-200 via-orange-600 to-pink-700 bg-clip-text text-transparent text-4xl font-bold">
-                {author?.name}
+                Руни
               </p>
-              <BlockContent className="text-gray-700" blocks={author?.bio} />
-
+              <p>
+                Протогерманската писменост е една от най-старите познати на
+                човечеството, като първите сведения за нея датират от 160 години
+                преди христа, но за първата руническа азбука се сочи Elder
+                Futhark ,която е използвана между II и VII век.Тя е широко
+                разпространена сред германските народи и най-вече в Скандинавия
+                . За произхода и се говори , че Бог Один след като слязъл от
+                дървото на живота Игдрасил получил руни , които му шепнели и
+                надарили с мъдрост. Самата дума руна означава
+                "шепот"/"мистериозен шепот"/. С навлизането на християнството в
+                Европа руните са били изместени от латиницата , но руните са
+                използвани и до днес - за декорация , за изготвянето на амулети
+                , медальони и други украшения . Всяка една от руните има своето
+                значение, както и всяка една от тях отговаря на звук или буква
+                от латинската азбука.
+              </p>
               <a
-                href="/authors/georgi-tonkov"
+                href="/runes"
                 className="rounded-full p-1 mb-2 flex items-center justify-center border-2 bg-yellow-300 font-bold text-gray-700 w-full"
               >
-                Виж повече за мен
+                Виж повече
               </a>
             </div>
           </div>

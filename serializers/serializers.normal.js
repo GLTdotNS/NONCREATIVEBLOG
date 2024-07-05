@@ -9,7 +9,7 @@ export const serializers = {
       const [modalOpen, setModalOpen] = useState(false);
 
       const assetRef = props.node.asset?._ref;
-      const baseUrl = `https://cdn.sanity.io/images/${"6kqgsbl2"}/production/`;
+      const baseUrl = `https://cdn.sanity.io/images/${"y8gn2piz"}/production/`;
       const imageId = assetRef
         ? assetRef.replace("image-", "").replace(/-\w+$/, "")
         : "";

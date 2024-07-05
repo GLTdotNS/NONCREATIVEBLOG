@@ -49,14 +49,12 @@ function MyApp({ Component, pageProps }) {
     <>
       <Analytics />
       <Head>
-        <title>
-          Блог на Георги Тонков - Скандинавска кухня, лични истории и забавления
-        </title>
+        <title>NONCREATIVEBLOG - Блог на Георги Тонков</title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
           name="title"
-          content="NONCREATIVEBLOG/Блог на Георги Тонков - Скандинавска митология,модерна кухн лични истории и забавни неща."
+          content="Разгледайте скандинавската митология и от друга гледна точка.Запознайте се с модерната кухня и лесни рецепти за дома и офис. Лични истории и забавни мемета в блога на Георги Тонков."
         />
         <meta
           name="description"

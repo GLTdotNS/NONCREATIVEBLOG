@@ -9,6 +9,7 @@ import { FaWindowClose } from "react-icons/fa";
 import { CgMenuGridO } from "react-icons/cg";
 import { GiNinjaHead } from "react-icons/gi";
 import { CgMoreVertical } from "react-icons/cg";
+import { GiVikingLonghouse } from "react-icons/gi";
 
 import { FaRegFaceSmileBeam } from "react-icons/fa6";
 import { FaMessage } from "react-icons/fa6";
@@ -57,7 +58,13 @@ const Navbar = () => {
       >
         {" "}
         <div className="w-full   flex h-12 ">
-          <a href={"/"}>
+          <a
+            href={
+              router.pathname === "/norse" || router.pathname === "/runes"
+                ? "/norse"
+                : "/"
+            }
+          >
             {" "}
             <div className=" absolute top-1  lg:right-8">
               <Image
@@ -69,26 +76,26 @@ const Navbar = () => {
           </a>
 
           <div className="hidden lg:flex   uppercase flex-grow items-center justify-start ">
-            <a href="/" className={` font-bold text-md hover-1 mx-4 hover-1`}>
+            <a href="/norse" className={` font-bold text-md hover-1  hover-1`}>
               <div className="flex items-center">
-                <FaHome className="mr-2" />
-                <span>Начало </span>
+                <GiVikingLonghouse className="mr-2 text-blue-600" />
+                Митология
               </div>
             </a>
 
             <Link
-              href={"/authors/georgi-tonkov"}
-              className={` font-bold text-md hover-1 mx-4 hover-1`}
+              href={"/"}
+              className={` font-bold text-md hover-1 mx-2 hover-1`}
             >
               <div className="flex items-center">
                 <GiNinjaHead className="mr-2" />
-                <span>За мен</span>
+                <span>Интересно</span>
               </div>
             </Link>
 
             <Link
               href={"/contact/email"}
-              className={` font-bold text-md hover-1 mx-4 hover-1`}
+              className={` font-bold text-md hover-1 mx-2 hover-1`}
             >
               <div className="flex items-center">
                 <FaMessage className="mr-2" />
@@ -97,7 +104,7 @@ const Navbar = () => {
             </Link>
             <div class="group relative">
               <button
-                className={` font-bold text-md mx-4 hover-1 inline-flex flex items-center uppercase  mx-4 hover-1`}
+                className={` font-bold text-md mx-2 hover-1 inline-flex flex items-center uppercase  mx-4 hover-1`}
               >
                 <CgMoreVertical className="m" />
                 Повече
@@ -114,7 +121,16 @@ const Navbar = () => {
                       <span>VÖLUSPIRA</span>
                     </div>
                   </a>
-
+                  <a
+                    href={"/authors/georgi-tonkov"}
+                    className="block px-4 py-2 text-lg"
+                    role="menuitem"
+                  >
+                    <div className="flex items-center">
+                      <GiNinjaHead className="mr-2" />
+                      <span>За мен</span>
+                    </div>
+                  </a>
                   <a
                     href="https://www.linkedin.com/in/georgi-tonkov/"
                     className="block px-4 py-2 text-lg"
@@ -167,7 +183,13 @@ const Navbar = () => {
             <div className=" slide-in-from-left    z-10 lg:hidden fixed shadow-4xl top-[40px] left-4  md:left-[14px] w-11/12 md:w-2/3 rounded-lg bg-gradient-to-b from-gray-900 via-gray-950 via-gray-950 to-orange-300 flex flex-col items-start justify-start ">
               <div className="bg-gradient-to-r rounded-lg flex items-center p-4 justify-center  from-gray-700 via-gray-800 via-gray-900 to-gray-900 border-b-2 border-gray-700  w-full  ">
                 {" "}
-                <a href={"/"}>
+                <a
+                  href={
+                    router.pathname === "/norse" || router.pathname === "/runes"
+                      ? "/norse"
+                      : "/"
+                  }
+                >
                   {" "}
                   <div className=" w-10/12 mx-auto ml-2  top-6  left-0">
                     <Image
@@ -190,22 +212,22 @@ const Navbar = () => {
               </div>
               <div className="  items-center justify-center mt-4 p-4">
                 <a
-                  href="/"
+                  href="/norse"
                   className={`text-gray-100 block  text-2xl mt-2 hover-1`}
                 >
                   <div className="flex items-center">
-                    <FaHome className="mr-2" />
-                    <span>Начало </span>
+                    <GiVikingLonghouse className="mr-2 text-blue-600" />
+                    Митология
                   </div>
                 </a>
 
                 <Link
-                  href={"/authors/georgi-tonkov"}
+                  href={"/"}
                   className={`block text-gray-100   text-2xl mt-2 hover-1`}
                 >
                   <div className="flex items-center">
                     <GiNinjaHead className="mr-2" />
-                    <span>За мен</span>
+                    <span>Интересно</span>
                   </div>
                 </Link>
 
@@ -249,6 +271,15 @@ const Navbar = () => {
                           <span>LinkedIn</span>
                         </div>
                       </a>
+                      <Link
+                        href={"/authors/georgi-tonkov"}
+                        className={`block   text-lg py-2 px-4 hover-1`}
+                      >
+                        <div className="flex items-center">
+                          <GiNinjaHead className="mr-2" />
+                          <span>За мен</span>
+                        </div>
+                      </Link>
                     </div>
                   </div>
                 </div>

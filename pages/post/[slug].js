@@ -238,7 +238,7 @@ const Cats = ({ post, posts }) => {
               </div>
             </div>
           </div>
-          <div className=" p-4  text-gray-700">
+          <div className=" p-4 asd flex text-gray-700">
             <BlockContent
               serializers={serializers}
               blocks={post.body}
@@ -248,11 +248,9 @@ const Cats = ({ post, posts }) => {
           </div>
         </div>
         <div class="container mx-auto max-w-4xl border-t-2 border-gray-300 py-8">
-          <p class="text-gray-600 mb-4 md:mb-0 text-left">
+          <p class="text-gray-600 mb-4 md:mb-0 text-left flex items-center justify-center">
             Благодаря за четенето! Надявам се тази статия да ви е била полезна и
-            интересна. Вашата подкрепа ми помага да продължа да предоставям
-            полезна информация и съвети за всички, които я търсят. Благодаря ви
-            подкрепата!
+            интересна.
           </p>
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-4">
             <a
@@ -462,7 +460,7 @@ export async function getStaticProps(context) {
       post,
       posts,
     },
-    revalidate: 1,
+    revalidate: 10,
   };
 }
 
