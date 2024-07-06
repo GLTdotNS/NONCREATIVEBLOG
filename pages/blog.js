@@ -69,7 +69,7 @@ export function Blog({ posts, initialCategory, author }) {
 
       break;
     case "books&movies":
-      setCategory("Книжки и филми");
+      setCategory("Любимо");
       break;
     case "cooking":
       setCategory("Готварски рецепти");
@@ -234,7 +234,7 @@ export function Blog({ posts, initialCategory, author }) {
                       {posts?.map((c, index) => (
                         <li key={index} className="mb-2">
                           <a
-                            href={`/post/${c.slug.current}`}
+                            href={`/post/tonkoff/${c.slug.current}`}
                             className=" text-gray-700 flex items-center"
                           >
                             <FaLink className="mr-2" /> {c.title}
@@ -250,7 +250,7 @@ export function Blog({ posts, initialCategory, author }) {
                       <Image
                         src={gif}
                         alt="noncreativeblog"
-                        className="w-full h-full"
+                        className="w-64 h-48 flex justify-center items-center mx-auto rounded-full"
                       />
 
                       <div class="">
@@ -379,7 +379,7 @@ export function Blog({ posts, initialCategory, author }) {
                             {posts?.map((c, index) => (
                               <li key={index} className="mb-2">
                                 <a
-                                  href={`/post/${c.slug.current}`}
+                                  href={`/post/tonkoff/${c.slug.current}`}
                                   className=" hover:underline text-blue-400 flex items-center"
                                 >
                                   <FaLink className="mr-2 text-sm" />{" "}
@@ -394,7 +394,7 @@ export function Blog({ posts, initialCategory, author }) {
                             <Image
                               src={gif}
                               alt="noncreativeblog"
-                              className="w-full h-full"
+                              className="w-48 h-32 flex justify-center items-center mx-auto rounded-full"
                             />
 
                             <div class="">

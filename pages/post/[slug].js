@@ -44,7 +44,9 @@ const Cats = ({ post, posts }) => {
   const { isOpenSection, setSisOpenSection } = useContext(MyContext);
 
   const [comments, setComments] = useState(post.comments);
-  const [category, setCategory] = useState(post.categories);
+  const [category, setCategory] = useState(
+    post.categories || post.qualification
+  );
 
   moment.locale("custom-locale", {
     months: [
@@ -62,7 +64,30 @@ const Cats = ({ post, posts }) => {
       "Декември",
     ],
   });
+  switch (category) {
+    case "Aesir":
+      setCategory("Ауси ");
 
+      break;
+    case "Vani":
+      setCategory("Вани");
+
+      break;
+    case "Giants":
+      setCategory("Гиганти");
+      break;
+    case "Cosmology":
+      setCategory("Космология");
+      break;
+    case "Worlds":
+      setCategory("Светове");
+      break;
+    case null:
+      setCategory("Няма информация");
+      break;
+    default:
+      break;
+  }
   return (
     <div className="relative">
       <div
@@ -90,7 +115,7 @@ const Cats = ({ post, posts }) => {
                   >
                     <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
                   </svg>
-                  Начало
+                  Митология
                 </a>
               </li>
               <li>
@@ -111,7 +136,7 @@ const Cats = ({ post, posts }) => {
                     />
                   </svg>
                   <span class="ms-1 text-sm font-medium text-gray-700 ">
-                    {post.categories}
+                    {category}
                   </span>
                 </div>
               </li>
@@ -139,7 +164,7 @@ const Cats = ({ post, posts }) => {
               </li>
             </ol>
           </nav>
-          <h1 className="text-xl font-bold text-center py-4 ">{post.title}</h1>
+          <h1 className="text-4xl font-bold text-center py-8 ">{post.title}</h1>
           <div className="flex items-center justify-between">
             {" "}
             <a
@@ -371,7 +396,9 @@ publishedAt,
     },
   
   },
-  "categories": categories[]->title,
+  "categories": categories[1]->title,
+    "qualification": categories[0]->title,
+
 'comments': *[_type == "comment" && post._ref == ^._id && approved == true] | order(_createdAt desc){
         _id, 
         name, 
@@ -463,6 +490,7 @@ export async function getStaticProps(context) {
   
 }
   }`;
+  console.log(post.qualification);
   const posts = await sanityClient.fetch(postsQuery);
   return {
     props: {

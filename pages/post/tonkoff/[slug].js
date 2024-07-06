@@ -118,13 +118,14 @@ const Cats = ({ post, posts }) => {
   switch (category[0]) {
     case "Georgis stories":
       setCategory("Лични истории");
+
       break;
     case "bullshits":
       setCategory("Разни теми");
 
       break;
     case "books&movies":
-      setCategory("Книжки и филми");
+      setCategory("Любимо");
       break;
     case "cooking":
       setCategory("Готварски рецепти");

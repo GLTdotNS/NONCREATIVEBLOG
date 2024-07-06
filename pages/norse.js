@@ -151,8 +151,8 @@ export function Blog({
           </nav>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-12 border-t-[1px] border-gray-100 ">
             {/* Left side column */}
-            <div className="flex">
-              <div className="hidden lg:block border-r-[1px] border-gray-400 sticky top-40  overflow- ">
+            <div className="flex overflow-auto">
+              <div className="hidden lg:block border-r-1 border-gray-400 sticky top-0 overflow-auto">
                 <div className="w-full mb-4 flex justify-center items-center">
                   <div className="">
                     <h2 className="text-lg text-gray-700 font-semibold mb-2 text-center">
@@ -320,17 +320,20 @@ export function Blog({
                             Най-четени
                           </h2>
                           <ul className="text-gray-400">
-                            {posts?.map((c, index) => (
-                              <li key={index} className="mb-2">
-                                <a
-                                  href={`/post/${c.slug.current}`}
-                                  className="hover:underline text-blue-400 flex items-center"
-                                >
-                                  <FaLink className="mr-2 text-sm" />{" "}
-                                  {c.title.slice(0, 30)}...
-                                </a>
-                              </li>
-                            ))}
+                            {posts
+                              ?.slice()
+                              .sort((x, b) => b.likes - x.likes)
+                              .map((post, index) => (
+                                <li key={index} className="mb-2">
+                                  <a
+                                    href={`/post/${post.slug.current}`}
+                                    className="hover:underline text-blue-400 flex items-center"
+                                  >
+                                    <FaLink className="mr-2 text-sm" />{" "}
+                                    {post.title.slice(0, 30)}...
+                                  </a>
+                                </li>
+                              ))}
                           </ul>
                         </div>
                         <div className="max-w-full bg-gray-800 shadow-lg rounded-lg  p-2">
@@ -338,7 +341,7 @@ export function Blog({
                             <Image
                               src={gif}
                               alt="noncreativeblog"
-                              className="w-full h-full"
+                              className="w-48 h-48 flex justify-center items-center mx-auto rounded-full"
                             />
                             <div>
                               <p className="text-xl mb-4 text-center bg-gradient-to-r from-pink-200 via-red-300 to-pink-400 bg-clip-text text-transparent text-4xl font-bold">
@@ -412,8 +415,8 @@ export function Blog({
                             <FaArrowRight className="h-6 w-6 ml-2" />
                           </button>
                         </div>
-                        <div className="absolute bottom-0 left-0 bg-gradient-to-t  bg-gray-700  text-white  px-2 proxima">
-                          {c.readingTime}min
+                        <div className="absolute bottom-0 left-0 bg-gradient-to-t  bg-gray-700 backdrop-blur-sm bg-opacity-50 ba  text-white  px-2 proxima">
+                          {c.readingTime}минути
                         </div>
                       </div>
                       <div className="  top-0 left-0 text-slate-900 font-semibold rounded-b-md text-lg bg-gray-100  bg-opacity-100 p-4">
@@ -453,6 +456,7 @@ export const getServerSideProps = async (context) => {
   const postQuery = `*[_type == "post" ${handleCategoryChange} ${handleSearchQuery}] | order(publishedAt desc) [${start}...${end}] {
     description,
     slug,
+    likes,
     title,
     duration,
     "category": categories[0]->title,
@@ -535,7 +539,7 @@ export const getServerSideProps = async (context) => {
 
   const author = authorExport[2];
   const totalPages = Math.ceil(totalPostsCount / postsPerPage);
-
+  console.log(totalPosts[0].likes);
   return {
     props: {
       posts: totalPosts,

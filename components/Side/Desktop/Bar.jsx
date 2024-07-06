@@ -94,22 +94,29 @@ const Bar = ({ posts, categories, author, initialCategory }) => {
           <GiSupersonicArrow className="mr-2 text-red-400" /> Най-четени
         </h2>
         <ul className="text-gray-700">
-          {posts?.map((c, index) => (
-            <li key={index} className="mb-2">
-              <a
-                href={`/post/${c.slug.current}`}
-                className="text-gray-700 flex items-center"
-              >
-                <FaLink className="mr-2" /> {c.title}
-              </a>
-            </li>
-          ))}
+          {posts
+            ?.slice()
+            .sort((x, b) => b.likes - x.likes)
+            .map((c, index) => (
+              <li key={index} className="mb-2">
+                <a
+                  href={`/post/${c.slug.current}`}
+                  className="text-gray-700 flex items-center"
+                >
+                  <FaLink className="mr-2" /> {c.title}
+                </a>
+              </li>
+            ))}
         </ul>
       </div>
       <div className="w-full bg-gray-100 backdrop-blur-xl bg-opacity-30 p-2 shadow-lg rounded-lg overflow-hidden mb-2">
         <div className="max-w-full shadow-lg rounded-lg overflow-hidden p-2">
-          <div className="text-left sm:text-left text-gray-700">
-            <Image src={gif} alt="noncreativeblog" className="w-full h-full" />
+          <div className="text-left sm:text-left text-gray-700 ">
+            <Image
+              src={gif}
+              alt="noncreativeblog"
+              className="w-64 h-64 flex justify-center items-center mx-auto rounded-full"
+            />
             <div>
               <p className="text-xl mb-4 text-center bg-gradient-to-r from-yellow-200 via-orange-600 to-pink-700 bg-clip-text text-transparent text-4xl font-bold">
                 Руни
