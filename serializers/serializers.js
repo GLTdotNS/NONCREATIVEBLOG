@@ -2,9 +2,19 @@ import React from "react";
 import BlockContent from "@sanity/block-content-to-react";
 import { useState } from "react";
 import { MdOutlineZoomOutMap } from "react-icons/md";
-
+import getYouTubeId from "get-youtube-id";
+import YouTube from "react-youtube";
 export const serializers = {
   types: {
+    youtube: ({ node }) => {
+      const { url } = node;
+      const id = getYouTubeId(url);
+      if (!id) {
+        return <div>Invalid YouTube URL</div>;
+      }
+
+      return <YouTube iframeClassName={"w-full p-4"} videoId={id} />;
+    },
     image: (props) => {
       const [modalOpen, setModalOpen] = useState(false);
 
@@ -27,13 +37,15 @@ export const serializers = {
               alt={props.node.alt || "noncreativeblog"}
             />
 
-            <figcaption className="p-2 text-gray-700 bg-yellow-100  lg:w-1/2 mx-auto">
-              {props.node.caption}
-            </figcaption>
+            {props.node.caption && (
+              <figcaption className="p-2 text-gray-700 bg-yellow-100  lg:w-1/2 mx-auto">
+                {props.node.caption}
+              </figcaption>
+            )}
 
             <MdOutlineZoomOutMap
               onClick={() => setModalOpen(true)}
-              className="absolute top-2 left-0 text-2xl"
+              className="absolute top-2 left-0 text-4xl text-blue-700"
             />
           </figure>
 
@@ -91,6 +103,9 @@ export const serializers = {
         );
       }
 
+      if (style === "anchor") {
+        return <a className="text-red"> {props.children}</a>;
+      }
       return BlockContent.defaultSerializers.types.block(props);
     },
     block: (props) => {

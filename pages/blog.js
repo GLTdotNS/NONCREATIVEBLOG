@@ -440,7 +440,7 @@ export function Blog({ posts, initialCategory, author }) {
                       <div className="relative h-[400px] w-full mx-auto  shadow-md overflow-hidden rounded-t-lg ">
                         <Image
                           className="h-full w-full object-cover center transition-transform transform hover:scale-110"
-                          src={c.mainImage.asset.url}
+                          src={c?.mainImage.asset.url}
                           alt={c.title}
                           width={500}
                           height={500}

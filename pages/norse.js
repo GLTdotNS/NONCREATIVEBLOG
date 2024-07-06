@@ -154,22 +154,22 @@ export function Blog({
             <div className="flex">
               <div className="hidden lg:block border-r-[1px] border-gray-400 sticky top-40  overflow- ">
                 <div className="w-full mb-4 flex justify-center items-center">
-                  <div>
+                  <div className="">
                     <h2 className="text-lg text-gray-700 font-semibold mb-2 text-center">
                       Който търси, намира.
                     </h2>
-                    <div className="relative text-center w-full">
-                      <form onSubmit={handleSearch}>
+                    <div className="relative text-center ">
+                      <form className="" onSubmit={handleSearch}>
                         <input
                           type="text"
                           value={searchInput}
                           onChange={(e) => setSearchInput(e.target.value)}
                           placeholder="Потърси..."
-                          className="w-full p-3 w-[480px] h-18 rounded-full  bg-gray-100 focus:outline-none"
+                          className="w-[300px] p-3  h-18 rounded-full  bg-gray-100 focus:outline-none"
                         />
                         <button
                           type="submit"
-                          className="absolute inset-y-0 right-0 px-3  w-24 bg-yellow-300 text-gray-700 rounded-r-full flex items-center justify-center"
+                          className="absolute inset-y-0 right-0 px-3  w-12 bg-yellow-300 text-gray-700 rounded-r-full flex items-center justify-center"
                         >
                           <FaSearch />
                         </button>
@@ -342,7 +342,7 @@ export function Blog({
                             />
                             <div>
                               <p className="text-xl mb-4 text-center bg-gradient-to-r from-pink-200 via-red-300 to-pink-400 bg-clip-text text-transparent text-4xl font-bold">
-                                {author?.name}
+                                Руни
                               </p>
                               <p>
                                 Протогерманската писменост е една от най-старите

@@ -64,15 +64,15 @@ const Cats = ({ post, posts }) => {
   });
 
   return (
-    <div>
+    <div className="relative">
       <div
         key={post._id}
-        className="w-full   lg:w-10/12  mt-12 shadow-lg mx-auto text-gray-700 p-2 overflow-hidden"
+        className="w-full    lg:w-10/12  mt-12 shadow-lg mx-auto text-gray-700 p-2 overflow-hidden"
       >
-        <div className="max-w-4xl mx-auto">
+        <div className=" max-w-4xl mx-auto">
           {" "}
           <nav
-            class="flex px-5 py-3 mt-8 text-gray-700 w-10/11 lg:w-5/6 mx-auto text-xs rounded-lg bg-yellow-100   "
+            class="flex  px-5 py-3 mt-8  w-10/11 lg:w-5/6 mx-auto text-xs rounded-lg bg-yellow-100 bg-opacity-50  "
             aria-label="Breadcrumb"
           >
             <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -238,7 +238,16 @@ const Cats = ({ post, posts }) => {
               </div>
             </div>
           </div>
-          <div className=" p-4 asd flex text-gray-700">
+          <div class=" max-w-screen-2xl mx-auto mx-auto mt-4 lg:mt-16">
+            <Image
+              src={post.mainImage.asset.url}
+              alt="noncreativeblog"
+              class="w-full h-auto md:h-[430px] lg:h-[600px] object-cover rounded-lg"
+              width={500}
+              height={500}
+            />
+          </div>
+          <div className=" p-4 block-content flex text-gray-700">
             <BlockContent
               serializers={serializers}
               blocks={post.body}

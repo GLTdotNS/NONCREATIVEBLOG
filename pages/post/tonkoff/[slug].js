@@ -3,7 +3,7 @@ import { client as sanityClient } from "../../../library/sanityClient";
 import BlockContent from "@sanity/block-content-to-react";
 import Link from "next/link";
 import { FaRegCalendarCheck } from "react-icons/fa";
-import { serializers } from "../../../serializers/serializers";
+import { serializers } from "../../../serializers/serializers.normal.js";
 import Image from "next/image";
 import {
   FaHeart,
@@ -41,8 +41,8 @@ import RelatedPostsCarousel from "../../../components/Related/Related";
 const Cats = ({ post, posts }) => {
   const { isOpenSection, setSisOpenSection } = useContext(MyContext);
 
-  const [comments, setComments] = useState(post.comments);
-  const [category, setCategory] = useState(post.categories);
+  const [comments, setComments] = useState(post?.comments);
+  const [category, setCategory] = useState(post?.categories);
   const [isVote, setVote] = useState();
 
   useEffect(() => {
@@ -137,7 +137,7 @@ const Cats = ({ post, posts }) => {
   }
   const router = useRouter();
   return (
-    <div>
+    <div className="">
       <div
         key={post._id}
         className="w-full   lg:w-10/12  mt-12 shadow-lg mx-auto text-gray-700 p-2 overflow-hidden"
@@ -311,7 +311,7 @@ const Cats = ({ post, posts }) => {
               </div>
             </div>
           </div>
-          <div className=" p-4  text-gray-700">
+          <div className="block-content p-4  text-gray-700">
             {" "}
             <BlockContent
               serializers={serializers}

@@ -14,7 +14,9 @@
     scrollbar-width: none; /* Firefox */
   }
 }
-
+.block-content a {
+  color: blue !important;
+}
 .proxima {
   font-family: "Fjalla One", sans-serif;
   font-weight: 400;
