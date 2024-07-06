@@ -72,17 +72,17 @@ export const getServerSideProps = async (context) => {
 
   const authorPromise = client
     .fetch(
-      `*[_type == "author"]{
-      name,
-      slug,
-      bio,
-      image{
-        asset->{
-          _id,
-          url
+      `*[_type == "author"] | order(createdAt asc) {
+        name,
+        slug,
+        bio,
+        image {
+          asset-> {
+            _id,
+            url
+          }
         }
-      }
-    }`
+      }`
     )
     .catch(() => []);
 
@@ -114,7 +114,7 @@ export const getServerSideProps = async (context) => {
   }
 
   const totalPages = Math.ceil(totalPostsCount / postsPerPage);
-  const author = authorExport[0];
+  const author = authorExport[1];
 
   return {
     props: {

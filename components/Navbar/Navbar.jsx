@@ -10,7 +10,8 @@ import { CgMenuGridO } from "react-icons/cg";
 import { GiNinjaHead } from "react-icons/gi";
 import { CgMoreVertical } from "react-icons/cg";
 import { GiVikingLonghouse } from "react-icons/gi";
-
+import { IoLogoGooglePlaystore } from "react-icons/io5";
+import play from "../../styles/play.svg";
 import { FaRegFaceSmileBeam } from "react-icons/fa6";
 import { FaMessage } from "react-icons/fa6";
 
@@ -296,17 +297,32 @@ const Navbar = () => {
                   </button>
                 </Link>
               </div>
-              <div className="flex justify-center p-4 mt-8 bottom-[20px] w-5/6 mx-auto">
-                <div className="w-full  bg-gradient-to-b from-white to-orange-200 p-4 rounded-lg shadow-lg">
-                  <p className="text-center text-gray-800 text-lg font-bold mb-2">
-                    Рекламирай тук
+              <div className="flex  items-center justify-center  mt-8 h-full  w-5/6 mx-auto">
+                <div className="flex w-full bg-yellow-50 bg-opacity-90   p-4 rounded-lg shadow-lg text-center">
+                  <img
+                    src="https://play-lh.googleusercontent.com/b0o-oSdu4Lv_cntdFXvZD3t-SM4He2d4deIfzJ_3xI9rHIutbQnU7xNqHno7o7p5m-Y=s48-rw"
+                    alt="Game Logo"
+                    className="h-16 w-16 rounded-full mx-auto mb-4"
+                  />
+                  <p className="text-gray-800 text-lg font-bold ">
+                    Васил Левски - "Пробуждането"
                   </p>
-                  <Link
-                    className="bg-orange-300 w-10/12 flex items-center justify-center mx-auto hover:bg-pink-600 text-gray-700 font-bold py-2  rounded-full focus:outline-none"
-                    href="/joinus"
-                  >
-                    Научи повече
-                  </Link>
+                  <div className="flex justify-center items-center ">
+                    <a
+                      href="https://play.google.com/store/apps/details?id=com.bulgarianhistory.roleplaying&hl=bg&pli=1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {" "}
+                      <Image
+                        width={100}
+                        height={100}
+                        src={play}
+                        alt=""
+                        className="h-48 w-48"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

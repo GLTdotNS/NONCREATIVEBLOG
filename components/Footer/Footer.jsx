@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import play from "../../styles/play.svg"; // Ensure your play.svg is in the public folder
 
 const Footer = () => {
-  // Citati, които да се показват random
   const quotes = [
     {
       text: "Luck is what happens when preparation meets opportunity.",
@@ -21,62 +22,102 @@ const Footer = () => {
     },
   ];
 
-  // Стейт за текущия цитат
   const [currentQuote, setCurrentQuote] = useState({});
 
-  // Функция за смяна на случайния цитат
   const changeQuote = () => {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     setCurrentQuote(quotes[randomIndex]);
   };
 
-  // Извикване на функцията за смяна на цитат на всеки 30 секунди
   useEffect(() => {
-    changeQuote(); // За да се покаже първоначално случайният цитат
-    const interval = setInterval(changeQuote, 3000); // Смяна на цитат на всеки 30 секунди
-
-    // Чистене на интервала при размъкване на компонента
+    changeQuote();
+    const interval = setInterval(changeQuote, 30000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <footer className="bg-zinc-400 bg-opacity-10 w-full mt-24 p-4 rounded-lg shadow-xl lg:w-5/6 mx-auto text-gray-700 py-8">
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between items-center">
-        {/* Лява страна: Мотивационен цитат */}
-        <div className="w-full fade-in-element sm:w-auto mb-4 sm:mb-0 sm:mr-auto text-center sm:text-left">
+    <footer className="bg-gray-100 w-full mt-24 p-4 rounded-lg shadow-xl lg:w-5/6 mx-auto text-gray-700 py-8">
+      <div className="mx-auto flex flex-col lg:flex-row items-center justify-between">
+        {/* Left side: Motivational quote */}
+        <div className="w-full lg:w-1/3 mb-4 lg:mb-0 text-center lg:text-left">
           <p className="text-lg font-semibold">
             "{currentQuote.text}"
             <br />― {currentQuote.author}
           </p>
         </div>
 
-        {/* Център: Навигационни връзки */}
-        <nav className="w-full sm:w-auto mb-4 sm:mb-0 flex justify-center sm:justify-start">
-          <a href="/cookies&privacy" className="text-gray-700 px-4 py-2">
-            Курабийки & Поверителност
-          </a>
-          {/* Можете да добавите повече навигационни връзки тук */}
-        </nav>
+        {/* Center: Navigation links */}
+        <div className="w-full lg:w-1/3 text-center my-4 lg:my-0">
+          <nav>
+            <ul className="flex flex-col sm:flex-row md:flex-row">
+              <li className="mx-2">
+                <a href="/">Интересно</a>
+              </li>
+              <li className="mx-2">
+                <a href="/norse">Митология</a>
+              </li>
+              <li className="mx-2">
+                <a href="/author/georgi-tonkov">За мен</a>
+              </li>
+              <li className="mx-2">
+                <a href="/contact/email">Контакти</a>
+              </li>
+              <li className="mx-2">
+                <a href="/cookies&privacy">Поверителност</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
 
-        {/* Дясна страна: Бутон за абонамент и банер за реклама */}
-        <div className="w-full sm:w-auto text-center sm:text-right">
+        {/* Right side: Game promotion */}
+        <div className="w-full lg:w-1/3 text-center lg:text-right">
           <a
-            href="https://buymeacoffee.com/tonkoff"
+            href="https://play.google.com/store/apps/details?id=com.bulgarianhistory.roleplaying&hl=bg&pli=1"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-yellow-300 mt-2 sm:mt-0 text-gray-700 font-semibold py-2 px-6 rounded-full shadow-lg mr-4"
+            className="block max-w-full h-auto"
           >
-            Абонирай се
+            <div className="flex justify-center items-center bg-yellow-100 p-2 rounded-lg">
+              <div className="w-20 h-20 bg-gray-200 rounded-full overflow-hidden flex justify-center items-center">
+                <img
+                  src="https://play-lh.googleusercontent.com/b0o-oSdu4Lv_cntdFXvZD3t-SM4He2d4deIfzJ_3xI9rHIutbQnU7xNqHno7o7p5m-Y=s48-rw"
+                  alt="Play Store"
+                  className="h-full w-full"
+                />
+              </div>
+
+              <div className="ml-4 text-left">
+                <p className="text-gray-800 text-lg font-bold">
+                  Васил Левски - "Пробуждането"
+                </p>
+                <p className="flex items-center text-gray-600">
+                  Изтеглете играта от{" "}
+                  <Image
+                    className="ml-2 h-16 w-16"
+                    width={100}
+                    height={100}
+                    src={play}
+                  />
+                </p>
+              </div>
+            </div>
           </a>
-          {/* Пример за рекламен банер (може да се промени с реален URL или изображение) */}
-          <div className="hidden sm:block">
-            <img
-              src="https://via.placeholder.com/728x90.png?text=Advertisement"
-              alt="Advertisement"
-              className="max-w-full h-auto"
-            />
-          </div>
         </div>
+      </div>
+
+      {/* Copyright and Privacy Link */}
+      <div className="mt-4 text-center">
+        <a
+          href="https://buymeacoffee.com/tonkoff"
+          className="text-gray-700 bg-yellow-100 px-4 py-2 rounded-lg"
+        >
+          Абонирай се
+        </a>
+      </div>
+
+      {/* Copyright Text */}
+      <div className="mt-4 text-sm text-gray-600 text-center">
+        &copy; {new Date().getFullYear()} Your Blog Name. All rights reserved.
       </div>
     </footer>
   );
