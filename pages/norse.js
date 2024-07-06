@@ -436,12 +436,12 @@ export function Blog({
 }
 import { client } from "../library/mythologyClient";
 import Bar from "../components/Side/Desktop/Bar";
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
   const { query } = context;
-  const category = query.category || null;
-  const sortBy = query.sortBy || "latest";
-  const searchQuery = query.search || "";
-  const currentPage = parseInt(query.page, 10) || 1;
+  const category = query?.category || null;
+  const sortBy = query?.sortBy || "latest";
+  const searchQuery = query?.search || "";
+  const currentPage = parseInt(query?.page, 10) || 1;
   const postsPerPage = 10;
   const start = (currentPage - 1) * postsPerPage;
   const end = start + postsPerPage;
