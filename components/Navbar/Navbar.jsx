@@ -297,7 +297,7 @@ const Navbar = () => {
                   </button>
                 </Link>
               </div>
-              <div className="flex  items-center justify-center  mt-8 h-full  w-5/6 mx-auto">
+              {/* <div className="flex  items-center justify-center  mt-8 h-full  w-5/6 mx-auto">
                 <div className="flex w-full bg-yellow-50 bg-opacity-90   p-4 rounded-lg shadow-lg text-center">
                   <img
                     src="https://play-lh.googleusercontent.com/b0o-oSdu4Lv_cntdFXvZD3t-SM4He2d4deIfzJ_3xI9rHIutbQnU7xNqHno7o7p5m-Y=s48-rw"
@@ -324,7 +324,7 @@ const Navbar = () => {
                     </a>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         )}
