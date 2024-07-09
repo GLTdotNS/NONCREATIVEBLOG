@@ -1,5 +1,5 @@
 //pages/sitemap.xml.js
-import { client } from "../lib/sanityClient";
+import { client } from "../library/mythologyClient";
 const EXTERNAL_DATA_URL = "https://noncreativeblog.net/post";
 
 function generateSiteMap(posts) {
