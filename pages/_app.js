@@ -13,7 +13,7 @@ import Up from "../components/Up/Up";
 import dynamic from "next/dynamic";
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
-  const CrispWithNoSSR = dynamic(() => import("../components/crisp"));
+  const CrispWithNoSSR = dynamic(() => import("../components/Chat/crisp"));
 
   useEffect(() => {
     NProgress.configure({ showSpinner: false });

@@ -4,6 +4,8 @@ import { useState } from "react";
 import { MdOutlineZoomOutMap } from "react-icons/md";
 import getYouTubeId from "get-youtube-id";
 import YouTube from "react-youtube";
+import { FaFeatherPointed } from "react-icons/fa6";
+
 export const serializers = {
   types: {
     youtube: ({ node }) => {
@@ -26,7 +28,7 @@ export const serializers = {
       const extension = assetRef ? assetRef.split("-").pop() : "jpg";
       const imageUrl = `${baseUrl}${imageId}.${extension}`;
       return (
-        <div className="relative rounded-lg mx-auto mr-4 float-left flex items-center justify-center bg-yellow-50 p-2   text-black mt-4 mb-8 ">
+        <div className="relative rounded-lg mx-auto  flex items-center justify-center bg-yellow-50  text-black ">
           <figure
             onClick={() => setModalOpen(true)}
             className="cursor-pointer "
@@ -82,27 +84,6 @@ export const serializers = {
         );
       }
 
-      if (style === "blockquote") {
-        return (
-          <blockquote
-            style={{
-              position: "relative",
-              display: "block",
-              width: "90%",
-              margin: "auto",
-              padding: "5%",
-              justifyContent: "center",
-              fontSize: "20px",
-              textAlign: "left",
-              alignItems: "center !important",
-            }}
-          >
-            {" "}
-            {props.children}
-          </blockquote>
-        );
-      }
-
       if (style === "anchor") {
         return <a className="text-red"> {props.children}</a>;
       }
@@ -125,6 +106,15 @@ export const serializers = {
       if (style === "blockquote ") {
         return <blockquote> {props.children}</blockquote>;
       }
+      if (style === "blockquote") {
+        return (
+          <blockquote>
+            <FaFeatherPointed className="z-50" />
+
+            {props.children}
+          </blockquote>
+        );
+      }
 
       return BlockContent.defaultSerializers.types.block(props);
     },
@@ -137,7 +127,7 @@ export const serializers = {
     ),
   listItem: (props) =>
     props.type === "bullet" ? (
-      <li className="list-disc mt-4">{props.children}</li>
+      <li className="list-disc">{props.children}</li>
     ) : (
       <li>{props.children}</li>
     ),

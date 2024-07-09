@@ -436,7 +436,7 @@ export function Blog({
 }
 import { client } from "../library/mythologyClient";
 import Bar from "../components/Side/Desktop/Bar";
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const { query } = context;
   const category = query?.category || null;
   const sortBy = query?.sortBy || "latest";
@@ -539,7 +539,6 @@ export const getStaticProps = async (context) => {
 
   const author = authorExport[2];
   const totalPages = Math.ceil(totalPostsCount / postsPerPage);
-  console.log(totalPosts[0].likes);
   return {
     props: {
       posts: totalPosts,
