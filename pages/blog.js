@@ -257,11 +257,9 @@ export function Blog({ posts, initialCategory, author }) {
                         <p class="text-xl mb-4 text-center  bg-gradient-to-r from-yellow-200 via-orange-600 to-pink-700 bg-clip-text text-transparent text-4xl font-bold">
                           {author?.name}
                         </p>
-
-                        <BlockContent
-                          className="text-gray-100"
-                          blocks={author?.bio}
-                        />
+                        <p>
+                          {author?.bio[0].children[1].text.slice(0, 200)}...
+                        </p>
 
                         <a
                           href="/authors/georgi-tonkov"
@@ -402,10 +400,10 @@ export function Blog({ posts, initialCategory, author }) {
                                 {author?.name}
                               </p>
 
-                              <BlockContent
-                                className="text-gray-100"
-                                blocks={author?.bio}
-                              />
+                              <p>
+                                {author?.bio[0].children[1].text.slice(0, 200)}
+                                ...
+                              </p>
 
                               <a
                                 href="/authors/georgi-tonkov"

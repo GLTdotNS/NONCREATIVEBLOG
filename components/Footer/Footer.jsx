@@ -34,15 +34,15 @@ const Footer = () => {
         </div>
 
         {/* Advertisement Banner Section */}
-        <div className="md:col-span-2 bg-gray-700 p-4  ">
-          <h5 className="text-lg font-bold mb-4">Реклама</h5>
+        <div className="md:col-span-2 bg-gray-700  w-full lg:w-1/2 mx-auto">
+          <h5 className="text-lg font-bold mb-4 ml-4">Реклама</h5>
           <a
             href="https://play.google.com/store/apps/details?id=com.bulgarianhistory.roleplaying&hl=bg&pli=1"
             target="_blank"
             rel="noopener noreferrer"
             className="block  h-auto"
           >
-            <Image src={play} />
+            <Image className=" lg:h-48 h-auto w-full " src={play} />
           </a>
         </div>
         <Image
@@ -55,7 +55,7 @@ const Footer = () => {
 
       <div className="bg-black py-4">
         <div className="container mx-auto px-6 text-center">
-          <p className="text-gray-400">&copy; 2024 NONCREATIVEBLOG. </p>
+          <p className="text-gray-400">&copy; 2024 by Georgi Tonkov. </p>
         </div>
       </div>
     </footer>

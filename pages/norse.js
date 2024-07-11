@@ -8,7 +8,7 @@ import { GiSupersonicArrow } from "react-icons/gi";
 import { FcClearFilters } from "react-icons/fc";
 import Head from "next/head";
 import { CgLastpass } from "react-icons/cg";
-
+import AddBanner from "../components/AddBanner/AdBanner";
 import gif from "../styles/fehu.png";
 import { CgCloseR } from "react-icons/cg";
 import { FaArrowRight } from "react-icons/fa";
@@ -355,17 +355,7 @@ export function Blog({
                                 ,която е използвана между II и VII век.Тя е
                                 широко разпространена сред германските народи и
                                 най-вече в Скандинавия . За произхода и се
-                                говори , че Бог Один след като слязъл от дървото
-                                на живота Игдрасил получил руни , които му
-                                шепнели и надарили с мъдрост. Самата дума руна
-                                означава "шепот"/"мистериозен шепот"/. С
-                                навлизането на християнството в Европа руните са
-                                били изместени от латиницата , но руните са
-                                използвани и до днес - за декорация , за
-                                изготвянето на амулети , медальони и други
-                                украшения . Всяка една от руните има своето
-                                значение, както и всяка една от тях отговаря на
-                                звук или буква от латинската азбука.
+                                говори , че Бог Один...
                               </p>
                               <a
                                 href="/runes"
@@ -431,6 +421,7 @@ export function Blog({
         </div>
       </div>
       <Pagination totalPages={totalPages} currentPage={currentPage} />
+      <AddBanner />
     </>
   );
 }
