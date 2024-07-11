@@ -11,22 +11,28 @@ const Footer = () => {
           <h5 className="text-lg font-bold mb-4">Полезни линкове</h5>
           <ul>
             <li className="mb-2">
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a href="/" className="text-gray-400 hover:text-white">
                 Интересно
               </a>
             </li>
             <li className="mb-2">
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a href="/norse" className="text-gray-400 hover:text-white">
                 Митология
               </a>
             </li>
             <li className="mb-2">
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a
+                href="/authors/georgi-tonkov"
+                className="text-gray-400 hover:text-white"
+              >
                 За мен
               </a>
             </li>
             <li className="mb-2">
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a
+                href="/cookies&privacy"
+                className="text-gray-400 hover:text-white"
+              >
                 Поверителност
               </a>
             </li>
