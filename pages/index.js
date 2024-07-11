@@ -11,7 +11,7 @@ const Index = ({ posts, initialCategory, author, currentPage, totalPages }) => {
 };
 import { client } from "../library/sanityClient";
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const { query } = context;
   const category = query?.category || null;
   const sortBy = query?.sortBy || "latest";
