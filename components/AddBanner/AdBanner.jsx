@@ -32,7 +32,7 @@ const PoemBanner = () => {
     >
       <div className="container mx-auto flex justify-between items-center">
         <div>
-          <h2 className="text-md md:text-xl lg:text-2xl p-2 font-bold">
+          <h2 className="text-md md:text-xl lg:text-2xl font-bold">
             "Предсказанието на Пророчицата"
           </h2>
           <h2 className="text-sm">Онлайн версия</h2>
@@ -50,7 +50,7 @@ const PoemBanner = () => {
       </div>
       <Link
         target="blank"
-        className="font-bold mt-12 ml-12 px-8 rounded-md bg-red-100 "
+        className="font-bold mt-12 ml-12 px-8 rounded-md bg-yellow-100 "
         href={"https://voluspa.noncreativeblog.net/voluspa"}
       >
         Чети
