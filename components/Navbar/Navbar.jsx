@@ -288,7 +288,7 @@ const Navbar = () => {
               <div className="flex justify-center  bottom-[20px] w-full">
                 <Link href={"https://buymeacoffee.com/tonkoff"}>
                   <button
-                    className={` font-bold border-2 border-[#FFDD00] bg-yellow-300 text-gray-700 mx-4 mt-4
+                    className={` font-bold border-2 mb-8 border-[#FFDD00] bg-yellow-300 text-gray-700 mx-4 mt-4
                     
                      transition  rounded-full text-lg font-bold p-2 px-4 flex items-center`}
                   >
