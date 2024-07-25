@@ -22,8 +22,7 @@ import {
   MdOutlineSentimentVerySatisfied,
 } from "react-icons/md";
 import Image from "next/image";
-import BlockContent from "@sanity/block-content-to-react";
-import design from "../styles/cover.png";
+
 import { GiSettingsKnobs } from "react-icons/gi";
 
 export function Blog({ posts, initialCategory, author }) {

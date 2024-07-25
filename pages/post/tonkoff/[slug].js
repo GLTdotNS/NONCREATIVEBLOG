@@ -2,16 +2,8 @@ import React, { useEffect, useState } from "react";
 import { client as sanityClient } from "../../../library/sanityClient";
 import BlockContent from "@sanity/block-content-to-react";
 import { serializers } from "../../../serializers/serializers.normal.js";
-import {
-  FaHeart,
-  FaShareAlt,
-  FaComment,
-  FaThumbsUp,
-  FaThumbsDown,
-} from "react-icons/fa";
 
 import { useRouter } from "next/router";
-import moment from "moment/moment";
 import { useContext } from "react";
 import MyContext from "../../../Context/context";
 
@@ -129,7 +121,7 @@ const Post = ({ post, posts }) => {
           <PostFooter />
         </div>
         <AllComments comments={comments} />
-        <RelatedPostsCarousel posts={post.related} />
+        <RelatedPostsCarousel path={"tonkoff/"} posts={post.related} />
       </div>
       {isOpenSection && <CommentSection post={post} />}{" "}
     </div>

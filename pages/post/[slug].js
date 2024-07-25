@@ -1,8 +1,5 @@
-import React, { useEffect, useState } from "react";
-import {
-  client as sanityClient,
-  urlForImg,
-} from "../../library/mythologyClient";
+import React, { useState } from "react";
+import { client as sanityClient } from "../../library/mythologyClient";
 import BlockContent from "@sanity/block-content-to-react";
 
 import { serializers } from "../../serializers/serializers";
@@ -91,6 +88,7 @@ const Cats = ({ post, posts }) => {
         <AllComments comments={comments} />
 
         <RelatedPosts
+          path={""}
           posts={posts
             .filter((x) => x.qualification === post.category)
             .filter((x) => x.slug.current !== post.slug.current)}

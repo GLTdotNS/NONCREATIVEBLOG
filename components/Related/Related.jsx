@@ -3,7 +3,7 @@ import { GrNext, GrPrevious } from "react-icons/gr";
 import { FaArrowRight } from "react-icons/fa";
 import Image from "next/image";
 
-const RelatedPostsCarousel = ({ posts }) => {
+const RelatedPostsCarousel = ({ posts, path }) => {
   const scrollContainerRef = useRef(null);
 
   const scrollLeft = () => {
@@ -29,7 +29,7 @@ const RelatedPostsCarousel = ({ posts }) => {
           <a
             key={post.slug.current}
             className="relative group"
-            href={`/post/tonkoff/${post.slug.current}`}
+            href={`/post/${path}${post.slug.current}`}
           >
             <div className="mx-auto w-[400px] h-[300px] shadow-md overflow-hidden">
               <Image

@@ -55,15 +55,12 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="w-full lg:w-10/12 mx-auto p-4 mt-24 shadow-lg">
-      <h1 className="text-2xl font-bold mb-4 text-center">
-        Изпрати съобщение{" "}
-      </h1>
+    <div className="w-full lg:w-10/12 mx-auto p-12 mt-24 shadow-lg">
       {!successMessage &&
         !errorMessage && ( // Only show the form if no success or error message
           <div className="lg:flex lg:space-x-8">
             {/* Left Column */}
-            <div className="lg:w-1/3 mb-8 lg:mb-0 text-center lg:text-left">
+            <div className="lg:w-1/3 mb-8 lg:mb-0 text-center lg:text-left border-r-2">
               <h2 className="text-xl font-bold mb-2">
                 Здравейте! <FaSmile className="inline text-yellow-500" />
               </h2>
@@ -75,7 +72,10 @@ const ContactForm = () => {
               <p>Очаквам с нетърпение да чуя от вас! 😊</p>
             </div>
             {/* Right Column */}
-            <div className="lg:w-1/2 mx-auto">
+            <div className="lg:w-1/2 mx-auto ">
+              <h1 className="text-2xl font-bold mb-4 text-center">
+                Изпрати съобщение{" "}
+              </h1>
               <form
                 onSubmit={handleSubmit}
                 className="space-y-4 w-full lg:w-5/6 mx-auto"
