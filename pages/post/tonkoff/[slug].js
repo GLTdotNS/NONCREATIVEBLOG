@@ -101,7 +101,7 @@ const Post = ({ post, posts }) => {
     <div className="">
       <div
         key={post._id}
-        className="w-full   lg:w-10/12  mt-12 shadow-lg mx-auto text-gray-700 p-2 overflow-hidden"
+        className="w-full   lg:w-10/12  mt-12 border-2 border-gray-300 border-[1px] mx-auto text-gray-700 p-2 overflow-hidden"
       >
         <div className="max-w-4xl mx-auto">
           <Navigation post={post} link={"/"} category={category} />

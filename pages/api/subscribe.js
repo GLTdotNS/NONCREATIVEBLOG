@@ -2,6 +2,7 @@
 import nodemailer from "nodemailer";
 
 export default async function (req, res) {
+  console.log(req);
   if (req.method === "POST") {
     const { email } = req.body;
 
