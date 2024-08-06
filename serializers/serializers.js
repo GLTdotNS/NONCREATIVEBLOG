@@ -108,8 +108,8 @@ export const serializers = {
       }
       if (style === "blockquote") {
         return (
-          <blockquote>
-            <FaFeatherPointed className="z-50" />
+          <blockquote className="relative">
+            <FaFeatherPointed className="z-50 absolute  top-12 text-2xl text-gray-700" />
 
             {props.children}
           </blockquote>

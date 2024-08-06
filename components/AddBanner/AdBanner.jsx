@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { RiCloseLargeLine } from "react-icons/ri";
 
 const PoemBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -26,7 +27,7 @@ const PoemBanner = () => {
 
   return (
     <div
-      className={`fixed w-11/12 lg:w-1/2 rounded-full text-gray-700 mx-auto inset-x-0  bottom-0 bg-opacity-90 transition-transform transform ${
+      className={`fixed z-50 w-11/12 lg:w-1/2 rounded-lg text-gray-700 mx-auto inset-x-0  bottom-0 bg-opacity-90 transition-transform transform ${
         isVisible ? "translate-y-[-24px]" : "translate-y-[124%]"
       } bg-yellow-400  p-4 md:p-6 lg:p-8 shadow-2xl`}
     >
@@ -44,35 +45,22 @@ const PoemBanner = () => {
           <img
             src="https://voluspa.noncreativeblog.net/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fvoluspa.0c3d8755.png&w=2048&q=75"
             alt="Voluspa Banner"
-            className="w-full h-16 md:h-24 lg:h-32 w-auto object-cover rounded-full shadow-lg"
+            className="w-full h-24 md:h-48 w-full w-auto object-cover rounded-md shadow-lg"
           />
         </div>
       </div>
       <Link
         target="blank"
-        className="font-bold mt-12 ml-12 px-8 rounded-md bg-yellow-100 "
+        className="font-bold  md:mt-12 ml-12 px-8 md:px-24 md:py-2 text-white rounded-md bg-yellow-700 "
         href={"https://voluspa.noncreativeblog.net/voluspa"}
       >
         Чети
       </Link>
       <button
         onClick={handleClose}
-        className=" absolute top-[-12px] right-0 bg-yellow-600 hover:bg-yellow-700 rounded-full p-2 md:p-3 lg:p-4"
+        className=" absolute text-sky-700 font-bold text-4xl top-[-30px] right-[-15px] bg-yellow-300 bg-opacity-100 hover:bg-yellow-700 rounded-full p-2 md:p-3 lg:p-4"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          className="h-6 w-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
+        <RiCloseLargeLine size={30} />
       </button>
     </div>
   );
