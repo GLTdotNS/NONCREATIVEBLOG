@@ -80,7 +80,6 @@ function MyApp({ Component, pageProps }) {
         <MyContextProvider>
           {" "}
           <Layout>
-            <Up />
             <CrispWithNoSSR />
 
             <Component {...pageProps} />
