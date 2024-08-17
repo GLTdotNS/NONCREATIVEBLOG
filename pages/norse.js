@@ -186,7 +186,7 @@ export function Blog({
               </div>
 
               {menuOpen && (
-                <div className="lg:hidden fixed w-10/12 h-screen left-0 flex items-center justify-center slide-in-from-left overflow-scroll top-0 z-50 bg-gray-800 backdrop-blur-xl bg-opacity-70">
+                <div className="lg:hidden fixed w-10/12 h-screen left-0 flex items-center justify-center slide-in-from-left overflow-scroll top-0 z-50 bg-gray-800 bg-opacity-95">
                   <div className="relative">
                     <button
                       onClick={handleMenuToggle}
