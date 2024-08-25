@@ -16,7 +16,7 @@ function ArtPosts({ posts }) {
   }, []);
 
   return (
-    <div className="min-h-screen  w-full lg:w-10/12 mx-auto flex flex-col items-center justify-center  ">
+    <div className="min-h-screen mt-12 md:mt-4 w-full lg:w-10/12 mx-auto flex flex-col items-center justify-center  ">
       <h1
         className="text-2xl font-bold mb-6 tracking-wide shadow-sm rounded-smg text-center"
         data-aos="fade-up"
