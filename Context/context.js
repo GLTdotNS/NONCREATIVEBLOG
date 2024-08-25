@@ -7,10 +7,10 @@ const MyContext = createContext();
 
 // Create a provider component
 export const MyContextProvider = ({ children }) => {
-  const [isOpenSection, setSisOpenSection] = useState(false);
+  const [isOpenSection, setIsOpenSection] = useState(false);
 
   return (
-    <MyContext.Provider value={{ isOpenSection, setSisOpenSection }}>
+    <MyContext.Provider value={{ isOpenSection, setIsOpenSection }}>
       {children}
     </MyContext.Provider>
   );

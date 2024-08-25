@@ -14,6 +14,7 @@ import { IoLogoGooglePlaystore } from "react-icons/io5";
 import play from "../../styles/play.svg";
 import { FaRegFaceSmileBeam } from "react-icons/fa6";
 import { FaMessage } from "react-icons/fa6";
+import { LuCalendarHeart } from "react-icons/lu";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -77,9 +78,9 @@ const Navbar = () => {
           </a>
 
           <div className="hidden lg:flex   uppercase flex-grow items-center justify-start ">
-            <a href="/norse" className={` font-bold text-md hover-1  hover-1`}>
+            <a href="/" className={` font-bold text-md hover-1  hover-1`}>
               <div className="flex items-center">
-                <GiVikingLonghouse className="mr-2 text-blue-600" />
+                <GiVikingLonghouse className="mr-2 " />
                 Митология
               </div>
             </a>
@@ -89,8 +90,8 @@ const Navbar = () => {
               className={` font-bold text-md hover-1 mx-2 hover-1`}
             >
               <div className="flex items-center">
-                <GiNinjaHead className="mr-2" />
-                <span>Интересно</span>
+                <LuCalendarHeart className="mr-2" />
+                <span>Календар</span>
               </div>
             </Link>
 
@@ -213,11 +214,11 @@ const Navbar = () => {
               </div>
               <div className="  items-center justify-center mt-4 p-4">
                 <a
-                  href="/norse"
+                  href="/"
                   className={`text-gray-100 block  text-2xl mt-2 hover-1`}
                 >
                   <div className="flex items-center">
-                    <GiVikingLonghouse className="mr-2 text-blue-600" />
+                    <GiVikingLonghouse className="mr-2 " />
                     Митология
                   </div>
                 </a>
@@ -227,8 +228,8 @@ const Navbar = () => {
                   className={`block text-gray-100   text-2xl mt-2 hover-1`}
                 >
                   <div className="flex items-center">
-                    <GiNinjaHead className="mr-2" />
-                    <span>Интересно</span>
+                    <LuCalendarHeart className="mr-2" />
+                    <span>Календар</span>
                   </div>
                 </Link>
 

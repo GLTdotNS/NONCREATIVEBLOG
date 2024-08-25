@@ -4,7 +4,7 @@ import moment from "moment";
 import MyContext from "../../Context/context";
 import { useContext } from "react";
 const AllComments = (comments) => {
-  const { isOpenSection, setSisOpenSection } = useContext(MyContext);
+  const { isOpenSection, setIsOpenSection } = useContext(MyContext);
 
   return (
     <div>
@@ -63,7 +63,7 @@ const AllComments = (comments) => {
           )}
         </div>
         <span
-          onClick={() => setSisOpenSection(true)}
+          onClick={() => setIsOpenSection(true)}
           className="text-center w-full  flex items-center justify-center mt-12 cursor-pointer"
         >
           <FaComment className="mr-2" /> Напиши коментар

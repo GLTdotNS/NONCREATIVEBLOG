@@ -1,17 +1,15 @@
-import { client } from "../../library/sanityClient";
+import { client } from "../../library/mythologyClient";
 
 export default async function createComment(req, res) {
-  const { id, name, email, comment, action } = JSON.parse(req.body);
-
+  const { _id, name, email, comment } = JSON.parse(req.body);
   try {
     await client.create({
       _type: "comment",
       post: {
         _type: "reference",
-        _ref: id,
+        _ref: _id,
       },
       name,
-      action,
       email,
       comment,
     });

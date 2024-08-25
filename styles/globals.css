@@ -21,25 +21,7 @@
   font-family: "Fjalla One", sans-serif;
   font-weight: 400;
 }
-blockquote {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-  font-size: 16px;
-  font-weight: 600;
-  margin: auto;
-  margin-top: 2% !important;
-  color: rgb(72, 72, 72);
-  padding: 4%;
-  background-image: url("./letter.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 50vh;
-  border-radius: 3px;
-}
+
 .fade-in-element {
   opacity: 0; /* Start invisible */
   animation: fadeIn 0.3s ease-in forwards; /* Apply the fade-in animation */

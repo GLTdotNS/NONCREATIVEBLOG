@@ -53,20 +53,21 @@ const Footer = () => {
           <ul className="text-gray-700">
             <li className="mb-2">
               <a
-                href="/"
-                className=" hover:text-white transition-colors duration-300"
-              >
-                Интересно
-              </a>
-            </li>
-            <li className="mb-2">
-              <a
                 href="/norse"
                 className=" hover:text-white transition-colors duration-300"
               >
                 Митология
               </a>
             </li>
+            <li className="mb-2">
+              <a
+                href="/"
+                className=" hover:text-white transition-colors duration-300"
+              >
+                Календар
+              </a>
+            </li>
+
             <li className="mb-2">
               <a
                 href="/authors/georgi-tonkov"

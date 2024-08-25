@@ -46,7 +46,7 @@ const CommentForm = ({ id }) => {
       {!sent ? (
         <form
           onSubmit={onSubmit}
-          class=" mx-auto p-8 rounded-lg w-full max-w-xl bg-white border border-gray-300"
+          class=" mx-auto p-8 rounded-lg w-full max-w-xl bg-white border border-gray-300 z-50"
         >
           <h2 class="text-2xl font-semibold mb-6 text-center text-gray-700">
             Остави мнение
