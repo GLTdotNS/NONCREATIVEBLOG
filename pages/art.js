@@ -16,9 +16,9 @@ function ArtPosts({ posts }) {
   }, []);
 
   return (
-    <div className="min-h-screen mt-12 w-full lg:w-10/12 mx-auto flex flex-col items-center justify-center py-10 px-6">
+    <div className="min-h-screen  w-full lg:w-10/12 mx-auto flex flex-col items-center justify-center  ">
       <h1
-        className="text-4xl font-extrabold mb-6 tracking-wide shadow-sm rounded-sm text-center"
+        className="text-2xl font-bold mb-6 tracking-wide shadow-sm rounded-smg text-center"
         data-aos="fade-up"
       >
         „Рисувам не това, което виждам, а това, което се вижда от мен.“
