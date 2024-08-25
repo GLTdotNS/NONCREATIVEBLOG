@@ -1,6 +1,7 @@
 const Slug = () => {
   const query = `*[_type == "post" && slug.current == $slug][0]{
         title,
+        url,
       body,
       author,
       publishedAt,

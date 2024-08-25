@@ -446,14 +446,18 @@ export const getServerSideProps = async (context) => {
   const start = (currentPage - 1) * postsPerPage;
   const end = start + postsPerPage;
 
+  // Construct the category filter to exclude "Art"
   let handleCategoryChange = category
     ? `&& "${category}" in categories[]->title`
     : "";
+
+  // Construct the search query filter
   let handleSearchQuery = searchQuery
     ? `&& (title match "${searchQuery}*" || description match "${searchQuery}*")`
     : "";
 
-  const postQuery = `*[_type == "post" ${handleCategoryChange} ${handleSearchQuery}] | order(publishedAt desc) [${start}...${end}] {
+  // Refined GROQ Query to exclude posts with category "Art"
+  const postQuery = `*[_type == "post" && !("Art" in categories[]->title) ${handleCategoryChange} ${handleSearchQuery}] | order(publishedAt desc) [${start}...${end}] {
     description,
     slug,
     likes,
@@ -473,43 +477,46 @@ export const getServerSideProps = async (context) => {
     }
   }`;
 
-  const totalPostsQuery = `count(*[_type == "post" ${handleCategoryChange} ${handleSearchQuery}])`;
+  // Refined GROQ Query to count total posts matching the filters, excluding "Art"
+  const totalPostsQuery = `count(*[_type == "post" && !("Art" in categories[]->title) ${handleCategoryChange} ${handleSearchQuery}])`;
 
+  // Fetch data
   const totalPostsPromise = client.fetch(postQuery).catch(() => []);
   const totalPostsCountPromise = client.fetch(totalPostsQuery).catch(() => 0);
   const categoriesPromise = client
     .fetch(
       `*[_type == "category"]{
-      title,
-      slug,
-      description,
-      _id,
-      image{
-        asset->{
-          _id,
-          url
+        title,
+        slug,
+        description,
+        _id,
+        image{
+          asset->{
+            _id,
+            url
+          }
         }
-      }
-    }`
+      }`
     )
     .catch(() => []);
 
   const authorPromise = client
     .fetch(
       `*[_type == "author"]{
-      name,
-      slug,
-      bio,
-      image{
-        asset->{
-          _id,
-          url
+        name,
+        slug,
+        bio,
+        image{
+          asset->{
+            _id,
+            url
+          }
         }
-      }
-    }`
+      }`
     )
     .catch(() => []);
 
+  // Await all promises
   let [totalPosts, totalPostsCount, categories, authorExport] =
     await Promise.all([
       totalPostsPromise,
@@ -521,12 +528,12 @@ export const getServerSideProps = async (context) => {
   // Calculate reading time for each post
   totalPosts.forEach((post) => {
     const wordsPerMinute = 200;
-    const words = post.description.split(/\s+/).length;
+    const words = post.description ? post.description.split(/\s+/).length : 0;
     const readingTime = Math.ceil(words / wordsPerMinute);
     post.readingTime = readingTime;
   });
 
-  // Sort the posts based on the selected sorting option
+  // Sort posts based on the selected sorting option
   if (sortBy === "latest") {
     totalPosts.sort(
       (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
@@ -537,8 +544,12 @@ export const getServerSideProps = async (context) => {
     totalPosts.sort((a, b) => b.readingTime - a.readingTime);
   }
 
-  const author = authorExport[2];
+  // Assuming you want the third author in the list
+  const author = authorExport[2] || {}; // Default to empty object if not present
+
+  // Calculate total pages for pagination
   const totalPages = Math.ceil(totalPostsCount / postsPerPage);
+
   return {
     props: {
       posts: totalPosts,
@@ -550,4 +561,5 @@ export const getServerSideProps = async (context) => {
     },
   };
 };
+
 export default Blog;
