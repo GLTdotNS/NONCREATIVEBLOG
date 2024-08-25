@@ -78,7 +78,6 @@
   width: 100%;
   height: 100vh;
   background-color: #64748b;
-  border-top-left-radius: 40px;
 }
 .comment {
   position: fixed;
