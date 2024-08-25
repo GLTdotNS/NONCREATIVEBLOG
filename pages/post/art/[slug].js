@@ -6,7 +6,7 @@ import BlockContent from "@sanity/block-content-to-react";
 import { serializers } from "../../../serializers/serializers.js";
 import Image from "next/image.js";
 import MyContext from "../../../Context/context";
-import AllComments from "../../../components/Comment/AllComments.jsx";
+import { MdOutlineZoomOutMap } from "react-icons/md";
 import Slug from "../../../utils/NorseQueries/Slug.js";
 import PostQuery from "../../../utils/NorseQueries/AllPosts.js";
 
@@ -74,7 +74,7 @@ const Post = ({ post, posts }) => {
     overlay.style.left = "0";
     overlay.style.width = "100%";
     overlay.style.height = "100%";
-    overlay.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+    overlay.style.backgroundColor = "rgba(0, 0, 0, 0.9)";
     overlay.style.zIndex = "9999";
     overlay.style.display = "flex";
     overlay.style.justifyContent = "center";
@@ -115,35 +115,45 @@ const Post = ({ post, posts }) => {
 
   return (
     <div className="mt-12 p-6 lg:p-12">
-      <div className="container mx-auto max-w-7xl rounded-lg shadow-sm p-8">
+      <div className="container mx-auto max-w-7xl rounded-lg shadow-sm p-4">
         {/* Post Title */}
         <h1 className="text-4xl font-extrabold text-gray-800 mb-6">
           {post.title}
         </h1>
 
-        <div className="relative mb-4 overflow-hidden rounded-xl flex items-center justify-center text-center">
-          <Image
-            src={post.mainImage.asset.url}
-            alt={post.title}
-            width={1000}
-            height={1000}
-            objectFit="cover"
-            className="transition-transform duration-500 ease-in-out hover:scale-110 transform rounded-xl cursor-pointer"
-            onClick={() => openFullScreen(post.mainImage.asset.url)}
-          />
-        </div>
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Image Section */}
+          <div className="relative flex-shrink-0 w-full lg:w-1/2 h-80 lg:h-[600px]">
+            <Image
+              src={post.mainImage.asset.url}
+              alt={post.title}
+              layout="fill"
+              objectFit="cover"
+              className="rounded-xl cursor-pointer"
+              onClick={() => openFullScreen(post.mainImage.asset.url)}
+            />
+            <MdOutlineZoomOutMap
+              onClick={() => openFullScreen(post.mainImage.asset.url)}
+              className="absolute top-2 right-2 bg-white p-2 rounded-full cursor-pointer"
+              size={30}
+            />
+          </div>
 
-        {/* Post Body */}
-        <div>
-          <BlockContent blocks={post.body} serializers={serializers} />
-          <div className="text-center mt-12 max-w-64 mx-auto">
-            <a
-              target="__blank"
-              href={post.url}
-              className="bg-yellow-300 p-2 w-full px-4 rounded-full"
-            >
-              Поръчай
-            </a>
+          {/* Content Section */}
+          <div className="flex-1 flex flex-col justify-between">
+            <div className="mb-6">
+              <BlockContent blocks={post.body} serializers={serializers} />
+            </div>
+
+            <div className="text-center">
+              <a
+                target="__blank"
+                href={post.url}
+                className="bg-yellow-300 p-2 w-full px-4 rounded-full"
+              >
+                Поръчай
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -152,6 +162,7 @@ const Post = ({ post, posts }) => {
 };
 
 const isServerReq = (req) => !req.url.startsWith("/_next");
+
 export async function getStaticPaths() {
   const postsQuery = PostQuery();
   const post = await sanityClient.fetch(postsQuery);
@@ -161,6 +172,7 @@ export async function getStaticPaths() {
     fallback: "blocking",
   };
 }
+
 export async function getStaticProps(context) {
   const query = Slug();
   const { slug = "" } = context.params;
