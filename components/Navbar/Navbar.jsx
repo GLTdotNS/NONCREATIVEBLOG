@@ -179,8 +179,8 @@ const Navbar = () => {
           </button>
         </div>
         <div
-          className={`fixed modal top-0 right-0 h-full transform transition-transform duration-300 ease-in-out ${
-            isMenuOpen ? "translate-x-0 bg-black" : "translate-x-full"
+          className={`fixed modal top-0 lg:hidden right-0 h-full transform transition-transform duration-300 ease-in-out ${
+            isMenuOpen ? "translate-x- bg-black" : "translate-x-full"
           }`}
           ref={menuRef}
         >
