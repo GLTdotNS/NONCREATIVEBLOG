@@ -194,7 +194,7 @@ export function Blog({
               </div>
 
               {menuOpen && (
-                <div className="lg:hidden fixed w-10/12 h-screen z-5 left-0 flex items-center justify-center slide-in-from-left overflow-scroll top-0 z-50 bg-gray-800 bg-opacity-95">
+                <div className="lg:hidden fixed w-10/12 h-screen z-50 left-0 flex items-center justify-center slide-in-from-left overflow-scroll top-0 z-50 bg-gray-800 bg-opacity-95">
                   <div className="relative">
                     <button
                       onClick={handleMenuToggle}
@@ -313,7 +313,7 @@ export function Blog({
                             </li>
                             <li className="mb-2 mt-12 bg-yellow-300 text-gray-700 rounded-md w-64 p-1">
                               <a
-                                href="/norse"
+                                href="/"
                                 className="hover:underline font-bold flex items-center justify-center"
                               >
                                 <FcClearFilters className="mr-2" /> Изчисти
