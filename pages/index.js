@@ -157,10 +157,10 @@ export function Blog({
               </li>
             </ul>
           </nav>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-12 border-t-[1px] border-gray-100  sticky ">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-12 border-t-[1px] border-gray-100   ">
             {/* Left side column */}
             <div className="flex ">
-              <div className="hidden lg:block border-r-1 border-gray-400 sticky top-0 overflow-auto">
+              <div className="hidden lg:block border-r-1 border-gray-400  ">
                 <div className="w-full mb-4 flex justify-center items-center">
                   <div className="">
                     <h2 className="text-lg text-gray-700 font-semibold mb-2 text-center">
@@ -194,7 +194,7 @@ export function Blog({
               </div>
 
               {menuOpen && (
-                <div className="lg:hidden fixed w-10/12 h-screen left-0 flex items-center justify-center slide-in-from-left overflow-scroll top-0 z-50 bg-gray-800 bg-opacity-95">
+                <div className="lg:hidden fixed w-10/12 h-screen z-5 left-0 flex items-center justify-center slide-in-from-left overflow-scroll top-0 z-50 bg-gray-800 bg-opacity-95">
                   <div className="relative">
                     <button
                       onClick={handleMenuToggle}
