@@ -271,9 +271,12 @@ const Navbar = () => {
                 />
                 Повече
               </button>
-              <div className="origin-top-right absolute left-0 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block">
+              <div className="origin-top-right absolute  left-0 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block">
                 <div className="py-1">
-                  <a href="/contact/email" className="block px-4 py-2 text-lg">
+                  <a
+                    href="/contact/email"
+                    className="block px-4 py-2 text-lg text-black"
+                  >
                     <div className="flex items-center">
                       <FaMessage className="mr-2" />
                       <span>Контакти</span>
@@ -281,7 +284,7 @@ const Navbar = () => {
                   </a>
                   <Link
                     href={"/authors/georgi-tonkov"}
-                    className="block text-lg py-2 px-4 hover-1"
+                    className="block text-lg py-2 px-4 hover-1 text-black"
                   >
                     <div className="flex items-center">
                       <GiNinjaHead className="mr-2" />
