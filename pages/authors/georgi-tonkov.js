@@ -13,7 +13,8 @@ import jojo from "../../styles/jojo.JPG";
 import biker from "../../styles/bikerchetojojo.jpg";
 import trick from "../../styles/ne.gif";
 import { SiBuymeacoffee } from "react-icons/si";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Image from "next/image";
 import cover from "../../styles/cover.png";
 const AboutMePage = () => {

@@ -69,7 +69,7 @@ function ArtPosts({ posts }) {
 
 // Извличане на всички постове от категорията "Aesir"
 export async function getServerSideProps() {
-  const query = `*[_type == "post" && categories[0]->title == "TheGods"]{
+  const query = `*[_type == "post" && categories[0]->title == "Art"]{
       title,
       slug,
           "category": categories[0]->title,

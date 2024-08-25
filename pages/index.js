@@ -20,6 +20,8 @@ import Image from "next/image";
 import BlockContent from "@sanity/block-content-to-react";
 import { GiSettingsKnobs } from "react-icons/gi";
 import Pagination from "../components/Pagination/Pagination";
+import AOS from "aos";
+import "aos/dist/aos.css";
 export function Blog({
   posts,
   initialCategory,
@@ -32,7 +34,12 @@ export function Blog({
   const [category, setCategory] = useState(initialCategory);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchInput, setSearchInput] = useState("");
-
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+    });
+  }, []);
   const handleSearch = (e) => {
     e.preventDefault();
     router.push({
@@ -42,6 +49,7 @@ export function Blog({
       },
     });
   };
+
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
@@ -385,8 +393,9 @@ export function Blog({
                     {" "}
                     <a
                       key={c.slug}
-                      className="relative group "
+                      className="relative group easy-in-out"
                       href={`/post/${c.slug.current}`}
+                      data-aos="fade-up-left"
                     >
                       <div className="relative h-[400px] w-full mx-auto  shadow-md overflow-hidden rounded-t-lg ">
                         <Image
