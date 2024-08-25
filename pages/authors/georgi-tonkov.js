@@ -20,11 +20,11 @@ const AboutMePage = () => {
   return (
     <>
       {" "}
-      <div class="relative w-full lg:w-10/12 mx-auto mt-4 ">
+      <div class="relative w-full lg:w-11/12 mx-auto mt-4 ">
         <Image
           src={cover}
           alt="Cover Photo"
-          class="w-full  object-cover rounded-lg"
+          class="w-full  object-cover rounded-lg lg:h-[380px]"
         />
 
         <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">

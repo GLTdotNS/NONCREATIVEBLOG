@@ -1,25 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { RiArrowDropDownLine } from "react-icons/ri";
 import { useRouter } from "next/router";
-import { FaHome, FaLink } from "react-icons/fa"; // Import icons
-import { FaLinkedin } from "react-icons/fa";
-import { IoLogoGithub } from "react-icons/io";
 import { SiBuymeacoffee } from "react-icons/si";
 import { FaWindowClose } from "react-icons/fa";
 import { CgMenuGridO } from "react-icons/cg";
 import { GiNinjaHead } from "react-icons/gi";
-import { CgMoreVertical } from "react-icons/cg";
-import { GiVikingLonghouse } from "react-icons/gi";
-import { IoLogoGooglePlaystore } from "react-icons/io5";
 import rune from "../../styles/rune.svg";
-import { FaRegFaceSmileBeam } from "react-icons/fa6";
 import { FaMessage } from "react-icons/fa6";
-import { LuCalendarHeart } from "react-icons/lu";
-
 import Link from "next/link";
 import Image from "next/image";
-import logo from "../../styles/logo.png";
+import vegvisir from "../../styles/vegvisir.svg";
 import blog from "../../styles/blog.png";
+import myths from "../../styles/myths.svg";
+import art from "../../styles/art.svg";
+import more from "../../styles/more.svg";
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -52,36 +46,45 @@ const Navbar = () => {
             : "bg-gray-700/90 border-[1px] border-yellow-400 top-4 "
         } fixed top-0 left-1/2 transform lg:p-8 transition duration-500 h-12 -translate-x-1/2 ${
           !isMenuOpen ? "top-0" : "0"
-        }}  flex items-center justify-center w-full lg:w-5/6  z-50 ${
+        }}  flex items-center justify-center w-full lg:w-11/12  z-50 ${
           scrolled && (pathname == "/" || pathname == "/")
             ? " transition-color text-gray-100"
             : "text-white"
         }  mb-24  w-1/2 m-auto   ${scrolled ? "rounded-full " : "rounded-md"}`}
       >
         {" "}
-        <div className="w-full   flex h-12 ">
+        <div className="w-full   flex h-12 justify-start items-center">
           <a href={"/"}>
             {" "}
-            <div className=" absolute sm:top-1 md:top-4  md:right-2 w-48 md:w-36">
+            <div className=" absolute sm:top-1 md:top-4  lg:right-2 w-48 md:w-36">
               <Image src={blog} alt="Georgi Tonkov" className="w-full h-auto" />
             </div>
           </a>
 
-          <div className="hidden md:flex   uppercase flex-grow items-center justify-start ">
-            <a href="/" className={` font-bold text-md hover-1  hover-1`}>
+          <div className="hidden lg:flex   uppercase flex-grow items-center justify-start ">
+            <a
+              href="/"
+              className="font-bold text-md hover-1  border-r-[1px] p-2"
+            >
               <div className="flex items-center">
-                <GiVikingLonghouse className="mr-2 " />
+                <Image
+                  className="mr-2 w-8 h-8 bg-white rounded-full "
+                  src={myths}
+                  width={1000}
+                  height={1000}
+                  alt=""
+                />
                 Митология
               </div>
             </a>
 
             <Link
               href={"/runes"}
-              className={` font-bold text-md hover-1 mx-2 hover-1`}
+              className="font-bold text-md hover-1 mx-2 border-r-[1px] p-2"
             >
               <div className="flex items-center">
                 <Image
-                  className="mr-2 w-5 h-5 "
+                  className="mr-2 w-8 h-8 bg-white rounded-full "
                   src={rune}
                   width={1000}
                   height={1000}
@@ -90,45 +93,54 @@ const Navbar = () => {
                 <span>Руни</span>
               </div>
             </Link>
-
+            <Link
+              href={"https://voluspa.noncreativeblog.net/"}
+              target="__blank"
+              className="font-bold text-md hover-1 mx-2 border-r-[1px] p-2"
+            >
+              {" "}
+              <div className="flex items-center  ">
+                <Image
+                  className="mr-2 w-8 h-8 bg-white rounded-full "
+                  src={vegvisir}
+                  width={1000}
+                  height={1000}
+                  alt=""
+                />
+                <span>VÖLUSPIRA</span>
+              </div>
+            </Link>
             <Link
               href={"/"}
-              className={` font-bold text-md hover-1 mx-2 hover-1`}
+              className="font-bold text-md hover-1 mx-2 border-r-[1px] p-2"
             >
               <div className="flex items-center">
-                <LuCalendarHeart className="mr-2" />
-                <span>Календар</span>
+                <Image
+                  className="mr-2 w-8 h-8 bg-white rounded-full "
+                  src={art}
+                  width={1000}
+                  height={1000}
+                  alt=""
+                />{" "}
+                <span>Изкуство</span>
               </div>
             </Link>
 
-            <Link
-              href={"/contact/email"}
-              className={` font-bold text-md hover-1 mx-2 hover-1`}
-            >
-              <div className="flex items-center">
-                <FaMessage className="mr-2" />
-                <span>Контакти</span>
-              </div>
-            </Link>
             <div class="group relative">
               <button
                 className={` font-bold text-md mx-2 hover-1 inline-flex flex items-center uppercase  mx-4 hover-1`}
               >
-                <CgMoreVertical className="m" />
+                <Image
+                  className="mr-2 w-8 h-8 bg-white rounded-full "
+                  src={more}
+                  width={1000}
+                  height={1000}
+                  alt=""
+                />
                 Повече
               </button>
               <div className="origin-top-right text-gray-700 fade-in absolute left-0 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block">
                 <div className="py-1" role="menu">
-                  <a
-                    href="https://voluspa.noncreativeblog.net"
-                    className="block px-4 py-2 text-lg "
-                    role="menuitem"
-                  >
-                    <div className="flex items-center">
-                      <FaLink className="mr-2" />
-                      <span>VÖLUSPIRA</span>
-                    </div>
-                  </a>
                   <a
                     href={"/authors/georgi-tonkov"}
                     className="block px-4 py-2 text-lg"
@@ -139,16 +151,15 @@ const Navbar = () => {
                       <span>За мен</span>
                     </div>
                   </a>
-                  <a
-                    href="https://www.linkedin.com/in/georgi-tonkov/"
-                    className="block px-4 py-2 text-lg"
-                    role="menuitem"
+                  <Link
+                    href={"/contact/email"}
+                    className={`block px-4 p-2  text-md hover-1  hover-1`}
                   >
                     <div className="flex items-center">
-                      <FaLinkedin className="mr-2" />
-                      <span>LinkedIn</span>
+                      <FaMessage className="mr-2" />
+                      <span>Контакти</span>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -168,7 +179,7 @@ const Navbar = () => {
             </a>
           </div> */}
         </div>
-        <div className="block md:hidden ">
+        <div className="block lg:hidden ">
           <button
             title="menu"
             id="menu"
@@ -218,7 +229,13 @@ const Navbar = () => {
                   className={`text-gray-100 block  text-2xl mt-2 hover-1`}
                 >
                   <div className="flex items-center">
-                    <GiVikingLonghouse className="mr-2 " />
+                    <Image
+                      className="mr-2 w-8 h-8 bg-white rounded-full "
+                      src={myths}
+                      width={1000}
+                      height={1000}
+                      alt=""
+                    />{" "}
                     Митология
                   </div>
                 </a>{" "}
@@ -228,62 +245,70 @@ const Navbar = () => {
                 >
                   <div className="flex items-center">
                     <Image
-                      className="mr-2 w-5 h-5 "
+                      className="mr-2 w-8 h-8 bg-white rounded-full "
                       src={rune}
                       width={1000}
                       height={1000}
                       alt=""
-                    />{" "}
+                    />
                     <span>Руни</span>
                   </div>
                 </Link>
                 <Link
-                  href={"/"}
+                  target="__blank"
+                  href={"https://voluspa.noncreativeblog.net/"}
                   className={`block text-gray-100   text-2xl mt-2 hover-1`}
                 >
                   <div className="flex items-center">
-                    <LuCalendarHeart className="mr-2" />
-                    <span>Календар</span>
+                    <Image
+                      className="mr-2 w-8 h-8 bg-white rounded-full "
+                      src={vegvisir}
+                      width={1000}
+                      height={1000}
+                      alt=""
+                    />
+                    <span>VÖLUSPIRA</span>
                   </div>
                 </Link>
                 <a
-                  href="/contact/email"
+                  href="/art"
                   className={`text-gray-100 block  text-2xl mt-2 hover-1`}
                   role="menuitem"
                 >
                   <div className="flex items-center">
-                    <FaMessage className="mr-2" />
-                    <span>Контакти</span>
+                    <Image
+                      className="mr-2 w-8 h-8 bg-white rounded-full "
+                      src={art}
+                      width={1000}
+                      height={1000}
+                      alt=""
+                    />
+                    <span>Изкуство</span>
                   </div>{" "}
                 </a>
                 <div class="group relative">
                   <button
                     className={`text-gray-100   text-2xl mt-2 hover-1 flex items-center`}
                   >
-                    <CgMoreVertical size={20} className="mr-2" />
+                    <Image
+                      className="mr-2 w-8 h-8 bg-white rounded-full "
+                      src={more}
+                      width={1000}
+                      height={1000}
+                      alt=""
+                    />
                     Повече
                   </button>
                   <div className="origin-top-right fade-in absolute left-0 text-gray-700 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block">
                     <div className="py-1" role="menu">
                       <a
-                        href="https://voluspa.noncreativeblog.net"
-                        className="block px-4 py-2 text-lg "
-                        role="menuitem"
-                      >
-                        <div className="flex items-center">
-                          <FaLink className="mr-2" />
-                          <span>VÖLUSPIRA</span>
-                        </div>
-                      </a>
-
-                      <a
-                        href="https://www.linkedin.com/in/georgi-tonkov/"
+                        href="/contact/email"
                         className="block px-4 py-2 text-lg"
                         role="menuitem"
                       >
                         <div className="flex items-center">
-                          <FaLinkedin className="mr-2" />
-                          <span>LinkedIn</span>
+                          <FaMessage className="mr-2" />
+                          <span>Контакти</span>
                         </div>
                       </a>
                       <Link
