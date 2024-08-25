@@ -71,7 +71,7 @@ const Cats = ({ post, posts }) => {
       >
         <div className=" max-w-4xl mx-auto">
           {" "}
-          <Navigation post={post} category={category} link={"/norse"} />{" "}
+          <Navigation post={post} category={category} link={"/"} />{" "}
           <PostInfo post={post} />
           <div className=" p-4 block-content flex text-gray-700">
             <BlockContent

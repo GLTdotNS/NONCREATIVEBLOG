@@ -48,7 +48,7 @@ export function Blog({
   const handleCategoryChange = (newCategory) => {
     setCategory(newCategory);
     router.push({
-      pathname: "/norse",
+      pathname: "/",
       query: { category: newCategory },
     });
   };

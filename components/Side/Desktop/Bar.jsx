@@ -12,7 +12,7 @@ const Bar = ({ posts, categories, author, initialCategory }) => {
   const handleCategoryChange = (newCategory) => {
     setCategory(newCategory);
     router.push({
-      pathname: "/norse",
+      pathname: "/",
       query: { category: newCategory }, // Add the new category to the query
     });
   };

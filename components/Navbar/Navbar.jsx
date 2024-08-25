@@ -11,7 +11,7 @@ import { GiNinjaHead } from "react-icons/gi";
 import { CgMoreVertical } from "react-icons/cg";
 import { GiVikingLonghouse } from "react-icons/gi";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
-import play from "../../styles/play.svg";
+import rune from "../../styles/rune.svg";
 import { FaRegFaceSmileBeam } from "react-icons/fa6";
 import { FaMessage } from "react-icons/fa6";
 import { LuCalendarHeart } from "react-icons/lu";
@@ -48,7 +48,7 @@ const Navbar = () => {
       <nav
         className={`${
           !scrolled || isMenuOpen
-            ? "bg-black border-b-[1px] border-gray-700 rounded-sm top-0 p-6 "
+            ? "bg-black  border-gray-700 rounded-sm top-0 p-6 "
             : "bg-gray-700/90 border-[1px] border-yellow-400 top-4 "
         } fixed top-0 left-1/2 transform lg:p-8 transition duration-500 h-12 -translate-x-1/2 ${
           !isMenuOpen ? "top-0" : "0"
@@ -60,30 +60,36 @@ const Navbar = () => {
       >
         {" "}
         <div className="w-full   flex h-12 ">
-          <a
-            href={
-              router.pathname === "/norse" || router.pathname === "/runes"
-                ? "/norse"
-                : "/"
-            }
-          >
+          <a href={"/"}>
             {" "}
-            <div className=" absolute top-1  lg:right-8">
-              <Image
-                src={blog}
-                alt="Georgi Tonkov"
-                className="w-2/3 lg:w-64 h-auto"
-              />
+            <div className=" absolute sm:top-1 md:top-4  md:right-2 w-48 md:w-36">
+              <Image src={blog} alt="Georgi Tonkov" className="w-full h-auto" />
             </div>
           </a>
 
-          <div className="hidden lg:flex   uppercase flex-grow items-center justify-start ">
+          <div className="hidden md:flex   uppercase flex-grow items-center justify-start ">
             <a href="/" className={` font-bold text-md hover-1  hover-1`}>
               <div className="flex items-center">
                 <GiVikingLonghouse className="mr-2 " />
                 Митология
               </div>
             </a>
+
+            <Link
+              href={"/runes"}
+              className={` font-bold text-md hover-1 mx-2 hover-1`}
+            >
+              <div className="flex items-center">
+                <Image
+                  className="mr-2 w-5 h-5 "
+                  src={rune}
+                  width={1000}
+                  height={1000}
+                  alt=""
+                />
+                <span>Руни</span>
+              </div>
+            </Link>
 
             <Link
               href={"/"}
@@ -162,7 +168,7 @@ const Navbar = () => {
             </a>
           </div> */}
         </div>
-        <div className="block lg:hidden ">
+        <div className="block md:hidden ">
           <button
             title="menu"
             id="menu"
@@ -185,13 +191,7 @@ const Navbar = () => {
             <div className=" slide-in-from-left    z-10 lg:hidden fixed shadow-4xl top-[40px] left-4  md:left-[14px] w-11/12 md:w-2/3 rounded-lg bg-gradient-to-b from-gray-900 via-gray-950 via-gray-950 to-orange-300 flex flex-col items-start justify-start ">
               <div className="bg-gradient-to-r rounded-lg flex items-center p-4 justify-center  from-gray-700 via-gray-800 via-gray-900 to-gray-900 border-b-2 border-gray-700  w-full  ">
                 {" "}
-                <a
-                  href={
-                    router.pathname === "/norse" || router.pathname === "/runes"
-                      ? "/norse"
-                      : "/"
-                  }
-                >
+                <a href={"/"}>
                   {" "}
                   <div className=" w-10/12 mx-auto ml-2  top-6  left-0">
                     <Image
@@ -221,8 +221,22 @@ const Navbar = () => {
                     <GiVikingLonghouse className="mr-2 " />
                     Митология
                   </div>
-                </a>
-
+                </a>{" "}
+                <Link
+                  href={"/runes"}
+                  className={`block text-gray-100   text-2xl mt-2 hover-1`}
+                >
+                  <div className="flex items-center">
+                    <Image
+                      className="mr-2 w-5 h-5 "
+                      src={rune}
+                      width={1000}
+                      height={1000}
+                      alt=""
+                    />{" "}
+                    <span>Руни</span>
+                  </div>
+                </Link>
                 <Link
                   href={"/"}
                   className={`block text-gray-100   text-2xl mt-2 hover-1`}
@@ -232,7 +246,6 @@ const Navbar = () => {
                     <span>Календар</span>
                   </div>
                 </Link>
-
                 <a
                   href="/contact/email"
                   className={`text-gray-100 block  text-2xl mt-2 hover-1`}

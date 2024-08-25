@@ -11,8 +11,8 @@ import {
 } from "react-icons/bs";
 
 const Runes = () => {
-  const [runicSymbol, setRunicSymbol] = useState("Canis Lupus");
-  const [displayResult, setDisplayResult] = useState("ᚲᚨᚾᛁᛊ ᛚᚢᛈᚢᛊ");
+  const [runicSymbol, setRunicSymbol] = useState("Georgi Tonkov");
+  const [displayResult, setDisplayResult] = useState("ᚷᛖᛟᚱᚷᛁ  ᛏᛟᚾᚲᛟᚢ");
   const [latinOrEF, setLatinOrEf] = useState("Latin");
   const copyToClipboard = (text) => {
     const elem = document.createElement("textarea");
@@ -167,10 +167,74 @@ const Runes = () => {
         />
       </div>
       <div className=" w-full lg:w-11/12 container mx-auto">
-        {" "}
-        <div className="w-full lg:w-5/6 mx-auto p-4 rounded-lg shadow-md">
+        <div className="bg-slate-50 text-gray-700 w-full lg:w-5/6 mx-auto p-4 text-center mt-4 rounded-lg">
+          <div className=" text-center mt-4 bg-red-50 text-red-700 p-4 rounded-md flex items-center justify-center">
+            <BsExclamationTriangle className="h-6 w-6 mr-2 text-red-500" />
+            <p className="text-sm">
+              Бележка: Този софтуер конвертира само отделни символи и знаци. Той
+              не е предназначен за превод на рунически надписи.
+            </p>
+          </div>
+          <h2 className="text-2xl mb-4">Конвертор</h2>
+          <div className="mb-4">
+            <select
+              value={latinOrEF}
+              className="p-2 bg-gray-100 rounded"
+              onChange={(e) => {
+                setLatinOrEf(e.target.value);
+                if (e.target.value === "Latin") {
+                  setDisplayResult("ᚷᛖᛟᚱᚷᛁ  ᛏᛟᚾᚲᛟᚢ");
+                  setRunicSymbol("Georgi Tonkov");
+                } else {
+                  setRunicSymbol("ᚷᛖᛟᚱᚷᛁ  ᛏᛟᚾᚲᛟᚢ");
+                  setDisplayResult("Georgi Tonkov");
+                }
+              }}
+            >
+              <option value="Latin">Latin - Elder Furthark</option>
+              <option value="EF">Elder Furthark - Latin</option>
+            </select>
+          </div>
+
+          <div className="mb-4 text-xl max-w-full overflow-hidden">
+            {latinOrEF === "Latin" ? "Elder Furthark" : "Latin"}:
+            <p className="font-bold  w-full lg:w-1/2 mx-auto text-blue-700 border-b border-gray-200 overflow-ellipsis overflow-hidden break-words">
+              {displayResult}
+            </p>
+            <button
+              className="ml-2 p-2 bg-gray-400 rounded mt-4"
+              onClick={() => copyToClipboard(displayResult)}
+            >
+              Копирай
+            </button>
+          </div>
+
+          <div className="mb-4">
+            <input
+              type="text"
+              className="p-2 bg-gray-200 rounded"
+              placeholder="Въведете текст"
+              value={runicSymbol}
+              onChange={(e) => setRunicSymbol(e.target.value)}
+            />
+          </div>
+
+          <button
+            className="p-2 w-64 bg-yellow-300 text-gray-700 rounded font-bold"
+            onClick={() => {
+              if (latinOrEF === "Latin") {
+                convertFunctionLatinToEF(runicSymbol);
+              } else {
+                convertFunctionEFtoLatin(runicSymbol);
+              }
+            }}
+          >
+            Конвертирай
+          </button>
+        </div>{" "}
+        <div className="w-full lg:w-5/6 mx-auto p-4 rounded-lg ">
           <div className="info-box mb-4">
-            <p className="text-lg bg-yellow-50 p-4 mb-4 rounded-lg">
+            <p className="text-lg bg-slate-50 p-4 mb-4 rounded-lg">
               <BsInfoCircle className="inline-block mr-2 text-yellow-500" />
               Протогерманската писменост е една от най-старите познати на
               човечеството. Първите сведения за нея датират от 160 години преди
@@ -183,7 +247,7 @@ const Runes = () => {
               мъдрост и тайни знания, като самата дума "руна" може да се преведе
               като "шепот" или "мистериозен шепот".
             </p>
-            <p className="text-lg bg-yellow-50 p-4 mb-4 rounded-lg">
+            <p className="text-lg bg-slate-50 p-4 mb-4 rounded-lg">
               <BsInfoCircle className="inline-block mr-2 text-yellow-500" />В
               таблицата по-долу можете да се запознаете със състава на Elder
               Futhark и значението на отделните руни. Руните са не само азбука,
@@ -193,13 +257,6 @@ const Runes = () => {
               изместени от латинската азбука с настъпването на християнството в
               Европа, те остават в употреба и до днес за различни декоративни и
               мистични цели, като изработка на амулети, медальони и украшения.
-            </p>
-          </div>
-
-          <div className="flex items-center justify-center">
-            <BsCheckCircle className="h-8 w-8 text-green-500 mr-2" />
-            <p className="text-lg text-green-500">
-              Достъпна информация и конвертор за руни
             </p>
           </div>
         </div>
@@ -501,71 +558,6 @@ const Runes = () => {
               </tr>
             </tbody>
           </table>
-        </div>
-        <div className="bg-gray-300 text-gray-700 w-full p-4 text-center">
-          <div className=" text-center mt-4 bg-red-50 text-red-700 p-4 rounded-md flex items-center justify-center">
-            <BsExclamationTriangle className="h-6 w-6 mr-2 text-red-500" />
-            <p className="text-sm">
-              Бележка: Този софтуер конвертира само отделни символи и знаци. Той
-              не е предназначен за превод на рунически надписи.
-            </p>
-          </div>
-          <h2 className="text-2xl mb-4">Конвертор</h2>
-          <div className="mb-4">
-            <select
-              value={latinOrEF}
-              className="p-2 bg-gray-100 rounded"
-              onChange={(e) => {
-                setLatinOrEf(e.target.value);
-                if (e.target.value === "Latin") {
-                  setDisplayResult("ᚲᚨᚾᛁᛊ ᛚᚢᛈᚢᛊ");
-                  setRunicSymbol("Canis Lupus");
-                } else {
-                  setRunicSymbol(" ᚲᚨᚾᛁᛊ ᛚᚢᛈᚢᛊ");
-                  setDisplayResult("Canis Lupus");
-                }
-              }}
-            >
-              <option value="Latin">Latin - Elder Furthark</option>
-              <option value="EF">Elder Furthark - Latin</option>
-            </select>
-          </div>
-
-          <div className="mb-4 text-xl max-w-full overflow-hidden">
-            {latinOrEF === "Latin" ? "Elder Furthark" : "Latin"}:
-            <p className="font-bold  w-full lg:w-1/2 mx-auto text-blue-700 border-b border-gray-200 overflow-ellipsis overflow-hidden break-words">
-              {displayResult}
-            </p>
-            <button
-              className="ml-2 p-2 bg-gray-400 rounded mt-4"
-              onClick={() => copyToClipboard(displayResult)}
-            >
-              Копирай
-            </button>
-          </div>
-
-          <div className="mb-4">
-            <input
-              type="text"
-              className="p-2 bg-gray-200 rounded"
-              placeholder="Въведете текст"
-              value={runicSymbol}
-              onChange={(e) => setRunicSymbol(e.target.value)}
-            />
-          </div>
-
-          <button
-            className="p-2 w-64 bg-yellow-300 text-gray-700 rounded font-bold"
-            onClick={() => {
-              if (latinOrEF === "Latin") {
-                convertFunctionLatinToEF(runicSymbol);
-              } else {
-                convertFunctionEFtoLatin(runicSymbol);
-              }
-            }}
-          >
-            Конвертирай
-          </button>
         </div>
       </div>
       <ToastContainer />

@@ -145,7 +145,7 @@ const MobileBar = ({ posts, categories, author, initialCategory }) => {
                 </li>
                 <li className="mb-2 mt-12 bg-yellow-300  text-center flex items-center text-gray-700 rounded-md w-64 p-1">
                   <a
-                    href="/norse"
+                    href="/"
                     className="hover:underline font-bold flex justify-center items-center text-center mx-auto"
                   >
                     <FcClearFilters className="mr-2" /> Изчисти филтрите
