@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image"; // Assuming you're using Next.js for Image component
 import play from "../../styles/ad.png";
 import logo from "../../styles/blog.png";
+
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -49,7 +50,7 @@ const Footer = () => {
       <div className=" mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 gap-6">
         {/* Links Section */}
         <div>
-          <h5 className="text-lg font-bold mb-4">Полезни линкове</h5>
+          <h5 className="text-lg font-bold mb-4">Допълнителни линкове</h5>
           <ul className="text-gray-700">
             <li className="mb-2">
               <a
@@ -61,19 +62,19 @@ const Footer = () => {
             </li>
             <li className="mb-2">
               <a
-                href="/"
+                href="/runes"
                 className=" hover:text-white transition-colors duration-300"
               >
-                Календар
+                Руни
               </a>
             </li>
 
             <li className="mb-2">
               <a
-                href="/authors/georgi-tonkov"
+                href="/art"
                 className=" hover:text-white transition-colors duration-300"
               >
-                За мен
+                Изкуство
               </a>
             </li>
             <li className="mb-2">

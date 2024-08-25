@@ -56,7 +56,7 @@ const Navbar = () => {
         <div className="w-full   flex h-12 justify-start items-center">
           <a href={"/"}>
             {" "}
-            <div className=" absolute left-4  top-2 lg:top-4  lg:right-2 w-48 md:w-36">
+            <div className="absolute left-4 md:left-auto lg:right-4 top-2 lg:top-4 w-48 md:w-36">
               <Image src={blog} alt="Georgi Tonkov" className="w-full h-auto" />
             </div>
           </a>
@@ -111,7 +111,7 @@ const Navbar = () => {
               </div>
             </Link>
             <Link
-              href={"/"}
+              href={"/art"}
               className="font-bold text-md hover-1 mx-2 border-r-[1px] p-2"
             >
               <div className="flex items-center">
