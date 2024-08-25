@@ -74,10 +74,11 @@
 .modal {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  right: 0;
+  width: 50%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #64748b;
+  border-top-left-radius: 40px;
 }
 .comment {
   position: fixed;
