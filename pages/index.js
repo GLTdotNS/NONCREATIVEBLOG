@@ -157,9 +157,9 @@ export function Blog({
               </li>
             </ul>
           </nav>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-12 border-t-[1px] border-gray-100 ">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-12 border-t-[1px] border-gray-100  sticky ">
             {/* Left side column */}
-            <div className="flex overflow-auto">
+            <div className="flex ">
               <div className="hidden lg:block border-r-1 border-gray-400 sticky top-0 overflow-auto">
                 <div className="w-full mb-4 flex justify-center items-center">
                   <div className="">
@@ -395,7 +395,7 @@ export function Blog({
                       key={c.slug}
                       className="relative group easy-in-out"
                       href={`/post/${c.slug.current}`}
-                      data-aos="fade-up-left"
+                      data-aos="fade-up"
                     >
                       <div className="relative h-[400px] w-full mx-auto  shadow-md overflow-hidden rounded-t-lg ">
                         <Image

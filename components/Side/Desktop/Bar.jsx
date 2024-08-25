@@ -18,7 +18,7 @@ const Bar = ({ posts, categories, author, initialCategory }) => {
   };
 
   return (
-    <div className="p-4 h-screen">
+    <div className="p-4 h-screen sticky top-0">
       <div className="mb-8 p-4  bg-gray-100 backdrop-blur-lg bg-opacity-40 w-full rounded-lg">
         <h2 className="text-xl text-gray-700 font-bold mb-4 flex items-center">
           <FaRegFolderOpen className="mr-2" /> Категории
