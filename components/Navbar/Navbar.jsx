@@ -53,9 +53,7 @@ const Navbar = () => {
           !scrolled || isMenuOpen
             ? "bg-black border-gray-700 rounded-sm top-0 p-6"
             : "bg-gray-700/90 border-[1px] border-yellow-400 top-4"
-        } fixed top-0 left-1/2 transform lg:p-8 transition duration-500 h-12 -translate-x-1/2 ${
-          !isMenuOpen ? "top-0" : "0"
-        } flex items-center justify-center w-full lg:w-11/12 z-50 ${
+        } fixed top-0 left-1/2 transform lg:p-8 transition duration-500 h-12 -translate-x-1/2 flex items-center justify-center w-full lg:w-11/12 z-50 ${
           scrolled && (pathname === "/" || pathname === "/")
             ? "transition-color text-gray-100"
             : "text-white"
