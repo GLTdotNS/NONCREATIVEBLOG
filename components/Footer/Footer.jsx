@@ -46,7 +46,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full lg:w-10/12 bg-slate-200 mt-4 bg-opacity-90 text-gray-900 mx-auto border-t-2 border-t-gray-300 rounded-tl-lg rounded-tr-lg">
+    <footer className="w-full lg:w-10/12 bg-slate-50 mt-4 bg-opacity-90 text-gray-900 mx-auto border-t-2 border-t-gray-300 rounded-tl-lg rounded-tr-lg">
       <div className=" mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 gap-6">
         {/* Links Section */}
         <div>

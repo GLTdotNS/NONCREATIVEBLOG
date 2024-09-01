@@ -109,7 +109,7 @@ const Bar = ({ posts, categories, author, initialCategory }) => {
             ))}
         </ul>
       </div>
-      <div className="w-full  bg-gray-100 bg-opacity-30 p-2 shadow-lg rounded-lg overflow-hidden mb-2">
+      <div className="w-full  bg-gray-100 bg-opacity-30 p-2  rounded-lg overflow-hidden mb-2">
         <div className="max-w-full  rounded-lg overflow-hidden p-2">
           <div className="text-left sm:text-left text-gray-700 ">
             <Image
