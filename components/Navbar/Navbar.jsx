@@ -17,6 +17,7 @@ import more from "../../styles/more.svg";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
   const router = useRouter();
   const { pathname } = router;
   const menuRef = useRef(null);
@@ -25,9 +26,14 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const toggleMegaMenu = () => {
+    setIsMegaMenuOpen(!isMegaMenuOpen);
+  };
+
   const closeMenu = (e) => {
     if (menuRef.current && !menuRef.current.contains(e.target)) {
       setIsMenuOpen(false);
+      setIsMegaMenuOpen(false);
     }
   };
 
@@ -50,10 +56,12 @@ const Navbar = () => {
     <>
       <nav
         className={`${
-          !scrolled
+          !scrolled || isMenuOpen
             ? "bg-black border-gray-700 rounded-sm top-0 p-6"
             : "bg-gray-700/90 border-[1px] border-yellow-400 top-4"
-        } fixed top-0 left-1/2 transform lg:p-8 transition duration-500 h-12 -translate-x-1/2 flex items-center justify-center w-full lg:w-11/12 z-50 ${
+        } fixed top-0 left-1/2 transform lg:p-8 transition duration-500 h-12 -translate-x-1/2 ${
+          !isMenuOpen ? "top-0" : "0"
+        } flex items-center justify-center w-full lg:w-11/12 z-50 ${
           scrolled && (pathname === "/" || pathname === "/")
             ? "transition-color text-gray-100"
             : "text-white"
@@ -127,8 +135,11 @@ const Navbar = () => {
                 <span>Изкуство</span>
               </div>
             </Link>
-            <div className="group relative">
-              <button className="font-bold text-md mx-2 hover-1 inline-flex flex items-center uppercase mx-4">
+            <div className="relative group">
+              <button
+                className="font-bold text-md mx-2 hover-1 inline-flex flex items-center uppercase"
+                onClick={toggleMegaMenu}
+              >
                 <Image
                   className="mr-2 w-8 h-8 bg-white rounded-full"
                   src={more}
@@ -138,29 +149,30 @@ const Navbar = () => {
                 />
                 Повече
               </button>
-              <div className="origin-top-right text-gray-700 fade-in absolute left-0 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block">
-                <div className="py-1" role="menu">
-                  <a
-                    href={"/authors/georgi-tonkov"}
-                    className="block px-4 py-2 text-lg"
-                    role="menuitem"
-                  >
-                    <div className="flex items-center">
-                      <GiNinjaHead className="mr-2" />
-                      <span>За мен</span>
-                    </div>
-                  </a>
-                  <Link
-                    href={"/contact/email"}
-                    className="block px-4 p-2 text-md hover-1"
-                  >
-                    <div className="flex items-center">
-                      <FaMessage className="mr-2" />
-                      <span>Контакти</span>
-                    </div>
-                  </Link>
+              {isMegaMenuOpen && (
+                <div className="absolute z-50 mt-2 w-96 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                  <div className="py-1">
+                    <Link
+                      href="/authors/georgi-tonkov"
+                      className="block px-4 py-2 text-lg text-gray-800 hover:bg-gray-100"
+                    >
+                      <div className="flex items-center">
+                        <GiNinjaHead className="mr-2" />
+                        <span>За мен</span>
+                      </div>
+                    </Link>
+                    <Link
+                      href="/contact/email"
+                      className="block px-4 py-2 text-lg text-gray-800 hover:bg-gray-100"
+                    >
+                      <div className="flex items-center">
+                        <FaMessage className="mr-2" />
+                        <span>Контакти</span>
+                      </div>
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
@@ -177,14 +189,14 @@ const Navbar = () => {
           </button>
         </div>
         <div
-          className={`fixed modal top-0 lg:hidden  right-0 h-full transform transition-transform duration-300 ease-in-out ${
-            isMenuOpen ? "translate-x- bg-red-500" : "translate-x-full"
+          className={`fixed modal top-0 lg:hidden right-0 h-full transform transition-transform duration-300 ease-in-out ${
+            isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
           ref={menuRef}
         >
           <div className="bg-gradient-to-r rounded-lg flex items-center p-4 justify-center from-gray-700 via-gray-800 to-gray-900 border-b-2 border-gray-700 w-full">
             <a href={"/"}>
-              <div className="w-10/12 mx-auto ml-2 top-6 left-0">
+              <div className="w-5/6 mx-auto top-6 left-0">
                 <Image
                   src={blog}
                   alt="Georgi Tonkov"
@@ -192,7 +204,7 @@ const Navbar = () => {
                 />
               </div>
             </a>
-            <button className="focus:outline-none p-2 " onClick={toggleMenu}>
+            <button className="focus:outline-none p-2" onClick={toggleMenu}>
               <FaWindowClose size={30} className="text-white" />
             </button>
           </div>
@@ -259,7 +271,10 @@ const Navbar = () => {
               </div>
             </a>
             <div className="group relative border-b border-gray-700 pb-2">
-              <button className="text-gray-100 text-2xl mt-2 hover-1 flex items-center">
+              <button
+                className="text-gray-100 text-2xl mt-2 hover-1 flex items-center"
+                onClick={toggleMegaMenu}
+              >
                 <Image
                   className="mr-2 w-8 h-8 bg-white rounded-full"
                   src={more}
@@ -269,28 +284,30 @@ const Navbar = () => {
                 />
                 Повече
               </button>
-              <div className="origin-top-right absolute  left-0 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block">
-                <div className="py-1">
-                  <a
-                    href="/contact/email"
-                    className="block px-4 py-2 text-lg text-black"
-                  >
-                    <div className="flex items-center">
-                      <FaMessage className="mr-2" />
-                      <span>Контакти</span>
-                    </div>
-                  </a>
-                  <Link
-                    href={"/authors/georgi-tonkov"}
-                    className="block text-lg py-2 px-4 hover-1 text-black"
-                  >
-                    <div className="flex items-center">
-                      <GiNinjaHead className="mr-2" />
-                      <span>За мен</span>
-                    </div>
-                  </Link>
+              {isMegaMenuOpen && (
+                <div className="origin-top-right absolute left-0 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                  <div className="py-1">
+                    <Link
+                      href="/authors/georgi-tonkov"
+                      className="block px-4 py-2 text-lg text-black hover:bg-gray-100"
+                    >
+                      <div className="flex items-center">
+                        <GiNinjaHead className="mr-2" />
+                        <span>За мен</span>
+                      </div>
+                    </Link>
+                    <Link
+                      href="/contact/email"
+                      className="block px-4 py-2 text-lg text-black hover:bg-gray-100"
+                    >
+                      <div className="flex items-center">
+                        <FaMessage className="mr-2" />
+                        <span>Контакти</span>
+                      </div>
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
           <div className="flex justify-center fixed bottom-0 w-full">
@@ -301,7 +318,7 @@ const Navbar = () => {
             >
               <path
                 fill="#1e293b"
-                fill-opacity="1"
+                fillOpacity="1"
                 d="M0,288L30,277.3C60,267,120,245,180,218.7C240,192,300,160,360,165.3C420,171,480,213,540,202.7C600,192,660,128,720,117.3C780,107,840,149,900,186.7C960,224,1020,256,1080,261.3C1140,267,1200,245,1260,213.3C1320,181,1380,139,1410,117.3L1440,96L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"
               ></path>
             </svg>

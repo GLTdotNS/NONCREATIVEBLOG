@@ -18,7 +18,7 @@ const Bar = ({ posts, categories, author, initialCategory }) => {
   };
 
   return (
-    <div className="p-4 h-[100vh] sticky top-0">
+    <div className="p-4  sticky top-24">
       <div className="mb-8 p-4  bg-gray-100 backdrop-blur-lg bg-opacity-40 w-full rounded-lg">
         <h2 className="text-xl text-gray-700 font-bold mb-4 flex items-center">
           <FaRegFolderOpen className="mr-2" /> Категории
@@ -89,7 +89,7 @@ const Bar = ({ posts, categories, author, initialCategory }) => {
           </li>
         </ul>
       </div>
-      <div className="mb-8 p-4 bg-gray-100 backdrop-blur-xl bg-opacity-30 w-full rounded-lg">
+      <div className="mb-8 p-4 bg-gray-100  bg-opacity-30 w-full rounded-lg">
         <h2 className="text-xl text-gray-700 font-bold mb-4 flex items-center">
           <GiSupersonicArrow className="mr-2 text-red-400" /> Най-четени
         </h2>
@@ -109,8 +109,8 @@ const Bar = ({ posts, categories, author, initialCategory }) => {
             ))}
         </ul>
       </div>
-      <div className="w-full  bg-gray-100 backdrop-blur-xl bg-opacity-30 p-2 shadow-lg rounded-lg overflow-hidden mb-2">
-        <div className="max-w-full shadow-lg rounded-lg overflow-hidden p-2">
+      <div className="w-full  bg-gray-100 bg-opacity-30 p-2 shadow-lg rounded-lg overflow-hidden mb-2">
+        <div className="max-w-full  rounded-lg overflow-hidden p-2">
           <div className="text-left sm:text-left text-gray-700 ">
             <Image
               src={gif}

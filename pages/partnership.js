@@ -1,136 +1,62 @@
-import React, { useState } from "react";
-import { FaEnvelope, FaPhone, FaClock } from "react-icons/fa"; // Извличане на допълнителни икони от React Icons
+// pages/index.js
 
-const PartnershipPage = () => {
-  const [faq, setFaq] = useState([
-    {
-      question: "Какъв вид съдържание предлагате?",
-      answer:
-        "Предлагаме уникални статии и материали, свързани със скандинавската митология, лични истории и хендкрафт неща.",
-      isOpen: false,
-    },
-    {
-      question: "Какъв е процесът за сътрудничество?",
-      answer:
-        "Моля, свържете се с нас чрез имейл или формата за контакт по-горе, за да обсъдим детайлите на сътрудничеството.",
-      isOpen: false,
-    },
-    {
-      question: "Какви са условията за рекламни кампании?",
-      answer:
-        "За информация относно рекламни кампании и тяхното участие с нас, свържете се директно чрез нашата контактна форма или имейл.",
-      isOpen: false,
-    },
-    {
-      question:
-        "Колко време отнема процесът на одобрение на предложение за сътрудничество?",
-      answer:
-        "Обикновено процесът на одобрение на предложение отнема до 5 работни дни. Моля, бъдете търпеливи по време на този период.",
-      isOpen: false,
-    },
-  ]);
+import React, { useEffect, useState } from "react";
 
-  const toggleAccordion = (index) => {
-    setFaq((prevFaq) =>
-      prevFaq.map((item, i) => {
-        if (i === index) {
-          return { ...item, isOpen: !item.isOpen };
-        } else {
-          return { ...item, isOpen: false };
+const Home = () => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const apiKey = "v9QeyrkcuxpQDzslHCkOSc2B5OAUUhHfaEBVPAs8"; // Замени с твоя API ключ
+      const url = `https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=${apiKey}`; // Примерен URL, замени с подходящия за твоя случай
+
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
         }
-      })
-    );
-  };
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        setError("Failed to fetch data");
+        console.error("Error:", error);
+      }
+      setLoading(false);
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading)
+    return <div className="text-center text-gray-600">Loading...</div>;
+  if (error) return <div className="text-center text-red-600">{error}</div>;
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 mt-24">
-      <h1 className="text-3xl font-bold mb-4">Страница за Партньорство</h1>
-      <p className="text-lg mb-4">
-        Заинтересовани ли сте от възможност за сътрудничество с NONCREATIVEBLOG?
-        Ние ценим вашия интерес и готовността ви да споделяте общи цели. Моля,
-        свържете се с нас, за да обсъдим как можем да сътрудничим.
-      </p>
-      <h2 className="text-2xl font-bold mb-2">
-        Защо да изберете нас за партньор?
-      </h2>
-      <p className="mb-4">
-        NONCREATIVEBLOG предлага уникално съдържание в областта на
-        скандинавската митология, лични истории и хендкрафт неща. Нашата
-        аудитория е ангажирана и заинтересована в подобни теми.
-      </p>
-      <h2 className="text-2xl font-bold mb-2">
-        Предимства от партньорство с нас
-      </h2>
-      <ul className="list-disc pl-4 mb-4">
-        <li>Достъп до уникални и вдъхновяващи материали и статии</li>
-        <li>
-          Достигане до аудитория с интереси в културата и традициите на Северна
-          Европа
-        </li>
-        <li>Бърз и лесен за навигация уебсайт</li>
-        <li>
-          Гъвкави възможности за сътрудничество - от рекламни кампании до
-          съвместни проекти
-        </li>
-        <li>
-          Професионализъм и висок стандарт на качество във всяко сътрудничество
-        </li>
-      </ul>
-      <h2 className="text-2xl font-bold mb-2">Как да станем партньори?</h2>
-      <p className="mb-4">
-        За да научите повече или да започнем сътрудничество, моля,{" "}
-        <a href="/contact/email" className="text-blue-500 hover:underline">
-          свържете се с нас
-        </a>{" "}
-        и ни изпратете вашия линк и описание на вашето предложение.
-      </p>
-      <div className="flex items-center mb-4">
-        <FaEnvelope className="text-2xl mr-2 text-blue-500" />
-        <span className="text-lg">
-          Имейл:{" "}
-          <a
-            href="mailto:your-email@example.com"
-            className="text-blue-500 hover:underline"
-          >
-            noncreativeblog@gmail.com
-          </a>
-        </span>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+      <div className="p-4 max-w-2xl mx-auto bg-white rounded-lg shadow-md">
+        <h2 className="text-xl font-bold mb-4">
+          NASA Astronomy Picture of the Day
+        </h2>
+        {console.log(data)}
+        {data ? (
+          <div>
+            <h3 className="text-lg font-semibold">{data.title}</h3>
+            <img
+              src={data.url}
+              alt={data.title}
+              className="w-full h-auto mb-4"
+            />
+            <p>{data.explanation}</p>
+            <p>Date: {data.date}</p>
+          </div>
+        ) : (
+          <p>No data available.</p>
+        )}
       </div>
-      {/* FAQ Section */}
-      <h2 className="text-2xl font-bold mb-2">Често задавани въпроси (FAQ)</h2>
-      {faq.map((item, index) => (
-        <div key={index} className="mb-4">
-          <button
-            className="flex items-center justify-between w-full bg-gray-200 p-4 rounded-lg"
-            onClick={() => toggleAccordion(index)}
-          >
-            <span className="text-lg font-medium">{item.question}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className={`h-6 w-6 transition-transform duration-300 transform ${
-                item.isOpen ? "rotate-180" : ""
-              }`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </button>
-          {item.isOpen && (
-            <div className="bg-gray-100 p-4 rounded-lg mt-2">
-              <p>{item.answer}</p>
-            </div>
-          )}
-        </div>
-      ))}
     </div>
   );
 };
 
-export default PartnershipPage;
+export default Home;
