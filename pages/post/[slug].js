@@ -10,7 +10,7 @@ import MyContext from "../../Context/context";
 import AllPosts from "../../utils/NorseQueries/AllPosts";
 import Image from "next/image"; // Import Next.js Image component
 import Slug from "../../utils/NorseQueries/Slug";
-
+import CommentSection from "../../components/Comment/CommentSection";
 const Cats = ({ post, posts }) => {
   const { isOpenSection } = useContext(MyContext);
   const [comments, setComments] = useState(post.comments);
@@ -70,12 +70,9 @@ const Cats = ({ post, posts }) => {
 
   return (
     <div className="w-11/12 mt-24 mx-auto flex flex-col lg:flex-row">
-      {/* Hamburger Menu for TOC */}
-
-      {/* Right Column: Sticky TOC and Ad Banner */}
       <div
         className={`lg:w-1/4 pl-4 lg:sticky order-2 top-24 lg:h-screen overflow-y-auto transition-transform duration-300 ${
-          !isTocOpen ? "translate-x-0" : "translate-x-full"
+          isTocOpen ? "translate-x-0" : "translate-x-full"
         } md:translate-x-0`}
       >
         <div className="bg-gray-100 p-4 rounded shadow mb-4">
@@ -111,7 +108,7 @@ const Cats = ({ post, posts }) => {
       <div className="flex-1 pr-4 order-2 lg:order-1">
         <Navigation post={post} category={category} link={"/"} />
         <PostInfo post={post} />
-        <div className="block-content w-full lg:w-5/6 mx-auto text-gray-700 p-4">
+        <div className="block-content w-full  mx-auto text-gray-700 p-4 border-r-2 border-gray-100">
           <BlockContent
             serializers={serializers}
             blocks={post.body}
