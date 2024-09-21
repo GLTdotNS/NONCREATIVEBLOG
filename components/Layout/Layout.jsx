@@ -2,13 +2,13 @@
 import Link from "next/link";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-const Layout = ({ children }) => {
+const Layout = ({ children, latestGodsPost }) => {
   return (
-    <div className="">
-      <Navbar />
+    <>
+      <Navbar latestGodsPost={latestGodsPost} />
       <main>{children}</main>
       <Footer />
-    </div>
+    </>
   );
 };
 

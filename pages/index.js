@@ -95,7 +95,7 @@ export function Blog({
           <Image
             src={cover}
             alt="noncreativeblog"
-            class="w-full lg:w-11/12 h-auto  lg:h-[380px]  mx-auto    object-cover rounded-b-lg "
+            class="w-full h-auto  lg:h-[380px]  mx-auto    object-cover rounded-b-lg "
           />
         </div>
         <div className="container mx-auto">

@@ -55,7 +55,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="w-full lg:w-10/12 mx-auto p-12 mt-24 shadow-lg">
+    <div className="w-full lg:w-10/12 mx-auto p-12 mt-24 ">
       {!successMessage &&
         !errorMessage && ( // Only show the form if no success or error message
           <div className="lg:flex lg:space-x-8">

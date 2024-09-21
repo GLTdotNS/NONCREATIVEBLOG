@@ -79,6 +79,20 @@ const Bar = ({ posts, categories, author, initialCategory }) => {
               Космология
             </span>
           </li>
+          <li onClick={() => handleCategoryChange("TonkovG")}>
+            <span className="hover:underline flex items-center mt-2">
+              <Image
+                className="h-8 w-8 mr-2 rounded-full"
+                width={100}
+                height={100}
+                src={
+                  categories.filter((x) => x.title == "TonkovG")[0].image.asset
+                    .url
+                }
+              />{" "}
+              TonkovG
+            </span>
+          </li>
           <li className="mb-2 mt-12 bg-yellow-300 rounded-md w-64 p-1">
             <a
               href="/norse"

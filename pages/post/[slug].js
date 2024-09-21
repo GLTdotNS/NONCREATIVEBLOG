@@ -1,27 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { client as sanityClient } from "../../library/mythologyClient";
 import BlockContent from "@sanity/block-content-to-react";
-
 import { serializers } from "../../serializers/serializers";
 import PostInfo from "../../components/PostInfo/PostInfo";
 import Navigation from "../../components/Breadcrumbs/Navigation";
 import PostFooter from "../../components/PostFooter/PostFooter";
 import moment from "moment/moment";
-import { useContext } from "react";
 import MyContext from "../../Context/context";
-import RelatedPosts from "../../components/Related/Related";
-import AllComments from "../../components/Comment/AllComments";
-import CommentSection from "../../components/Comment/CommentSection";
-import Slug from "../../utils/NorseQueries/Slug";
 import AllPosts from "../../utils/NorseQueries/AllPosts";
-import { CLIENT_STATIC_FILES_PATH } from "next/dist/shared/lib/constants";
-const Cats = ({ post, posts }) => {
-  const { isOpenSection, setSisOpenSection } = useContext(MyContext);
+import Image from "next/image"; // Import Next.js Image component
+import Slug from "../../utils/NorseQueries/Slug";
 
+const Cats = ({ post, posts }) => {
+  const { isOpenSection } = useContext(MyContext);
   const [comments, setComments] = useState(post.comments);
   const [category, setCategory] = useState(
     post.categories || post.qualification
   );
+  const [toc, setToc] = useState([]);
+  const [isTocOpen, setIsTocOpen] = useState(true); // Keep TOC open by default
 
   moment.locale("custom-locale", {
     months: [
@@ -39,67 +36,98 @@ const Cats = ({ post, posts }) => {
       "Декември",
     ],
   });
-  switch (category) {
-    case "Aesir":
-      setCategory("Ауси ");
 
-      break;
-    case "Vani":
-      setCategory("Вани");
+  useEffect(() => {
+    const categoryMapping = {
+      Aesir: "Ауси",
+      Vani: "Вани",
+      Giants: "Гиганти",
+      Cosmology: "Космология",
+      Worlds: "Светове",
+      null: "Няма информация",
+    };
+    setCategory(categoryMapping[category] || category);
+  }, [category]);
 
-      break;
-    case "Giants":
-      setCategory("Гиганти");
-      break;
-    case "Cosmology":
-      setCategory("Космология");
-      break;
-    case "Worlds":
-      setCategory("Светове");
-      break;
-    case null:
-      setCategory("Няма информация");
-      break;
-    default:
-      break;
-  }
+  useEffect(() => {
+    const extractedToc = [];
+    document
+      .querySelectorAll(".block-content h2, .block-content h3")
+      .forEach((heading, index) => {
+        heading.id = `heading-${index}`;
+        extractedToc.push({
+          id: heading.id,
+          text: heading.innerText,
+          level: heading.tagName.toLowerCase(),
+        });
+      });
+    setToc(extractedToc);
+  }, [post]);
+
+  const toggleToc = () => {
+    setIsTocOpen((prev) => !prev);
+  };
+
   return (
-    <div className="relative">
-      <div
-        key={post._id}
-        className="w-full    lg:w-10/12  mt-12 shadow-lg mx-auto text-gray-700 p-2 overflow-hidden"
-      >
-        <div className=" max-w-4xl mx-auto">
-          {" "}
-          <Navigation post={post} category={category} link={"/"} />{" "}
-          <PostInfo post={post} />
-          <div className=" p-4 block-content flex text-gray-700">
-            <BlockContent
-              serializers={serializers}
-              blocks={post.body}
-              projectId="6kqgsbl2"
-              dataset="production"
-            />
-          </div>
-          <div class="container mx-auto max-w-4xl border-t-2 border-gray-300 py-8">
-            <PostFooter />
-          </div>
-        </div>
-        <AllComments comments={comments} />
+    <div className="w-11/12 mt-24 mx-auto flex flex-col lg:flex-row">
+      {/* Hamburger Menu for TOC */}
 
-        <RelatedPosts
-          path={""}
-          posts={posts
-            .filter((x) => x.qualification === post.category)
-            .filter((x) => x.slug.current !== post.slug.current)}
-        />
+      {/* Right Column: Sticky TOC and Ad Banner */}
+      <div
+        className={`lg:w-1/4 pl-4 lg:sticky order-2 top-24 lg:h-screen overflow-y-auto transition-transform duration-300 ${
+          !isTocOpen ? "translate-x-0" : "translate-x-full"
+        } md:translate-x-0`}
+      >
+        <div className="bg-gray-100 p-4 rounded shadow mb-4">
+          <h3 className="font-semibold mb-4">Съдържание</h3>
+          <ul>
+            {toc.map((item) => (
+              <li key={item.id} className={`ml-${item.level === "h3" ? 4 : 0}`}>
+                <a
+                  href={`#${item.id}`}
+                  className="text-blue-500 hover:underline"
+                >
+                  {item.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        {/* Ad Banner */}
+        <div className="bg-yellow-300 p-4 rounded shadow">
+          <h4 className="font-semibold">Рекламирайте тук</h4>
+          <Image
+            src="/path/to/your/placeholder-image.jpg" // Replace with your image path
+            alt="Ad Banner"
+            width={300}
+            height={200}
+            className="rounded"
+          />
+          <p className="mt-2">Вашето рекламно съдържание тук.</p>
+        </div>
       </div>
-      {isOpenSection && <CommentSection post={post} />}
+
+      {/* Left Column: Block Content */}
+      <div className="flex-1 pr-4 order-2 lg:order-1">
+        <Navigation post={post} category={category} link={"/"} />
+        <PostInfo post={post} />
+        <div className="block-content w-full lg:w-5/6 mx-auto text-gray-700 p-4">
+          <BlockContent
+            serializers={serializers}
+            blocks={post.body}
+            projectId="6kqgsbl2"
+            dataset="production"
+          />
+        </div>
+        <div className="container mx-auto max-w-4xl border-t-2 border-gray-300 py-8">
+          <PostFooter />
+        </div>
+      </div>
     </div>
   );
 };
 
-const isServerReq = (req) => !req.url.startsWith("/_next");
+// Fetch static props and paths as before
 export async function getStaticPaths() {
   const posts = AllPosts();
   const post = await sanityClient.fetch(posts);
@@ -109,10 +137,11 @@ export async function getStaticPaths() {
     fallback: "blocking",
   };
 }
+
 export async function getStaticProps(context) {
   const { slug = "" } = context.params;
   const query = Slug();
-  const post = isServerReq ? await sanityClient.fetch(query, { slug }) : null;
+  const post = await sanityClient.fetch(query, { slug });
   const postsQuery = AllPosts();
   const posts = await sanityClient.fetch(postsQuery);
   return {
