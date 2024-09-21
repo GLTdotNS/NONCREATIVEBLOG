@@ -516,13 +516,24 @@ export const getServerSideProps = async (context) => {
     )
     .catch(() => []);
 
+  // Fetch the latest gods post
+  const latestGodsPostQuery = `*[_type == "post" && "Gods" in categories[]->title] | order(publishedAt desc)[0] {
+    title,
+    slug
+  }`;
+
+  const latestGodsPostPromise = client
+    .fetch(latestGodsPostQuery)
+    .catch(() => null);
+
   // Await all promises
-  let [totalPosts, totalPostsCount, categories, authorExport] =
+  let [totalPosts, totalPostsCount, categories, authorExport, latestGodsPost] =
     await Promise.all([
       totalPostsPromise,
       totalPostsCountPromise,
       categoriesPromise,
       authorPromise,
+      latestGodsPostPromise,
     ]);
 
   // Calculate reading time for each post
@@ -544,9 +555,6 @@ export const getServerSideProps = async (context) => {
     totalPosts.sort((a, b) => b.readingTime - a.readingTime);
   }
 
-  // Assuming you want the third author in the list
-  const author = authorExport[2] || {}; // Default to empty object if not present
-
   // Calculate total pages for pagination
   const totalPages = Math.ceil(totalPostsCount / postsPerPage);
 
@@ -555,9 +563,10 @@ export const getServerSideProps = async (context) => {
       posts: totalPosts,
       initialCategory: category,
       categories,
-      author,
+      author: authorExport[2] || {},
       currentPage,
       totalPages,
+      latestGodsPost,
     },
   };
 };
