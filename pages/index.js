@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { FaLink, FaRegFolderOpen, FaStar, FaReddit } from "react-icons/fa";
-import cover from "../styles/viking.png";
+import cover from "../styles/cover.webp";
 import { FaSortAmountDownAlt } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import { GiSupersonicArrow } from "react-icons/gi";
