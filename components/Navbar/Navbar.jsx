@@ -7,6 +7,7 @@ import logo from "../../styles/blog.webp";
 import myths from "../../styles/myths.svg"; // Myth icon path
 import more from "../../styles/more.svg"; // Contacts icon path
 import runes from "../../styles/rune.svg"; // Rune icon path
+import art from "../../styles/art.svg";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -61,6 +62,24 @@ const Navbar = () => {
               className="mr-2 bg-white rounded-full"
             />
             Руни
+          </Link>
+
+          <Link
+            href="/art"
+            className={`flex items-center px-4 py-2 rounded-md transition-colors duration-300 ${
+              pathname === "/art"
+                ? "border-b-2 border-[#B9FF66] text-[#f6c451]"
+                : ""
+            }`}
+          >
+            <Image
+              src={art}
+              alt="Art"
+              height={20}
+              width={20}
+              className="mr-2 bg-white rounded-full"
+            />
+            Арт
           </Link>
 
           <Link
@@ -164,6 +183,20 @@ const Navbar = () => {
               className="mr-2 bg-white rounded-full"
             />
             Контакти
+          </Link>
+
+          <Link
+            href="/art"
+            className="text-[#f6c451] text-lg mt-4 border-b-2 w-full flex items-center py-2"
+          >
+            <Image
+              src={art}
+              alt="Контакти"
+              height={30}
+              width={30}
+              className="mr-2 bg-white rounded-full"
+            />
+            Арт
           </Link>
 
           <div className="flex justify-center mt-24 mb-4 w-full">
