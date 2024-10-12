@@ -89,7 +89,7 @@ const Cats = ({ post, posts }) => {
         {/* Right Sidebar for TOC and Ad Banner */}
         <div className="lg:w-1/4 lg:pl-4  ">
           {/* Sticky TOC Section moved to the top */}
-          <div className=" top-24 lg:top-20 mb-4 sticky top-24">
+          <div className=" top-24 lg:top-20 mb-4 md:sticky top-24">
             <div className="bg-gray-800 p-4 rounded shadow-md">
               <h3 className="font-semibold mb-4">Съдържание</h3>
               <ul>
