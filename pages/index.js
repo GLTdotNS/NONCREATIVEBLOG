@@ -201,7 +201,7 @@ export function Blog({
                 <div className="relative w-full h-full max-w-2xl mx-auto p-4 flex flex-col">
                   <button
                     onClick={handleMenuToggle}
-                    className="text-gray-200 font-bold flex items-center justify-between w-full p-1 mt-4 absolute top-4 right-4 z-50 focus:outline-none lg:hidden"
+                    className="text-gray-200 font-bold   w-full p-1 mt-4 absolute top-4 right-4 z-50 focus:outline-none lg:hidden"
                   >
                     <CgCloseR size={30} className="mr-2" />
                   </button>
