@@ -203,7 +203,6 @@ export function Blog({
                     onClick={handleMenuToggle}
                     className="text-gray-200 font-bold flex items-center justify-between w-full p-1 mt-4 absolute top-4 right-4 z-50 focus:outline-none lg:hidden"
                   >
-                    Филтри
                     <CgCloseR size={30} className="mr-2" />
                   </button>
 
