@@ -148,7 +148,7 @@ const Bar = ({ posts, categories, author, initialCategory }) => {
               </p>
               <a
                 href="/runes"
-                className="rounded-full p-1 mb-2 flex items-center justify-center border-2 border-yellow-500 font-bold text-white w-full hover:bg-yellow-200 transition"
+                className="rounded-lg bg- p-1 mb-2 flex items-center justify-center border-1 font-bold text-white w-full mt-12 transition"
               >
                 Виж повече
               </a>

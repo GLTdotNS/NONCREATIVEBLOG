@@ -158,91 +158,85 @@ export function Blog({
             </ul>
           </nav>
 
-          {/* Content grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-12 border-t-[2px] border-gray-800">
-            <div className="flex">
-              <div className="hidden lg:block border-r-[2px] border-gray-800">
-                <div className="w-full mb-4 flex justify-center items-center">
-                  <div>
-                    <h2 className="text-lg text-yellow-400 font-semibold mb-2 text-center">
-                      Който търси, намира.
-                    </h2>
-                    <div className="relative text-center">
-                      <form onSubmit={handleSearch}>
-                        <input
-                          type="text"
-                          value={searchInput}
-                          onChange={(e) => setSearchInput(e.target.value)}
-                          placeholder="Потърси..."
-                          className="w-[300px] p-3 h-18 rounded-full bg-gray-800 border-[1px] border-yellow-300 focus:outline-none text-gray-300"
-                        />
-                        <button
-                          type="submit"
-                          className="absolute inset-y-0 right-0 px-3 w-12 bg-yellow-500 text-gray-900 rounded-r-full flex items-center justify-center"
-                        >
-                          <FaSearch />
-                        </button>
-                      </form>
-                    </div>
+          <div className="flex flex-col lg:flex-row justify-between gap-4 mt-12 border-t-[2px] border-gray-800">
+            {/* Left Sidebar for Categories and Filters */}
+            <div className="hidden lg:block w-1/4 border-r-[2px] border-gray-800">
+              <div className="w-full mb-4 flex justify-center items-center">
+                <div>
+                  <h2 className="text-lg text-yellow-400 font-semibold mb-2 text-center">
+                    Който търси, намира.
+                  </h2>
+                  <div className="relative text-center">
+                    <form onSubmit={handleSearch}>
+                      <input
+                        type="text"
+                        value={searchInput}
+                        onChange={(e) => setSearchInput(e.target.value)}
+                        placeholder="Потърси..."
+                        className="w-[300px] p-3 h-18 rounded-full bg-gray-800 border-[1px] border-yellow-300 focus:outline-none text-gray-300"
+                      />
+                      <button
+                        type="submit"
+                        className="absolute inset-y-0 right-0 px-3 w-12 bg-yellow-500 text-gray-900 rounded-r-full flex items-center justify-center"
+                      >
+                        <FaSearch />
+                      </button>
+                    </form>
                   </div>
                 </div>
-                <Bar
-                  posts={posts}
-                  categories={categories}
-                  author={author}
-                  initialCategory={initialCategory}
-                />
               </div>
+              <Bar
+                posts={posts}
+                categories={categories}
+                author={author}
+                initialCategory={initialCategory}
+              />
+            </div>
 
-              {/* Mobile Filter Menu */}
-              {menuOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-95 overflow-scroll">
-                  <div className="relative w-full h-full max-w-2xl mx-auto p-4 flex flex-col">
-                    <button
-                      onClick={handleMenuToggle}
-                      className="text-gray-200 font-bold flex items-center justify-between w-full p-1 mt-4 absolute top-4 right-4 z-50 focus:outline-none lg:hidden"
+            {/* Mobile Filter Menu */}
+            {menuOpen && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-95 overflow-scroll">
+                <div className="relative w-full h-full max-w-2xl mx-auto p-4 flex flex-col">
+                  <button
+                    onClick={handleMenuToggle}
+                    className="text-gray-200 font-bold flex items-center justify-between w-full p-1 mt-4 absolute top-4 right-4 z-50 focus:outline-none lg:hidden"
+                  >
+                    Филтри
+                    <CgCloseR size={30} className="mr-2" />
+                  </button>
+
+                  <div className="flex-grow flex flex-col justify-center items-center mt-24 mb-4">
+                    <h2 className="text-lg text-gray-100 font-semibold mb-2 text-center">
+                      Който търси, намира.
+                    </h2>
+                    <form
+                      onSubmit={handleSearch}
+                      className="relative w-full mb-4"
                     >
-                      Филтри
-                      <CgCloseR size={30} className="mr-2" />
-                    </button>
-
-                    <div className="flex-grow flex flex-col justify-center items-center mt-24 mb-4">
-                      <h2 className="text-lg text-gray-100 font-semibold mb-2 text-center">
-                        Който търси, намира.
-                      </h2>
-                      <form
-                        onSubmit={handleSearch}
-                        className="relative w-full mb-4"
+                      <input
+                        type="text"
+                        value={searchInput}
+                        onChange={(e) => setSearchInput(e.target.value)}
+                        placeholder="Потърси..."
+                        className="w-full p-2 h-10 rounded-full bg-gray-800 focus:outline-none"
+                      />
+                      <button
+                        type="submit"
+                        className="absolute inset-y-0 right-0 px-3 w-12 bg-yellow-500 text-gray-900 rounded-r-full flex items-center justify-center"
                       >
-                        <input
-                          type="text"
-                          value={searchInput}
-                          onChange={(e) => setSearchInput(e.target.value)}
-                          placeholder="Потърси..."
-                          className="w-full p-2 h-10 rounded-full bg-gray-800 focus:outline-none"
-                        />
-                        <button
-                          type="submit"
-                          className="absolute inset-y-0 right-0 px-3 w-12 bg-yellow-500 text-gray-900 rounded-r-full flex items-center justify-center"
-                        >
-                          <FaSearch />
-                        </button>
-                      </form>
-                    </div>
+                        <FaSearch />
+                      </button>
+                    </form>
+                  </div>
 
-                    {/* Filters Section */}
-                    <div className="p-4 border-gray-700 bg-gray-800 bg-opacity-50 rounded-lg max-h-full  flex-grow">
-                      <h2 className="text-xl font-bold mb-4 flex items-center">
-                        <FaRegFolderOpen className="mr-2" /> Категории
-                      </h2>
-                      <ul className="text-white text-lg cursor-pointer">
-                        {[
-                          "Aesir",
-                          "Vani",
-                          "Giants",
-                          "Cosmology",
-                          "TonkovG",
-                        ].map((category) => (
+                  {/* Filters Section */}
+                  <div className="p-4 border-gray-700 bg-gray-800 bg-opacity-50 rounded-lg max-h-full flex-grow">
+                    <h2 className="text-xl font-bold mb-4 flex items-center">
+                      <FaRegFolderOpen className="mr-2" /> Категории
+                    </h2>
+                    <ul className="text-white text-lg cursor-pointer">
+                      {["Aesir", "Vani", "Giants", "Cosmology", "TonkovG"].map(
+                        (category) => (
                           <li
                             key={category}
                             className="mb-2"
@@ -255,98 +249,87 @@ export function Blog({
                                 height={100}
                                 src={
                                   categories.find((x) => x.title === category)
-                                    .image.asset.url
+                                    ?.image?.asset?.url || ""
                                 }
                                 alt={category}
                               />
                               {category}
                             </span>
                           </li>
+                        )
+                      )}
+                      <li className="mb-2 mt-12">
+                        <a
+                          href="/"
+                          className="text-yellow-500 font-bold flex items-center justify-center border border-gray-300 rounded-md p-1 hover:bg-yellow-200 transition"
+                        >
+                          <FcClearFilters className="mr-2" /> Изчисти филтрите
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Most Read Section */}
+                  <div className="p-4 bg-gray-800 bg-opacity-50 rounded-lg mt-4 flex-grow">
+                    <h2 className="text-xl text-gray-100 font-bold mb-4 flex items-center">
+                      <GiSupersonicArrow className="mr-2" /> Най-четени
+                    </h2>
+                    <ul className="text-white">
+                      {posts
+                        ?.slice()
+                        .sort((x, b) => b.likes - x.likes)
+                        .map((c, index) => (
+                          <li key={index} className="mb-2">
+                            <a
+                              href={`/post/${c.slug.current}`}
+                              className="text-white flex items-center hover:underline"
+                            >
+                              <FaLink className="mr-2" /> {c.title}
+                            </a>
+                          </li>
                         ))}
-                        <li className="mb-2 mt-12">
-                          <a
-                            href="/norse"
-                            className="text-yellow-500 font-bold flex items-center justify-center border border-gray-300 rounded-md p-1 hover:bg-yellow-200 transition"
-                          >
-                            <FcClearFilters className="mr-2" /> Изчисти филтрите
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-
-                    {/* Most Read Section */}
-                    <div className="p-4 bg-gray-800 bg-opacity-50 rounded-lg mt-4 flex-grow">
-                      <h2 className="text-xl text-gray-100 font-bold mb-4 flex items-center">
-                        <GiSupersonicArrow className="mr-2" /> Най-четени
-                      </h2>
-                      <ul className="text-white">
-                        {posts
-                          ?.slice()
-                          .sort((x, b) => b.likes - x.likes)
-                          .map((c, index) => (
-                            <li key={index} className="mb-2">
-                              <a
-                                href={`/post/${c.slug.current}`}
-                                className="text-white flex items-center hover:underline"
-                              >
-                                <FaLink className="mr-2" /> {c.title}
-                              </a>
-                            </li>
-                          ))}
-                      </ul>
-                    </div>
+                    </ul>
                   </div>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
 
-            {/* Articles Column */}
-            <div className="lg:w-full mx-auto w-full text-gray-100">
-              <div className="w-full flex flex-col justify-center items-center px-4">
-                <div className="flex justify-center flex-col w-full">
-                  {/* Post listing */}
-                  <div className="space-y-4 lg:space-y-8">
-                    {posts.map((post, index) => (
-                      <div
-                        key={index}
-                        className="relative shadow-md border-gray-200 bg-gray-900 rounded-xl overflow-hidden"
-                      >
-                        <div className="px-6 py-8 lg:py-12">
-                          <h2 className="text-xl lg:text-2xl font-semibold text-yellow-400 hover:underline">
-                            <Link href={`/posts/${post.slug.current}`}>
-                              {post.title}
-                            </Link>
-                          </h2>
-                          <p className="mt-4 text-gray-300">{post.excerpt}</p>
-                          <div className="mt-8 flex items-center">
-                            <span className="text-gray-500">
-                              By {post.author}
-                            </span>
-                            <span className="mx-2 text-gray-400">|</span>
-                            <span className="text-gray-500">
-                              {new Date(post.publishedAt).toLocaleDateString(
-                                "bg-BG"
-                              )}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
+            {/* Right Side for Posts */}
+            <div className="mx-auto w-full lg:w-3/4 text-gray-100">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-12">
+                {posts.map((post) => (
+                  <div
+                    key={post.slug.current} // Added key to avoid React warning
+                    className="bg-gray-800 rounded-lg shadow-lg p-4 transition-transform transform hover:scale-105"
+                    data-aos="fade-up" // AOS animation attribute
+                  >
+                    <Link href={`/post/${post.slug.current}`}>
+                      <Image
+                        src={post.mainImage.asset.url}
+                        alt={post.title}
+                        className="rounded-t-lg h-40 w-full object-cover"
+                        width={400}
+                        height={200}
+                      />
+                      <h3 className="text-lg font-bold text-yellow-400 mt-2">
+                        {post.title}
+                      </h3>
+                      <p className="text-gray-400 text-sm mt-2">
+                        Published on:{" "}
+                        {new Date(post.publishedAt).toLocaleDateString()}
+                      </p>
+                      <p className="text-gray-400 text-sm mt-1">
+                        Estimated reading time: {post.readingTime} min
+                      </p>
+                      {/* Modern "Прочети" button */}
+                      <Link href={`/post/${post.slug.current}`}>
+                        <button className="mt-3 px-4 py-2 bg-yellow-400 text-gray-800 font-semibold rounded-lg transition duration-300 ease-in-out hover:bg-yellow-500">
+                          Прочети
+                        </button>
+                      </Link>
+                    </Link>
                   </div>
-
-                  {/* Footer */}
-                  <div className="w-full mt-16 flex flex-col justify-center items-center p-4 bg-gray-800 rounded-t-xl">
-                    <div className="flex justify-between w-full lg:w-5/6">
-                      <a
-                        href="#"
-                        className="text-lg font-semibold bg-yellow-300 px-4 py-2 rounded-lg shadow hover:bg-yellow-400 text-gray-900"
-                      >
-                        Купи ми кафе
-                      </a>
-                      <Link href="/about">За мен</Link>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
