@@ -89,8 +89,8 @@ const Navbar = () => {
         } z-40 lg:hidden`}
       >
         <button
-          className={`absolute top-6 right-4 text-[#f6c451] focus:outline-none z-50 transition-transform duration-300 transform ${
-            isMenuOpen ? "rotate-180" : ""
+          className={`absolute top-6 text-[#f6c451] focus:outline-none z-50 transition-transform duration-300 transform ${
+            isMenuOpen ? "rotate-180 left-[-15%] rounded-full bg-gray-600" : ""
           }`}
           onClick={toggleMenu}
         >
