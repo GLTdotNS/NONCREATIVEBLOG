@@ -52,7 +52,9 @@ const Cats = ({ post, posts }) => {
   useEffect(() => {
     const extractedToc = [];
     document
-      .querySelectorAll(".block-content h2, .block-content h3")
+      .querySelectorAll(
+        ".block-content h2, .block-content h3, .block-content h5"
+      )
       .forEach((heading, index) => {
         heading.id = `heading-${index}`;
         extractedToc.push({
@@ -84,26 +86,9 @@ const Cats = ({ post, posts }) => {
 
       {/* Main Content and TOC Section */}
       <div className="flex flex-col lg:flex-row w-full">
-        {/* Main Blog Content Area */}
-        <div className="flex-1 p-4 lg:p-8">
-          <Navigation post={post} category={category} link={"/"} />
-          <PostInfo post={post} />
-          <div className="block-content w-full mx-auto text-gray-300 p-6 border-b border-gray-700">
-            <BlockContent
-              serializers={serializers}
-              blocks={post.body}
-              projectId="6kqgsbl2"
-              dataset="production"
-            />
-          </div>
-          <div className="container mx-auto max-w-4xl border-t-2 border-gray-700 py-8">
-            <PostFooter />
-          </div>
-        </div>
-
         {/* Right Sidebar for TOC and Ad Banner */}
         <div className="lg:w-1/4 lg:pl-4">
-          {/* Sticky TOC Section */}
+          {/* Sticky TOC Section moved to the top */}
           <div className="sticky top-24 lg:top-20 mb-4">
             <div className="bg-gray-800 p-4 rounded shadow-md">
               <h3 className="font-semibold mb-4">Съдържание</h3>
@@ -136,6 +121,23 @@ const Cats = ({ post, posts }) => {
               className="rounded"
             />
             <p className="mt-2">Вашето рекламно съдържание тук.</p>
+          </div>
+        </div>
+
+        {/* Main Blog Content Area */}
+        <div className="flex-1 p-4 lg:p-8">
+          <Navigation post={post} category={category} link={"/"} />
+          <PostInfo post={post} />
+          <div className="block-content w-full mx-auto text-gray-300 p-6 border-b border-gray-700">
+            <BlockContent
+              serializers={serializers}
+              blocks={post.body}
+              projectId="6kqgsbl2"
+              dataset="production"
+            />
+          </div>
+          <div className="container mx-auto max-w-4xl border-t-2 border-gray-700 py-8">
+            <PostFooter />
           </div>
         </div>
       </div>

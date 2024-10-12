@@ -23,6 +23,8 @@ import Pagination from "../components/Pagination/Pagination";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
+import { SiBuymeacoffee } from "react-icons/si";
+
 export function Blog({
   posts,
   initialCategory,
@@ -331,6 +333,58 @@ export function Blog({
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-gray-900 p-6 w-full lg:w-3/4 mx-auto">
+          <h2 className="text-center text-white text-2xl font-bold mb-6">
+            Място за вашата реклама
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+            {/* Ad Banner 1 */}
+            <div className="bg-gray-800 rounded-lg p-4 flex justify-center items-center">
+              <a
+                href="https://via.placeholder.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://via.placeholder.com/150"
+                  alt="Ad Banner"
+                  className="w-full h-full object-cover rounded"
+                />
+              </a>
+            </div>
+
+            {/* Ad Banner 2 */}
+            <div className="bg-gray-800 rounded-lg p-4 flex justify-center items-center">
+              <a
+                href="https://via.placeholder.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://via.placeholder.com/150"
+                  alt="Ad Banner"
+                  className="w-full h-full object-cover rounded"
+                />
+              </a>
+            </div>
+
+            {/* Ad Banner 3 */}
+            <div className="bg-gray-800 rounded-lg p-4 flex justify-center items-center">
+              <a
+                href="https://via.placeholder.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://via.placeholder.com/150"
+                  alt="Ad Banner"
+                  className="w-full h-full object-cover rounded"
+                />
+              </a>
             </div>
           </div>
         </div>

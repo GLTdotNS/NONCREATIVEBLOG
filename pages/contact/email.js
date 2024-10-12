@@ -55,25 +55,28 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="w-full lg:w-10/12 mx-auto p-12 mt-24 ">
+    <div className="w-full lg:w-10/12 mx-auto p-12 mt-24 rounded-lg shadow-lg">
       {!successMessage &&
         !errorMessage && ( // Only show the form if no success or error message
           <div className="lg:flex lg:space-x-8">
             {/* Left Column */}
-            <div className="lg:w-1/3 mb-8 lg:mb-0 text-center lg:text-left border-r-2">
-              <h2 className="text-xl font-bold mb-2">
+            <div className="lg:w-1/3 mb-8 lg:mb-0 text-center lg:text-left border-r-2 border-gray-600 pr-8">
+              <h2 className="text-2xl font-bold mb-2 text-yellow-300">
                 Здравейте! <FaSmile className="inline text-yellow-500" />
               </h2>
-              <p className="mb-4">
+              <p className="mb-4 text-gray-300">
                 Тук можете да ми изпратите съобщение. Не се срамувайте, не хапя!
                 Е, поне не по имейл.
                 <FaRocket className="inline text-red-500" />
               </p>
-              <p>Очаквам с нетърпение да чуя от вас! 😊</p>
+              <p className="text-gray-300">
+                Очаквам с нетърпение да чуя от вас! 😊
+              </p>
             </div>
+
             {/* Right Column */}
             <div className="lg:w-1/2 mx-auto ">
-              <h1 className="text-2xl font-bold mb-4 text-center">
+              <h1 className="text-2xl font-bold mb-4 text-center text-yellow-300">
                 Изпрати съобщение{" "}
               </h1>
               <form
@@ -81,7 +84,7 @@ const ContactForm = () => {
                 className="space-y-4 w-full lg:w-5/6 mx-auto"
               >
                 <div className="flex flex-col">
-                  <label htmlFor="name" className="mb-1">
+                  <label htmlFor="name" className="mb-1 text-gray-200">
                     Име
                   </label>
                   <input
@@ -91,11 +94,11 @@ const ContactForm = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="border border-gray-300 rounded px-3 py-2"
+                    className="border border-gray-300 rounded px-3 py-2 text-gray-800"
                   />
                 </div>
                 <div className="flex flex-col">
-                  <label htmlFor="email" className="mb-1">
+                  <label htmlFor="email" className="mb-1 text-gray-200">
                     Електронна поща
                   </label>
                   <input
@@ -105,11 +108,11 @@ const ContactForm = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="border border-gray-300 rounded px-3 py-2"
+                    className="border border-gray-300 rounded px-3 py-2 text-gray-800"
                   />
                 </div>
                 <div className="flex flex-col">
-                  <label htmlFor="message" className="mb-1">
+                  <label htmlFor="message" className="mb-1 text-gray-200">
                     Съобщение
                   </label>
                   <textarea
@@ -119,7 +122,7 @@ const ContactForm = () => {
                     onChange={handleChange}
                     required
                     rows="4"
-                    className="border border-gray-300 rounded px-3 py-2"
+                    className="border border-gray-300 rounded px-3 py-2 text-gray-800"
                   ></textarea>
                 </div>
                 <div className="flex items-center">
@@ -132,9 +135,15 @@ const ContactForm = () => {
                     required
                     className="mr-2"
                   />
-                  <label htmlFor="privacyAccepted" className="text-sm">
+                  <label
+                    htmlFor="privacyAccepted"
+                    className="text-sm text-gray-300"
+                  >
                     Съгласявам се с{" "}
-                    <a href="/cookies&privacy" className="text-blue-500">
+                    <a
+                      href="/cookies&privacy"
+                      className="text-blue-500 hover:underline"
+                    >
                       политиката за поверителност и бисквитките.
                     </a>
                   </label>
@@ -146,7 +155,7 @@ const ContactForm = () => {
                 ) : (
                   <button
                     type="submit"
-                    className="bg-yellow-300 text-gray-700 font-bold w-full px-4 py-2 rounded  transition-colors duration-300"
+                    className="bg-yellow-300 text-gray-700 font-bold w-full px-4 py-2 rounded transition-colors duration-300 hover:bg-yellow-400"
                     disabled={loading}
                   >
                     Изпрати

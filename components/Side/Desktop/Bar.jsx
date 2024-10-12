@@ -125,37 +125,6 @@ const Bar = ({ posts, categories, author, initialCategory }) => {
             ))}
         </ul>
       </div>
-
-      <div className="w-full p-2 rounded-lg overflow-hidden mb-2">
-        <div className="max-w-full rounded-lg overflow-hidden p-2">
-          <div className="text-left">
-            <Image
-              src={gif}
-              alt="noncreativeblog"
-              className="w-64 h-64 flex justify-center items-center mx-auto rounded-full"
-            />
-            <div>
-              <p className="text-xl mb-4 text-center font-bold text-4xl">
-                Руни
-              </p>
-              <p className="text-white">
-                Протогерманската писменост е една от най-старите познати на
-                човечеството, като първите сведения за нея датират от 160 години
-                преди христа, но за първата руническа азбука се сочи Elder
-                Futhark, която е използвана между II и VII век. Тя е широко
-                разпространена сред германските народи и най-вече в Скандинавия.
-                За произхода й се говори, че Бог Один...
-              </p>
-              <a
-                href="/runes"
-                className="rounded-lg bg- p-1 mb-2 flex items-center justify-center border-1 font-bold text-white w-full mt-12 transition"
-              >
-                Виж повече
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
