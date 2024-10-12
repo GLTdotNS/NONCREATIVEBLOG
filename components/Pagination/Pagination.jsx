@@ -14,36 +14,40 @@ const Pagination = ({ totalPages, currentPage }) => {
     }
   };
   return (
-    <div className="flex justify-center mt-8  mx-auto">
+    <div className="flex justify-center mt-8 mx-auto  ">
       <button
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
         className={`px-4 py-2 mx-1 border rounded ${
-          currentPage === 1 ? "bg-gray-300 cursor-not-allowed" : "bg-yellow-100"
+          currentPage === 1
+            ? "bg-gray-300 cursor-not-allowed"
+            : "bg-yellow-500 text-gray-900 hover:bg-yellow-400 transition"
         }`}
       >
-        <FcPrevious />
+        <FcPrevious className="text-gray-700" />
       </button>
+
       {[...Array(totalPages)].map((_, index) => (
         <button
           key={index}
           onClick={() => handlePageChange(index + 1)}
           className={`px-4 py-2 mx-1 border rounded ${
             currentPage === index + 1
-              ? "bg-yellow-50 text-gray-700"
-              : "bg-white"
+              ? "bg-yellow-200 text-gray-800"
+              : "bg-gray-800 text-white hover:bg-gray-700 transition"
           }`}
         >
           {index + 1}
         </button>
       ))}
+
       <button
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
         className={`px-4 py-2 mx-1 border rounded ${
           currentPage === totalPages
             ? "bg-gray-300 cursor-not-allowed"
-            : "bg-yellow-100"
+            : "bg-yellow-500 text-gray-900 hover:bg-yellow-400 transition"
         }`}
       >
         <FcNext className="text-gray-700" />

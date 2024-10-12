@@ -11,7 +11,7 @@ import { CgLastpass } from "react-icons/cg";
 import AddBanner from "../components/AddBanner/AdBanner";
 import gif from "../styles/fehu.png";
 import { CgCloseR } from "react-icons/cg";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaBookOpen } from "react-icons/fa";
 import {
   MdOutlineSentimentDissatisfied,
   MdOutlineSentimentVerySatisfied,
@@ -22,6 +22,7 @@ import { GiSettingsKnobs } from "react-icons/gi";
 import Pagination from "../components/Pagination/Pagination";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Link from "next/link";
 export function Blog({
   posts,
   initialCategory,
@@ -90,39 +91,38 @@ export function Blog({
   return (
     <>
       {" "}
-      <div className="   mx-auto ">
-        <div class="relative w-full absolute top-0 mx-auto mt-4 lg:mt-16 ">
+      <div className="mx-auto bg-gray-900 text-gray-100">
+        <div className="relative w-full absolute top-0 mx-auto mt-4 lg:mt-16">
           <Image
             src={cover}
             alt="noncreativeblog"
-            class="w-full h-auto  lg:h-[380px]  mx-auto    object-cover rounded-b-lg "
+            className="w-full h-auto lg:h-[380px] mx-auto object-cover rounded-lg border-[2px] border-yellow-500 shadow-xl"
           />
         </div>
         <div className="container mx-auto">
-          {" "}
           {/* Sub-navigation menu */}
-          <nav className="  lg:top-[80px] text-gray-700  mx-auto mb-12 z-10 flex justify-center mb-4   border-gray-700">
-            <ul className="flex  w-11/12 lg:w-5/6  flex-wrap justify-center space-x-4 px-2 p-2 bg-gray-700  bg-opacity-60 rounded-b-full ">
+          <nav className="sticky top-[60px] lg:top-[80px] text-gray-300 mx-auto mb-12 z-10 flex justify-center mb-4 border-b-2 border-gray-700 bg-gray-800 bg-opacity-60 rounded-b-lg">
+            <ul className="flex w-11/12 lg:w-5/6 flex-wrap justify-center space-x-4 px-2 p-2 bg-gray-800 bg-opacity-60 rounded-b-full">
               <li className="relative group">
-                <button className="button-with-icon border-[1px] bg-yellow-100 border-gray-400 rounded-md  flex items-center p-1 font-bold text-sm  text-gray-700 hover:text-gray-600 transition-colors duration-300">
+                <button className="button-with-icon border-[1px] bg-gray-800 border-gray-400 rounded-md flex items-center p-1 font-bold text-sm text-gray-300 hover:text-yellow-300 transition-colors duration-300">
                   <FaSortAmountDownAlt />
                   <span className="ml-2">Сортирай</span>
                 </button>
 
-                <ul className="absolute left-[-35px] w-64 z-50 cursor-pointer rounded-lg bg-gray-200 shadow-2xl   hidden group-hover:block">
-                  <li className="border-b-2 border-gray-100 ">
+                <ul className="absolute left-[-35px] w-64 z-50 cursor-pointer rounded-lg bg-gray-700 shadow-2xl hidden group-hover:block">
+                  <li className="border-b-[1px] border-gray-500 hover:bg-gray-600 transition">
                     <span
                       onClick={() => handleSortChange("latest")}
-                      className={`block flex items-center px-4 py-2 text-md text-gray-700 `}
+                      className="block flex items-center px-4 py-2 text-md text-gray-300 hover:text-yellow-300"
                     >
-                      <CgLastpass size={20} className="mr-2 text-black" />
+                      <CgLastpass size={20} className="mr-2 text-white" />
                       Последно добавени
                     </span>
                   </li>
-                  <li>
+                  <li className="border-b-[1px] border-gray-500 hover:bg-gray-600 transition">
                     <span
                       onClick={() => handleSortChange("readingTime")}
-                      className={`block flex items-center px-4 border-b-2 border-gray-100 py-2 text-md  text-gray-700 }`}
+                      className="block flex items-center px-4 py-2 text-md text-gray-300 hover:text-yellow-300"
                     >
                       <MdOutlineSentimentDissatisfied
                         size={20}
@@ -131,10 +131,10 @@ export function Blog({
                       Най-кратки
                     </span>
                   </li>
-                  <li>
+                  <li className="hover:bg-gray-600 transition">
                     <span
                       onClick={() => handleSortChange("longest")}
-                      className={`block flex items-center px-4 py-2 text-md  text-gray-700 }`}
+                      className="block flex items-center px-4 py-2 text-md text-gray-300 hover:text-yellow-300"
                     >
                       <MdOutlineSentimentVerySatisfied
                         size={20}
@@ -148,36 +148,37 @@ export function Blog({
 
               <li
                 onClick={handleMenuToggle}
-                className="relative group text-gray-700"
+                className="relative group text-gray-300"
               >
-                <button class="text-gray-700 border-[1px] bg-yellow-100 border-gray-400 rounded-md flex items-center font-bold text-sm p-1 focus:outline-none lg:hidden  ">
+                <button className="text-gray-300 border-[1px] bg-gray-800 border-gray-400 rounded-md flex items-center font-bold text-sm p-1 focus:outline-none lg:hidden">
                   <GiSettingsKnobs size={20} className="mr-2" />
                   Филтри
                 </button>
               </li>
             </ul>
           </nav>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-12 border-t-[1px] border-gray-100   ">
-            {/* Left side column */}
-            <div className="flex ">
-              <div className="hidden lg:block border-r-1 border-gray-400  ">
+
+          {/* Content grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-12 border-t-[2px] border-gray-800">
+            <div className="flex">
+              <div className="hidden lg:block border-r-[2px] border-gray-800">
                 <div className="w-full mb-4 flex justify-center items-center">
-                  <div className="">
-                    <h2 className="text-lg text-gray-700 font-semibold mb-2 text-center">
+                  <div>
+                    <h2 className="text-lg text-yellow-400 font-semibold mb-2 text-center">
                       Който търси, намира.
                     </h2>
-                    <div className="relative text-center ">
-                      <form className="" onSubmit={handleSearch}>
+                    <div className="relative text-center">
+                      <form onSubmit={handleSearch}>
                         <input
                           type="text"
                           value={searchInput}
                           onChange={(e) => setSearchInput(e.target.value)}
                           placeholder="Потърси..."
-                          className="w-[300px] p-3  h-18 rounded-full  bg-gray-100 focus:outline-none"
+                          className="w-[300px] p-3 h-18 rounded-full bg-gray-800 border-[1px] border-yellow-300 focus:outline-none text-gray-300"
                         />
                         <button
                           type="submit"
-                          className="absolute inset-y-0 right-0 px-3  w-12 bg-yellow-300 text-gray-700 rounded-r-full flex items-center justify-center"
+                          className="absolute inset-y-0 right-0 px-3 w-12 bg-yellow-500 text-gray-900 rounded-r-full flex items-center justify-center"
                         >
                           <FaSearch />
                         </button>
@@ -193,237 +194,164 @@ export function Blog({
                 />
               </div>
 
+              {/* Mobile Filter Menu */}
               {menuOpen && (
+<<<<<<< HEAD
                 <div className="lg:hidden fixed w-10/12 h-screen z-50 left-0 flex items-center justify-center  overflow-scroll top-0 z-50 bg-gray-800 bg-opacity-95">
                   <div className="relative">
+=======
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-95 overflow-scroll">
+                  <div className="relative w-full h-full max-w-2xl mx-auto p-4 flex flex-col">
+>>>>>>> dfdd6b2 (Add files)
                     <button
                       onClick={handleMenuToggle}
-                      class="text-gray-200 font-bold  flex items-center justify-between   w-full p-1 right-0 top-24 mt-12 absolute z-50  focus:outline-none lg:hidden slide-in-from-top "
+                      className="text-gray-200 font-bold flex items-center justify-between w-full p-1 mt-4 absolute top-4 right-4 z-50 focus:outline-none lg:hidden"
                     >
                       Филтри
                       <CgCloseR size={30} className="mr-2" />
                     </button>
-                    <div className="w-full mb-4 flex justify-center items-center  mt-48">
-                      <div>
-                        <h2 className="text-lg text-gray-100 font-semibold mb-2 text-center">
-                          Който търси, намира.
-                        </h2>
-                        <div className="relative text-center w-full">
-                          <form onSubmit={handleSearch}>
-                            <input
-                              type="text"
-                              value={searchInput}
-                              onChange={(e) => setSearchInput(e.target.value)}
-                              placeholder="Потърси..."
-                              className="w-full p-2 w-full  h-8 rounded-full  bg-gray-100 focus:outline-none"
-                            />
-                            <button
-                              type="submit"
-                              className="absolute inset-y-0 right-0 px-3  w-12 bg-yellow-300 text-gray-700 rounded-r-full flex items-center justify-center"
-                            >
-                              <FaSearch />
-                            </button>
-                          </form>
-                        </div>
-                      </div>
+
+                    <div className="flex-grow flex flex-col justify-center items-center mt-24 mb-4">
+                      <h2 className="text-lg text-gray-100 font-semibold mb-2 text-center">
+                        Който търси, намира.
+                      </h2>
+                      <form
+                        onSubmit={handleSearch}
+                        className="relative w-full mb-4"
+                      >
+                        <input
+                          type="text"
+                          value={searchInput}
+                          onChange={(e) => setSearchInput(e.target.value)}
+                          placeholder="Потърси..."
+                          className="w-full p-2 h-10 rounded-full bg-gray-800 focus:outline-none"
+                        />
+                        <button
+                          type="submit"
+                          className="absolute inset-y-0 right-0 px-3 w-12 bg-yellow-500 text-gray-900 rounded-r-full flex items-center justify-center"
+                        >
+                          <FaSearch />
+                        </button>
+                      </form>
                     </div>
-                    <div
-                      className={`${
-                        menuOpen
-                          ? "transition h-[100vh]"
-                          : "hidden h-0 duration"
-                      }`}
-                    >
-                      <div className="p-2 border-gray-700">
-                        <div className="mb-8 p-4 mt-4 w-full rounded-lg  bg-gray-700 bg-opacity-50 text-gray-100">
-                          <h2 className="text-xl font-bold mb-4 flex items-center">
-                            <FaRegFolderOpen className="mr-2" /> Категории
-                          </h2>
-                          <ul className=" text-lg">
-                            <li
-                              className="mb-2"
-                              onClick={() => handleCategoryChange("Aesir")}
-                            >
-                              <span className="hover:underline flex items-center">
-                                <Image
-                                  className="h-8 w-8 mr-2 rounded-full"
-                                  width={100}
-                                  height={100}
-                                  src={
-                                    categories.filter(
-                                      (x) => x.title == "Aesir"
-                                    )[0].image.asset.url
-                                  }
-                                />{" "}
-                                Ауси
-                              </span>
-                            </li>
-                            <li
-                              className="mb-2"
-                              onClick={() => handleCategoryChange("Vani")}
-                            >
-                              <span className="hover:underline flex items-center">
-                                <Image
-                                  className="h-8 w-8 mr-2 rounded-full"
-                                  width={100}
-                                  height={100}
-                                  src={
-                                    categories.filter(
-                                      (x) => x.title == "Vani"
-                                    )[0].image.asset.url
-                                  }
-                                />{" "}
-                                Вани
-                              </span>
-                            </li>
-                            <li
-                              className="mb-2"
-                              onClick={() => handleCategoryChange("Giants")}
-                            >
-                              <span className="hover:underline flex items-center">
-                                <Image
-                                  className="h-8 w-8 mr-2 rounded-full"
-                                  width={100}
-                                  height={100}
-                                  src={
-                                    categories.filter(
-                                      (x) => x.title == "Giants"
-                                    )[0].image.asset.url
-                                  }
-                                />{" "}
-                                Гиганти
-                              </span>
-                            </li>
-                            <li
-                              onClick={() => handleCategoryChange("Cosmology")}
-                            >
-                              <span className="hover:underline flex items-center">
-                                <Image
-                                  className="h-8 w-8 mr-2 rounded-full"
-                                  width={100}
-                                  height={100}
-                                  src={
-                                    categories.filter(
-                                      (x) => x.title == "Cosmology"
-                                    )[0].image.asset.url
-                                  }
-                                />{" "}
-                                Космология
-                              </span>
-                            </li>
-                            <li className="mb-2 mt-12 bg-yellow-300 text-gray-700 rounded-md w-64 p-1">
+
+                    {/* Filters Section */}
+                    <div className="p-4 border-gray-700 bg-gray-800 bg-opacity-50 rounded-lg max-h-full  flex-grow">
+                      <h2 className="text-xl font-bold mb-4 flex items-center">
+                        <FaRegFolderOpen className="mr-2" /> Категории
+                      </h2>
+                      <ul className="text-white text-lg cursor-pointer">
+                        {[
+                          "Aesir",
+                          "Vani",
+                          "Giants",
+                          "Cosmology",
+                          "TonkovG",
+                        ].map((category) => (
+                          <li
+                            key={category}
+                            className="mb-2"
+                            onClick={() => handleCategoryChange(category)}
+                          >
+                            <span className="hover:underline flex items-center">
+                              <Image
+                                className="h-8 w-8 mr-2 rounded-full"
+                                width={100}
+                                height={100}
+                                src={
+                                  categories.find((x) => x.title === category)
+                                    .image.asset.url
+                                }
+                                alt={category}
+                              />
+                              {category}
+                            </span>
+                          </li>
+                        ))}
+                        <li className="mb-2 mt-12">
+                          <a
+                            href="/norse"
+                            className="text-yellow-500 font-bold flex items-center justify-center border border-gray-300 rounded-md p-1 hover:bg-yellow-200 transition"
+                          >
+                            <FcClearFilters className="mr-2" /> Изчисти филтрите
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Most Read Section */}
+                    <div className="p-4 bg-gray-800 bg-opacity-50 rounded-lg mt-4 flex-grow">
+                      <h2 className="text-xl text-gray-100 font-bold mb-4 flex items-center">
+                        <GiSupersonicArrow className="mr-2" /> Най-четени
+                      </h2>
+                      <ul className="text-white">
+                        {posts
+                          ?.slice()
+                          .sort((x, b) => b.likes - x.likes)
+                          .map((c, index) => (
+                            <li key={index} className="mb-2">
                               <a
-                                href="/"
-                                className="hover:underline font-bold flex items-center justify-center"
+                                href={`/post/${c.slug.current}`}
+                                className="text-white flex items-center hover:underline"
                               >
-                                <FcClearFilters className="mr-2" /> Изчисти
-                                филтрите
+                                <FaLink className="mr-2" /> {c.title}
                               </a>
                             </li>
-                          </ul>
-                        </div>
-                        <div className="mb-4 p-4 bg-gray-700 bg-opacity-50 w-full rounded-lg">
-                          <h2 className="text-xl text-gray-100 font-bold mb-4 flex items-center">
-                            <GiSupersonicArrow className="mr-2 text-red-200" />{" "}
-                            Най-четени
-                          </h2>
-                          <ul className="text-gray-400">
-                            {posts
-                              ?.slice()
-                              .sort((x, b) => b.likes - x.likes)
-                              .map((post, index) => (
-                                <li key={index} className="mb-2">
-                                  <a
-                                    href={`/post/${post.slug.current}`}
-                                    className="hover:underline text-blue-400 flex items-center"
-                                  >
-                                    <FaLink className="mr-2 text-sm" />{" "}
-                                    {post.title.slice(0, 30)}...
-                                  </a>
-                                </li>
-                              ))}
-                          </ul>
-                        </div>
-                        <div className="max-w-full bg-gray-800 shadow-lg rounded-lg  p-2">
-                          <div className="text-left sm:text-left text-gray-100">
-                            <Image
-                              src={gif}
-                              alt="noncreativeblog"
-                              className="w-48 h-48 flex justify-center items-center mx-auto rounded-full"
-                            />
-                            <div>
-                              <p className="text-xl mb-4 text-center bg-gradient-to-r from-pink-200 via-red-300 to-pink-400 bg-clip-text text-transparent text-4xl font-bold">
-                                Руни
-                              </p>
-                              <p>
-                                Протогерманската писменост е една от най-старите
-                                познати на човечеството, като първите сведения
-                                за нея датират от 160 години преди христа, но за
-                                първата руническа азбука се сочи Elder Futhark
-                                ,която е използвана между II и VII век.Тя е
-                                широко разпространена сред германските народи и
-                                най-вече в Скандинавия . За произхода и се
-                                говори , че Бог Один...
-                              </p>
-                              <a
-                                href="/runes"
-                                className="rounded-full p-1 mb-4 mt-4 bg-yellow-200 text-gray-700 flex items-center justify-center  border-2 border-yellow-300 font-bold  text-gray-300 w-full"
-                              >
-                                Виж повече
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                          ))}
+                      </ul>
                     </div>
                   </div>
                 </div>
               )}
             </div>
 
-            {/* Right side column */}
-            <div className="lg:col-span-2 p-4">
-              <h1 className="p-2 w-full mb-8  bg-gradient-to-r from-yellow-100 via-yellow-100 to-orange-200     rounded-md text-center font-bold text-xl text-gray-900 ">
-                {category}
-              </h1>
-
-              <div className=" gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  flex items-center ">
-                {posts?.map((c, index) => (
-                  <>
-                    {" "}
-                    <a
-                      key={c.slug}
-                      className="relative group easy-in-out"
-                      href={`/post/${c.slug.current}`}
-                      data-aos="fade-up"
-                    >
-                      <div className="relative h-[400px] w-full mx-auto  shadow-md overflow-hidden rounded-t-lg ">
-                        <Image
-                          className="h-full w-full object-cover center transition-transform transform hover:scale-110"
-                          src={c.mainImage.asset.url}
-                          alt={c.title}
-                          width={500}
-                          height={500}
-                          priority={true}
-                          quality={75}
-                        />
-
-                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t  from-gray-700  to-transparent p-4">
-                          <button className="mt-2 absolute text-sm right-8 bottom-4 text-yellow-300 bg-gray-700 backdrop-blur-sm bg-opacity-30  translate-x-4  transition-transform transform hover:scale-100 md:transform-none text-center px-4 py-2 rounded-lg flex items-center">
-                            Прочети
-                            <FaArrowRight className="h-6 w-6 ml-2" />
-                          </button>
-                        </div>
-                        <div className="absolute bottom-0 left-0 bg-gradient-to-t  bg-gray-700 backdrop-blur-sm bg-opacity-50 ba  text-white  px-2 proxima">
-                          {c.readingTime}минути
+            {/* Articles Column */}
+            <div className="lg:w-full mx-auto w-full text-gray-100">
+              <div className="w-full flex flex-col justify-center items-center px-4">
+                <div className="flex justify-center flex-col w-full">
+                  {/* Post listing */}
+                  <div className="space-y-4 lg:space-y-8">
+                    {posts.map((post, index) => (
+                      <div
+                        key={index}
+                        className="relative shadow-md border-gray-200 bg-gray-900 rounded-xl overflow-hidden"
+                      >
+                        <div className="px-6 py-8 lg:py-12">
+                          <h2 className="text-xl lg:text-2xl font-semibold text-yellow-400 hover:underline">
+                            <Link href={`/posts/${post.slug.current}`}>
+                              {post.title}
+                            </Link>
+                          </h2>
+                          <p className="mt-4 text-gray-300">{post.excerpt}</p>
+                          <div className="mt-8 flex items-center">
+                            <span className="text-gray-500">
+                              By {post.author}
+                            </span>
+                            <span className="mx-2 text-gray-400">|</span>
+                            <span className="text-gray-500">
+                              {new Date(post.publishedAt).toLocaleDateString(
+                                "bg-BG"
+                              )}
+                            </span>
+                          </div>
                         </div>
                       </div>
-                      <div className="  top-0 left-0 text-slate-900 font-semibold rounded-b-md text-lg bg-gray-100  bg-opacity-100 p-4">
-                        {c.title.slice(0, 30)}...
-                      </div>
-                    </a>{" "}
-                  </>
-                ))}
+                    ))}
+                  </div>
+
+                  {/* Footer */}
+                  <div className="w-full mt-16 flex flex-col justify-center items-center p-4 bg-gray-800 rounded-t-xl">
+                    <div className="flex justify-between w-full lg:w-5/6">
+                      <a
+                        href="#"
+                        className="text-lg font-semibold bg-yellow-300 px-4 py-2 rounded-lg shadow hover:bg-yellow-400 text-gray-900"
+                      >
+                        Купи ми кафе
+                      </a>
+                      <Link href="/about">За мен</Link>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

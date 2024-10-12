@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { IoMdMenu } from "react-icons/io";
+import { IoMdMenu, IoMdClose } from "react-icons/io";
 import Link from "next/link";
 import logo from "../../styles/blog.webp";
 import myths from "../../styles/myths.svg"; // Myth icon path
@@ -32,7 +32,7 @@ const Navbar = () => {
             href="/"
             className={`flex items-center px-4 py-2 rounded-md transition-colors duration-300 ${
               pathname === "/"
-                ? "border-b-2 border-[#B9FF66] text-[#f6c451]"
+                ? "border-b-2 border-[#f6c451] text-[#f6c451]"
                 : ""
             }`}
           >
@@ -50,7 +50,7 @@ const Navbar = () => {
             href="/runes"
             className={`flex items-center px-4 py-2 rounded-md transition-colors duration-300 ${
               pathname === "/runes"
-                ? "border-b-2 border-[#B9FF66] text-[#f6c451]"
+                ? "border-b-2 border-[#f6c451] text-[#f6c451]"
                 : ""
             }`}
           >
@@ -68,7 +68,7 @@ const Navbar = () => {
             href="/art"
             className={`flex items-center px-4 py-2 rounded-md transition-colors duration-300 ${
               pathname === "/art"
-                ? "border-b-2 border-[#B9FF66] text-[#f6c451]"
+                ? "border-b-2 border-[#f6c451] text-[#f6c451]"
                 : ""
             }`}
           >
@@ -86,7 +86,7 @@ const Navbar = () => {
             href="/contact/email"
             className={`flex items-center px-4 py-2 rounded-md transition-colors duration-300 ${
               pathname === "/contact/email"
-                ? "border-b-2 border-[#B9FF66] text-[#f6c451]"
+                ? "border-b-2 border-[#f6c451] text-[#f6c451]"
                 : ""
             }`}
           >
@@ -103,7 +103,7 @@ const Navbar = () => {
 
         <div className="hidden lg:flex items-center">
           <Link
-            className="px-4 py-2 mr-12 rounded-full border-2 border-transparent bg-[#f6c451] text-black font-bold transition-colors duration-300 hover:border-[#191A23] hover:bg-[#B9FF6680]"
+            className="px-4 py-2 mr-12 rounded-full border-2 border-transparent bg-[#f6c451] text-black font-bold transition-colors duration-300 hover:border-[#191A23] hover:bg-[#f6c45180]"
             href="/contact/email"
           >
             Свържи се
@@ -123,7 +123,9 @@ const Navbar = () => {
           <div
             className="fixed top-0 left-0 w-full h-full bg-black opacity-40 z-30 lg:hidden"
             onClick={toggleMenu}
-          ></div>
+          >
+            {/* Close Button on Overlay */}
+          </div>
         )}
 
         <div
@@ -131,6 +133,14 @@ const Navbar = () => {
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           } z-40 lg:hidden`}
         >
+          <button
+            className={`absolute top-6 ${
+              isMenuOpen ? "left-[-10%]" : ""
+            } text-[#f6c451] focus:outline-none z-50 bg-white`}
+            onClick={toggleMenu}
+          >
+            <IoMdClose size={30} />
+          </button>
           <div className="w-full mb-4 text-center border-b-2 pb-1">
             <Link href="/">
               <Image
@@ -191,7 +201,7 @@ const Navbar = () => {
           >
             <Image
               src={art}
-              alt="Контакти"
+              alt="Арт"
               height={30}
               width={30}
               className="mr-2 bg-white rounded-full"
@@ -201,7 +211,7 @@ const Navbar = () => {
 
           <div className="flex justify-center mt-24 mb-4 w-full">
             <Link
-              className="bg-[#B9FF66] text-black hover:bg-[#A0D15F] rounded-full text-lg font-bold py-2 px-4 border-2 border-[#191A23]"
+              className="bg-[#f6c451] text-black hover:bg-[#f6c45180] rounded-full text-lg font-bold py-2 px-4 border-2 border-[#191A23]"
               href="/contact/email"
             >
               Свържи се
