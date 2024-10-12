@@ -113,12 +113,10 @@ const Cats = ({ post, posts }) => {
           {/* Ad Banner */}
           <div className="bg-gray-800 p-4 rounded shadow-md">
             <h4 className="font-semibold">Рекламирайте тук</h4>
-            <Image
-              src="/path/to/your/placeholder-image.jpg" // Replace with your image path
+            <img
+              src="https://via.placeholder.com/150"
               alt="Ad Banner"
-              width={300}
-              height={200}
-              className="rounded"
+              className="w-full h-full object-cover rounded"
             />
             <p className="mt-2">Вашето рекламно съдържание тук.</p>
           </div>
