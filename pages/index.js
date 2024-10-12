@@ -103,7 +103,7 @@ export function Blog({
         </div>
         <div className="container mx-auto">
           {/* Sub-navigation menu */}
-          <nav className="sticky top-[60px] lg:top-[80px] text-gray-300 mx-auto mb-12 z-10 flex justify-center mb-4 border-b-2 border-gray-700 bg-gray-800 bg-opacity-60 rounded-b-lg">
+          <nav className="sticky top-[60px]  text-gray-300 mx-auto mb-12 z-10 flex justify-center mb-4 border-b-2 border-gray-700 bg-gray-800 bg-opacity-60 rounded-b-lg">
             <ul className="flex w-11/12 lg:w-5/6 flex-wrap justify-center space-x-4 px-2 p-2 bg-gray-800 bg-opacity-60 rounded-b-full">
               <li className="relative group">
                 <button className="button-with-icon border-[1px] bg-gray-800 border-gray-400 rounded-md flex items-center p-1 font-bold text-sm text-gray-300 hover:text-yellow-300 transition-colors duration-300">
@@ -201,9 +201,9 @@ export function Blog({
                 <div className="relative w-full h-full max-w-2xl mx-auto p-4 flex flex-col">
                   <button
                     onClick={handleMenuToggle}
-                    className="text-gray-200 font-bold   w-full p-1 mt-4 absolute top-4 right-4 z-50 focus:outline-none lg:hidden"
+                    className="text-gray-200 font-bold   w-full p-1 mt-4 absolite top-4 right-0 z-50 focus:outline-none lg:hidden"
                   >
-                    <CgCloseR size={30} className="mr-2" />
+                    <CgCloseR size={30} />
                   </button>
 
                   <div className="flex-grow flex flex-col justify-center items-center mt-24 mb-4">
@@ -236,29 +236,33 @@ export function Blog({
                       <FaRegFolderOpen className="mr-2" /> Категории
                     </h2>
                     <ul className="text-white text-lg cursor-pointer">
-                      {["Aesir", "Vani", "Giants", "Cosmology", "TonkovG"].map(
-                        (category) => (
-                          <li
-                            key={category}
-                            className="mb-2"
-                            onClick={() => handleCategoryChange(category)}
-                          >
-                            <span className="hover:underline flex items-center">
-                              <Image
-                                className="h-8 w-8 mr-2 rounded-full"
-                                width={100}
-                                height={100}
-                                src={
-                                  categories.find((x) => x.title === category)
-                                    ?.image?.asset?.url || ""
-                                }
-                                alt={category}
-                              />
-                              {category}
-                            </span>
-                          </li>
-                        )
-                      )}
+                      {[
+                        "Ауси",
+                        "Вани",
+                        "Гиганти",
+                        "Космология",
+                        "Искрено § Лично",
+                      ].map((category) => (
+                        <li
+                          key={category}
+                          className="mb-2"
+                          onClick={() => handleCategoryChange(category)}
+                        >
+                          <span className="hover:underline flex items-center">
+                            <Image
+                              className="h-8 w-8 mr-2 rounded-full"
+                              width={100}
+                              height={100}
+                              src={
+                                categories.find((x) => x.title === category)
+                                  ?.image?.asset?.url || ""
+                              }
+                              alt={category}
+                            />
+                            {category}
+                          </span>
+                        </li>
+                      ))}
                       <li className="mb-2 mt-12">
                         <a
                           href="/"
@@ -332,58 +336,6 @@ export function Blog({
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        </div>
-        <div className="bg-gray-900 p-6 w-full lg:w-3/4 mx-auto">
-          <h2 className="text-center text-white text-2xl font-bold mb-6">
-            Място за вашата реклама
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-            {/* Ad Banner 1 */}
-            <div className="bg-gray-800 rounded-lg p-4 flex justify-center items-center">
-              <a
-                href="https://via.placeholder.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="https://via.placeholder.com/150"
-                  alt="Ad Banner"
-                  className="w-full h-full object-cover rounded"
-                />
-              </a>
-            </div>
-
-            {/* Ad Banner 2 */}
-            <div className="bg-gray-800 rounded-lg p-4 flex justify-center items-center">
-              <a
-                href="https://via.placeholder.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="https://via.placeholder.com/150"
-                  alt="Ad Banner"
-                  className="w-full h-full object-cover rounded"
-                />
-              </a>
-            </div>
-
-            {/* Ad Banner 3 */}
-            <div className="bg-gray-800 rounded-lg p-4 flex justify-center items-center">
-              <a
-                href="https://via.placeholder.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="https://via.placeholder.com/150"
-                  alt="Ad Banner"
-                  className="w-full h-full object-cover rounded"
-                />
-              </a>
             </div>
           </div>
         </div>

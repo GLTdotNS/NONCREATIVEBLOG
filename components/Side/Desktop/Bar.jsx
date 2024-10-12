@@ -24,79 +24,32 @@ const Bar = ({ posts, categories, author, initialCategory }) => {
           <FaRegFolderOpen className="mr-2" /> Категории
         </h2>
         <ul className="text-white text-lg cursor-pointer">
-          <li className="mb-2" onClick={() => handleCategoryChange("Aesir")}>
-            <span className="hover:underline flex items-center">
-              <Image
-                className="h-8 w-8 mr-2 rounded-full"
-                width={100}
-                height={100}
-                src={
-                  categories.filter((x) => x.title === "Aesir")[0].image.asset
-                    .url
-                }
-              />
-              Ауси
-            </span>
-          </li>
-          <li className="mb-2" onClick={() => handleCategoryChange("Vani")}>
-            <span className="hover:underline flex items-center">
-              <Image
-                className="h-8 w-8 mr-2 rounded-full"
-                width={100}
-                height={100}
-                src={
-                  categories.filter((x) => x.title === "Vani")[0].image.asset
-                    .url
-                }
-              />
-              Вани
-            </span>
-          </li>
-          <li className="mb-2" onClick={() => handleCategoryChange("Giants")}>
-            <span className="hover:underline flex items-center">
-              <Image
-                className="h-8 w-8 mr-2 rounded-full"
-                width={100}
-                height={100}
-                src={
-                  categories.filter((x) => x.title === "Giants")[0].image.asset
-                    .url
-                }
-              />
-              Гиганти
-            </span>
-          </li>
-          <li onClick={() => handleCategoryChange("Cosmology")}>
-            <span className="hover:underline flex items-center">
-              <Image
-                className="h-8 w-8 mr-2 rounded-full"
-                width={100}
-                height={100}
-                src={
-                  categories.filter((x) => x.title === "Cosmology")[0].image
-                    .asset.url
-                }
-              />
-              Космология
-            </span>
-          </li>
-          <li onClick={() => handleCategoryChange("TonkovG")}>
-            <span className="hover:underline flex items-center mt-2">
-              <Image
-                className="h-8 w-8 mr-2 rounded-full"
-                width={100}
-                height={100}
-                src={
-                  categories.filter((x) => x.title === "TonkovG")[0].image.asset
-                    .url
-                }
-              />
-              TonkovG
-            </span>
-          </li>
+          {["Ауси", "Вани", "Гиганти", "Космология", "Искрено § Лично"].map(
+            (category) => (
+              <li
+                key={category}
+                className="mb-2"
+                onClick={() => handleCategoryChange(category)}
+              >
+                <span className="hover:underline flex items-center">
+                  <Image
+                    className="h-8 w-8 mr-2 rounded-full"
+                    width={100}
+                    height={100}
+                    src={
+                      categories.find((x) => x.title === category)?.image?.asset
+                        ?.url || ""
+                    }
+                    alt={category}
+                  />
+                  {category}
+                </span>
+              </li>
+            )
+          )}
           <li className="mb-2 mt-12">
             <a
-              href="/norse"
+              href="/"
               className="text-yellow-500 font-bold flex items-center justify-center border border-gray-300 rounded-md p-1 hover:bg-yellow-200 transition"
             >
               <FcClearFilters className="mr-2" /> Изчисти филтрите

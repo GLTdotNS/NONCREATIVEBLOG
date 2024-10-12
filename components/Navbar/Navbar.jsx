@@ -84,7 +84,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 w-5/6 md:w-1/2 h-full bg-gray-900 flex flex-col items-start p-4 transition-transform duration-300 transform ${
+        className={`fixed top-0 right-0 border-l-[1px] border-gray-700 w-5/6 md:w-1/2 h-full bg-gray-900 flex flex-col items-start p-4 transition-transform duration-300 transform ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         } z-40 lg:hidden`}
       >
@@ -130,7 +130,7 @@ const Navbar = () => {
           </Link>
         ))}
 
-        <div className="flex justify-center mt-auto mb-4 w-full">
+        <div className="flex justify-center mt-24 mb-4 w-64 mx-auto">
           <Link
             className="bg-[#f6c451] text-black hover:bg-[#f6c45180] rounded-full text-lg font-bold py-2 px-4 w-full text-center"
             href="/contact/email"

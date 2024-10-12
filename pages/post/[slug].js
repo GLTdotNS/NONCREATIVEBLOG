@@ -87,9 +87,9 @@ const Cats = ({ post, posts }) => {
       {/* Main Content and TOC Section */}
       <div className="flex flex-col lg:flex-row w-full">
         {/* Right Sidebar for TOC and Ad Banner */}
-        <div className="lg:w-1/4 lg:pl-4 sticky top-24">
+        <div className="lg:w-1/4 lg:pl-4  ">
           {/* Sticky TOC Section moved to the top */}
-          <div className=" top-24 lg:top-20 mb-4">
+          <div className=" top-24 lg:top-20 mb-4 sticky top-24">
             <div className="bg-gray-800 p-4 rounded shadow-md">
               <h3 className="font-semibold mb-4">Съдържание</h3>
               <ul>
@@ -113,7 +113,7 @@ const Cats = ({ post, posts }) => {
           </div>
 
           {/* Ad Banner */}
-          <div className="bg-gray-800 p-4 rounded shadow-md">
+          <div className="bg-gray-800 p-4 rounded shadow-md  md:sticky top-48">
             <h4 className="font-semibold">Рекламирайте тук</h4>
             <img
               src="https://via.placeholder.com/150"
