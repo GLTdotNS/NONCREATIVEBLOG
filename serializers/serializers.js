@@ -101,7 +101,7 @@ export const serializers = {
         );
       }
       if (style === "h4") {
-        return <p className="font-bold text-2xl">{props.children}</p>;
+        return <h4 className="font-bold text-2xl">{props.children}</h4>;
       }
       if (style === "blockquote ") {
         return <blockquote> {props.children}</blockquote>;

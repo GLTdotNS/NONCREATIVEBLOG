@@ -33,9 +33,8 @@ function ArtPosts({ posts }) {
             objectFit="cover"
             className="opacity-70"
           />
-          <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold shadow-lg text-center px-4">
+          <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-2xl lg:text-4xl font-bold  text-left w-1/2 px-4">
             „Рисувам не това, което виждам, а това, което се вижда от мен.“{" "}
-            <br />— Аноним
           </h1>
         </div>
       )}

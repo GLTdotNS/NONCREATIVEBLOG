@@ -53,7 +53,7 @@ const Cats = ({ post, posts }) => {
     const extractedToc = [];
     document
       .querySelectorAll(
-        ".block-content h2, .block-content h3, .block-content h5"
+        ".block-content h2, .block-content h3, .block-content h4"
       )
       .forEach((heading, index) => {
         heading.id = `heading-${index}`;
@@ -87,22 +87,24 @@ const Cats = ({ post, posts }) => {
       {/* Main Content and TOC Section */}
       <div className="flex flex-col lg:flex-row w-full">
         {/* Right Sidebar for TOC and Ad Banner */}
-        <div className="lg:w-1/4 lg:pl-4">
+        <div className="lg:w-1/4 lg:pl-4 sticky top-24">
           {/* Sticky TOC Section moved to the top */}
-          <div className="sticky top-24 lg:top-20 mb-4">
+          <div className=" top-24 lg:top-20 mb-4">
             <div className="bg-gray-800 p-4 rounded shadow-md">
               <h3 className="font-semibold mb-4">Съдържание</h3>
               <ul>
                 {toc.map((item) => (
                   <li
                     key={item.id}
-                    className={`ml-${item.level === "h3" ? 4 : 0}`}
+                    className={`ml-${
+                      item.level === "h3" ? 4 : item.level === "h4" ? 8 : 0
+                    }`}
                   >
                     <a
                       href={`#${item.id}`}
-                      className="text-blue-400 hover:underline"
+                      className="text-gray-300 hover:underline"
                     >
-                      {item.text}
+                      #{item.text}
                     </a>
                   </li>
                 ))}
