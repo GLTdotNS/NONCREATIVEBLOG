@@ -196,13 +196,8 @@ export function Blog({
 
               {/* Mobile Filter Menu */}
               {menuOpen && (
-<<<<<<< HEAD
-                <div className="lg:hidden fixed w-10/12 h-screen z-50 left-0 flex items-center justify-center  overflow-scroll top-0 z-50 bg-gray-800 bg-opacity-95">
-                  <div className="relative">
-=======
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-95 overflow-scroll">
                   <div className="relative w-full h-full max-w-2xl mx-auto p-4 flex flex-col">
->>>>>>> dfdd6b2 (Add files)
                     <button
                       onClick={handleMenuToggle}
                       className="text-gray-200 font-bold flex items-center justify-between w-full p-1 mt-4 absolute top-4 right-4 z-50 focus:outline-none lg:hidden"
