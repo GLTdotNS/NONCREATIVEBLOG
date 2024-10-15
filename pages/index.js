@@ -206,7 +206,7 @@ export function Blog({
                     <CgCloseR size={30} />
                   </button>
 
-                  <div className="flex-grow flex flex-col justify-center items-center mt-24 mb-4">
+                  <div className="flex-grow flex flex-col justify-center items-center mt-4 mb-4">
                     <h2 className="text-lg text-gray-100 font-semibold mb-2 text-center">
                       Който търси, намира.
                     </h2>
@@ -275,7 +275,7 @@ export function Blog({
                   </div>
 
                   {/* Most Read Section */}
-                  <div className="p-4 bg-gray-800 bg-opacity-50 rounded-lg mt-4 flex-grow">
+                  <div className="p-4 bg-gray-800 bg-opacity-50 rounded-lg p-8 mt-4 flex-grow">
                     <h2 className="text-xl text-gray-100 font-bold mb-4 flex items-center">
                       <GiSupersonicArrow className="mr-2" /> Най-четени
                     </h2>
@@ -284,12 +284,12 @@ export function Blog({
                         ?.slice()
                         .sort((x, b) => b.likes - x.likes)
                         .map((c, index) => (
-                          <li key={index} className="mb-2">
+                          <li key={index} className="mb-2 list-disc ">
                             <a
                               href={`/post/${c.slug.current}`}
                               className="text-white flex items-center hover:underline"
                             >
-                              <FaLink className="mr-2" /> {c.title}
+                              {c.title}
                             </a>
                           </li>
                         ))}
