@@ -86,8 +86,7 @@ const Cats = ({ post, posts }) => {
 
       {/* Main Content and TOC Section */}
       <div className="flex flex-col lg:flex-row w-full">
-        {/* Right Sidebar for TOC and Ad Banner */}
-        <div className="lg:w-1/4 lg:pl-4  ">
+        <div className="lg:w-1/4 lg:p-6  ">
           {/* Sticky TOC Section moved to the top */}
           <div className=" top-24 lg:top-20 mb-4 md:sticky top-24">
             <div className="bg-gray-800 p-4 rounded shadow-md">
@@ -125,10 +124,10 @@ const Cats = ({ post, posts }) => {
         </div>
 
         {/* Main Blog Content Area */}
-        <div className="flex-1 p-4 lg:p-8">
+        <div className="flex-1 border-l-[1px] border-[#333] lg:p-8 ">
           <Navigation post={post} category={category} link={"/"} />
           <PostInfo post={post} />
-          <div className="block-content w-full mx-auto text-gray-300 p-6 border-b border-gray-700">
+          <div className="block-content w-full mx-auto text-gray-300 p-6 border-b border-[#333]">
             <BlockContent
               serializers={serializers}
               blocks={post.body}
@@ -136,7 +135,7 @@ const Cats = ({ post, posts }) => {
               dataset="production"
             />
           </div>
-          <div className="container mx-auto max-w-4xl border-t-2 border-gray-700 py-8">
+          <div className="container mx-auto max-w-4xl  py-8">
             <PostFooter />
           </div>
         </div>

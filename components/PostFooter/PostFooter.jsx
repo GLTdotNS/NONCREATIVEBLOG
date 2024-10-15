@@ -21,7 +21,7 @@ const PostFooter = () => {
         </a>
         <a
           href="/contact/email"
-          className="bg-yellow-200 hover:bg-yellow-100 text-gray-700 bg-opacity-50 px-4 py-2 flex items-center rounded-full"
+          className="bg-yellow-200 hover:bg-yellow-100 text-gray-700  px-4 py-2 flex items-center rounded-full"
         >
           Свържи се с мен
         </a>

@@ -45,13 +45,13 @@ const PostInfo = ({ post }) => {
         {" "}
         <a
           href="/"
-          className="flex items-center text-gray-700 px-2 border-gray-700 rounded-full w-[100px] "
+          className="flex items-center text-gray-300 px-2 border-gray-300 rounded-full w-[100px] "
         >
           <IoMdArrowRoundBack className="mr-4 " size={20} />
           Назад
         </a>
         <div className="relative group ">
-          <button className="button-with-icon rounded-md font-bold text-sm flex items-center text-gray-700 hover:text-gray-600 transition-colors duration-300">
+          <button className="button-with-icon rounded-md font-bold text-sm flex items-center text-gray-300 hover:text-gray-600 transition-colors duration-300">
             <FaShareAlt /> <span className="ml-2">Сподели</span>
           </button>
 
@@ -113,7 +113,7 @@ const PostInfo = ({ post }) => {
           </ul>
         </div>
       </div>
-      <div className=" items-center justify-center mb-4 relative   border-b-[1px] border-gray-300 p-2 px-8 md:p-4 mt-12 ">
+      <div className=" items-center justify-center mb-4 relative   border-b-[1px] border-[#333] p-2 px-8 md:p-4 mt-12 ">
         <p className="mb-4">Публикувана от</p>
 
         <div className="flex items-center ">

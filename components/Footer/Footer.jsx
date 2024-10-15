@@ -88,7 +88,9 @@ const Footer = () => {
 
         {/* Subscription Section */}
         <div className="w-full mx-auto">
-          <h5 className="text-lg font-bold mb-4">Абонирайте се</h5>
+          <h5 className="text-lg text-gray-300 font-bold mb-4">
+            Абонирайте се
+          </h5>
           <form onSubmit={handleSubmit}>
             <input
               type="email"

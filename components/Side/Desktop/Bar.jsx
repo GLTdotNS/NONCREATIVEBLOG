@@ -50,7 +50,7 @@ const Bar = ({ posts, categories, author, initialCategory }) => {
           <li className="mb-2 mt-12">
             <a
               href="/"
-              className="text-yellow-500 font-bold flex items-center justify-center border border-gray-300 rounded-md p-1 hover:bg-yellow-200 transition"
+              className="text-yellow-500 font-bold  flex items-center justify-center border border-gray-300 rounded-md p-1 hover:bg-yellow-200 transition"
             >
               <FcClearFilters className="mr-2" /> Изчисти филтрите
             </a>
@@ -67,12 +67,12 @@ const Bar = ({ posts, categories, author, initialCategory }) => {
             ?.slice()
             .sort((x, b) => b.likes - x.likes)
             .map((c, index) => (
-              <li key={index} className="mb-2">
+              <li key={index} className="mb-2 list-disc">
                 <a
                   href={`/post/${c.slug.current}`}
                   className="text-white flex items-center hover:underline"
                 >
-                  <FaLink className="mr-2" /> {c.title}
+                  {c.title}
                 </a>
               </li>
             ))}

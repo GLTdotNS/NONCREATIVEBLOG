@@ -162,8 +162,8 @@ export function Blog({
 
           <div className="flex flex-col lg:flex-row justify-between gap-4 mt-12 border-t-[2px] border-gray-800">
             {/* Left Sidebar for Categories and Filters */}
-            <div className="hidden lg:block w-1/4 border-r-[2px] border-gray-800">
-              <div className="w-full mb-4 flex justify-center items-center">
+            <div className="hidden lg:block w-auto border-r-[2px] border-gray-800">
+              <div className="w-ful mb-4 flex justify-center items-center">
                 <div>
                   <h2 className="text-lg text-yellow-400 font-semibold mb-2 text-center">
                     Който търси, намира.
