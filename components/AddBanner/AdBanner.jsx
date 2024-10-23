@@ -5,6 +5,20 @@ import { RiCloseLargeLine } from "react-icons/ri";
 const PoemBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
 
+  useEffect(() => {
+    const isBannerVisible =
+      sessionStorage.getItem("poemBannerVisible") !== "false";
+
+    if (isBannerVisible) {
+      // Show the banner after 2 seconds
+      const timer = setTimeout(() => {
+        setIsVisible(true);
+      }, 0);
+
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   const handleClose = () => {
     // Hide the banner and update session storage
     setIsVisible(false);
