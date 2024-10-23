@@ -9,8 +9,8 @@ import Head from "next/head";
 import CookieBanner from "../components/Cookies/cookies";
 import MyContext, { MyContextProvider } from "../Context/context";
 import { Analytics } from "@vercel/analytics/react";
-import Up from "../components/Up/Up";
 import dynamic from "next/dynamic";
+import Up from "../components/Up/Up";
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
   const CrispWithNoSSR = dynamic(() => import("../components/Chat/crisp"));
@@ -83,7 +83,7 @@ function MyApp({ Component, pageProps }) {
             <CrispWithNoSSR />
 
             <Component {...pageProps} />
-
+            <Up />
             <CookieBanner />
           </Layout>
         </MyContextProvider>
