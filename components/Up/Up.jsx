@@ -22,7 +22,7 @@ const PopupMessage = () => {
     setIsVisible(false);
   };
 
-  if (isVisible) return null;
+  if (!isVisible) return null;
 
   return (
     <div className="fixed top-0 slide-in-from-left h-screen left-0  transform z-50  bg-white text-gray-700 rounded shadow-lg w-full md:w-96">
