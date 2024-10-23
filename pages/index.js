@@ -341,7 +341,6 @@ export function Blog({
         </div>
       </div>
       <Pagination totalPages={totalPages} currentPage={currentPage} />
-      <AddBanner />
     </>
   );
 }
