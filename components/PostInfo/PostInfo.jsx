@@ -39,9 +39,6 @@ const PostInfo = ({ post }) => {
   });
   return (
     <div>
-      {" "}
-      
-        {" "}
         <a
           href="/"
           className="flex items-center text-gray-300 px-2 border-gray-300 rounded-full w-[100px] "
