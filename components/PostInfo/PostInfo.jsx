@@ -1,24 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import moment from "moment";
-import { FaRegCalendarCheck, FaShareAlt } from "react-icons/fa";
 import { IoMdArrowRoundBack } from "react-icons/io";
-import {
-  FacebookShareButton,
-  LinkedinShareButton,
-  RedditShareButton,
-  TwitterShareButton,
-  TelegramShareButton,
-  ViberShareButton,
-  FacebookIcon,
-  TwitterIcon,
-  ViberIcon,
-  RedditIcon,
-  TelegramIcon,
-  LinkedinIcon,
-} from "react-share";
+import { FaRegCalendarCheck } from "react-icons/fa";
 
 const PostInfo = ({ post }) => {
+  // Настройки на локализацията на moment.js
   moment.locale("custom-locale", {
     months: [
       "Януари",
@@ -37,92 +24,37 @@ const PostInfo = ({ post }) => {
   });
 
   return (
-    <div>
+    <div className="px-4 md:px-8 lg:px-16">
+      {/* Линк за връщане назад */}
       <a
         href="/"
-        className="flex items-center text-gray-300 px-2 border-gray-300 rounded-full w-[100px]"
+        className="flex items-center text-gray-500 hover:text-gray-700 transition duration-300 px-4 py-2 border border-gray-300 rounded-full w-[120px] mb-6"
       >
-        <IoMdArrowRoundBack className="mr-4" size={20} />
+        <IoMdArrowRoundBack className="mr-2" size={20} />
         Назад
       </a>
-      <div className="relative group">
-        <button className="button-with-icon rounded-md font-bold text-sm flex items-center text-gray-300 hover:text-gray-600 transition-colors duration-300">
-          <FaShareAlt />
-          <span className="ml-2">Сподели</span>
-        </button>
-        <ul className="absolute right-0 z-50 cursor-pointer rounded-lg bg-gray-200 shadow-2xl hidden group-hover:block">
-          <div className="z-50 p-6 rounded-t-xl">
-            <h2 className="text-lg text-center font-semibold mb-4">
-              Сподели с приятели
-            </h2>
-            <div className="grid grid-cols-3 w-64 gap-4">
-              <li>
-                <FacebookShareButton
-                  url={`https://noncreativeblog.net/post/${post?.slug?.current}`}
-                  quote={`${post.title}`}
-                  hashtag={post.rowTitle}
-                >
-                  <FacebookIcon size={50} />
-                </FacebookShareButton>
-              </li>
-              <li>
-                <LinkedinShareButton
-                  url={`https://noncreativeblog.net/post/${post?.slug?.current}`}
-                >
-                  <LinkedinIcon size={50} />
-                </LinkedinShareButton>
-              </li>
-              <li>
-                <RedditShareButton
-                  url={`https://noncreativeblog.net/post/${post?.slug?.current}`}
-                  quote={`${post.title}`}
-                >
-                  <RedditIcon size={50} />
-                </RedditShareButton>
-              </li>
-              <li>
-                <TwitterShareButton
-                  url={`https://noncreativeblog.net/post/${post?.slug?.current}`}
-                >
-                  <TwitterIcon size={50} />
-                </TwitterShareButton>
-              </li>
-              <li>
-                <TelegramShareButton
-                  url={`https://noncreativeblog.net/post/${post?.slug?.current}`}
-                >
-                  <TelegramIcon size={50} />
-                </TelegramShareButton>
-              </li>
-              <li>
-                <ViberShareButton
-                  url={`https://noncreativeblog.net/post/${post?.slug?.current}`}
-                >
-                  <ViberIcon size={50} />
-                </ViberShareButton>
-              </li>
-            </div>
-          </div>
-        </ul>
-      </div>
-      <div className="items-center justify-center mb-4 relative border-b-[1px] border-[#333] px-2 md:p-4 mt-4">
-        <p className="mb-4">Публикувана от</p>
-        <div className="flex items-center">
+
+      {/* Информация за публикацията */}
+      <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+        <div className="flex flex-col items-center md:flex-row md:items-start">
+          {/* Снимка на автора */}
           <Image
-            src={post?.authorImage?.asset?.url}
-            alt={post?.authorName || "Author"}
-            width={500}
-            height={500}
-            className="w-24 h-16 rounded-full mr-3 md:mr-4"
+            src={post?.authorImage?.asset?.url || "/default-avatar.jpg"}
+            alt={post?.authorName || "Автор"}
+            width={120}
+            height={120}
+            className="rounded-full mb-4 md:mb-0 md:mr-6"
           />
-          <div>
-            <p className="font-semibold text-base md:text-lg">
+
+          {/* Текстова информация */}
+          <div className="text-center md:text-left">
+            <p className="text-lg font-semibold text-gray-800">
               {post.authorName}
             </p>
-            <div className="flex items-center">
-              <FaRegCalendarCheck size={20} className="mr-2" />
-              <span className="text-sm md:text-base text-gray-600">
-                {moment(post.publishedAt).format("MMMM D, YYYY")}
+            <div className="flex items-center justify-center md:justify-start mt-2">
+              <FaRegCalendarCheck size={18} className="text-gray-600 mr-2" />
+              <span className="text-gray-600 text-sm">
+                {moment(post.publishedAt).format("D MMMM YYYY")}
               </span>
             </div>
           </div>
