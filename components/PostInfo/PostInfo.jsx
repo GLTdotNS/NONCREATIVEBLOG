@@ -24,37 +24,37 @@ const PostInfo = ({ post }) => {
   });
 
   return (
-    <div className="px-4 md:px-8 lg:px-16">
+    <div className="px-4 md:px-8">
       {/* Линк за връщане назад */}
       <a
         href="/"
-        className="flex items-center text-gray-500 hover:text-gray-700 transition duration-300 px-4 py-2 border border-gray-300 rounded-full w-[120px] mb-6"
+        className="flex items-center text-gray-300 px-2 border-gray-300 rounded-full w-[100px] mb-6"
       >
-        <IoMdArrowRoundBack className="mr-2" size={20} />
+        <IoMdArrowRoundBack className="mr-4" size={20} />
         Назад
       </a>
 
       {/* Информация за публикацията */}
-      <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-        <div className="flex flex-col items-center md:flex-row md:items-start">
+      <div className="items-center justify-center mb-4 relative border-b-[1px] border-[#333] px-2 md:p-4 mt-4">
+        <p className="mb-4">Публикувана от</p>
+        <div className="flex items-center">
           {/* Снимка на автора */}
           <Image
-            src={post?.authorImage?.asset?.url || "/default-avatar.jpg"}
-            alt={post?.authorName || "Автор"}
-            width={120}
-            height={120}
-            className="rounded-full mb-4 md:mb-0 md:mr-6"
+            src={post?.authorImage?.asset?.url}
+            alt={post?.authorName}
+            width={500}
+            height={500}
+            className="w-24 h-16 rounded-full mr-3 md:mr-4"
           />
-
           {/* Текстова информация */}
-          <div className="text-center md:text-left">
-            <p className="text-lg font-semibold text-gray-800">
-              {post.authorName}
-            </p>
-            <div className="flex items-center justify-center md:justify-start mt-2">
-              <FaRegCalendarCheck size={18} className="text-gray-600 mr-2" />
-              <span className="text-gray-600 text-sm">
-                {moment(post.publishedAt).format("D MMMM YYYY")}
+          <div>
+            <p className="font-semibold text-base md:text-lg">{post.authorName}</p>
+            <div className="flex items-center">
+              <span className="text-sm md:text-base text-gray-600 mr-2">
+                <FaRegCalendarCheck size={20} />
+              </span>
+              <span className="text-sm md:text-base text-gray-600">
+                {moment(post.publishedAt).format("MMMM D, YYYY")}
               </span>
             </div>
           </div>
