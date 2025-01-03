@@ -85,7 +85,7 @@ const Cats = ({ post, posts }) => {
       </div>
 
       {/* Main Content and TOC Section */}
-      <div className="flex flex-col lg:flex-row w-full">
+      <div className="flex flex-col px-4 lg:flex-row w-full">
         <div className="lg:w-1/4 lg:p-6  ">
           {/* Sticky TOC Section moved to the top */}
           <div className=" top-24 lg:top-20 mb-4 md:sticky top-24">
