@@ -40,8 +40,7 @@ const PostInfo = ({ post }) => {
   return (
     <div>
       {" "}
-      <h1 className="text-xl font-bold text-center py-4 ">{post.title}</h1>
-      <div className="flex items-center justify-between">
+      
         {" "}
         <a
           href="/"
