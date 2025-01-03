@@ -110,8 +110,7 @@ const Cats = ({ post, posts }) => {
               </ul>
             </div>
           </div>
-
-          {/* Ad Banner */}
+        </div>
          
 
         {/* Main Blog Content Area */}
