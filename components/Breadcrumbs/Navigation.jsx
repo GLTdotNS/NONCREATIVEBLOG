@@ -5,7 +5,7 @@ const Navigation = ({ post, category, link }) => {
     <div>
       {" "}
       <nav
-        class="flex px-5 py-3 mt-8 text-gray-700 w-10/11 lg:w-5/6 mx-auto text-xs rounded-lg bg-yellow-100   "
+        class="flex px-5 py-3 mt-8 text-gray-700 w-10/11 lg:w-5/6 mx-auto text-xs rounded-lg   "
         aria-label="Breadcrumb"
       >
         <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
