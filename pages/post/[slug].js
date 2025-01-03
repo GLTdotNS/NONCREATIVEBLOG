@@ -85,7 +85,7 @@ const Cats = ({ post, posts }) => {
       </div>
 
       {/* Main Content and TOC Section */}
-      <div className="flex flex-col px-4 lg:flex-row w-full">
+      <div className="flex flex-col px-2 lg:flex-row w-full">
         <div className="lg:w-1/4 lg:p-6  ">
           {/* Sticky TOC Section moved to the top */}
           <div className=" top-24 lg:top-20 mb-4 md:sticky top-24">
@@ -114,10 +114,10 @@ const Cats = ({ post, posts }) => {
          
 
         {/* Main Blog Content Area */}
-        <div className="flex-1 border-l-[1px] border-[#333] lg:p-8 ">
+        <div className="flex-1 border-l-none lg:border-l-[1px] border-[#333] lg:p-8 ">
           <Navigation post={post} category={category} link={"/"} />
           <PostInfo post={post} />
-          <div className="block-content w-full mx-auto text-gray-300 p-6 border-b border-[#333]">
+          <div className="block-content w-full mx-auto text-gray-300 border-b border-[#333]">
             <BlockContent
               serializers={serializers}
               blocks={post.body}
