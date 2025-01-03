@@ -112,16 +112,7 @@ const Cats = ({ post, posts }) => {
           </div>
 
           {/* Ad Banner */}
-          <div className="bg-gray-800 p-4 rounded shadow-md  md:sticky top-48">
-            <h4 className="font-semibold">Рекламирайте тук</h4>
-            <img
-              src="https://via.placeholder.com/150"
-              alt="Ad Banner"
-              className="w-full h-full object-cover rounded"
-            />
-            <p className="mt-2">Вашето рекламно съдържание тук.</p>
-          </div>
-        </div>
+         
 
         {/* Main Blog Content Area */}
         <div className="flex-1 border-l-[1px] border-[#333] lg:p-8 ">
