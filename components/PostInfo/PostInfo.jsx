@@ -112,7 +112,7 @@ const PostInfo = ({ post }) => {
           </ul>
         </div>
       </div>
-      <div className=" items-center justify-center mb-4 relative   border-b-[1px] border-[#333] p-2 px-8 md:p-4 mt-12 ">
+      <div className=" items-center justify-center mb-4 relative   border-b-[1px] border-[#333] px-2 md:p-4 mt-4 ">
         <p className="mb-4">Публикувана от</p>
 
         <div className="flex items-center ">
