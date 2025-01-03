@@ -26,16 +26,10 @@ const PostInfo = ({ post }) => {
   return (
     <div className="px-4 md:px-8">
       {/* Линк за връщане назад */}
-      <a
-        href="/"
-        className="flex items-center text-gray-300 px-2 border-gray-300 rounded-full w-[100px] mb-6"
-      >
-        <IoMdArrowRoundBack className="mr-4" size={20} />
-        Назад
-      </a>
+      
 
       {/* Информация за публикацията */}
-      <div className="items-center justify-center mb-4 relative border-b-[1px] border-[#333] px-2 md:p-4 mt-4">
+      <div className="items-center justify-center mb-4 relative border-b-[1px] border-[#333] px-2 pb-1 md:p-4 mt-4">
         <p className="mb-4">Публикувана от</p>
         <div className="flex items-center">
           {/* Снимка на автора */}
